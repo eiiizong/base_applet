@@ -51,6 +51,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 0, // 不允许在import 中使用require
     '@typescript-eslint/no-empty-function': 2, // 关闭空方法检查
     // eslint-plugin-vue (https://eslint.vuejs.org/rules/)
+    'vue/script-indent': ['error', 2, { baseIndent: 1 }],
     'vue/multi-word-component-names': 0, // 要求组件名称始终为 “-” 链接的单词
     'vue/script-setup-uses-vars': 2, // 防止<script setup>使用的变量<template>被标记为未使用
     'vue/no-mutating-props': 0, // 不允许组件 prop的改变
@@ -69,7 +70,8 @@ module.exports = {
         singleline: 'ignore',
         multiline: 'below',
       },
-    ], // 强制设置第一个属性的位置
+    ],
+    // 强制设置第一个属性的位置
     '@typescript-eslint/no-this-alias': [
       'warn',
       {
@@ -99,24 +101,24 @@ module.exports = {
     'function-call-argument-newline': [2, 'consistent'],
     'no-undef': 2, // 禁止使用未声明的变量，除非在 /*global */ 注释中提及
     complexity: [2, 15],
-    // 强制使用一致的缩进
-    indent: [
-      2,
-      2,
-      {
-        //  强制 switch 语句中的 case 子句的缩进级别 (默认：0)
-        SwitchCase: 1,
-      },
-    ],
+    // 强制使用一致的缩进 http://eslint.cn/docs/rules/indent
+    // indent: [
+    //   'error',
+    //   2,
+    //   {
+    //     //  强制 switch 语句中的 case 子句的缩进级别 (默认：0)
+    //     SwitchCase: 1,
+    //   },
+    // ],
     'valid-jsdoc': 0, // jsdoc规则
     'no-console': process.env.NODE_ENV === 'production' ? 2 : 0,
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'no-useless-escape': 0, // 禁止不必要的转义字符
     '@typescript-eslint/ban-types': 0, // 允许使用function 声明函数
     'prettier/prettier': [
-      2,
+      'error',
       {
-        //在单独的箭头函数参数周围包括括号 always：(x) => x \ avoid：x => x
+        // 在单独的箭头函数参数周围包括括号 always：(x) => x \ avoid：x => x
         arrowParens: 'always',
         // 开始标签的右尖括号是否跟随在最后一行属性末尾，默认false
         bracketSameLine: false,
@@ -138,7 +140,7 @@ module.exports = {
         insertPragma: false,
         // 最后不需要引号
         semi: false,
-        // 使用单引号 (true:单引号;false:双引号)
+        // 使用单引号 (true 单引号 false 双引号)
         singleQuote: true,
         // 缩进空格数，默认2个空格
         tabWidth: 2,
@@ -147,7 +149,7 @@ module.exports = {
         // 使用制表符而不是空格缩进行
         useTabs: false,
         // Vue文件脚本和样式标签缩进
-        vueIndentScriptAndStyle: false,
+        vueIndentScriptAndStyle: true,
         // 换行符使用 lf 结尾是 可选值"<auto|lf|crlf|cr>"
         endOfLine: 'auto',
       },
