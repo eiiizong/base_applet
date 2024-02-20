@@ -1,11 +1,11 @@
 <template>
-  <div class="home uno-center uno-w-100">home</div>
+  <div class="home uno-center uno-w-750">home</div>
 </template>
 
 <script setup lang="ts"></script>
 
 <style lang="scss" scoped>
   .home {
-    background: #efeffe;
+    --at-apply: uno-bg-[#f00];
   }
 </style>
