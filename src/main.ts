@@ -1,4 +1,5 @@
 import 'virtual:uno.css'
+import '@unocss/reset/normalize.css'
 
 import { createSSRApp } from 'vue'
 import App from './App.vue'

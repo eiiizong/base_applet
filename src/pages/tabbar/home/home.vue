@@ -1,13 +1,11 @@
 <template>
-  <div class="home uno-center">home</div>
+  <div class="home uno-center uno-w-100">home</div>
 </template>
 
 <script setup lang="ts"></script>
 
 <style lang="scss" scoped>
   .home {
-    width: 100%;
-    min-height: 100%;
     background: #efeffe;
   }
 </style>
