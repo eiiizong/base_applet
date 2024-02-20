@@ -39,6 +39,12 @@ export default defineConfig(({ mode }) => {
           /\.vue\?vue/, // .vue
         ],
         imports: ['vue', 'uni-app', 'pinia'],
+        // eslint报错解决
+        eslintrc: {
+          enabled: true, // Default `false`
+          filepath: '.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
+          globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+        },
         dts: 'auto-imports.d.ts',
       }),
       Components({
