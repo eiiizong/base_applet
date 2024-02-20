@@ -103,6 +103,9 @@ devDependencies:
   eslint-plugin-vue:
     specifier: ^9.21.1
     version: 9.21.1(eslint@8.56.0)
+  miniprogram-api-typings:
+    specifier: ^3.12.2
+    version: 3.12.2
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
@@ -6421,6 +6424,10 @@ packages:
   /minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
     dev: false
+
+  /miniprogram-api-typings@3.12.2:
+    resolution: {integrity: sha512-OJB2uVAfhycX4teG/zEVpoThushQqLOx946XACDpVc6OQydiJWjn7djVzvNCbv0VOA7sbHGPQp/RkXD9vMCDEw==}
+    dev: true
 
   /mkdirp@0.5.6:
     resolution: {integrity: sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==}
