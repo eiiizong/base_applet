@@ -6,6 +6,7 @@
 
 <style lang="scss" scoped>
   .home {
-    --at-apply: uno-bg-[#f00];
+    background-color: $color-primary;
+    // @include textOverflow(1);
   }
 </style>

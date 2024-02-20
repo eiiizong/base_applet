@@ -9,4 +9,8 @@
     console.log('App Hide')
   })
 </script>
-<style></style>
+
+<style lang="scss">
+  // 引入全局通用样式
+  @use '@/assets/styles/scss/index.scss';
+</style>
