@@ -1,5 +1,5 @@
 <template>
-  <div class="home">home</div>
+  <div class="home uno-center">home</div>
 </template>
 
 <script setup lang="ts"></script>
