@@ -1,7 +1,8 @@
 // 基础
+export { env } from './env'
+export { canIUse } from './canIUse'
 export { base64ToArrayBuffer } from './base64ToArrayBuffer'
 export { arrayBufferToBase64 } from './arrayBufferToBase64'
-export { canIUse } from './canIUse'
 
 // 基础-系统
 export { getSystemInfo } from './getSystemInfo'
