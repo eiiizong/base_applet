@@ -24,6 +24,7 @@ module.exports = {
     'plugin:vue/vue3-essential',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
+    '@unocss',
     './.eslintrc-auto-import.json',
   ],
   plugins: ['vue', '@typescript-eslint'],
