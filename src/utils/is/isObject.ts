@@ -1,5 +1,5 @@
 /**
- * 判断数据是否为对象且不为null
+ * 判断目标值是否为对象且不为null
  * @param value
  * @returns
  */

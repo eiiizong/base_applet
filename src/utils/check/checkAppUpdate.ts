@@ -1,4 +1,4 @@
-import { getUpdateManager, showModal, clearStorage } from '@/utils/uni-api'
+import { getUpdateManager, showModal, clearStorage } from '@/utils/uni'
 /**
  * 检测小程序是否有更新，提示用户更新重启应用
  * @example checkAppUpdate()

@@ -1,5 +1,5 @@
 /**
- * @param {String} value 银行卡号
+ * @param {string} value 银行卡号
  * 格式化银行卡号 66634343535353535355 => 6*****************5
  */
 const formatBankCardNumber = (value: string): string => {

@@ -5,7 +5,7 @@ const isDev = getIsDev()
 enum Gender {
   male = '男',
   female = '女',
-  other = '其他'
+  other = '其他',
 }
 
 /**
@@ -25,7 +25,7 @@ const getGenderByIDCard = (value: string): string => {
   } else {
     const len = value.length
 
-    if (len != 15 && len != 18) {
+    if (len !== 15 && len !== 18) {
       if (isDev) {
         console.error('身份证号码只能为15位或18位，其它不合法，请检查！')
       }

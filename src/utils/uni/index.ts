@@ -6,6 +6,7 @@ export { arrayBufferToBase64 } from './arrayBufferToBase64'
 
 // 基础-系统
 export { getSystemInfo } from './getSystemInfo'
+export { getSystemInfoAsync } from './getSystemInfoAsync'
 export { getSystemInfoSync } from './getSystemInfoSync'
 
 // 基础-更新

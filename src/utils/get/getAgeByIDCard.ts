@@ -14,7 +14,7 @@ const getAgeByIDCard = (value: string): string => {
 
   if (value) {
     const len = value.length
-    if (len != 15 && len != 18) {
+    if (len !== 15 && len !== 18) {
       if (isDev) {
         // eslint-disable-next-line no-console
         console.error('身份证号码只能为15位或18位，其它不合法，请检查！')
@@ -41,7 +41,7 @@ const getAgeByIDCard = (value: string): string => {
       // 现在的月份等于生日月份并且现在的号数小于生日月份的号数 年龄减1
       if (
         nowDate.getMonth() < birthDate.getMonth() ||
-        (nowDate.getMonth() == birthDate.getMonth() && nowDate.getDate() < birthDate.getDate())
+        (nowDate.getMonth() === birthDate.getMonth() && nowDate.getDate() < birthDate.getDate())
       ) {
         _age--
       }

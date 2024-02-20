@@ -22,7 +22,7 @@ const formatMoney = (num = 0) => {
   for (let i = nums.length - 1; i >= 0; i--) {
     counter++
     result.unshift(nums[i])
-    if (!(counter % 3) && i != 0) {
+    if (!(counter % 3) && i !== 0) {
       result.unshift(',')
     }
   }
