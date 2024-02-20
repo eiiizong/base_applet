@@ -19,3 +19,7 @@ dist
 *.njsproj
 *.sln
 *.sw?
+
+# 项目自带生成的文件
+auto-imports.d.ts
+components.d.ts
