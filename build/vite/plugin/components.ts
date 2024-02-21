@@ -19,6 +19,10 @@ export function configComponentsPlugin(): PluginOption {
     dts: 'components.d.ts',
     // 遍历子目录
     deep: true,
+    // 允许子目录作为组件的命名空间前缀。
+    directoryAsNamespace: true,
+    include: [/.vue$/, /.vue?vue/],
+    exclude: [/[\/]node_modules[\/]/, /[\/].git[\/]/, /[\/].nuxt[\/]/],
   })
   return plugins
 }

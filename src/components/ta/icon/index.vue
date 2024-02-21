@@ -1,15 +1,19 @@
 <template>
   <view :class="rootClass" :style="rootStyle">
     <van-info v-if="info !== null || dot" :dot="dot" :info="info" custom-class="van-icon__info info-class" />
-    <image v-if="isImage" :src="name" mode="aspectFit" class="van-icon__image" />
+    <image v-if="isImage" :src="name" mode="aspectFit" :class="basicClass + '__image'" />
   </view>
 </template>
 
 <script lang="ts" setup>
+  import { computed } from 'vue'
+
+  import { GLOB_COMPONENT_CLASS_PREFIX } from '../constant'
+
   /**
    * 基础类名
    */
-  const basicClass = 'icon'
+  const basicClass = GLOB_COMPONENT_CLASS_PREFIX + '-icon'
 
   const emit = defineEmits(['click'])
   const props = defineProps({
@@ -60,7 +64,7 @@
      */
     classPrefix: {
       type: String,
-      default: basicClass,
+      default: GLOB_COMPONENT_CLASS_PREFIX + '-icon',
     },
   })
 
@@ -101,8 +105,8 @@
    * 动态获取根标签样式
    */
   const rootStyle = computed(() => {
-    const { name } = props
-    return name.indexOf('/') !== -1
+    let str = ''
+    return str
   })
 </script>
 
