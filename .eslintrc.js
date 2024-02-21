@@ -43,7 +43,16 @@ module.exports = {
    */
   rules: {
     // typeScript (https://typescript-eslint.io/rules)
-    '@typescript-eslint/no-unused-vars': 2, // 禁止定义未使用的变量
+    // 禁止定义未使用的变量
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        vars: 'all', // 检测所有变量，包括全局环境中的变量。这是默认值。
+        args: 'after-used', // 检测所有变量，包括全局环境中的变量。这是默认值。
+        // 指定不需要检查的变量
+        varsIgnorePattern: 'props|emit',
+      },
+    ],
     '@typescript-eslint/prefer-ts-expect-error': 2, // 禁止使用 @ts-ignore
     '@typescript-eslint/no-explicit-any': 0, // 禁止使用 any 类型
     '@typescript-eslint/no-non-null-assertion': 0,
@@ -88,7 +97,8 @@ module.exports = {
     'no-const-assign': 2, // 禁止重新分配 const 变量
     'no-dupe-keys': 2, // 禁止对象字面量中的重复键
     'no-multiple-empty-lines': ['warn', { max: 1 }], // 不允许多个空行
-    'no-unused-vars': 2, // 禁止未使用的变量
+    // 禁止未使用的变量
+    'no-unused-vars': 'off',
     'use-isnan': 2, // 检查 NaN 时需要调用 isNaN()
     'valid-typeof': 2, // 强制将 typeof 表达式与有效字符串进行比较
     'no-var': 2, // 要求使用 let 或 const 而不是 var
