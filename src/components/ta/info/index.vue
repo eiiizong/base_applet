@@ -49,8 +49,8 @@
 
 <style lang="scss" scoped>
   @use '../common/style/var.scss' as *;
-
-  .ta-info {
+  $class: 'ta';
+  .#{$class}-info {
     position: absolute;
     top: 0;
     right: 0;
