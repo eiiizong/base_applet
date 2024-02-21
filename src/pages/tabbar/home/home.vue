@@ -1,5 +1,9 @@
 <template>
-  <div class="home uno-center uno-w-750">home</div>
+  <div class="home uno-center uno-w-750">
+    home
+
+    <TaInfo dot></TaInfo>
+  </div>
 </template>
 
 <script setup lang="ts"></script>
