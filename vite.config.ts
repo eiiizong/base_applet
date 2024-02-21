@@ -16,14 +16,17 @@ const pathResolve = (dir: string): string => {
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd())
+  const root = process.cwd()
+  const env = loadEnv(mode, root)
 
   return {
+    root,
     resolve: {
       // 配置路径别名
       alias: {
         '@': pathResolve('src') + '/',
         '~': pathResolve('src') + '/',
+        '#': pathResolve('types') + '/',
       },
     },
     define: { 'process.env': { ...env } },
