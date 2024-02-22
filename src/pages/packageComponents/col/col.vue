@@ -17,7 +17,7 @@
   </demo-block>
 
   <demo-block title="在列元素之间增加间距" padding>
-    <ta-row gutter="20">
+    <ta-row :gutter="20">
       <ta-col span="8" class="dark">span: 8</ta-col>
       <ta-col span="8" class="light">span: 8</ta-col>
       <ta-col span="8" class="dark">span: 8</ta-col>
@@ -27,8 +27,8 @@
 
 <script setup lang="ts">
   import DemoBlock from '../components/demo-block/index.vue'
-  import TaRow from '@/components/ta/row/index.vue'
-  import TaCol from '@/components/ta/col/index.vue'
+  // import TaRow from '@/components/ta/row/index.vue'
+  // import TaCol from '@/components/ta/col/index.vue'
 </script>
 
 <style lang="scss" scoped>

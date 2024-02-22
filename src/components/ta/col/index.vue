@@ -18,7 +18,7 @@
   /**
    * 列元素之间的间距（单位为 rpx）从row才能组件中获取
    */
-  const gutter = inject('gutter')
+  const gutter: number = inject('gutter') || 0
 
   const props = defineProps({
     /**
