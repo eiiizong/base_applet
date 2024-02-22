@@ -12,43 +12,45 @@
 </template>
 
 <script setup lang="ts">
+  import type { NavItem } from './type'
+
   import Nav from './Nav.vue'
 
-  const list = ref([
+  const list = ref<NavItem[]>([
     {
       groupName: '基础组件',
       icon: 'https://img.yzcdn.cn/vant/basic-0401.svg',
       list: [
         {
-          path: '/button',
+          path: '',
           title: 'Button 按钮',
         },
         {
-          path: '/cell',
+          path: '',
           title: 'Cell 单元格',
         },
         {
-          path: '/config-provider',
+          path: '',
           title: 'ConfigProvider 全局配置',
         },
         {
-          path: '/icon',
+          path: '',
           title: 'Icon 图标',
         },
         {
-          path: '/image',
+          path: '',
           title: 'Image 图片',
         },
         {
-          path: '/col',
+          path: '',
           title: 'Layout 布局',
         },
         {
-          path: '/popup',
+          path: '',
           title: 'Popup 弹出层',
         },
         {
-          path: '/transition',
+          path: '',
           title: 'Transition 动画',
         },
       ],
@@ -58,55 +60,55 @@
       icon: 'https://img.yzcdn.cn/vant/form-0401.svg',
       list: [
         {
-          path: '/calendar',
+          path: '',
           title: 'Calendar 日历',
         },
         {
-          path: '/cascader',
+          path: '',
           title: 'Cascader 级联选择',
         },
         {
-          path: '/checkbox',
+          path: '',
           title: 'Checkbox 复选框',
         },
         {
-          path: '/datetime-picker',
+          path: '',
           title: 'DatetimePicker 时间选择',
         },
         {
-          path: '/field',
+          path: '',
           title: 'Field 输入框',
         },
         {
-          path: '/picker',
+          path: '',
           title: 'Picker 选择器',
         },
         {
-          path: '/radio',
+          path: '',
           title: 'Radio 单选框',
         },
         {
-          path: '/rate',
+          path: '',
           title: 'Rate 评分',
         },
         {
-          path: '/search',
+          path: '',
           title: 'Search 搜索',
         },
         {
-          path: '/slider',
+          path: '',
           title: 'Slider 滑块',
         },
         {
-          path: '/stepper',
+          path: '',
           title: 'Stepper 步进器',
         },
         {
-          path: '/switch',
+          path: '',
           title: 'Switch 开关',
         },
         {
-          path: '/uploader',
+          path: '',
           title: 'Uploader 文件上传',
         },
       ],
@@ -116,39 +118,39 @@
       icon: 'passed',
       list: [
         {
-          path: '/action-sheet',
+          path: '',
           title: 'ActionSheet 动作面板',
         },
         {
-          path: '/dialog',
+          path: '',
           title: 'Dialog 弹出框',
         },
         {
-          path: '/dropdown-menu',
+          path: '',
           title: 'DropdownMenu 下拉菜单',
         },
         {
-          path: '/loading',
+          path: '',
           title: 'Loading 加载',
         },
         {
-          path: '/notify',
+          path: '',
           title: 'Notify 消息通知',
         },
         {
-          path: '/overlay',
+          path: '',
           title: 'Overlay 遮罩层',
         },
         {
-          path: '/share-sheet',
+          path: '',
           title: 'ShareSheet 分享面板',
         },
         {
-          path: '/swipe-cell',
+          path: '',
           title: 'SwipeCell 滑动单元格',
         },
         {
-          path: '/toast',
+          path: '',
           title: 'Toast 轻提示',
         },
       ],
@@ -158,55 +160,55 @@
       icon: 'photo-o',
       list: [
         {
-          path: '/circle',
+          path: '',
           title: 'Circle 进度条',
         },
         {
-          path: '/collapse',
+          path: '',
           title: 'Collapse 折叠面板',
         },
         {
-          path: '/count-down',
+          path: '',
           title: 'CountDown 倒计时',
         },
         {
-          path: '/divider',
+          path: '',
           title: 'Divider 分割线',
         },
         {
-          path: '/empty',
+          path: '',
           title: 'Empty 空状态',
         },
         {
-          path: '/notice-bar',
+          path: '',
           title: 'NoticeBar 通知栏',
         },
         {
-          path: '/panel',
+          path: '',
           title: 'Panel 面板',
         },
         {
-          path: '/progress',
+          path: '',
           title: 'Progress 进度条',
         },
         {
-          path: '/skeleton',
+          path: '',
           title: 'Skeleton 骨架屏',
         },
         {
-          path: '/steps',
+          path: '',
           title: 'Steps 步骤条',
         },
         {
-          path: '/sticky',
+          path: '',
           title: 'Sticky 粘性布局',
         },
         {
-          path: '/tag',
+          path: '',
           title: 'Tag 标记',
         },
         {
-          path: '/tree-select',
+          path: '',
           title: 'TreeSelect 分类选择',
         },
       ],
@@ -216,27 +218,27 @@
       icon: 'https://img.yzcdn.cn/vant/nav-0401.svg',
       list: [
         {
-          path: '/grid',
+          path: '',
           title: 'Grid 宫格',
         },
         {
-          path: '/index-bar',
+          path: '',
           title: 'IndexBar 索引栏',
         },
         {
-          path: '/sidebar',
+          path: '',
           title: 'Sidebar 侧边导航',
         },
         {
-          path: '/nav-bar',
+          path: '',
           title: 'NavBar 导航栏',
         },
         {
-          path: '/tab',
+          path: '',
           title: 'Tab 标签页',
         },
         {
-          path: '/tabbar',
+          path: '',
           title: 'Tabbar 标签栏',
         },
       ],
@@ -246,19 +248,19 @@
       icon: 'ellipsis',
       list: [
         {
-          path: '/area',
+          path: '',
           title: 'Area 省市区选择',
         },
         {
-          path: '/card',
+          path: '',
           title: 'Card 商品卡片',
         },
         {
-          path: '/submit-bar',
+          path: '',
           title: 'SubmitBar 提交订单栏',
         },
         {
-          path: '/goods-action',
+          path: '',
           title: 'GoodsAction 商品导航',
         },
       ],
@@ -271,46 +273,39 @@
     box-sizing: border-box;
     width: 100%;
     min-height: 100vh;
-    padding: 46px 20px 20px;
+    padding: 92rpx 40rpx 40rpx;
     background: #fff;
-  }
-
-  .demo-home__title,
-  .demo-home__desc {
-    padding-left: 16px;
-    font-weight: normal;
-    line-height: 1;
-    user-select: none;
-  }
-
-  .demo-home__title {
-    margin: 0 0 16px;
-    font-size: 32px;
-  }
-
-  .demo-home__image,
-  .demo-home__text {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .demo-home__image {
-    width: 32px;
-    height: 32px;
-  }
-
-  .demo-home__text {
-    margin-left: 16px;
-    font-weight: 500;
-  }
-
-  .demo-home__title .demo-home--small {
-    font-size: 24px;
-  }
-
-  .demo-home__desc {
-    margin: 0 0 40px;
-    color: rgba(69, 90, 100, 0.6);
-    font-size: 14px;
+    &__title,
+    &__desc {
+      padding-left: 32rpx;
+      font-weight: normal;
+      line-height: 1;
+      user-select: none;
+    }
+    &__title {
+      margin: 0 0 32rpx;
+      font-size: 64rpx;
+    }
+    &__desc {
+      margin: 0 0 80rpx;
+      color: rgba(69, 90, 100, 0.6);
+      font-size: 28rpx;
+    }
+    &__image,
+    &__text {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &__image {
+      width: 64rpx;
+      height: 64rpx;
+    }
+    &__text {
+      margin-left: 32rpx;
+      font-weight: 500;
+    }
+    &--small {
+      font-size: 48rpx;
+    }
   }
 </style>

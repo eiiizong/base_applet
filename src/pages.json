@@ -35,19 +35,19 @@
       "navigationStyle": "custom"
     }
   },
-  // "subPackages": [
-  //   {
-  //     "root": "pages/packageComponents",
-  //     "pages": [
-  //       {
-  //         "path": "dashboard/dashboard",
-  //         "style": {
-  //           "navigationBarTitleText": "组件"
-  //         }
-  //       }
-  //     ]
-  //   }
-  // ],
+  "subPackages": [
+    {
+      "root": "pages/packageComponents",
+      "pages": [
+        // {
+        //   "path": "dashboard/dashboard",
+        //   "style": {
+        //     "navigationBarTitleText": "组件"
+        //   }
+        // }
+      ]
+    }
+  ],
   "tabBar": {
     "color": "#939599",
     "backgroundColor": "#ffffff",
