@@ -39,12 +39,12 @@
     {
       "root": "pages/packageComponents",
       "pages": [
-        // {
-        //   "path": "dashboard/dashboard",
-        //   "style": {
-        //     "navigationBarTitleText": "组件"
-        //   }
-        // }
+        {
+          "path": "icon/icon",
+          "style": {
+            "navigationBarTitleText": "Icon 图标"
+          }
+        }
       ]
     }
   ],

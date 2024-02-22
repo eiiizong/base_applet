@@ -1,6 +1,6 @@
 <template>
   <view :class="rootClass" :style="rootStyle">
-    <van-info v-if="info !== null || dot" :dot="dot" :info="info" custom-class="van-icon__info info-class" />
+    <ta-info v-if="info !== null || dot" :dot="dot" :info="info" custom-class="van-icon__info info-class" />
     <image v-if="isImage" :src="name" mode="aspectFit" :class="basicClass + '__image'" />
   </view>
 </template>

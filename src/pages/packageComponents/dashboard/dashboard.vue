@@ -34,7 +34,7 @@
           title: 'ConfigProvider 全局配置',
         },
         {
-          path: '',
+          path: 'icon',
           title: 'Icon 图标',
         },
         {
