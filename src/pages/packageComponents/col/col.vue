@@ -27,16 +27,18 @@
 
 <script setup lang="ts">
   import DemoBlock from '../components/demo-block/index.vue'
+  import TaRow from '@/components/ta/row/index.vue'
+  import TaCol from '@/components/ta/col/index.vue'
 </script>
 
 <style lang="scss" scoped>
   .dark,
   .light {
     color: #fff;
-    font-size: 13px;
-    line-height: 30px;
+    font-size: 26rpx;
+    line-height: 60rpx;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20rpx;
     background-clip: content-box;
   }
 

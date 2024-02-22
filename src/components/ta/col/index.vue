@@ -1,5 +1,5 @@
 <template>
-  <view :class="rootClass" :style="rootStyle" ref="col">
+  <view :class="rootClass" :style="rootStyle">
     <slot />
   </view>
 </template>
@@ -20,7 +20,6 @@
    */
   const gutter = inject('gutter')
 
-  const emit = defineEmits(['click'])
   const props = defineProps({
     /**
      * 列元素宽度

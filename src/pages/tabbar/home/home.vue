@@ -1,12 +1,16 @@
 <template>
   <div class="home uno-center uno-w-750">
-    home
-
-    <TaInfo dot></TaInfo>
+    <div @click="onClick">组件</div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  const onClick = () => {
+    uni.navigateTo({
+      url: '/pages/packageComponents/dashboard/dashboard',
+    })
+  }
+</script>
 
 <style lang="scss" scoped>
   .home {

@@ -1,6 +1,7 @@
 import 'virtual:uno.css'
-import '@unocss/reset/normalize.css'
-
+// #ifdef H5
+import '@unocss/reset/normalize.css' // 微信小程序无法识别
+// #endif
 import { createSSRApp } from 'vue'
 import App from './App.vue'
 import { setupStore } from '@/stores'

@@ -30,6 +30,7 @@
 <style lang="scss" scoped>
   @use '../common/style/var.scss' as *;
   .#{$namespace}-row {
+    width: 100%;
     &::after {
       display: table;
       clear: both;

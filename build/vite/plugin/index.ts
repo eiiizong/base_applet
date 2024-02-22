@@ -12,11 +12,11 @@ export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean): PluginOpt
   console.log(viteEnv, 99)
 
   const vitePlugins: (PluginOption | PluginOption[])[] = [
-    uni(),
     UnoCSS(),
     configComponentsPlugin(),
     configAutoImportPlugin(),
     configEslintPlugin(),
+    uni(),
   ]
 
   if (isBuild) {
