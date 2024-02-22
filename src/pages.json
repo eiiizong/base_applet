@@ -44,6 +44,12 @@
           "style": {
             "navigationBarTitleText": "Icon 图标"
           }
+        },
+        {
+          "path": "col/col",
+          "style": {
+            "navigationBarTitleText": "Layout 布局"
+          }
         }
       ]
     }

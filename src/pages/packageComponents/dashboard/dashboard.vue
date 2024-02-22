@@ -42,7 +42,7 @@
           title: 'Image 图片',
         },
         {
-          path: '',
+          path: 'col',
           title: 'Layout 布局',
         },
         {
