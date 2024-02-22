@@ -1,3 +1,5 @@
+// 命名空间
+$namespace: 'ta';
 // Color Palette
 $black: #000;
 $white: #fff;
@@ -301,15 +303,15 @@ $image-error-icon-size: 32px;
 $image-error-icon-color: $gray-4;
 
 // Info
-$info-size: 16px;
+$info-size: 32rpx;
 $info-color: $white;
-$info-padding: 0 3px;
-$info-font-size: 12px;
+$info-padding: 0 6rpx;
+$info-font-size: 24rpx;
 $info-font-weight: 500;
-$info-border-width: 1px;
+$info-border-width: 2rpx;
 $info-background-color: $red;
 $info-dot-color: $red;
-$info-dot-size: 8px;
+$info-dot-size: 16rpx;
 $info-font-family:
   -apple-system-font,
   Helvetica Neue,
