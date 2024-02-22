@@ -1,39 +1,37 @@
 <template>
   <demo-block title="基础用法" padding>
     <ta-row>
-      <ta-col span="8" class="dark">span: 8</ta-col>
-      <ta-col span="8" class="light">span: 8</ta-col>
-      <ta-col span="8" class="dark">span: 8</ta-col>
+      <ta-col span="8" custom-class="demo-col-dark">span: 8</ta-col>
+      <ta-col span="8" custom-class="demo-col-light">span: 8</ta-col>
+      <ta-col span="8" custom-class="demo-col-dark">span: 8</ta-col>
     </ta-row>
 
     <ta-row>
-      <ta-col span="4" class="dark">span: 4</ta-col>
-      <ta-col span="10" offset="4" class="light">offset: 4, span: 10</ta-col>
+      <ta-col span="4" custom-class="demo-col-dark">span: 4</ta-col>
+      <ta-col span="10" offset="4" custom-class="demo-col-light">offset: 4, span: 10</ta-col>
     </ta-row>
 
     <ta-row>
-      <ta-col offset="12" span="12" class="dark">offset: 12, span: 12</ta-col>
+      <ta-col offset="12" span="12" custom-class="demo-col-dark">offset: 12, span: 12</ta-col>
     </ta-row>
   </demo-block>
 
   <demo-block title="在列元素之间增加间距" padding>
     <ta-row :gutter="20">
-      <ta-col span="8" class="dark">span: 8</ta-col>
-      <ta-col span="8" class="light">span: 8</ta-col>
-      <ta-col span="8" class="dark">span: 8</ta-col>
+      <ta-col span="8" custom-class="demo-col-dark">span: 8</ta-col>
+      <ta-col span="8" custom-class="demo-col-light">span: 8</ta-col>
+      <ta-col span="8" custom-class="demo-col-dark">span: 8</ta-col>
     </ta-row>
   </demo-block>
 </template>
 
 <script setup lang="ts">
   import DemoBlock from '../components/demo-block/index.vue'
-  // import TaRow from '@/components/ta/row/index.vue'
-  // import TaCol from '@/components/ta/col/index.vue'
 </script>
 
 <style lang="scss" scoped>
-  .dark,
-  .light {
+  ::v-deep .demo-col-dark,
+  ::v-deep .demo-col-light {
     color: #fff;
     font-size: 26rpx;
     line-height: 60rpx;
@@ -42,11 +40,11 @@
     background-clip: content-box;
   }
 
-  .dark {
+  ::v-deep .demo-col-dark {
     background-color: #39a9ed;
   }
 
-  .light {
+  ::v-deep .demo-col-light {
     background-color: #66c6f2;
   }
 </style>

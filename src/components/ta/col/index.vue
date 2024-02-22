@@ -35,14 +35,25 @@
       type: [String, Number],
       default: () => '',
     },
+    /**
+     * 自定义类名
+     */
+    customClass: {
+      type: [String],
+      default: () => '',
+    },
   })
 
   /**
    * 动态设置根标签类名
    */
   const rootClass = computed(() => {
-    const { span, offset } = props
+    const { span, offset, customClass } = props
     let str = bem('col', [span])
+
+    if (customClass) {
+      str += ` ${customClass}`
+    }
 
     if (offset) {
       str += ` ${basicClass}--offset-${offset}`
