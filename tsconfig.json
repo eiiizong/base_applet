@@ -6,8 +6,8 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "#/*": ["./types/*"]
+      "@": ["./src/*"],
+      "#": ["./types/*"]
     },
     "lib": ["esnext", "dom"],
     "types": ["@dcloudio/types"]
