@@ -110,4 +110,33 @@
   })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  @use '../common/style/var.scss' as *;
+  @use './font';
+
+  :host {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .#{$namespace}-icon {
+    &--custom {
+      position: relative;
+    }
+
+    &--image {
+      width: 1em;
+      height: 1em;
+    }
+
+    &__image {
+      width: 100%;
+      height: 100%;
+    }
+
+    &__info {
+      z-index: 1;
+    }
+  }
+</style>
