@@ -77,7 +77,7 @@
   })
 
   /**
-   * 动态获取根标签类名
+   * 动态设置根标签类名
    */
   const rootClass = computed(() => {
     const classes: string[] = ['custom-class']
@@ -102,7 +102,7 @@
   })
 
   /**
-   * 动态获取根标签样式
+   * 动态设置根标签样式
    */
   const rootStyle = computed(() => {
     let str = ''

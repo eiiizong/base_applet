@@ -130,7 +130,7 @@
           title: 'DropdownMenu 下拉菜单',
         },
         {
-          path: '',
+          path: 'loading',
           title: 'Loading 加载',
         },
         {
