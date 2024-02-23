@@ -18,9 +18,10 @@
 
   <demo-block title="在列元素之间增加间距" padding>
     <ta-row :gutter="20">
-      <ta-col span="8" custom-class="demo-col-dark">span: 8</ta-col>
-      <ta-col span="8" custom-class="demo-col-light">span: 8</ta-col>
-      <ta-col span="8" custom-class="demo-col-dark">span: 8</ta-col>
+      <ta-col span="6" custom-class="demo-col-dark">span: 6</ta-col>
+      <ta-col span="6" custom-class="demo-col-light">span: 6</ta-col>
+      <ta-col span="6" custom-class="demo-col-dark">span: 6</ta-col>
+      <ta-col span="6" custom-class="demo-col-dark">span: 6</ta-col>
     </ta-row>
   </demo-block>
 </template>
