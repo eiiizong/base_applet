@@ -7,7 +7,7 @@
         :key="index"
         class="demo-home-nav__block"
         :class="item.path ? '' : 'demo-home-nav__block-disabled'"
-        @click="onClick(item.path)"
+        @click="onClick(item.path, item.title)"
       >
         <text>{{ item.title }}</text>
         <ta-icon name="arrow" class="demo-home-nav__icon" />
@@ -33,7 +33,7 @@
   /**
    * 点击跳转路由
    */
-  const onClick = (path: string) => {
+  const onClick = (path: string, name: string) => {
     if (path) {
       const url = `/pages/packageComponents/${path}/${path}`
       uni.navigateTo({
@@ -41,7 +41,7 @@
       })
     } else {
       uni.showToast({
-        title: '暂未开发完成，敬请期待！！！',
+        title: name + '暂未开发完成，敬请期待！！！',
         icon: 'none',
       })
     }
