@@ -41,6 +41,12 @@
       "root": "pages/packageComponents",
       "pages": [
         {
+          "path": "button/button",
+          "style": {
+            "navigationBarTitleText": "Button 按钮"
+          }
+        },
+        {
           "path": "icon/icon",
           "style": {
             "navigationBarTitleText": "Icon 图标"

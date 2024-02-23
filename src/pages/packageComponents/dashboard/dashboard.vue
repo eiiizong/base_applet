@@ -22,7 +22,7 @@
       icon: 'https://img.yzcdn.cn/vant/basic-0401.svg',
       list: [
         {
-          path: '',
+          path: 'button',
           title: 'Button 按钮',
         },
         {

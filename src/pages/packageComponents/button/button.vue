@@ -1,28 +1,62 @@
 <template>
-  <demo-block title="基础用法" padding>
-    <ta-row>
-      <ta-col span="8" custom-class="demo-col-dark">span: 8</ta-col>
-      <ta-col span="8" custom-class="demo-col-light">span: 8</ta-col>
-      <ta-col span="8" custom-class="demo-col-dark">span: 8</ta-col>
-    </ta-row>
-
-    <ta-row>
-      <ta-col span="4" custom-class="demo-col-dark">span: 4</ta-col>
-      <ta-col span="10" offset="4" custom-class="demo-col-light">offset: 4, span: 10</ta-col>
-    </ta-row>
-
-    <ta-row>
-      <ta-col offset="12" span="12" custom-class="demo-col-dark">offset: 12, span: 12</ta-col>
-    </ta-row>
+  <demo-block title="按钮类型" padding>
+    <view class="row">
+      <ta-button class="demo-margin-right">默认按钮</ta-button>
+      <ta-button type="primary" class="demo-margin-right">主要按钮</ta-button>
+      <ta-button type="info" class="demo-margin-right">信息按钮</ta-button>
+    </view>
+    <ta-button type="danger" class="demo-margin-right">危险按钮</ta-button>
+    <ta-button type="warning">警告按钮</ta-button>
   </demo-block>
 
-  <demo-block title="在列元素之间增加间距" padding>
-    <ta-row :gutter="20">
-      <ta-col span="6" custom-class="demo-col-dark">span: 6</ta-col>
-      <ta-col span="6" custom-class="demo-col-light">span: 6</ta-col>
-      <ta-col span="6" custom-class="demo-col-dark">span: 6</ta-col>
-      <ta-col span="6" custom-class="demo-col-dark">span: 6</ta-col>
-    </ta-row>
+  <demo-block title="朴素按钮" padding>
+    <ta-button type="primary" plain class="demo-margin-right">朴素按钮</ta-button>
+    <ta-button type="info" plain>朴素按钮</ta-button>
+  </demo-block>
+
+  <demo-block title="细边框" padding>
+    <ta-button type="primary" plain hairline class="demo-margin-right">细边框按钮</ta-button>
+    <ta-button type="info" plain hairline>细边框按钮</ta-button>
+  </demo-block>
+
+  <demo-block title="禁用状态" padding>
+    <ta-button type="primary" disabled class="demo-margin-right">禁用状态</ta-button>
+    <ta-button type="info" disabled>禁用状态</ta-button>
+  </demo-block>
+
+  <demo-block title="加载状态" padding>
+    <ta-button loading type="primary" class="demo-margin-right" />
+    <ta-button loading type="primary" loading-type="spinner" class="demo-margin-right" />
+    <ta-button loading type="info" loading-text="加载中..." />
+  </demo-block>
+
+  <demo-block title="按钮形状" padding>
+    <ta-button type="primary" square class="demo-margin-right">方形按钮</ta-button>
+    <ta-button type="info" round>圆形按钮</ta-button>
+  </demo-block>
+
+  <demo-block title="图标按钮" padding>
+    <ta-button type="primary" icon="star-o" class="demo-margin-right" />
+    <ta-button type="primary" icon="star-o" class="demo-margin-right">按钮</ta-button>
+    <ta-button plain type="primary" icon="https://img.yzcdn.cn/vant/logo.png">按钮</ta-button>
+  </demo-block>
+
+  <demo-block title="按钮尺寸" padding>
+    <ta-button type="primary" size="large" block custom-class="demo-margin-bottom">大号按钮</ta-button>
+    <ta-button type="primary" class="demo-margin-right">普通按钮</ta-button>
+    <ta-button type="primary" size="small" class="demo-margin-right">小型按钮</ta-button>
+    <ta-button type="primary" size="mini">迷你按钮</ta-button>
+  </demo-block>
+
+  <demo-block title="块级元素" padding>
+    <ta-button type="primary" custom-class="demo-margin-bottom">普通按钮</ta-button>
+    <ta-button type="primary" block>块级元素</ta-button>
+  </demo-block>
+
+  <demo-block title="自定义颜色" padding>
+    <ta-button color="#7232dd" class="demo-margin-right">单色按钮</ta-button>
+    <ta-button color="#7232dd" class="demo-margin-right" plain>单色按钮</ta-button>
+    <ta-button color="linear-gradient(to right, #4bb0ff, #6149f6)">渐变色按钮</ta-button>
   </demo-block>
 </template>
 
@@ -31,21 +65,25 @@
 </script>
 
 <style lang="scss" scoped>
-  ::v-deep .demo-col-dark,
-  ::v-deep .demo-col-light {
-    color: #fff;
-    font-size: 26rpx;
-    line-height: 60rpx;
-    text-align: center;
-    margin-bottom: 20rpx;
-    background-clip: content-box;
+  .row {
+    height: 88rpx;
+    margin-bottom: 30rpx;
+  }
+
+  .demo-margin-left {
+    margin-left: 20rpx;
+  }
+
+  .demo-margin-right {
+    margin-right: 20rpx;
+  }
+
+  .demo-margin-bottom {
+    display: block;
+    margin-bottom: 30rpx;
   }
 
   ::v-deep .demo-col-dark {
-    background-color: #39a9ed;
-  }
-
-  ::v-deep .demo-col-light {
-    background-color: #66c6f2;
+    //
   }
 </style>
