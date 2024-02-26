@@ -42,7 +42,7 @@
         :custom-class="basicClass + '__icon'"
         custom-style="line-height: inherit;"
       />
-      <view :class="basicClass + '__text'">
+      <view :class="[icon ? basicClass + '__text-icon' : '', basicClass + '__text']">
         <slot />
       </view>
     </block>
@@ -73,7 +73,7 @@
   ])
   const props = defineProps({
     /**
-     * 是否显示图标右上角小红点
+     * 标识符
      */
     id: {
       type: String,
@@ -240,7 +240,7 @@
       default: () => '',
     },
     /**
-     * 打开 APP 时，向 APP 传递的参数
+     * 打开 APP 时，向 APP 传递的参数，open-type=launchApp时有效
      */
     appParameter: {
       type: String,
@@ -254,7 +254,7 @@
       default: () => 'en',
     },
     /**
-     * 会话来源
+     * 会话来源，open-type="contact"时有效
      */
     sessionFrom: {
       type: String,
@@ -264,25 +264,24 @@
      * 客服消息子商户 id
      */
     businessId: {
-      type: String,
-      default: () => '',
+      type: [Number],
     },
     /**
-     * 会话内消息卡片标题
+     * 会话内消息卡片标题，open-type="contact"时有效
      */
     sendMessageTitle: {
       type: String,
       default: () => '',
     },
     /**
-     * 会话内消息卡片点击跳转小程序路径
+     * 会话内消息卡片点击跳转小程序路径，open-type="contact"时有效
      */
     sendMessagePath: {
       type: String,
       default: () => '',
     },
     /**
-     * sendMessageImg
+     * 会话内消息卡片图片，open-type="contact"时有效
      */
     sendMessageImg: {
       type: String,
@@ -647,19 +646,12 @@
 
     &__text {
       display: inline;
+      &-icon.#{$namespace}-button__text:not(:empty) {
+        margin-left: $padding-base;
+      }
     }
 
     &__loading-text,
-    &__icon + &__text:not(:empty) {
-      margin-left: $padding-base;
-    }
-
-    &__icon {
-      min-width: 1em;
-      line-height: inherit !important;
-      vertical-align: top;
-    }
-
     &--hairline {
       padding-top: 1px; // add 1px padding for text vertical align middle
       border-width: 0;
@@ -678,5 +670,11 @@
         }
       }
     }
+  }
+
+  ::v-deep.#{$namespace}-button__icon {
+    min-width: 1em;
+    line-height: inherit !important;
+    vertical-align: top;
   }
 </style>
