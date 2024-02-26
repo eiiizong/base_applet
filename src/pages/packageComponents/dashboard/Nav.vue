@@ -10,7 +10,7 @@
         @click="onClick(item.path, item.title)"
       >
         <text>{{ item.title }}</text>
-        <ta-icon name="arrow" class="demo-home-nav__icon" />
+        <ta-icon name="arrow" custom-class="demo-home-nav__icon" />
       </view>
     </view>
   </view>
@@ -77,13 +77,13 @@
         opacity: 0.6;
       }
     }
-    &__icon {
+    ::v-deep .demo-home-nav__icon {
       position: absolute !important;
       top: 50%;
       right: 32rpx;
       width: 32rpx;
       height: 32rpx;
-      margin-top: -16px;
+      margin-top: -16rpx;
       color: rgb(182, 195, 210);
       font-weight: 900 !important;
     }

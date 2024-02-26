@@ -60,6 +60,13 @@
       default: '',
     },
     /**
+     * 自定义样式
+     */
+    customClass: {
+      type: String,
+      default: '',
+    },
+    /**
      * 类名前缀
      */
     classPrefix: {
@@ -80,9 +87,12 @@
    * 动态设置根标签类名
    */
   const rootClass = computed(() => {
-    const classes: string[] = ['custom-class']
+    const { name, classPrefix, customClass } = props
+    const classes: string[] = []
 
-    const { name, classPrefix } = props
+    if (customClass) {
+      classes.push(customClass)
+    }
 
     if (classPrefix !== basicClass) {
       classes.push(basicClass + '--custom')
