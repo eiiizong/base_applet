@@ -376,10 +376,12 @@
     }
 
     str += `color: ${plain ? color : '#fff'}; `
-    str += `background-color: ${color}; `
+    str += `background-color: ${plain ? '#fff' : color}; `
 
     if (color.indexOf('gradient') !== -1) {
       str += `border: 0; `
+      str += `background-image: ${color}; `
+      str += `color: #fff; `
     } else {
       str += `border-color: ${color}; `
     }

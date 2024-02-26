@@ -23,11 +23,11 @@
   &--top,
   &--top-bottom {
     position: relative;
-    :after {
+    &:after {
       @extend .after;
     }
   }
-  :after {
+  &:after {
     @extend .after;
   }
 
