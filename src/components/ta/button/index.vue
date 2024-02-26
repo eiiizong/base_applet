@@ -7,7 +7,7 @@
     :lang="lang"
     :form-type="formType"
     :style="rootStyle"
-    open-type="{{ disabled || loading || (canIUseGetUserProfile && openType === 'getUserInfo') ? '' : openType }}"
+    :open-type="getOpenType"
     :business-id="businessId"
     :session-from="sessionFrom"
     :send-message-title="sendMessageTitle"
@@ -15,7 +15,7 @@
     :send-message-img="sendMessageImg"
     :show-message-card="showMessageCard"
     :app-parameter="appParameter"
-    aria-label="{{ ariaLabel }}"
+    :aria-label="ariaLabel"
     @click="onClick"
     @getuserinfo="onGetUserInfo"
     @contact="onContact"
@@ -29,20 +29,20 @@
   >
     <block v-if="loading">
       <ta-loading custom-class="loading-class" :size="loadingSize" :type="loadingType" :color="loadingColor" />
-      <view v-if="loadingText" class="van-button__loading-text">
+      <view v-if="loadingText" :class="basicClass + '__loading-text'">
         {{ loadingText }}
       </view>
     </block>
     <block v-else>
-      <van-icon
+      <ta-icon
         v-if="icon"
         size="1.2em"
         :name="icon"
         :class-prefix="classPrefix"
-        class="van-button__icon"
+        :custom-class="basicClass + '__icon'"
         custom-style="line-height: inherit;"
       />
-      <view class="van-button__text">
+      <view :class="basicClass + '__text'">
         <slot />
       </view>
     </block>
@@ -54,6 +54,7 @@
 
   import { bem } from '../utils'
   import { GLOB_COMPONENT_CLASS_PREFIX } from '../constant'
+  import { canIUseGetUserProfile } from '../common/version'
   /**
    * 基础类名
    */
@@ -199,16 +200,27 @@
     },
     /**
      * 微信开放能力，具体支持可参考 微信官方文档 https://developers.weixin.qq.com/miniprogram/dev/component/button.html
+     *
      * contact 打开客服会话，如果用户在会话中点击消息卡片后返回小程序，可以从 bindcontact 回调中获得具体信息，具体说明
+     *
      * liveActivity 通过前端获取新的一次性订阅消息下发机制使用的 code
+     *
      * share 触发用户转发，使用前建议先阅读使用指引
+     *
      * getPhoneNumber 手机号快速验证，向用户申请，并在用户同意后，快速填写和验证手机，具体说明 （*小程序插件中不能使用*）
+     *
      * getRealtimePhoneNumber 手机号实时验证，向用户申请，并在用户同意后，快速填写和实时验证手机号。具体说明 （*小程序插件中不能使用*）
+     *
      * getUserInfo 	获取用户信息，可以从bindgetuserinfo回调中获取到用户信息 （*小程序插件中不能使用*）
+     *
      * launchApp 打开APP，可以通过app-parameter属性设定向APP传的参数具体说明
+     *
      * openSetting 打开授权设置页
+     *
      * feedback 打开“意见反馈”页面，用户可提交反馈内容并上传日志，开发者可以登录小程序管理后台后进入左侧菜单“客服反馈”页面获取到反馈内容
+     *
      * chooseAvatar 获取用户头像，可以从bindchooseavatar回调中获取到头像信息
+     *
      * agreePrivacyAuthorization 户同意隐私协议按钮。用户点击一次此按钮后，所有已声明过的隐私接口可以正常调用。可通过 bindagreeprivacyauthorization 监听用户同意隐私协议事件。隐私合规开发指南详情可见《小程序隐私协议开发指南》
      */
     openType: {
@@ -304,10 +316,33 @@
       type: String,
       default: () => '',
     },
+    /**
+     *
+     */
+    ariaLabel: {
+      type: String,
+      default: () => '',
+    },
   })
 
   /**
-   * 动态获取根标签类名
+   * 动态设置openType
+   */
+  const getOpenType = computed(() => {
+    let str = ''
+    const { disabled, loading, openType } = props
+    if (disabled || loading || (canIUseGetUserProfile() && openType === 'getUserInfo')) {
+      str = ''
+    } else {
+      if (openType) {
+        str = openType
+      }
+    }
+    return str
+  })
+
+  /**
+   * 动态设置根标签类名
    */
   const rootClass = computed(() => {
     const { disabled, type, size, block, round, plain, square, loading, hairline, customClass } = props
@@ -330,7 +365,7 @@
   })
 
   /**
-   * 动态获取根标签类名
+   * 动态设置根标签类名
    */
   const rootStyle = computed(() => {
     const { plain, color, customStyle } = props
@@ -340,12 +375,8 @@
       return customStyle
     }
 
-    if (plain) {
-      str += `color: ${color}; `
-    } else {
-      str += `color: #fff; `
-      str += `background-color: ${color}; `
-    }
+    str += `color: ${plain ? color : '#fff'}; `
+    str += `background-color: ${color}; `
 
     if (color.indexOf('gradient') !== -1) {
       str += `border: 0; `
@@ -360,14 +391,18 @@
     return str
   })
 
+  /**
+   * 动态设置loadingColor
+   */
   const loadingColor = computed(() => {
     const { type, color, plain } = props
 
-    if (plain) {
-      return color ? color : '#c9c9c9'
-    }
     if (type === 'default') {
       return '#c9c9c9'
+    }
+
+    if (plain) {
+      return color ? color : '#c9c9c9'
     }
 
     return '#fff'
@@ -376,7 +411,8 @@
   /**
    * 点击按钮，且按钮状态不为加载或禁用时触发
    */
-  const onClick = () => {
+  const onClick = (event: WechatMiniprogram.EventCallback) => {
+    console.log('onClick===', event)
     const { disabled, loading } = props
     if (!disabled && !loading) {
       emit('click')
@@ -386,28 +422,32 @@
   /**
    * 用户点击该按钮时，会返回获取到的用户信息，从返回参数的 detail 中获取到的值同 wx.getUserInfo
    */
-  const onGetUserInfo = () => {
+  const onGetUserInfo = (event: WechatMiniprogram.ButtonGetUserInfo) => {
+    console.log('onGetUserInfo===', event)
     emit('getuserinfo')
   }
 
   /**
    * 客服消息回调
    */
-  const onContact = () => {
+  const onContact = (event: WechatMiniprogram.ButtonContact) => {
+    console.log('onContact===', event)
     emit('contact')
   }
 
   /**
    * 获取用户手机号回调
    */
-  const onGetPhoneNumber = () => {
+  const onGetPhoneNumber = (event: WechatMiniprogram.ButtonGetPhoneNumber) => {
+    console.log('onGetPhoneNumber===', event)
     emit('getphonenumber')
   }
 
   /**
    * 获取手机号实时验证回调，open-type=getRealtimePhoneNumber 时有效
    */
-  const onGetRealTimePhoneNumber = () => {
+  const onGetRealTimePhoneNumber = (event: WechatMiniprogram.ButtonGetPhoneNumber) => {
+    console.log('onGetRealTimePhoneNumber===', event)
     emit('getrealtimephonenumber')
   }
 
@@ -421,34 +461,39 @@
   /**
    * 当使用开放能力时，发生错误的回调
    */
-  const onError = () => {
+  const onError = (event: WechatMiniprogram.ButtonError) => {
+    console.log('onError===', event)
     emit('error')
   }
 
   /**
    * 在打开app后回调
    */
-  const onLaunchApp = () => {
+  const onLaunchApp = (event: WechatMiniprogram.ButtonLaunchApp) => {
+    console.log('onLaunchApp===', event)
     emit('launchapp')
   }
 
   /**
    * 在打开授权设置页后回调
    */
-  const onOpenSetting = () => {
+  const onOpenSetting = (event: WechatMiniprogram.ButtonOpenSetting) => {
+    console.log('onOpenSetting===', event)
     emit('opensetting')
   }
 
   /**
    * 当 open-type 的值为 chooseAvatar 时，选择头像之后的回调
    */
-  const onChooseAvatar = () => {
+  const onChooseAvatar = (event: any) => {
+    console.log('onChooseAvatar===', event)
     emit('chooseavatar')
   }
 </script>
 
 <style lang="scss" scoped>
   @use '../common/style/var.scss' as *;
+  @import '../common/style/hairline.scss';
 
   .#{$namespace}-button {
     position: relative;
@@ -505,49 +550,50 @@
 
     &--primary {
       color: var(--button-primary-color, $button-primary-color);
-      background: var(--button-primary-background-color, $button-primary-background-color);
+      background-color: var(--button-primary-background-color, $button-primary-background-color);
       border: var(--button-border-width, $button-border-width) solid
         var(--button-primary-border-color, $button-primary-border-color);
     }
 
     &--info {
       color: var(--button-info-color, $button-info-color);
-      background: var(--button-info-background-color, $button-info-background-color);
+      background-color: var(--button-info-background-color, $button-info-background-color);
       border: var(--button-border-width, $button-border-width) solid
         var(--button-info-border-color, $button-info-border-color);
     }
 
     &--danger {
       color: var(--button-danger-color, $button-danger-color);
-      background: var(--button-danger-background-color, $button-danger-background-color);
+      background-color: var(--button-danger-background-color, $button-danger-background-color);
       border: var(--button-border-width, $button-border-width) solid
         var(--button-danger-border-color, $button-danger-border-color);
     }
 
     &--warning {
       color: var(--button-warning-color, $button-warning-color);
-      background: var(--button-warning-background-color, $button-warning-background-color);
+      background-color: var(--button-warning-background-color, $button-warning-background-color);
       border: var(--button-border-width, $button-border-width) solid
         var(--button-warning-border-color, $button-warning-border-color);
     }
 
     &--plain {
-      background: var(--button-plain-background-color, $button-plain-background-color);
+      background-color: var(--button-plain-background-color, $button-plain-background-color);
+      &.#{$namespace}-button {
+        &--primary {
+          color: var(--button-primary-background-color, $button-primary-background-color);
+        }
 
-      &.van-button--primary {
-        color: var(--button-primary-background-color, $button-primary-background-color);
-      }
+        &--info {
+          color: var(--button-info-background-color, $button-info-background-color);
+        }
 
-      &.van-button--info {
-        color: var(--button-info-background-color, $button-info-background-color);
-      }
+        &--danger {
+          color: var(--button-danger-background-color, $button-danger-background-color);
+        }
 
-      &.van-button--danger {
-        color: var(--button-danger-background-color, $button-danger-background-color);
-      }
-
-      &.van-button--warning {
-        color: var(--button-warning-background-color, $button-warning-background-color);
+        &--warning {
+          color: var(--button-warning-background-color, $button-warning-background-color);
+        }
       }
     }
 
@@ -621,13 +667,13 @@
         border-width: 1px;
         border-radius: calc(var(--button-border-radius, $button-border-radius) * 2);
       }
-
-      &.van-button--round::after {
-        border-radius: var(--button-round-border-radius, $button-round-border-radius);
-      }
-
-      &.van-button--square::after {
-        border-radius: 0;
+      &.#{$namespace}-button {
+        &--round::after {
+          border-radius: var(--button-round-border-radius, $button-round-border-radius);
+        }
+        &--square::after {
+          border-radius: 0;
+        }
       }
     }
   }
