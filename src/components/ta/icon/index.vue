@@ -116,6 +116,10 @@
    */
   const rootStyle = computed(() => {
     let str = ''
+    const { customStyle } = props
+    if (customStyle) {
+      str += `${customStyle}`
+    }
     return str
   })
 </script>

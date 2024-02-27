@@ -38,8 +38,7 @@
         size="1.2em"
         :name="icon"
         :class-prefix="classPrefix"
-        :custom-class="basicClass + '__icon'"
-        custom-style="line-height: inherit;"
+        custom-style="line-height: inherit; display: flex; min-width: 1em;"
       />
       <view :class="[icon ? basicClass + '__text-icon' : '', basicClass + '__text']">
         <slot />
@@ -681,11 +680,12 @@
         }
       }
     }
-  }
 
-  ::v-deep.#{$namespace}-button__icon {
-    min-width: 1em;
-    line-height: inherit !important;
-    vertical-align: top;
+    &__loading-text {
+      padding-left: 8rpx;
+    }
+  }
+  ::v-deep.loading-class {
+    display: flex !important;
   }
 </style>
