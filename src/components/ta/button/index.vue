@@ -17,7 +17,6 @@
     :app-parameter="appParameter"
     :aria-label="ariaLabel"
     @click="onClick"
-    @getuserinfo="onGetUserInfo"
     @contact="onContact"
     @getphonenumber="onGetPhoneNumber"
     @getrealtimephonenumber="onGetRealTimePhoneNumber"
@@ -54,7 +53,6 @@
 
   import { bem } from '../utils'
   import { GLOB_COMPONENT_CLASS_PREFIX } from '../constant'
-  import { canIUseGetUserProfile } from '../common/version'
   /**
    * 基础类名
    */
@@ -211,8 +209,6 @@
      *
      * getRealtimePhoneNumber 手机号实时验证，向用户申请，并在用户同意后，快速填写和实时验证手机号。具体说明 （*小程序插件中不能使用*）
      *
-     * getUserInfo 	获取用户信息，可以从bindgetuserinfo回调中获取到用户信息 （*小程序插件中不能使用*）
-     *
      * launchApp 打开APP，可以通过app-parameter属性设定向APP传的参数具体说明
      *
      * openSetting 打开授权设置页
@@ -230,7 +226,6 @@
         | 'share'
         | 'getPhoneNumber'
         | 'getRealtimePhoneNumber'
-        | 'getUserInfo'
         | 'launchApp'
         | 'openSetting'
         | 'feedback'
@@ -330,7 +325,7 @@
   const getOpenType = computed(() => {
     let str = ''
     const { disabled, loading, openType } = props
-    if (disabled || loading || (canIUseGetUserProfile() && openType === 'getUserInfo')) {
+    if (disabled || loading) {
       str = ''
     } else {
       if (openType) {
@@ -413,27 +408,22 @@
    * 点击按钮，且按钮状态不为加载或禁用时触发
    */
   const onClick = (event: WechatMiniprogram.EventCallback) => {
-    console.log('onClick===', event)
-    const { disabled, loading } = props
+    const { disabled, loading, openType } = props
+
+    if (openType) {
+      return
+    }
+
     if (!disabled && !loading) {
-      emit('click')
+      emit('click', event)
     }
   }
 
   /**
-   * 用户点击该按钮时，会返回获取到的用户信息，从返回参数的 detail 中获取到的值同 wx.getUserInfo
-   */
-  const onGetUserInfo = (event: WechatMiniprogram.ButtonGetUserInfo) => {
-    console.log('onGetUserInfo===', event)
-    emit('getuserinfo')
-  }
-
-  /**
-   * 客服消息回调
+   * 打开客服会话回调
    */
   const onContact = (event: WechatMiniprogram.ButtonContact) => {
-    console.log('onContact===', event)
-    emit('contact')
+    emit('contact', event)
   }
 
   /**
@@ -441,7 +431,16 @@
    */
   const onGetPhoneNumber = (event: WechatMiniprogram.ButtonGetPhoneNumber) => {
     console.log('onGetPhoneNumber===', event)
-    emit('getphonenumber')
+    const { detail } = event
+    const { errMsg } = detail
+    if (errMsg === 'getPhoneNumber:ok') {
+      // 获取成功
+      emit('getphonenumber', detail)
+    } else if (errMsg === 'getPhoneNumber:fail user deny') {
+      // 用户拒绝
+    } else {
+      // 其他错误
+    }
   }
 
   /**
@@ -449,46 +448,58 @@
    */
   const onGetRealTimePhoneNumber = (event: WechatMiniprogram.ButtonGetPhoneNumber) => {
     console.log('onGetRealTimePhoneNumber===', event)
-    emit('getrealtimephonenumber')
+    const { detail } = event
+    const { errMsg } = detail
+    if (errMsg === 'getPhoneNumber:ok') {
+      // 获取成功 detail 里面只有 cloudID、code、errMsg字段，与getPhoneNumber不同的是缺少encryptedData和iv字段
+      emit('getrealtimephonenumber', detail)
+    } else if (errMsg === 'getPhoneNumber:fail user deny') {
+      // 用户拒绝
+    } else {
+      // 其他错误
+    }
   }
 
   /**
    * 同意隐私协议回调，openType="agreePrivacyAuthorization"时有效
    */
-  const onAgreePrivacyAuthorization = () => {
-    emit('agreeprivacyauthorization')
+  const onAgreePrivacyAuthorization = (event: any) => {
+    emit('agreeprivacyauthorization', event)
   }
 
   /**
    * 当使用开放能力时，发生错误的回调
    */
   const onError = (event: WechatMiniprogram.ButtonError) => {
-    console.log('onError===', event)
-    emit('error')
+    emit('error', event)
   }
 
   /**
    * 在打开app后回调
    */
   const onLaunchApp = (event: WechatMiniprogram.ButtonLaunchApp) => {
-    console.log('onLaunchApp===', event)
-    emit('launchapp')
+    emit('launchapp', event)
   }
 
   /**
    * 在打开授权设置页后回调
    */
   const onOpenSetting = (event: WechatMiniprogram.ButtonOpenSetting) => {
-    console.log('onOpenSetting===', event)
-    emit('opensetting')
+    const { detail } = event
+    const { errMsg, authSetting } = detail
+    if (errMsg === 'openSetting:ok') {
+      emit('opensetting', authSetting)
+    }
   }
 
   /**
    * 当 open-type 的值为 chooseAvatar 时，选择头像之后的回调
    */
   const onChooseAvatar = (event: any) => {
-    console.log('onChooseAvatar===', event)
-    emit('chooseavatar')
+    const { avatarUrl } = event.detail
+    if (avatarUrl) {
+      emit('chooseavatar', avatarUrl)
+    }
   }
 </script>
 

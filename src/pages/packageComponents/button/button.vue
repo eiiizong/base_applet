@@ -13,25 +13,42 @@
       获取新的一次性订阅消息下发机制使用的 code
     </ta-button>
     <ta-button type="primary" open-type="share" custom-class="demo-margin-bottom demo-margin-right">分享</ta-button>
-    <ta-button type="primary" open-type="getPhoneNumber" custom-class="demo-margin-bottom demo-margin-right">
+    <ta-button
+      type="primary"
+      open-type="getPhoneNumber"
+      @getphonenumber="onGetphonenumber"
+      custom-class="demo-margin-bottom demo-margin-right"
+    >
       获取手机号
     </ta-button>
-    <ta-button type="primary" open-type="getRealtimePhoneNumber" custom-class="demo-margin-bottom demo-margin-right">
+    <ta-button
+      type="primary"
+      open-type="getRealtimePhoneNumber"
+      custom-class="demo-margin-bottom demo-margin-right"
+      @getrealtimephonenumber="onGetRealTimePhoneNumber"
+    >
       手机号实时验证
-    </ta-button>
-    <ta-button type="primary" open-type="getUserInfo" custom-class="demo-margin-bottom demo-margin-right">
-      获取用户信息
     </ta-button>
     <ta-button type="primary" open-type="launchApp" custom-class="demo-margin-bottom demo-margin-right">
       打开APP
     </ta-button>
-    <ta-button type="primary" open-type="openSetting" custom-class="demo-margin-bottom demo-margin-right">
+    <ta-button
+      type="primary"
+      open-type="openSetting"
+      custom-class="demo-margin-bottom demo-margin-right"
+      @opensetting="onOpenSetting"
+    >
       打开授权设置页
     </ta-button>
     <ta-button type="primary" open-type="feedback" custom-class="demo-margin-bottom demo-margin-right">
       打开“意见反馈”页面
     </ta-button>
-    <ta-button type="primary" open-type="chooseAvatar" custom-class="demo-margin-bottom demo-margin-right">
+    <ta-button
+      type="primary"
+      open-type="chooseAvatar"
+      custom-class="demo-margin-bottom demo-margin-right"
+      @chooseavatar="onChooseAvatar"
+    >
       获取用户头像
     </ta-button>
     <ta-button type="primary" open-type="agreePrivacyAuthorization" custom-class="demo-margin-bottom demo-margin-right">
@@ -105,11 +122,46 @@
 
   /* #ifdef MP-WEIXIN */
   /**
-   * 客服消息回调，open-type="contact"时有效
+   * 打开客服会话回调
    */
-  const onContact = (e: any) => {
-    console.log(e, 99)
+  const onContact = (event: WechatMiniprogram.ButtonContact) => {
+    console.log('onContact=== ', event)
   }
+  /**
+   * 获取用户手机号回调
+   */
+  const onGetphonenumber = (
+    data: WechatMiniprogram.GeneralCallbackResult &
+      Partial<WechatMiniprogram.GetWeRunDataSuccessCallbackResult> & {
+        code: string
+      }
+  ) => {
+    console.log('onGetphonenumber=== ', data)
+  }
+  /**
+   * 获取手机号实时验证回调
+   */
+  const onGetRealTimePhoneNumber = (
+    data: WechatMiniprogram.GeneralCallbackResult &
+      Partial<WechatMiniprogram.GetWeRunDataSuccessCallbackResult> & {
+        code: string
+      }
+  ) => {
+    console.log('onGetRealTimePhoneNumber=== ', data)
+  }
+  /**
+   * 选择头像之后的回调
+   */
+  const onChooseAvatar = (avatarUrl: string) => {
+    console.log('onChooseAvatar=== ', avatarUrl)
+  }
+  /**
+   * 在打开授权设置页后回调
+   */
+  const onOpenSetting = (authSetting: WechatMiniprogram.AuthSetting) => {
+    console.log('onOpenSetting=== ', authSetting)
+  }
+
   /* #endif */
 </script>
 
