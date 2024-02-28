@@ -200,7 +200,7 @@
           title: 'Steps 步骤条',
         },
         {
-          path: '',
+          path: 'sticky',
           title: 'Sticky 粘性布局',
         },
         {

@@ -69,6 +69,12 @@
           "style": {
             "navigationBarTitleText": "Loading 加载"
           }
+        },
+        {
+          "path": "sticky/sticky",
+          "style": {
+            "navigationBarTitleText": "Sticky 粘性布局"
+          }
         }
       ]
     }
