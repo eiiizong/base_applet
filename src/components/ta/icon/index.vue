@@ -1,6 +1,6 @@
 <template>
   <view :class="rootClass" :style="rootStyle">
-    <ta-info v-if="info !== null || dot" :dot="dot" :info="info" custom-class="van-icon__info info-class" />
+    <ta-info v-if="info !== null || dot" :dot="dot" :info="info" :custom-class="basicClass + '__info info-class'" />
     <image v-if="isImage" :src="name" mode="aspectFit" :class="basicClass + '__image'" />
   </view>
 </template>
@@ -46,7 +46,7 @@
       default: 'inherit',
     },
     /**
-     * 图标大小，如 20px，2em，默认单位为px
+     * 图标大小，如 40rpx，2em，默认单位为rpx
      */
     size: {
       type: [String, Number],
@@ -116,7 +116,17 @@
    */
   const rootStyle = computed(() => {
     let str = ''
-    const { customStyle } = props
+    const { customStyle, color, size } = props
+    if (color) {
+      str += `color: ${color}; `
+    }
+    if (size) {
+      if (typeof size === 'string') {
+        str += `font-size: ${size}; `
+      } else {
+        str += `font-size: ${size}rpx; `
+      }
+    }
     if (customStyle) {
       str += `${customStyle}`
     }
