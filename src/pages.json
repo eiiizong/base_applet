@@ -47,6 +47,12 @@
           }
         },
         {
+          "path": "cell/cell",
+          "style": {
+            "navigationBarTitleText": "Cell 单元格"
+          }
+        },
+        {
           "path": "icon/icon",
           "style": {
             "navigationBarTitleText": "Icon 图标"
@@ -75,13 +81,13 @@
           "style": {
             "navigationBarTitleText": "Sticky 粘性布局"
           }
-        },
-        {
-          "path": "transition/transition",
-          "style": {
-            "navigationBarTitleText": "Transition 动画"
-          }
         }
+        // {
+        //   "path": "transition/transition",
+        //   "style": {
+        //     "navigationBarTitleText": "Transition 动画"
+        //   }
+        // }
       ]
     }
   ],

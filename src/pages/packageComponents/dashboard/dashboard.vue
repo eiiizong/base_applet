@@ -26,7 +26,7 @@
           title: 'Button 按钮',
         },
         {
-          path: '',
+          path: 'cell',
           title: 'Cell 单元格',
         },
         {
