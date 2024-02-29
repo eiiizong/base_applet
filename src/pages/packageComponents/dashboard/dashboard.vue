@@ -50,7 +50,7 @@
           title: 'Popup 弹出层',
         },
         {
-          path: '',
+          path: 'transition',
           title: 'Transition 动画',
         },
       ],
