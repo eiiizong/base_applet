@@ -204,7 +204,7 @@
           title: 'Sticky 粘性布局',
         },
         {
-          path: '',
+          path: 'tag',
           title: 'Tag 标记',
         },
         {

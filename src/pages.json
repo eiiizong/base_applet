@@ -81,6 +81,12 @@
           "style": {
             "navigationBarTitleText": "Sticky 粘性布局"
           }
+        },
+        {
+          "path": "tag/tag",
+          "style": {
+            "navigationBarTitleText": "Tag 标记"
+          }
         }
         // {
         //   "path": "transition/transition",

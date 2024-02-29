@@ -22,56 +22,56 @@
      */
     name: {
       type: String,
-      default: '',
+      default: () => '',
     },
     /**
      * 是否显示图标右上角小红点
      */
     dot: {
       type: Boolean,
-      default: false,
+      default: () => false,
     },
     /**
      * 	图标右上角文字提示
      */
     info: {
       type: [String, Number],
-      default: '',
+      default: () => '',
     },
     /**
      * 图标颜色
      */
     color: {
       type: String,
-      default: 'inherit',
+      default: () => '',
     },
     /**
      * 图标大小，如 40rpx，2em，默认单位为rpx
      */
     size: {
       type: [String, Number],
-      default: 'inherit',
-    },
-    /**
-     * 自定义样式
-     */
-    customStyle: {
-      type: String,
-      default: '',
-    },
-    /**
-     * 自定义样式
-     */
-    customClass: {
-      type: String,
-      default: '',
+      default: () => '',
     },
     /**
      * 类名前缀
      */
     classPrefix: {
       type: String,
-      default: GLOB_COMPONENT_CLASS_PREFIX + '-icon',
+      default: () => GLOB_COMPONENT_CLASS_PREFIX + '-icon',
+    },
+    /**
+     * 自定义根标签样式
+     */
+    customStyle: {
+      type: String,
+      default: () => '',
+    },
+    /**
+     * 自定义根标签类名
+     */
+    customClass: {
+      type: String,
+      default: () => '',
     },
   })
 
@@ -90,10 +90,6 @@
     const { name, classPrefix, customClass } = props
     const classes: string[] = []
 
-    if (customClass) {
-      classes.push(customClass)
-    }
-
     if (classPrefix !== basicClass) {
       classes.push(basicClass + '--custom')
     }
@@ -108,7 +104,7 @@
       classes.push(classPrefix + '-' + name)
     }
 
-    return classes.join(' ')
+    return classes.join(' ') + ' ' + customClass
   })
 
   /**
@@ -120,6 +116,7 @@
     if (color) {
       str += `color: ${color}; `
     }
+
     if (size) {
       if (typeof size === 'string') {
         str += `font-size: ${size}; `
@@ -127,6 +124,7 @@
         str += `font-size: ${size}rpx; `
       }
     }
+
     if (customStyle) {
       str += `${customStyle}`
     }
@@ -137,12 +135,6 @@
 <style lang="scss" scoped>
   @use '../common/style/var.scss' as *;
   @use './font';
-
-  :host {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
 
   .#{$namespace}-icon {
     &--custom {
