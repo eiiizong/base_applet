@@ -27,13 +27,13 @@
     @chooseavatar="onChooseAvatar"
   >
     <block v-if="loading">
-      <ta-loading custom-class="loading-class" :size="loadingSize" :type="loadingType" :color="loadingColor" />
+      <Loading custom-class="loading-class" :size="loadingSize" :type="loadingType" :color="loadingColor" />
       <view v-if="loadingText" :class="basicClass + '__loading-text'">
         {{ loadingText }}
       </view>
     </block>
     <block v-else>
-      <ta-icon
+      <Icon
         v-if="icon"
         size="1.2em"
         :name="icon"
@@ -49,6 +49,8 @@
 
 <script lang="ts" setup>
   import type { PropType } from 'vue'
+  import Loading from '../loading/index.vue'
+  import Icon from '../icon/index.vue'
 
   import { bem } from '../utils'
   import { GLOB_COMPONENT_CLASS_PREFIX } from '../constant'

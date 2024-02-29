@@ -1,13 +1,13 @@
 <template>
   <view :class="rootClass" :style="rootStyle" @click="emit('click', $event)">
-    <ta-info v-if="info !== null || dot" :dot="dot" :info="info" :custom-class="basicClass + '__info info-class'" />
+    <Info v-if="info !== null || dot" :dot="dot" :info="info" :custom-class="basicClass + '__info info-class'" />
     <image v-if="isImage" :src="name" mode="aspectFit" :class="basicClass + '__image'" />
   </view>
 </template>
 
 <script lang="ts" setup>
   import { computed } from 'vue'
-
+  import Info from '../info/index.vue'
   import { GLOB_COMPONENT_CLASS_PREFIX } from '../constant'
 
   /**

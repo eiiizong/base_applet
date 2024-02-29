@@ -2,7 +2,7 @@
   <view :class="rootClass">
     <view :class="[basicClass + '__spinner', type ? basicClass + '__spinner--' + type : '']" :style="spinnerStyle">
       <template v-if="type === 'spinner'">
-        <view v-for="item in array12" :key="item" :class="basicClass + '__dot'" />
+        <view v-for="(item, index) in array12" :key="index" :class="basicClass + '__dot'" />
       </template>
     </view>
     <view :class="basicClass + '__text'" :style="textStyle">
