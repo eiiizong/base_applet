@@ -1,7 +1,7 @@
 <template>
   <view :class="rootClass" :style="rootStyle">
     <slot />
-    <Icon v-if="closeable" :class="basicClass + '__close'" name="cross" @click="emit('close')" />
+    <Icon v-if="closeable" :class="basicClass + '__close'" name="cross" @click="emit('close', $event)" />
   </view>
 </template>
 

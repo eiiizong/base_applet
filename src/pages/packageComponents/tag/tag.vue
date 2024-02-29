@@ -48,7 +48,7 @@
       size="medium"
       closeable
       id="primary"
-      @close="onClose"
+      @close="show.primary = false"
     >
       标签
     </ta-tag>
@@ -59,7 +59,7 @@
       size="medium"
       closeable
       id="success"
-      @close="onClose"
+      @close="show.success = false"
     >
       标签
     </ta-tag>
@@ -73,10 +73,6 @@
     success: true,
     primary: true,
   })
-
-  const onClose = (event: any) => {
-    console.log(event, 99)
-  }
 </script>
 
 <style lang="scss" scoped>
