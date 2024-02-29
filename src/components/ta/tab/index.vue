@@ -60,14 +60,14 @@
       default: () => '',
     },
     /**
-     * 自定义样式
+     * 自定义根节点样式
      */
     customStyle: {
       type: String,
       default: () => '',
     },
     /**
-     * 根节点样式类
+     * 自定义根节点类名
      */
     customClass: {
       type: String,
