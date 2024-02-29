@@ -20,8 +20,8 @@
   </demo-block>
 
   <demo-block title="嵌套在 scroll-view 内使用">
-    <scroll-view @scroll="onScroll" scroll-y id="scroller" style="height: 400rpx; background-color: #eee">
-      <view style="height: 800rpx; padding-top: 100rpx; padding-left: 30rpx">
+    <scroll-view @scroll="onScroll" scroll-y id="scroller" style="height: 500rpx; background-color: #eee">
+      <view style="height: 1000rpx; padding-top: 100rpx; padding-left: 30rpx">
         <ta-sticky :scroll-top="scrollTop" :offset-top="offsetTop">
           <ta-button type="warning">嵌套在 scroll-view 内</ta-button>
         </ta-sticky>
@@ -50,6 +50,7 @@
       })
       .exec()
   }
+
   onMounted(() => {
     container.value = () => uni.createSelectorQuery().select('#container')
   })
