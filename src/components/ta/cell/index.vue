@@ -3,10 +3,10 @@
     :class="rootClass"
     :hover-class="basicClass + '--hover hover-class'"
     hover-stay-time="70"
-    :content-style-type="customStyle"
+    :style="customStyle"
     @click="onClick"
   >
-    <ta-icon
+    <Icon
       v-if="icon"
       :name="icon"
       :class="basicClass + '__left-icon-wrap'"
@@ -29,7 +29,7 @@
       <slot v-else />
     </view>
 
-    <ta-icon
+    <Icon
       v-if="isLink"
       :name="arrowDirection ? 'arrow-' + arrowDirection : 'arrow'"
       :class="basicClass + '__right-icon-wrap right-icon-class'"
@@ -43,6 +43,8 @@
 
 <script lang="ts" setup>
   import type { PropType } from 'vue'
+
+  import Icon from '../icon/index.vue'
   import { computed } from 'vue'
 
   import { bem } from '../utils'
@@ -202,7 +204,8 @@
     let str = ''
 
     if (titleWidth) {
-      str += `width: ${titleWidth}; `
+      str += `min-width: ${titleWidth}; `
+      str += `max-width: ${titleWidth}; `
     }
 
     if (titleStyle) {
@@ -212,12 +215,41 @@
   })
 
   const onClick = () => {
-    emit('click')
+    const { linkType, url } = props
+    if (url && linkType) {
+      switch (linkType) {
+        case 'navigateTo':
+          uni.navigateTo({
+            url,
+          })
+          break
+        case 'reLaunch':
+          uni.reLaunch({
+            url,
+          })
+          break
+        case 'switchTab':
+          uni.switchTab({
+            url,
+          })
+          break
+        case 'redirectTo':
+          uni.redirectTo({
+            url,
+          })
+          break
+        default:
+          break
+      }
+    } else {
+      emit('click')
+    }
   }
 </script>
 
 <style lang="scss" scoped>
   @use '../common/style/var.scss' as *;
+  @use '../common/style/mixins/hairline.scss' as *;
 
   .#{$namespace}-cell {
     position: relative;
@@ -232,7 +264,7 @@
     background-color: var(--cell-background-color, $cell-background-color);
 
     &::after {
-      // .hairline-bottom(@border-color, @padding-md, @padding-md);
+      @include hairline-bottom($border-color, $padding-md, $padding-md);
     }
 
     &--borderless::after {
@@ -292,9 +324,10 @@
       line-height: var(--cell-line-height, $cell-line-height);
     }
 
-    &--clickable,
-    &--hover {
-      background-color: var(--cell-active-color, $cell-active-color);
+    &--clickable {
+      &.#{$namespace}-cell--hover {
+        background-color: var(--cell-active-color, $cell-active-color);
+      }
     }
 
     &--required {

@@ -62,7 +62,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 0, // 不允许在import 中使用require
     '@typescript-eslint/no-empty-function': 2, // 关闭空方法检查
     // eslint-plugin-vue (https://eslint.vuejs.org/rules/)
-    'vue/script-indent': ['error', 2, { baseIndent: 1 }],
+    'vue/script-indent': ['error', 2, { baseIndent: 1, switchCase: 1 }],
     'vue/multi-word-component-names': 0, // 要求组件名称始终为 “-” 链接的单词
     'vue/script-setup-uses-vars': 2, // 防止<script setup>使用的变量<template>被标记为未使用
     'vue/no-mutating-props': 0, // 不允许组件 prop的改变
