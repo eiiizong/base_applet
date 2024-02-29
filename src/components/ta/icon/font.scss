@@ -14,7 +14,7 @@
   position: relative;
   display: inline-block;
   // compatible with the browser range of Vant 2
-  font: normal normal normal 28rpx/1 $namespace + '-icon';
+  // font: normal normal normal 28rpx/1 $namespace + '-icon';
   font: normal normal normal 28rpx/1 var(--van-icon-font-family, $namespace + '-icon');
   font-size: inherit;
   text-rendering: auto;

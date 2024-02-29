@@ -1,7 +1,7 @@
 <template>
   <view :class="rootClass" :style="rootStyle">
     <slot />
-    <Icon v-if="closeable" name="cross" custom-style="min-width: 1em; margin-left: 4rpx;" @click="emit('close')" />
+    <Icon v-if="closeable" :class="basicClass + '__close'" name="cross" @click="emit('close')" />
   </view>
 </template>
 
@@ -12,6 +12,12 @@
 
   import { computed } from 'vue'
   import { bem } from '../utils'
+  import { GLOB_COMPONENT_CLASS_PREFIX } from '../constant'
+
+  /**
+   * 基础类名
+   */
+  const basicClass = GLOB_COMPONENT_CLASS_PREFIX + '-tag'
 
   const emit = defineEmits(['close'])
   const props = defineProps({
@@ -216,6 +222,11 @@
 
     &--round {
       border-radius: var(--tag-round-border-radius, $tag-round-border-radius);
+    }
+    &__close {
+      min-width: 1em;
+      margin-left: 4rpx;
+      font-size: inherit;
     }
   }
 </style>
