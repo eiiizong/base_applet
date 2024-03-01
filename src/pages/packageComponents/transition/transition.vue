@@ -1,16 +1,16 @@
 <template>
   <div class="demo-page-transition">
     <demo-block title="基础用法" padding>
-      <ta-cell title="Fade" @click="trigger('fade')" is-link />
-      <ta-cell title="Fade Up" @click="trigger('fade-up')" is-link />
-      <ta-cell title="Fade Down" @click="trigger('fade-down')" is-link />
-      <ta-cell title="Fade Left" @click="trigger('fade-left')" is-link />
-      <ta-cell title="Fade Right" @click="trigger('fade-right')" is-link />
-      <ta-cell title="Slide Up" @click="trigger('slide-up')" is-link />
-      <ta-cell title="Slide Down" @click="trigger('slide-down')" is-link />
-      <ta-cell title="Slide Left" @click="trigger('slide-up')" is-link />
-      <ta-cell title="Slide Right" @click="trigger('slide-right')" is-link />
-      <ta-cell title="Custom" @click="onClickCustom" is-link />
+      <ta-cell title="Fade（淡入）" @click="trigger('fade')" is-link />
+      <ta-cell title="Fade Up（上滑淡入）" @click="trigger('fade-up')" is-link />
+      <ta-cell title="Fade Down（下滑淡入）" @click="trigger('fade-down')" is-link />
+      <ta-cell title="Fade Left（左滑淡入）" @click="trigger('fade-left')" is-link />
+      <ta-cell title="Fade Right（右滑淡入）" @click="trigger('fade-right')" is-link />
+      <ta-cell title="Slide Up（上滑进入）" @click="trigger('slide-up')" is-link />
+      <ta-cell title="Slide Down（下滑进入）" @click="trigger('slide-down')" is-link />
+      <ta-cell title="Slide Left（左滑进入）" @click="trigger('slide-left')" is-link />
+      <ta-cell title="Slide Right（右滑进入）" @click="trigger('slide-right')" is-link />
+      <ta-cell title="Custom（自定义）" :border="false" @click="onClickCustom" is-link />
     </demo-block>
   </div>
 
