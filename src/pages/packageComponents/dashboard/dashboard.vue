@@ -138,7 +138,7 @@
           title: 'Notify 消息通知',
         },
         {
-          path: '',
+          path: 'overlay',
           title: 'Overlay 遮罩层',
         },
         {

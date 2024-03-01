@@ -1,5 +1,5 @@
 <template>
-  <view v-if="inited" :class="rootClass" :style="rootStyle" @transitionend="onTransitionEnd">
+  <view v-if="inited" :class="rootClass" :style="rootStyle" @transitionend="onTransitionEnd" @click="emit('click')">
     <slot />
   </view>
 </template>
@@ -19,7 +19,7 @@
   }
   type Status = 'leave' | 'enter' | ''
 
-  const emit = defineEmits(['before-enter', 'enter', 'before-leave', 'leave', 'after-leave', 'after-enter'])
+  const emit = defineEmits(['click', 'before-enter', 'enter', 'before-leave', 'leave', 'after-leave', 'after-enter'])
   const props = defineProps({
     /**
      * 动画类型

@@ -77,6 +77,12 @@
           }
         },
         {
+          "path": "overlay/overlay",
+          "style": {
+            "navigationBarTitleText": "Overlay 遮罩层"
+          }
+        },
+        {
           "path": "popup/popup",
           "style": {
             "navigationBarTitleText": "Popup 弹出层"
