@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-cell">
+  <div class="demo-page-cell">
     <demo-block title="基础用法">
       <ta-cell-group>
         <ta-cell title="单元格" value="内容" />
@@ -76,7 +76,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .demo-cell {
+  .demo-page-cell {
     background-color: #f6f6f6;
   }
   .title {

@@ -1,34 +1,36 @@
 <template>
-  <demo-block title="基础用法" padding>
-    <ta-cell title="Fade" @click="onClickFade" is-link />
-    <ta-cell title="Fade Up" @click="onClickFadeUp" is-link />
-    <ta-cell title="Fade Down" @click="onClickFadeDown" is-link />
-    <ta-cell title="Fade Left" @click="onClickFadeLeft" is-link />
-    <ta-cell title="Fade Right" @click="onClickFadeRight" is-link />
-    <ta-cell title="Slide Up" @click="onClickSlideUp" is-link />
-    <ta-cell title="Slide Down" @click="onClickSlideDown" is-link />
-    <ta-cell title="Slide Left" @click="onClickSlideLeft" is-link />
-    <ta-cell title="Slide Right" @click="onClickSlideRight" is-link />
-    <ta-cell title="Custom" @click="onClickCustom" is-link />
+  <div class="demo-page-transition">
+    <demo-block title="基础用法" padding>
+      <ta-cell title="Fade" @click="trigger('fade')" is-link />
+      <ta-cell title="Fade Up" @click="trigger('fade-up')" is-link />
+      <ta-cell title="Fade Down" @click="trigger('fade-down')" is-link />
+      <ta-cell title="Fade Left" @click="trigger('fade-left')" is-link />
+      <ta-cell title="Fade Right" @click="trigger('fade-right')" is-link />
+      <ta-cell title="Slide Up" @click="trigger('slide-up')" is-link />
+      <ta-cell title="Slide Down" @click="trigger('slide-down')" is-link />
+      <ta-cell title="Slide Left" @click="trigger('slide-up')" is-link />
+      <ta-cell title="Slide Right" @click="trigger('slide-right')" is-link />
+      <ta-cell title="Custom" @click="onClickCustom" is-link />
+    </demo-block>
+  </div>
 
-    <ta-transition :show="show" :name="name" custom-class="block" />
-
-    <ta-transition
-      :show="showCustom"
-      :duration="1000"
-      custom-class="block"
-      enter-class="ta-enter-class"
-      enter-active-class="ta-enter-active-class"
-      leave-active-class="ta-leave-active-class"
-      leave-to-class="ta-leave-to-class"
-      @before-enter="onBeforeEnter"
-      @enter="onEnter"
-      @after-enter="onAfterEnter"
-      @before-leave="onBeforeLeave"
-      @leave="onLeave"
-      @after-leave="onAfterLeave"
-    />
-  </demo-block>
+  <ta-transition :show="show" :name="name" custom-class="block" />
+  <ta-transition
+    :show="showCustom"
+    name=""
+    :duration="{ enter: 300, leave: 1000 }"
+    custom-class="block"
+    enter-class="ta-enter-class"
+    enter-active-class="ta-enter-active-class"
+    leave-active-class="ta-leave-active-class"
+    leave-to-class="ta-leave-to-class"
+    @before-enter="onBeforeEnter"
+    @enter="onEnter"
+    @after-enter="onAfterEnter"
+    @before-leave="onBeforeLeave"
+    @leave="onLeave"
+    @after-leave="onAfterLeave"
+  />
 </template>
 
 <script setup lang="ts">
@@ -55,42 +57,6 @@
     setTimeout(() => {
       show.value = false
     }, 500)
-  }
-
-  const onClickFade = () => {
-    trigger('fade')
-  }
-
-  const onClickFadeUp = () => {
-    trigger('fade-up')
-  }
-
-  const onClickFadeDown = () => {
-    trigger('fade-down')
-  }
-
-  const onClickFadeLeft = () => {
-    trigger('fade-left')
-  }
-
-  const onClickFadeRight = () => {
-    trigger('fade-right')
-  }
-
-  const onClickSlideUp = () => {
-    trigger('slide-up')
-  }
-
-  const onClickSlideDown = () => {
-    trigger('slide-down')
-  }
-
-  const onClickSlideLeft = () => {
-    trigger('slide-left')
-  }
-
-  const onClickSlideRight = () => {
-    trigger('slide-right')
   }
 
   const onClickCustom = () => {
@@ -127,24 +93,29 @@
 </script>
 
 <style lang="scss" scoped>
-  ::v-deep .block {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    margin: -50px 0 0 -50px;
-    background-color: #1989fa;
+  .demo-page-transition {
+    background-color: #f6f6f6;
   }
+  ::v-deep {
+    .block {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 200rpx;
+      height: 200rpx;
+      margin: -100rpx 0 0 -100rpx;
+      background-color: #1989fa;
+      border-radius: 8rpx;
+    }
+    .ta-enter-active-class,
+    .ta-leave-active-class {
+      transition-property: background-color, transform;
+    }
 
-  .ta-enter-active-class,
-  .ta-leave-active-class {
-    transition-property: background-color, transform;
-  }
-
-  .ta-enter-class,
-  .ta-leave-to-class {
-    background-color: red;
-    transform: rotate(-360deg) translate3d(-100%, -100%, 0);
+    .ta-enter-class,
+    .ta-leave-to-class {
+      background-color: red;
+      transform: rotate(-360deg) translate3d(-100%, -100%, 0);
+    }
   }
 </style>

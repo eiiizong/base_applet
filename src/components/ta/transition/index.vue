@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
   import type { PropType } from 'vue'
-  import { computed } from 'vue'
+  import { computed, watch, nextTick } from 'vue'
 
   import { bem } from '../utils'
   import { GLOB_COMPONENT_CLASS_PREFIX } from '../constant'
@@ -15,13 +15,9 @@
 
   interface Duration {
     enter: number
-    level: number
+    leave: number
   }
   type Status = 'leave' | 'enter' | ''
-  /**
-   * 基础类名
-   */
-  // const basicClass = GLOB_COMPONENT_CLASS_PREFIX + '-tab'
 
   const emit = defineEmits(['before-enter', 'enter', 'before-leave', 'leave', 'after-leave', 'after-enter'])
   const props = defineProps({
@@ -57,6 +53,7 @@
         | 'slide-down'
         | 'slide-left'
         | 'slide-right'
+        | ''
       >,
       default: () => 'fade',
     },
@@ -138,7 +135,7 @@
   const display = ref(false)
   const transitionEnded = ref(true)
   const currentDuration = ref(300)
-  const enterFinishedPromise = ref<Promise<any> | null>(null)
+  const enterFinishedPromise = ref<Promise<boolean> | null>(null)
 
   /**
    * 动态设置根标签类名
@@ -295,15 +292,17 @@
   watch(
     () => props.show,
     (newVal, oldVal) => {
-      console.log(newVal, oldVal)
-
       if (newVal === oldVal) {
         return
       }
       if (newVal) {
-        enter()
+        nextTick(() => {
+          enter()
+        })
       } else {
-        leave()
+        nextTick(() => {
+          leave()
+        })
       }
     }
   )
