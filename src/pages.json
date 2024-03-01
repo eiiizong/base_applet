@@ -87,13 +87,13 @@
           "style": {
             "navigationBarTitleText": "Tag 标记"
           }
+        },
+        {
+          "path": "transition/transition",
+          "style": {
+            "navigationBarTitleText": "Transition 动画"
+          }
         }
-        // {
-        //   "path": "transition/transition",
-        //   "style": {
-        //     "navigationBarTitleText": "Transition 动画"
-        //   }
-        // }
       ]
     }
   ],

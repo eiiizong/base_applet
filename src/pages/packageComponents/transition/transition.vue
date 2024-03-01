@@ -15,8 +15,7 @@
 
     <ta-transition
       :show="showCustom"
-      name=""
-      :duration="{ enter: 300, leave: 1000 }"
+      :duration="1000"
       custom-class="block"
       enter-class="ta-enter-class"
       enter-active-class="ta-enter-active-class"
@@ -35,11 +34,22 @@
 <script setup lang="ts">
   import DemoBlock from '../components/demo-block/index.vue'
 
+  type Name =
+    | 'fade'
+    | 'fade-up'
+    | 'fade-down'
+    | 'fade-left'
+    | 'fade-right'
+    | 'slide-up'
+    | 'slide-down'
+    | 'slide-left'
+    | 'slide-right'
+
   const show = ref(false)
-  const name = ref('fade')
+  const name = ref<Name>('fade')
   const showCustom = ref(false)
 
-  const trigger = (transitionName: string) => {
+  const trigger = (transitionName: Name) => {
     name.value = transitionName
     show.value = true
     setTimeout(() => {
@@ -117,7 +127,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .block {
+  :v-deep .block {
     position: fixed;
     top: 50%;
     left: 50%;
