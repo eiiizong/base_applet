@@ -127,7 +127,7 @@
 </script>
 
 <style lang="scss" scoped>
-  :v-deep .block {
+  ::v-deep .block {
     position: fixed;
     top: 50%;
     left: 50%;

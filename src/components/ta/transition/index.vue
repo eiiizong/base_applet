@@ -1,12 +1,5 @@
 <template>
-  <view
-    v-if="inited"
-    :class="rootClass"
-    :style="rootStyle"
-    class="${prefix}-transition custom-class {{ classes }}"
-    style="{{ computed.rootStyle({ currentDuration, display, customStyle }) }}"
-    @transitionend="onTransitionEnd"
-  >
+  <view v-if="inited" :class="rootClass" :style="rootStyle" @transitionend="onTransitionEnd">
     <slot />
   </view>
 </template>
@@ -283,18 +276,6 @@
     })
   }
 
-  const observeShow = (value: boolean, old: boolean) => {
-    if (value === old) {
-      return
-    }
-
-    if (value) {
-      enter()
-    } else {
-      leave()
-    }
-  }
-
   const onTransitionEnd = () => {
     if (transitionEnded.value) {
       return
@@ -311,10 +292,21 @@
     }
   }
 
-  // watch(
-  //   () => props.show,
-  //   (val) => {}
-  // )
+  watch(
+    () => props.show,
+    (newVal, oldVal) => {
+      console.log(newVal, oldVal)
+
+      if (newVal === oldVal) {
+        return
+      }
+      if (newVal) {
+        enter()
+      } else {
+        leave()
+      }
+    }
+  )
 </script>
 
 <style lang="scss" scoped>

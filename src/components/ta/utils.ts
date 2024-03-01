@@ -21,7 +21,7 @@ const join = (name: string, mods: string[]) => {
   newMods = mods.map((item) => name + '--' + item)
   newMods.unshift(name)
 
-  console.log('newMods ===', newMods)
+  // console.log('newMods ===', newMods)
 
   return newMods.join(' ')
 }
@@ -47,7 +47,7 @@ const traversing = (mods: string[], conf: unknown) => {
 const bem = (name: string, conf: unknown) => {
   const mods: string[] = []
   traversing(mods, conf)
-  console.log('mods ===', mods)
+  // console.log('mods ===', mods)
   return join(name, mods)
 }
 
