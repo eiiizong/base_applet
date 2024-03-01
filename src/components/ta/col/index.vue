@@ -36,10 +36,17 @@
       default: () => '',
     },
     /**
-     * 自定义类名
+     * 自定义根节点样式
+     */
+    customStyle: {
+      type: String,
+      default: () => '',
+    },
+    /**
+     * 自定义根节点类名
      */
     customClass: {
-      type: [String],
+      type: String,
       default: () => '',
     },
   })
@@ -66,10 +73,14 @@
    */
   const rootStyle = computed(() => {
     let str = ''
-
+    const { customStyle } = props
     if (gutter) {
       str += `padding-right: ${gutter / 2}rpx; `
       str += `padding-left: ${gutter / 2}rpx; `
+    }
+
+    if (customStyle) {
+      str += ` ${customStyle}`
     }
 
     return str

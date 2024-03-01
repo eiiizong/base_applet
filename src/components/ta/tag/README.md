@@ -4,6 +4,11 @@
 
 用于标记关键词和概括主要内容。
 
+> 文档创建人: Zengxm
+> 文档创建时间: 2024-03-01 15:26:04
+> 文档上次编辑人: Zengxm
+> 文档上次编辑时间: 2024-03-01 15:26:04
+
 ### 引入
 
 ```js
@@ -99,18 +104,18 @@ import TaTag from '@/components/ta/tag/index.vue'
 
 ### Props
 
-| 参数         | 说明                                                         | 类型      | 默认值    |
-| ------------ | ------------------------------------------------------------ | --------- | --------- |
+| 参数         | 说明                                                            | 类型      | 默认值    |
+| ------------ | --------------------------------------------------------------- | --------- | --------- |
 | type         | 类型，可选值为 `primary` `success` `danger` `warning` `default` | _string_  | `default` |
-| size         | 大小, 可选值为 `large` `medium` `default`                    | _string_  | `default` |
-| color        | 标签颜色                                                     | _string_  | -         |
-| plain        | 是否为空心样式                                               | _boolean_ | `false`   |
-| round        | 是否为圆角样式                                               | _boolean_ | `false`   |
-| mark         | 是否为标记样式                                               | _boolean_ | `false`   |
-| text-color   | 文本颜色，优先级高于 `color` 属性                            | _string_  | -         |
-| closeable    | 是否为可关闭标签                                             | _boolean_ | `false`   |
-| custom-class | 自定义根节点类名                                             | _string_  | -         |
-| custom-style | 自定义根节点样式                                             | _string_  | -         |
+| size         | 大小, 可选值为 `large` `medium` `default`                       | _string_  | `default` |
+| color        | 标签颜色                                                        | _string_  | -         |
+| plain        | 是否为空心样式                                                  | _boolean_ | `false`   |
+| round        | 是否为圆角样式                                                  | _boolean_ | `false`   |
+| mark         | 是否为标记样式                                                  | _boolean_ | `false`   |
+| text-color   | 文本颜色，优先级高于 `color` 属性                               | _string_  | -         |
+| closeable    | 是否为可关闭标签                                                | _boolean_ | `false`   |
+| custom-class | 自定义根节点类名                                                | _string_  | -         |
+| custom-style | 自定义根节点样式                                                | _string_  | -         |
 
 ### Slot
 
