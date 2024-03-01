@@ -46,7 +46,7 @@
           title: 'Layout 布局',
         },
         {
-          path: '',
+          path: 'popup',
           title: 'Popup 弹出层',
         },
         {
