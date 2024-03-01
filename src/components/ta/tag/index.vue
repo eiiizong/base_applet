@@ -29,11 +29,11 @@
       default: () => 'default',
     },
     /**
-     * 大小, 可选值为 large medium
+     * 大小, 可选值为 large medium default
      */
     size: {
-      type: String as PropType<'large' | 'medium' | ''>,
-      default: () => '',
+      type: String as PropType<'large' | 'medium' | 'default'>,
+      default: () => 'default',
     },
     /**
      * 标签颜色

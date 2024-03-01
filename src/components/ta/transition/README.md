@@ -68,8 +68,8 @@ transition 组件内置了多种动画，可以通过`name`字段指定动画类
 | name               | 动画类型                                                                                                                                                            | _string_           | `fade` |
 | show               | 是否展示组件                                                                                                                                                        | _boolean_          | `true` |
 | duration           | 动画时长，单位为毫秒（ms）                                                                                                                                          | _number \| object_ | `300`  |
-| custom-class       | 自定义类名                                                                                                                                                          | _string_           | -      |
-| custom-style       | 自定义样式                                                                                                                                                          | _string_           | -      |
+| custom-class       | 自定义根节点类名                                                                                                                                                    | _string_           | -      |
+| custom-style       | 自定义根节点样式                                                                                                                                                    | _string_           | -      |
 | enter-class        | 定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。                                                                                        | _string_           | -      |
 | enter-active-class | 定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。       | _string_           | -      |
 | enter-to-class     | 定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 enter-class 被移除)，在过渡/动画完成之后移除。                                                         | _string_           | -      |
