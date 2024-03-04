@@ -253,12 +253,181 @@
 
 <style lang="scss">
   @use '../common/style/var.scss' as *;
-  ::v-deep .#{$namespace}-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--overlay-background-color, $overlay-background-color);
+
+  .#{$namespace} {
+    &-popup {
+      position: fixed;
+      box-sizing: border-box;
+      max-height: 100%;
+      overflow-y: auto;
+      transition-timing-function: ease;
+      animation: ease both;
+      -webkit-overflow-scrolling: touch;
+      background-color: var(--popup-background-color, $popup-background-color);
+
+      &--center {
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+
+        &.#{$namespace}-popup--round {
+          border-radius: var(--popup-round-border-radius, $popup-round-border-radius);
+        }
+      }
+
+      &--top {
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        &.#{$namespace}-popup--round {
+          border-radius: 0 0
+            var(--popup-round-border-radius, var(--popup-round-border-radius, $popup-round-border-radius))
+            var(--popup-round-border-radius, var(--popup-round-border-radius, $popup-round-border-radius));
+        }
+      }
+
+      &--right {
+        top: 50%;
+        right: 0;
+        transform: translate3d(0, -50%, 0);
+
+        &.#{$namespace}-popup--round {
+          border-radius: var(--popup-round-border-radius, var(--popup-round-border-radius, $popup-round-border-radius))
+            0 0 var(--popup-round-border-radius, var(--popup-round-border-radius, $popup-round-border-radius));
+        }
+      }
+
+      &--bottom {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+
+        &.#{$namespace}-popup--round {
+          border-radius: var(--popup-round-border-radius, var(--popup-round-border-radius, $popup-round-border-radius))
+            var(--popup-round-border-radius, var(--popup-round-border-radius, $popup-round-border-radius)) 0 0;
+        }
+      }
+
+      &--left {
+        top: 50%;
+        left: 0;
+        transform: translate3d(0, -50%, 0);
+
+        &.#{$namespace}-popup--round {
+          border-radius: 0
+            var(--popup-round-border-radius, var(--popup-round-border-radius, $popup-round-border-radius))
+            var(--popup-round-border-radius, var(--popup-round-border-radius, $popup-round-border-radius)) 0;
+        }
+      }
+
+      &--bottom {
+        &.#{$namespace}-popup--safe {
+          padding-bottom: constant(safe-area-inset-bottom);
+          padding-bottom: env(safe-area-inset-bottom);
+        }
+      }
+
+      &--bottom.#{$namespace}-popup--safeTabBar,
+      &--top.#{$namespace}-popup--safeTabBar {
+        bottom: var(--tabbar-height, $tabbar-height);
+      }
+
+      &--safeTop {
+        padding-top: constant(safe-area-inset-top);
+        padding-top: env(safe-area-inset-top);
+      }
+
+      &__close-icon {
+        position: absolute;
+        z-index: var(--popup-close-icon-z-index, $popup-close-icon-z-index);
+        color: var(--popup-close-icon-color, $popup-close-icon-color);
+        font-size: var(--popup-close-icon-size, $popup-close-icon-size);
+
+        &--top-left {
+          top: var(--popup-close-icon-margin, $popup-close-icon-margin);
+          left: var(--popup-close-icon-margin, $popup-close-icon-margin);
+        }
+
+        &--top-right {
+          top: var(--popup-close-icon-margin, $popup-close-icon-margin);
+          right: var(--popup-close-icon-margin, $popup-close-icon-margin);
+        }
+
+        &--bottom-left {
+          bottom: var(--popup-close-icon-margin, $popup-close-icon-margin);
+          left: var(--popup-close-icon-margin, $popup-close-icon-margin);
+        }
+
+        &--bottom-right {
+          right: var(--popup-close-icon-margin, $popup-close-icon-margin);
+          bottom: var(--popup-close-icon-margin, $popup-close-icon-margin);
+        }
+
+        &:active {
+          opacity: 0.6;
+        }
+      }
+    }
+    &-scale-enter-active,
+    &-scale-leave-active {
+      transition-property: opacity, transform;
+    }
+    &-scale-enter,
+    &-scale-leave-to {
+      transform: translate3d(-50%, -50%, 0) scale(0.7);
+      opacity: 0;
+    }
+
+    &-fade-enter-active,
+    &-fade-leave-active {
+      transition-property: opacity;
+    }
+
+    &-fade-enter,
+    &-fade-leave-to {
+      opacity: 0;
+    }
+
+    &-center-enter-active,
+    &-center-leave-active {
+      transition-property: opacity;
+    }
+
+    &-center-enter,
+    &-center-leave-to {
+      opacity: 0;
+    }
+
+    &-bottom-enter-active,
+    &-bottom-leave-active,
+    &-top-enter-active,
+    &-top-leave-active,
+    &-left-enter-active,
+    &-left-leave-active,
+    &-right-enter-active,
+    &-right-leave-active {
+      transition-property: transform;
+    }
+
+    &-bottom-enter,
+    &-bottom-leave-to {
+      transform: translate3d(0, 100%, 0);
+    }
+
+    &-top-enter,
+    &-top-leave-to {
+      transform: translate3d(0, -100%, 0);
+    }
+
+    &-left-enter,
+    &-left-leave-to {
+      transform: translate3d(-100%, -50%, 0);
+    }
+
+    &-right-enter,
+    &-right-leave-to {
+      transform: translate3d(100%, -50%, 0);
+    }
   }
 </style>
