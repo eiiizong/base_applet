@@ -6,8 +6,6 @@ import { isObj } from '../common/validator'
 type Status = 'leave' | 'enter' | ''
 
 export const useTransition = (props: any, emit: any) => {
-  // const emit = defineEmits(['click', 'before-enter', 'enter', 'before-leave', 'leave', 'after-leave', 'after-enter'])
-
   const classes = ref(`enter-class enter-active-class enter-to-class leave-class leave-active-class leave-to-class `)
   const status = ref<Status>('')
   const inited = ref(false)
@@ -15,8 +13,6 @@ export const useTransition = (props: any, emit: any) => {
   const transitionEnded = ref(true)
   const currentDuration = ref(300)
   const enterFinishedPromise = ref<Promise<boolean> | null>(null)
-
-  console.log(props, 99)
 
   const getClassNames = (name: string) => {
     const prefix = GLOB_COMPONENT_CLASS_PREFIX
