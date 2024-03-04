@@ -10,28 +10,17 @@
     :root-portal="rootPortal"
   />
 
-  <view
-    v-if="inited"
-    class="custom-class {{ classes }} {{ utils.bem('popup', [position, { round, safe: safeAreaInsetBottom, safeTop: safeAreaInsetTop, safeTabBar: safeAreaTabBar }]) }}"
-    style="{{ computed.popupStyle({ zIndex, currentDuration, display, customStyle }) }}"
-    @transitionend="onTransitionEnd"
-  >
+  <view v-if="inited" :class="rootClass" :style="rootStyle" @transitionend="onTransitionEnd">
     <slot />
     <ta-icon
       v-if="closeable"
       :name="closeIcon"
-      class="close-icon-class van-popup__close-icon van-popup__close-icon--{{ closeIconPosition }}"
+      class="close-icon-class"
+      :class="[basicClass + '__close-icon', basicClass + '__close-icon--' + closeIconPosition]"
       @click="emit('close')"
     />
   </view>
 </template>
-
-<!-- 添加之后 组件之间可以样式穿透 目前未找到setup语法如何编写-->
-<!-- <script lang="ts">
-  export default {
-    options: { styleIsolation: 'shared' },
-  }
-</script> -->
 
 <script lang="ts" setup>
   import TaOverlay from '../overlay/index.vue'
@@ -40,6 +29,7 @@
   import type { PropType } from 'vue'
   import { computed, ref } from 'vue'
 
+  import { bem } from '../utils'
   import { GLOB_COMPONENT_CLASS_PREFIX } from '../constant'
   /**
    * 基础类名
@@ -188,13 +178,24 @@
   })
 
   const inited = ref(false)
+  const classes = ref('')
+  const currentDuration = ref(0)
+  const display = ref(false)
 
   /**
    * 动态设置根标签类名
    */
   const rootClass = computed(() => {
-    const { customClass } = props
-    let str = basicClass
+    const { customClass, position, round, safeAreaInsetBottom, safeAreaInsetTop, safeAreaTabBar } = props
+    let str = ''
+    str = bem('popup', [
+      position,
+      { round, safe: safeAreaInsetBottom, safeTop: safeAreaInsetTop, safeTabBar: safeAreaTabBar },
+    ])
+
+    if (classes.value) {
+      str += ` ${classes.value}`
+    }
 
     if (customClass) {
       str += ` ${customClass}`
@@ -214,6 +215,15 @@
       str += `z-index: ${zIndex}; `
     }
 
+    if (currentDuration.value) {
+      str += `transition-duration: ${currentDuration.value}ms; `
+      str += `-webkit-transition-duration: ${currentDuration.value}ms; `
+    }
+
+    if (!display.value) {
+      str += `display: none; `
+    }
+
     if (customStyle) {
       str += `${customStyle}`
     }
@@ -229,11 +239,15 @@
     }
   }
 
-  const onTouchmove = () => {
-    const { lockScroll } = props
-    if (!lockScroll) {
-      emit('touchmove')
-    }
+  // const onTouchmove = () => {
+  //   const { lockScroll } = props
+  //   if (!lockScroll) {
+  //     emit('touchmove')
+  //   }
+  // }
+
+  const onTransitionEnd = () => {
+    //
   }
 </script>
 
