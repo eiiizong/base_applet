@@ -42,8 +42,8 @@
   import TaIcon from '../icon/index.vue'
 
   import type { PropType } from 'vue'
-  import { computed, ref } from 'vue'
-
+  import { computed } from 'vue'
+  import { useTransition } from '../hooks/transition'
   import { bem } from '../utils'
   import { GLOB_COMPONENT_CLASS_PREFIX } from '../constant'
   /**
@@ -192,10 +192,7 @@
     },
   })
 
-  const inited = ref(false)
-  const display = ref(false)
-  const classes = ref(`enter-class enter-active-class enter-to-class leave-class leave-active-class leave-to-class `)
-  const currentDuration = ref(300)
+  const { inited, display, classes, currentDuration, onTransitionEnd } = useTransition(props, emit)
 
   /**
    * 动态设置根标签类名
@@ -252,17 +249,6 @@
     if (closeOnClickOverlay) {
       emit('close')
     }
-  }
-
-  // const onTouchmove = () => {
-  //   const { lockScroll } = props
-  //   if (!lockScroll) {
-  //     emit('touchmove')
-  //   }
-  // }
-
-  const onTransitionEnd = () => {
-    //
   }
 </script>
 
