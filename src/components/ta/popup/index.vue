@@ -10,16 +10,31 @@
     :root-portal="rootPortal"
   />
 
-  <view v-if="inited" :class="rootClass" :style="rootStyle" @transitionend="onTransitionEnd">
-    <slot />
-    <ta-icon
-      v-if="closeable"
-      :name="closeIcon"
-      class="close-icon-class"
-      :class="[basicClass + '__close-icon', basicClass + '__close-icon--' + closeIconPosition]"
-      @click="emit('close')"
-    />
-  </view>
+  <root-portal v-if="rootPortal">
+    <view v-if="inited" :class="rootClass" :style="rootStyle" @transitionend="onTransitionEnd">
+      <slot />
+      <ta-icon
+        v-if="closeable"
+        :name="closeIcon"
+        class="close-icon-class"
+        :class="[basicClass + '__close-icon', basicClass + '__close-icon--' + closeIconPosition]"
+        @click="emit('close')"
+      />
+    </view>
+  </root-portal>
+
+  <template v-else>
+    <view v-if="inited" :class="rootClass" :style="rootStyle" @transitionend="onTransitionEnd">
+      <slot />
+      <ta-icon
+        v-if="closeable"
+        :name="closeIcon"
+        class="close-icon-class"
+        :class="[basicClass + '__close-icon', basicClass + '__close-icon--' + closeIconPosition]"
+        @click="emit('close')"
+      />
+    </view>
+  </template>
 </template>
 
 <script lang="ts" setup>
@@ -74,7 +89,7 @@
      * 弹出位置，可选值为 top bottom right left center
      */
     position: {
-      type: String as PropType<'center' | 'top' | 'right' | 'left' | 'top'>,
+      type: String as PropType<'center' | 'top' | 'right' | 'left' | 'bottom'>,
       default: () => 'center',
     },
     /**
@@ -178,9 +193,9 @@
   })
 
   const inited = ref(false)
-  const classes = ref('')
-  const currentDuration = ref(0)
   const display = ref(false)
+  const classes = ref(`enter-class enter-active-class enter-to-class leave-class leave-active-class leave-to-class `)
+  const currentDuration = ref(300)
 
   /**
    * 动态设置根标签类名
