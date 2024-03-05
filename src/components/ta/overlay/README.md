@@ -86,15 +86,15 @@ import TaOverlay from '@/components/ta/overlay/index.vue'
 
 ### Props
 
-| 参数         | 说明                                                                       | 类型               | 默认值  |
-| ------------ | -------------------------------------------------------------------------- | ------------------ | ------- |
-| show         | 是否展示遮罩层                                                             | _boolean_          | `false` |
-| z-index      | z-index 层级                                                               | _string \| number_ | `1`     |
-| duration     | 动画时长，单位毫秒                                                         | _number_           | `300`   |
-| custom-class | 自定义类名                                                                 | _string_           | -       |
-| custom-style | 自定义样式                                                                 | _string_           | -       |
-| lock-scroll  | 是否锁定背景滚动，锁定时蒙层里的内容也将无法滚动                           | _boolean_          | `true`  |
-| root-portal  | 是否从页面中脱离出来，用于解决各种 fixed 失效问题，微信基础库 >= `2.25.2 ` | _boolean_          | `false` |
+| 参数         | 说明                                                                       | 类型                                         | 默认值  |
+| ------------ | -------------------------------------------------------------------------- | -------------------------------------------- | ------- |
+| show         | 是否展示遮罩层                                                             | _boolean_                                    | `false` |
+| z-index      | z-index 层级                                                               | _string \| number_                           | `1`     |
+| duration     | 动画时长，单位毫秒                                                         | _number \| { enter: number, leave: number }_ | `300`   |
+| custom-class | 自定义类名                                                                 | _string_                                     | -       |
+| custom-style | 自定义样式                                                                 | _string_                                     | -       |
+| lock-scroll  | 是否锁定背景滚动，锁定时蒙层里的内容也将无法滚动                           | _boolean_                                    | `true`  |
+| root-portal  | 是否从页面中脱离出来，用于解决各种 fixed 失效问题，微信基础库 >= `2.25.2 ` | _boolean_                                    | `false` |
 
 ### Events
 
