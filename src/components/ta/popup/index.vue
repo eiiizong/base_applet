@@ -42,6 +42,8 @@
   import TaIcon from '../icon/index.vue'
 
   import type { PropType } from 'vue'
+  import type Ta from '../types'
+
   import { computed } from 'vue'
   import { useTransition } from '../hooks/transition'
   import { bem } from '../utils'
@@ -89,14 +91,14 @@
      * 弹出位置，可选值为 top bottom right left center
      */
     position: {
-      type: String as PropType<'center' | 'top' | 'right' | 'left' | 'bottom'>,
+      type: String as PropType<Ta.PopupPropsPosition>,
       default: () => 'center',
     },
     /**
      * 动画时长，单位为毫秒
      */
     duration: {
-      type: Number,
+      type: [Number, Object] as PropType<number | Ta.TransitionPropsDuration>,
       default: () => 300,
     },
     /**
@@ -138,7 +140,7 @@
      * 关闭图标位置，可选值为 top-left bottom-left bottom-right top-right
      */
     closeIconPosition: {
-      type: String as PropType<'top-left' | 'bottom-left' | 'bottom-right' | 'top-right'>,
+      type: String as PropType<Ta.PopupPropsCloseIconPosition>,
       default: () => 'top-right',
     },
     /**

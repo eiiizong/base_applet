@@ -34,8 +34,9 @@
 <script lang="ts" setup>
   import TaTransition from '../transition/index.vue'
 
-  import { computed } from 'vue'
+  import type Ta from '../types'
 
+  import { computed } from 'vue'
   import { GLOB_COMPONENT_CLASS_PREFIX } from '../constant'
   /**
    * 基础类名
@@ -62,7 +63,7 @@
      * 动画时长，单位为毫秒
      */
     duration: {
-      type: Number,
+      type: [Number, Object] as PropType<number | Ta.TransitionPropsDuration>,
       default: () => 300,
     },
     /**

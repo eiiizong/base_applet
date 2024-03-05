@@ -3,11 +3,9 @@ import { GLOB_COMPONENT_CLASS_PREFIX } from '../constant'
 import { requestAnimationFrame } from '../common/utils'
 import { isObj } from '../common/validator'
 
-type Status = 'leave' | 'enter' | ''
-
 export const useTransition = (props: any, emit: any) => {
   const classes = ref(`enter-class enter-active-class enter-to-class leave-class leave-active-class leave-to-class `)
-  const status = ref<Status>('')
+  const status = ref<'leave' | 'enter' | ''>('')
   const inited = ref(false)
   const display = ref(false)
   const transitionEnded = ref(true)
