@@ -47,7 +47,7 @@
       type: Function,
     },
     /**
-     * 自定义根节点样式
+     * 根节点样式
      */
     customStyle: {
       type: String,
