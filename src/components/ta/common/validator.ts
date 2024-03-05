@@ -1,7 +1,4 @@
 // // eslint-disable-next-line @typescript-eslint/ban-types
-// export function isFunction(val: unknown): val is Function {
-//   return typeof val === 'function'
-// }
 
 // export function isPlainObject(val: unknown): val is Record<string, unknown> {
 //   return val !== null && typeof val === 'object' && !Array.isArray(val)
@@ -9,10 +6,6 @@
 
 // export function isPromise<T = unknown>(val: unknown): val is Promise<T> {
 //   return isPlainObject(val) && isFunction(val.then) && isFunction(val.catch)
-// }
-
-// export function isDef(value: unknown): boolean {
-//   return value !== undefined && value !== null
 // }
 
 // export function isNumber(value: string) {
@@ -39,3 +32,11 @@ export const isObj = (x: unknown): x is Record<string, unknown> => {
   const type = typeof x
   return x !== null && (type === 'object' || type === 'function')
 }
+
+// export const isDef = (value: unknown): boolean => {
+//   return value !== undefined && value !== null
+// }
+
+// export function isFunction(val: unknown): val is Function {
+//   return typeof val === 'function'
+// }

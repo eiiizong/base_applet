@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, ref, onMounted } from 'vue'
+  import { computed, ref, onMounted, nextTick } from 'vue'
 
   import { bem } from '../utils'
   import { GLOB_COMPONENT_CLASS_PREFIX } from '../constant'
@@ -17,7 +17,7 @@
    */
   const basicClass = GLOB_COMPONENT_CLASS_PREFIX + '-sticky'
 
-  const emit = defineEmits(['click'])
+  const emit = defineEmits(['click', 'scroll'])
   const props = defineProps({
     /**
      * 粘性定位布局下与顶部的最小距离，单位rpx
@@ -39,6 +39,13 @@
     scrollTop: {
       type: Number,
       default: () => 0,
+    },
+    /**
+     * 当前滚动区域的滚动位置，非 null 时会禁用页面滚动事件的监听
+     */
+    disabled: {
+      type: Boolean,
+      default: () => false,
     },
     /**
      * 一个函数，返回容器对应的 NodesRef 节点
@@ -135,8 +142,54 @@
     return str
   })
 
-  const onScroll = () => {
+  const setDataAfterDiff = (data: any) => {
+    nextTick(() => {
+      if (data['fixed'] !== fixed.value) {
+        fixed.value = data['fixed']
+      }
+
+      if (data['transform'] !== transform.value) {
+        transform.value = data['transform']
+      }
+
+      if (data['height'] !== height.value) {
+        height.value = data['height']
+      }
+
+      emit('scroll', {
+        scrollTop: props.scrollTop,
+        isFixed: data.fixed || fixed.value,
+      })
+    })
+  }
+
+  const getContainerRect = () => {
+    const { container } = props
+
+    if (container) {
+      const nodesRef: WechatMiniprogram.NodesRef = container()
+
+      return new Promise<WechatMiniprogram.BoundingClientRectCallbackResult>((resolve) =>
+        nodesRef.boundingClientRect(resolve).exec()
+      )
+    } else {
+      return Promise.reject(new Error('not found container'))
+    }
+  }
+
+  const onScroll = ({ scrollTop }: { scrollTop?: number } = {}) => {
+    const { container, offsetTop, disabled } = props
+    // const { container, offsetTop, disabled } = this.data;
+
     //
+
+    if (disabled) {
+      setDataAfterDiff({
+        fixed: false,
+        transform: 0,
+      })
+      return
+    }
   }
 
   onMounted(() => {

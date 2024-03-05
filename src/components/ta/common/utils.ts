@@ -1,7 +1,6 @@
 // import { isDef, isNumber, isPlainObject, isPromise } from './validator'
 // import { canIUseGroupSetData, canIUseNextTick, getSystemInfoSync } from './version'
 
-// export { isDef } from './validator'
 // export { getSystemInfoSync } from './version'
 
 // export function range(num: number, min: number, max: number) {
@@ -41,16 +40,6 @@
 //   }, {})
 // }
 
-// export function getRect(context: WechatMiniprogram.Component.TrivialInstance, selector: string) {
-//   return new Promise<WechatMiniprogram.BoundingClientRectCallbackResult>((resolve) => {
-//     wx.createSelectorQuery()
-//       .in(context)
-//       .select(selector)
-//       .boundingClientRect()
-//       .exec((rect = []) => resolve(rect[0]))
-//   })
-// }
-
 // export function getAllRect(context: WechatMiniprogram.Component.TrivialInstance, selector: string) {
 //   return new Promise<WechatMiniprogram.BoundingClientRectCallbackResult[]>((resolve) => {
 //     wx.createSelectorQuery()
@@ -86,19 +75,32 @@
 // // 限制value在[min, max]之间
 // export const clamp = (num, min, max) => Math.min(Math.max(num, min), max)
 
-// export function getCurrentPage<T>() {
-//   const pages = getCurrentPages()
-//   return pages[pages.length - 1] as T & WechatMiniprogram.Page.TrivialInstance
-// }
-
 // export const isPC = ['mac', 'windows'].includes(getSystemInfoSync().platform)
 
 // // 是否企业微信
 // export const isWxWork = getSystemInfoSync().environment === 'wxwork'
 
 // 以下正在使用
+// export { isDef } from './validator'
+
 export const requestAnimationFrame = (cb: () => void) => {
   return setTimeout(() => {
     cb()
   }, 1000 / 30)
 }
+
+// export const getRect = (context: WechatMiniprogram.Component.TrivialInstance, selector: string) => {
+//   return new Promise<WechatMiniprogram.BoundingClientRectCallbackResult>((resolve) => {
+//     uni
+//       .createSelectorQuery()
+//       .in(context)
+//       .select(selector)
+//       .boundingClientRect()
+//       .exec((rect = []) => resolve(rect[0]))
+//   })
+// }
+
+// export function getCurrentPage<T>() {
+//   const pages = getCurrentPages()
+//   return pages[pages.length - 1] as T & WechatMiniprogram.Page.TrivialInstance
+// }

@@ -88,12 +88,12 @@
             "navigationBarTitleText": "Popup 弹出层"
           }
         },
-        {
-          "path": "sticky/sticky",
-          "style": {
-            "navigationBarTitleText": "Sticky 粘性布局"
-          }
-        },
+        // {
+        //   "path": "sticky/sticky",
+        //   "style": {
+        //     "navigationBarTitleText": "Sticky 粘性布局"
+        //   }
+        // },
         {
           "path": "tag/tag",
           "style": {
