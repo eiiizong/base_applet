@@ -121,13 +121,13 @@ import TaPopup from '@/components/ta/popup/index.vue'
 
 ### Events
 
-| 事件名         | 说明             | 参数 |
-| -------------- | ---------------- | ---- |
-| @close         | 关闭弹出层时触发 | -    |
-| @click-overlay | 点击遮罩层时触发 | -    |
-| @before-enter  | 进入前触发       | -    |
-| @enter         | 进入中触发       | -    |
-| @after-enter   | 进入后触发       | -    |
-| @before-leave  | 离开前触发       | -    |
-| @leave         | 离开中触发       | -    |
-| @after-leave   | 离开后触发       | -    |
+| 事件名        | 说明             | 参数 |
+| ------------- | ---------------- | ---- |
+| close         | 关闭弹出层时触发 | -    |
+| click-overlay | 点击遮罩层时触发 | -    |
+| before-enter  | 进入前触发       | -    |
+| enter         | 进入中触发       | -    |
+| after-enter   | 进入后触发       | -    |
+| before-leave  | 离开前触发       | -    |
+| leave         | 离开中触发       | -    |
+| after-leave   | 离开后触发       | -    |
