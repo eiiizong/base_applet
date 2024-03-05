@@ -54,7 +54,7 @@
         <template #title>
           <view>
             <view class="title">单元格</view>
-            <!-- <ta-tag type="danger">标签</ta-tag> -->
+            <ta-tag type="danger">标签</ta-tag>
           </view>
         </template>
       </ta-cell>
