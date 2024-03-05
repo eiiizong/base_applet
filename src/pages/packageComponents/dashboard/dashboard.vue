@@ -2,7 +2,7 @@
   <div class="demo-home">
     <view class="demo-home__title">
       <image mode="aspectFit" class="demo-home__image" src="https://img.yzcdn.cn/vant/logo.png" />
-      <view class="demo-home__text">Ta Vant Weapp</view>
+      <view class="demo-home__text">Ta Weapp</view>
     </view>
     <view class="demo-home__desc">轻量、可靠的小程序 UI 组件库</view>
     <view v-for="(item, index) in list" :key="index">

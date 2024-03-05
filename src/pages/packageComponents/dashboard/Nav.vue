@@ -58,8 +58,8 @@
     &__block {
       position: relative;
       display: flex;
-      margin: 0 0 24rpx;
-      padding-left: 40rpx;
+      margin-bottom: 24rpx;
+      padding: 0 20rpx 0 40rpx;
       color: #323233;
       font-weight: 500;
       font-size: 28rpx;
@@ -67,6 +67,7 @@
       background: #f7f8fa;
       border-radius: 99px;
       transition: background 0.3s;
+      justify-content: space-between;
       &:hover {
         background: darken(#f7f8fa, 3%);
       }
