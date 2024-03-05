@@ -14,17 +14,17 @@
     />
     <slot v-else name="icon" />
 
-    <view :style="titleStyle" :class="basicClass + '__title title-class'">
+    <view :style="titleStyle" :class="[basicClass + '__title', titleClass]">
       <block v-if="title">{{ title }}</block>
       <slot v-else name="title" />
 
-      <view v-if="label || useLabelSlot" :class="basicClass + '__label label-class'">
+      <view v-if="label || useLabelSlot" :class="[basicClass + '__label', lableClass]">
         <slot v-if="useLabelSlot" name="label" />
         <block v-else-if="label">{{ label }}</block>
       </view>
     </view>
 
-    <view :class="basicClass + '__value value-class'">
+    <view :class="[basicClass + '__value', valueClass]">
       <block v-if="value">{{ value }}</block>
       <slot v-else />
     </view>
@@ -32,7 +32,7 @@
     <Icon
       v-if="isLink"
       :name="arrowDirection ? 'arrow-' + arrowDirection : 'arrow'"
-      :class="basicClass + '__right-icon-wrap right-icon-class'"
+      :class="[basicClass + '__right-icon-wrap', rightIconClass]"
       :custom-class="basicClass + '__right-icon'"
     />
     <slot v-else name="right-icon" />
@@ -168,14 +168,42 @@
       default: () => '',
     },
     /**
-     * 自定义根节点样式
+     * 标题样式类
+     */
+    titleClass: {
+      type: String,
+      default: () => '',
+    },
+    /**
+     * 描述信息样式类
+     */
+    lableClass: {
+      type: String,
+      default: () => '',
+    },
+    /**
+     * 右侧内容样式类
+     */
+    valueClass: {
+      type: String,
+      default: () => '',
+    },
+    /**
+     * 右侧icon样式类
+     */
+    rightIconClass: {
+      type: String,
+      default: () => '',
+    },
+    /**
+     * 根节点样式
      */
     customStyle: {
       type: String,
       default: () => '',
     },
     /**
-     * 自定义根节点类名
+     * 根节点样式类
      */
     customClass: {
       type: String,

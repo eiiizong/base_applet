@@ -37,14 +37,14 @@
       default: () => true,
     },
     /**
-     * 自定义根节点样式
+     * 根节点样式
      */
     customStyle: {
       type: String,
       default: () => '',
     },
     /**
-     * 自定义根节点类名
+     * 根节点类
      */
     customClass: {
       type: String,
