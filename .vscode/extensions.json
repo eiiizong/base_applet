@@ -6,6 +6,7 @@
     "esbenp.prettier-vscode",
     "johnstoncode.svn-scm",
     "Lokalise.i18n-ally",
-    "antfu.unocss"
+    "antfu.unocss",
+    "lokalise.i18n-ally"
   ]
 }
