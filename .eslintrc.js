@@ -123,7 +123,7 @@ module.exports = {
     //   },
     // ],
     'valid-jsdoc': 0, // jsdoc规则
-    'no-console': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'no-console': process.env.NODE_ENV === 'production' ? 1 : 0,
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'no-useless-escape': 0, // 禁止不必要的转义字符
     '@typescript-eslint/ban-types': 0, // 允许使用function 声明函数

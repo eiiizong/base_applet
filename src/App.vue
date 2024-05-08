@@ -1,12 +1,12 @@
 <script setup lang="ts">
   onLaunch(() => {
-    console.log('App Launch123345')
+    // console.log('App Launch123345')
   })
   onShow(() => {
-    console.log('App Show')
+    // console.log('App Show')
   })
   onHide(() => {
-    console.log('App Hide')
+    // console.log('App Hide')
   })
 </script>
 
