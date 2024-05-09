@@ -8,19 +8,33 @@ import App from './App.vue'
 import { createSSRApp } from 'vue'
 import { createI18n } from 'vue-i18n' // v9.x'
 
-import { getLocale } from '@/utils/uni'
 import { setupStore } from '@/stores'
-import messages from '@/locales'
+import { useStoreUserSettings } from '@/stores/modules/useStoreUserSettings'
+import messages from '@/locale'
+import { useUpdateSystemLanguageDisplay } from '@/hooks'
 
-// 获取系统已设置的语言
-const locale = getLocale()
+/**
+ * 创建国际化
+ */
+const createLocalI18n = () => {
+  let locale = ''
+  // 获取系统缓存的用户设置信息
+  const storeUserSettings = useStoreUserSettings()
+  const storeLanguage = storeUserSettings.getStoreUserSettingsLanguage
 
-const i18nConfig = {
-  locale: locale,
-  messages
+  if (storeLanguage) {
+    locale = storeLanguage
+  }
+
+  const i18nConfig = {
+    locale,
+    messages
+  }
+
+  useUpdateSystemLanguageDisplay(storeLanguage)
+
+  return createI18n(i18nConfig)
 }
-
-const i18n = createI18n(i18nConfig)
 
 export function createApp() {
   const app = createSSRApp(App)
@@ -28,7 +42,7 @@ export function createApp() {
   // pinia 仓库管理
   setupStore(app)
   // 使用国际化
-  app.use(i18n)
+  app.use(createLocalI18n())
   return {
     app
   }

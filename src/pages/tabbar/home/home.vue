@@ -1,13 +1,17 @@
 <template>
   <div class="home uno-center uno-w-750">
     <div @click="onClick">组件</div>
-    <div @click="onClick">{{ $t('common.name') }}</div>
+    <div @click="onClick">{{ $t('tabbar.home.text') }}</div>
     <button @click="onC">切换语言</button>
+    <button @click="onClick2">modal</button>
   </div>
 </template>
 
 <script setup lang="ts">
+  import { showModal } from '@/utils/uni'
   import { useI18n } from 'vue-i18n'
+  import { useStoreUserSettings } from '@/stores/modules/useStoreUserSettings'
+  import type { Store } from '@/stores/types'
 
   const { locale } = useI18n()
 
@@ -21,6 +25,12 @@
     console.log(locale.value)
 
     locale.value = locale.value === 'tibetan' ? 'zh-Hans' : 'tibetan'
+
+    useStoreUserSettings().updateStoreUserSettingsLanguage(locale.value as Store.UserSettings['language'])
+  }
+
+  const onClick2 = () => {
+    showModal('hahhahaha')
   }
 </script>
 

@@ -15,6 +15,15 @@ declare namespace Store {
      */
     sessionKey?: string
   }
+  /**
+   * store 用户系统内设置
+   */
+  export interface UserSettings {
+    /**
+     * 语言 tibetan 藏文 zh-Hans 中文
+     */
+    language: 'tibetan' | 'zh-Hans'
+  }
 }
 
 export type { Store }

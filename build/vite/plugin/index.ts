@@ -9,14 +9,13 @@ import { configEslintPlugin } from './eslint'
 
 export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean): PluginOption[] => {
   // const { VITE_OPEN_DATA_ENCRYPTION } = viteEnv
-  console.log(viteEnv, 99)
 
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     UnoCSS(),
     configComponentsPlugin(),
     configAutoImportPlugin(),
     configEslintPlugin(),
-    uni(),
+    uni()
   ]
 
   if (isBuild) {

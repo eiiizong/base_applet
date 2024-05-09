@@ -22,7 +22,7 @@ export function configComponentsPlugin(): PluginOption {
     // 允许子目录作为组件的命名空间前缀。
     directoryAsNamespace: true,
     include: [/.vue$/, /.vue?vue/],
-    exclude: [/[\/]node_modules[\/]/, /[\/].git[\/]/, /[\/].nuxt[\/]/],
+    exclude: [/[\/]node_modules[\/]/, /[\/].git[\/]/, /[\/].nuxt[\/]/]
   })
   return plugins
 }

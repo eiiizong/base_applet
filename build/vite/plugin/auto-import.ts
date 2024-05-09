@@ -11,16 +11,16 @@ export function configAutoImportPlugin(): PluginOption {
     include: [
       /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
       /\.vue$/,
-      /\.vue\?vue/, // .vue
+      /\.vue\?vue/ // .vue
     ],
     imports: ['vue', 'uni-app', 'pinia'],
     // eslint报错解决
     eslintrc: {
       enabled: true, // Default `false`
       filepath: '.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
-      globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+      globalsPropValue: true // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
     },
-    dts: 'auto-imports.d.ts',
+    dts: 'auto-imports.d.ts'
   })
   return plugins
 }

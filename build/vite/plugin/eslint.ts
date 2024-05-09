@@ -9,7 +9,7 @@ import eslintPlugin from 'vite-plugin-eslint'
 
 export function configEslintPlugin(): PluginOption {
   const plugins: PluginOption = eslintPlugin({
-    include: ['src/**/*.ts', 'src/**/*.vue', 'types/**/*.ts', 'types/**/*.d.ts', 'build/**/*.ts', 'build/**/*.d.ts'],
+    include: ['src/**/*.ts', 'src/**/*.vue', 'types/**/*.ts', 'types/**/*.d.ts', 'build/**/*.ts', 'build/**/*.d.ts']
   })
   return plugins
 }
