@@ -13,7 +13,6 @@ const useUpdateSystemLanguageDisplay = (lang: Store.UserSettings['language']) =>
 
   setTabBarItem(0, home.text, home.iconPath, home.selectedIconPath, home.pagePath)
   setTabBarItem(1, my.text, my.iconPath, my.selectedIconPath, my.pagePath)
-  console.log(9988, data)
 }
 
 export { useUpdateSystemLanguageDisplay }

@@ -2,7 +2,13 @@
   <div class="my">my</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import { useUpdateNavigationBarTitle } from '@/hooks'
+
+  onLoad(() => {
+    useUpdateNavigationBarTitle('my')
+  })
+</script>
 
 <style lang="scss" scoped>
   .my {

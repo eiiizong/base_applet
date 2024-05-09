@@ -8,10 +8,12 @@
 </template>
 
 <script setup lang="ts">
+  import type { Store } from '@/stores/types'
+
   import { showModal } from '@/utils/uni'
   import { useI18n } from 'vue-i18n'
   import { useStoreUserSettings } from '@/stores/modules/useStoreUserSettings'
-  import type { Store } from '@/stores/types'
+  // import { useUpdateNavigationBarTitle } from '@/hooks'
 
   const { locale } = useI18n()
 
@@ -27,11 +29,16 @@
     locale.value = locale.value === 'tibetan' ? 'zh-Hans' : 'tibetan'
 
     useStoreUserSettings().updateStoreUserSettingsLanguage(locale.value as Store.UserSettings['language'])
+    // useUpdateNavigationBarTitle(locale.value as Store.UserSettings['language'], 'home')
   }
 
   const onClick2 = () => {
     showModal('hahhahaha')
   }
+
+  onLoad(() => {
+    // useUpdateNavigationBarTitle(locale.value as Store.UserSettings['language'], 'home')
+  })
 </script>
 
 <style lang="scss" scoped>

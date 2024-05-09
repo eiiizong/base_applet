@@ -1,7 +1,7 @@
 /**
  * 动态设置当前页面的标题
  * @param {string} title - 页面标题
- * @support uniapp详细说明：https://uniapp.dcloud.io/api/ui/navigationbar?id=setnavigationbartitle
+ * @see {@link https://uniapp.dcloud.io/api/ui/navigationbar?id=setnavigationbartitle | uni-app官方文档}
  * @example
   setNavigationBarTitle('测试标题').then(res => {
     // 接口调用成功

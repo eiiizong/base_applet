@@ -4,6 +4,9 @@
  * 以页面名称/功能模块命名
  */
 export default {
+  app: {
+    name: '牧民群众惠民补助资金查询系统'
+  },
   tabbar: {
     home: {
       text: '首页',
@@ -19,6 +22,9 @@ export default {
     }
   },
   home: {
-    name: ''
+    title: '首页'
+  },
+  my: {
+    title: '我的'
   }
 }

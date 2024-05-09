@@ -30,7 +30,7 @@ const createLocalI18n = () => {
     locale,
     messages
   }
-
+  // useUpdateNavigationBarTitle('home')
   useUpdateSystemLanguageDisplay(storeLanguage)
 
   return createI18n(i18nConfig)
