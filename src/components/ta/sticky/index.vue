@@ -24,49 +24,49 @@
      */
     offsetTop: {
       type: Number,
-      default: () => 0,
+      default: () => 0
     },
     /**
      * z-index 层级
      */
     zIndex: {
       type: Number,
-      default: () => 99,
+      default: () => 99
     },
     /**
      * 当前滚动区域的滚动位置，非 null 时会禁用页面滚动事件的监听
      */
     scrollTop: {
       type: Number,
-      default: () => 0,
+      default: () => 0
     },
     /**
      * 当前滚动区域的滚动位置，非 null 时会禁用页面滚动事件的监听
      */
     disabled: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 一个函数，返回容器对应的 NodesRef 节点
      */
     container: {
-      type: Function,
+      type: Function
     },
     /**
      * 根节点样式
      */
     customStyle: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 根节点样式类
      */
     customClass: {
       type: String,
-      default: () => '',
-    },
+      default: () => ''
+    }
   })
 
   const transform = ref(0)
@@ -158,7 +158,7 @@
 
       emit('scroll', {
         scrollTop: props.scrollTop,
-        isFixed: data.fixed || fixed.value,
+        isFixed: data.fixed || fixed.value
       })
     })
   }
@@ -186,7 +186,7 @@
     if (disabled) {
       setDataAfterDiff({
         fixed: false,
-        transform: 0,
+        transform: 0
       })
       return
     }

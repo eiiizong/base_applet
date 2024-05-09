@@ -34,7 +34,7 @@ const getSystemInfoAsync = (): Promise<UniApp.SystemInfo> => {
           )
         }
         reject(err)
-      },
+      }
     })
   })
 }

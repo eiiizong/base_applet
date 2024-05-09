@@ -13,7 +13,7 @@
 
   const onClick = () => {
     uni.navigateTo({
-      url: '/pages/packageComponents/dashboard/dashboard',
+      url: '/pages/packageComponents/dashboard/dashboard'
     })
   }
 

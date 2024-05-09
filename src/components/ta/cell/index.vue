@@ -60,155 +60,155 @@
      */
     icon: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 左侧标题
      */
     title: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 标题宽度，须包含单位 rpx
      */
     titleWidth: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 右侧内容
      */
     value: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 标题下方的描述信息
      */
     label: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 单元格大小，可选值为 large
      */
     size: {
       type: String as PropType<'' | 'large'>,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 是否显示下边框
      */
     border: {
       type: Boolean,
-      default: () => true,
+      default: () => true
     },
     /**
      * 是否使内容垂直居中
      */
     center: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 点击后跳转的链接地址
      */
     url: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 链接跳转类型，可选值为 redirectTo switchTab reLaunch
      */
     linkType: {
       type: String as PropType<'redirectTo' | 'switchTab' | 'reLaunch' | 'navigateTo'>,
-      default: () => 'navigateTo',
+      default: () => 'navigateTo'
     },
     /**
      * 是否开启点击反馈
      */
     clickable: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否展示右侧箭头并开启点击反馈
      */
     isLink: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否显示表单必填星号
      */
     required: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 箭头方向，可选值为 left up down
      */
     arrowDirection: {
       type: String as PropType<'' | 'left' | 'up' | 'down'>,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 是否使用 label slot
      */
     useLabelSlot: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 标题样式
      */
     titleStyle: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 标题样式类
      */
     titleClass: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 描述信息样式类
      */
     lableClass: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 右侧内容样式类
      */
     valueClass: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 右侧icon样式类
      */
     rightIconClass: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 根节点样式
      */
     customStyle: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 根节点样式类
      */
     customClass: {
       type: String,
-      default: () => '',
-    },
+      default: () => ''
+    }
   })
 
   /**
@@ -248,22 +248,22 @@
       switch (linkType) {
         case 'navigateTo':
           uni.navigateTo({
-            url,
+            url
           })
           break
         case 'reLaunch':
           uni.reLaunch({
-            url,
+            url
           })
           break
         case 'switchTab':
           uni.switchTab({
-            url,
+            url
           })
           break
         case 'redirectTo':
           uni.redirectTo({
-            url,
+            url
           })
           break
         default:

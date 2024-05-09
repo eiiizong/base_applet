@@ -28,50 +28,50 @@
      */
     color: {
       type: String,
-      default: () => '#c9c9c9',
+      default: () => '#c9c9c9'
     },
     /**
      * 类型，可选值为 spinner
      */
     type: {
       type: String as PropType<'circular' | 'spinner'>,
-      default: () => 'circular',
+      default: () => 'circular'
     },
     /**
      * 加载图标大小，默认单位为 rpx
      */
     size: {
       type: [String, Number],
-      default: () => '60rpx',
+      default: () => '60rpx'
     },
     /**
      * 文字大小，默认单位为为 rpx
      */
     textSize: {
       type: [String, Number],
-      default: () => '28rpx',
+      default: () => '28rpx'
     },
     /**
      * 文本颜色
      */
     textColor: {
       type: String,
-      default: () => '#c9c9c9',
+      default: () => '#c9c9c9'
     },
     /**
      * 是否垂直排列图标和文字内容
      */
     vertical: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 根节点样式类
      */
     customClass: {
       type: String,
-      default: () => '',
-    },
+      default: () => ''
+    }
   })
   const array12 = ref(Array.from({ length: 12 }))
 

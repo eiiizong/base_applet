@@ -27,7 +27,6 @@ const showShareMenu = (title = '', content = '', imageUrl = '', path = '', withS
         console.error('uni.showShareMenu 接口调用失败 => ', err)
         reject(err)
       },
-      // @ts-ignore
       title,
       imageUrl,
       content,

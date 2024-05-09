@@ -21,7 +21,7 @@ const setClipboardData = (data: string): Promise<any> => {
       fail(err) {
         console.error('uni.setClipboardData 接口调用失败 => ', err)
         reject(err)
-      },
+      }
     })
   })
 }

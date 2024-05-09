@@ -25,7 +25,7 @@ const checkPhoneNumber = (value: string, errorMsgPrefix = '手机号码'): Phone
     /**
      * 校验结果提示信息
      */
-    errMsg: errorMsgPrefix + '未知错误',
+    errMsg: errorMsgPrefix + '未知错误'
   }
   // 格式化手机号码的值 去除空格
   value = (value + '').trim()

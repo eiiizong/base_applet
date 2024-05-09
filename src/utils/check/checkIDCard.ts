@@ -47,7 +47,7 @@ const checkIDCard = (value: string, errorMsgPrefix = '身份证号码'): IdCardC
   // 校验结果
   const checkResult = {
     isOk: false,
-    errMsg: errorMsgPrefix + '未知错误',
+    errMsg: errorMsgPrefix + '未知错误'
   }
 
   // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X。

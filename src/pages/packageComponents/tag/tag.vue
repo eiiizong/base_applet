@@ -71,7 +71,7 @@
 
   const show = ref({
     success: true,
-    primary: true,
+    primary: true
   })
 </script>
 

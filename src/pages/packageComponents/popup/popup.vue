@@ -74,7 +74,7 @@
     round: false,
     closeIcon: false,
     customCloseIcon: false,
-    customIconPosition: false,
+    customIconPosition: false
   })
 </script>
 

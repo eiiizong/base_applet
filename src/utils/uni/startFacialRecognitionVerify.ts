@@ -67,7 +67,8 @@ const startFacialRecognitionVerify = (
   idCardNumber: string,
   showErrModal = true
 ): Promise<StartFacialRecognitionVerifyeSucccessRes> => {
-  const showErrMsg = (errCode: number) => {
+  // eslint-disable-next-line complexity
+  const showErrMsg = (errCode: number): string => {
     let message = ''
     switch (errCode) {
       case 10001:

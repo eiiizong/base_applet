@@ -20,36 +20,36 @@
      */
     title: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 	是否展示为圆角卡片风格
      */
     inset: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 	是否显示外边框
      */
     border: {
       type: Boolean,
-      default: () => true,
+      default: () => true
     },
     /**
      * 根节点样式
      */
     customStyle: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 根节点类
      */
     customClass: {
       type: String,
-      default: () => '',
-    },
+      default: () => ''
+    }
   })
 
   /**

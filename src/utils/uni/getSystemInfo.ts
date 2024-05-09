@@ -22,7 +22,7 @@ const getSystemInfo = (): Promise<UniApp.GetSystemInfoResult> =>
         // eslint-disable-next-line no-console
         console.error('uni.getSystemInfo 接口调用失败 => ', err)
         reject(err)
-      },
+      }
     })
   })
 

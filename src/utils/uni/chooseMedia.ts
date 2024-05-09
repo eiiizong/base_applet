@@ -1,4 +1,3 @@
-import { TempFiles } from '@/server/types/api'
 /**
  * 拍摄或从手机相册中选择图片或视频
  * @param {number} [count=9] 最多可以选择的文件个数，微信小程序ios真机可以选择的文件个数不能大于9
@@ -11,7 +10,7 @@ const chooseMedia = (
   count = 9,
   mediaType: ('video' | 'image')[] = ['video', 'image'],
   _maxDuration = 30
-): Promise<TempFiles[]> => {
+): Promise<UniApp.MediaFile[]> => {
   return new Promise((resolve) => {
     uni.chooseMedia({
       count,
@@ -19,7 +18,7 @@ const chooseMedia = (
       maxDuration: _maxDuration,
       success(res) {
         const { tempFiles } = res
-        resolve(tempFiles as TempFiles[])
+        resolve(tempFiles)
       }
     })
   })

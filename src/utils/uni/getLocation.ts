@@ -43,7 +43,6 @@ const getLocation = (
         console.error('uni.getLocation 接口调用失败 => ', err)
         reject(err)
       },
-      // @ts-ignore
       timeout,
       cacheTimeout,
       accuracy

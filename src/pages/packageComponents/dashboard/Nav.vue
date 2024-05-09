@@ -26,8 +26,8 @@
      */
     renderData: {
       type: Object as PropType<NavItem>,
-      required: true,
-    },
+      required: true
+    }
   })
 
   /**
@@ -37,12 +37,12 @@
     if (path) {
       const url = `/pages/packageComponents/${path}/${path}`
       uni.navigateTo({
-        url,
+        url
       })
     } else {
       uni.showToast({
         title: name + '暂未开发完成，敬请期待！！！',
-        icon: 'none',
+        icon: 'none'
       })
     }
   }

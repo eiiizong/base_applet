@@ -11,9 +11,7 @@
     // 接口调用完成
   })
  */
-const getSetting = (
-  withSubscriptions: boolean = false
-): Promise<UniApp.GetSettingSuccessResult> => {
+const getSetting = (withSubscriptions: boolean = false): Promise<UniApp.GetSettingSuccessResult> => {
   return new Promise((resolve, reject) => {
     uni.getSetting({
       withSubscriptions,
@@ -23,7 +21,7 @@ const getSetting = (
       fail(err) {
         console.error('uni.getSetting 接口调用失败 => ', err)
         reject(err)
-      },
+      }
     })
   })
 }

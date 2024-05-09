@@ -9,7 +9,7 @@ const bMapToQQMap = (lng, lat) => {
   if (lng == null || lng === '' || lat == null || lat === '') {
     return {
       longitude: lng,
-      latitude: lat,
+      latitude: lat
     }
   }
 
@@ -23,7 +23,7 @@ const bMapToQQMap = (lng, lat) => {
 
   return {
     longitude: lng,
-    latitude: lat,
+    latitude: lat
   }
 }
 

@@ -26,29 +26,29 @@
      */
     span: {
       type: [String, Number],
-      default: () => '',
+      default: () => ''
     },
     /**
      * 	列元素偏移距离
      */
     offset: {
       type: [String, Number],
-      default: () => '',
+      default: () => ''
     },
     /**
      * 自定义根节点样式
      */
     customStyle: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 自定义根节点类名
      */
     customClass: {
       type: String,
-      default: () => '',
-    },
+      default: () => ''
+    }
   })
 
   /**

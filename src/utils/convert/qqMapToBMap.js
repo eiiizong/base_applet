@@ -8,7 +8,7 @@ const qqMapToBMap = (lng, lat) => {
   if (lng == null || lng === '' || lat == null || lat === '') {
     return {
       longitude: lng,
-      latitude: lat,
+      latitude: lat
     }
   }
 
@@ -21,7 +21,7 @@ const qqMapToBMap = (lng, lat) => {
   lat = (z * Math.sin(theta) + 0.006).toFixed(5)
   return {
     longitude: lng,
-    latitude: lat,
+    latitude: lat
   }
 }
 

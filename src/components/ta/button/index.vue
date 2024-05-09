@@ -68,7 +68,7 @@
     'error',
     'launchapp',
     'opensetting',
-    'chooseavatar',
+    'chooseavatar'
   ])
   const props = defineProps({
     /**
@@ -76,126 +76,126 @@
      */
     id: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 标识符，作为原生button组件的id值
      */
     buttonId: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 按钮类型，可选值为 primary info warning danger
      */
     type: {
       type: String as PropType<'default' | 'primary' | 'info' | 'warning' | 'danger'>,
-      default: () => 'default',
+      default: () => 'default'
     },
     /**
      * 按钮尺寸，可选值为 normal large small mini
      */
     size: {
       type: String as PropType<'normal' | 'large' | 'small' | 'mini'>,
-      default: () => 'normal',
+      default: () => 'normal'
     },
     /**
      * 按钮颜色，支持传入linear-gradient渐变色
      */
     color: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 左侧图标名称或图片链接，可选值见 Icon 组件
      */
     icon: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 图标类名前缀，同 Icon 组件的 class-prefix 属性
      */
     classPrefix: {
       type: String,
-      default: () => GLOB_COMPONENT_CLASS_PREFIX + '-icon',
+      default: () => GLOB_COMPONENT_CLASS_PREFIX + '-icon'
     },
     /**
      * 是否为朴素按钮
      */
     plain: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否为块级元素
      */
     block: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否为圆形按钮
      */
     round: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否为方形按钮
      */
     square: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否禁用按钮
      */
     disabled: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否使用 0.5px 边框
      */
     hairline: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否显示为加载状态
      */
     loading: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 加载状态提示文字
      */
     loadingText: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 加载状态图标类型，可选值为 spinner
      */
     loadingType: {
       type: String as PropType<'circular' | 'spinner'>,
-      default: () => 'circular',
+      default: () => 'circular'
     },
     /**
      * 加载图标大小
      */
     loadingSize: {
       type: String,
-      default: () => '40rpx',
+      default: () => '40rpx'
     },
     /**
      * 自定义样式
      */
     customStyle: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 微信开放能力，具体支持可参考 微信官方文档 https://developers.weixin.qq.com/miniprogram/dev/component/button.html
@@ -233,91 +233,91 @@
         | 'chooseAvatar'
         | 'agreePrivacyAuthorization'
       >,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 打开 APP 时，向 APP 传递的参数，open-type=launchApp时有效
      */
     appParameter: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 指定返回用户信息的语言，zh_CN 简体中文，zh_TW 繁体中文，en 英文
      */
     lang: {
       type: String as PropType<'en' | 'zh_CN' | 'zh_TW'>,
-      default: () => 'en',
+      default: () => 'en'
     },
     /**
      * 会话来源，open-type="contact"时有效
      */
     sessionFrom: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 客服消息子商户 id
      */
     businessId: {
-      type: [Number],
+      type: [Number]
     },
     /**
      * 会话内消息卡片标题，open-type="contact"时有效
      */
     sendMessageTitle: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 会话内消息卡片点击跳转小程序路径，open-type="contact"时有效
      */
     sendMessagePath: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 会话内消息卡片图片，open-type="contact"时有效
      */
     sendMessageImg: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 显示会话内消息卡片
      */
     showMessageCard: {
       type: String,
-      default: () => 'false',
+      default: () => 'false'
     },
     /**
      * 按钮 dataset，open-type 为 share 时，可在 onShareAppMessage 事件的 event.target.dataset.detail 中看到传入的值
      */
     dataset: {
       type: String as PropType<any>,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 用于 form 组件，可选值为submit reset，点击分别会触发 form 组件的 submit/reset 事件
      */
     formType: {
       type: String as PropType<'' | 'submit' | 'reset'>,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 根节点样式类
      */
     customClass: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      *
      */
     ariaLabel: {
       type: String,
-      default: () => '',
-    },
+      default: () => ''
+    }
   })
 
   /**
@@ -345,7 +345,7 @@
     str += bem('button', [
       type,
       size,
-      { block, round, plain, square, loading, disabled, hairline, unclickable: disabled || loading },
+      { block, round, plain, square, loading, disabled, hairline, unclickable: disabled || loading }
     ])
 
     if (customClass) {

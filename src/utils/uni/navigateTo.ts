@@ -53,7 +53,7 @@ const navigateTo = (
         fail(err) {
           console.error(`uni.navigateTo 接口调用失败！跳转路径：${url}`, err)
           reject(err)
-        },
+        }
       })
     } else {
       const errMsg = 'navigateTo 方法传入的第一个参数 name 不能为空，请检查！'

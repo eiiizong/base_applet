@@ -5,5 +5,5 @@ import zhHans from './zh-Hans'
 export default {
   en,
   tibetan,
-  'zh-Hans': zhHans,
+  'zh-Hans': zhHans
 }

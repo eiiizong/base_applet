@@ -15,22 +15,22 @@
      */
     title: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      *
      */
     padding: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      *
      */
     card: {
       type: Boolean,
-      default: () => false,
-    },
+      default: () => false
+    }
   })
 </script>
 

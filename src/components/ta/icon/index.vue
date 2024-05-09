@@ -22,57 +22,57 @@
      */
     name: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 是否显示图标右上角小红点
      */
     dot: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 	图标右上角文字提示
      */
     info: {
       type: [String, Number],
-      default: () => '',
+      default: () => ''
     },
     /**
      * 图标颜色
      */
     color: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 图标大小，如 40rpx，2em，默认单位为rpx
      */
     size: {
       type: [String, Number],
-      default: () => '',
+      default: () => ''
     },
     /**
      * 类名前缀
      */
     classPrefix: {
       type: String,
-      default: () => GLOB_COMPONENT_CLASS_PREFIX + '-icon',
+      default: () => GLOB_COMPONENT_CLASS_PREFIX + '-icon'
     },
     /**
      * 自定义根标签样式
      */
     customStyle: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 自定义根标签类名
      */
     customClass: {
       type: String,
-      default: () => '',
-    },
+      default: () => ''
+    }
   })
 
   /**

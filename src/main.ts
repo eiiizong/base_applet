@@ -8,15 +8,16 @@ import App from './App.vue'
 import { createSSRApp } from 'vue'
 import { createI18n } from 'vue-i18n' // v9.x'
 
+import { getLocale } from '@/utils/uni'
 import { setupStore } from '@/stores'
 import messages from '@/locales'
 
 // 获取系统已设置的语言
-const locale = uni.getLocale()
+const locale = getLocale()
 
 const i18nConfig = {
   locale: locale,
-  messages,
+  messages
 }
 
 const i18n = createI18n(i18nConfig)
@@ -29,6 +30,6 @@ export function createApp() {
   // 使用国际化
   app.use(i18n)
   return {
-    app,
+    app
   }
 }

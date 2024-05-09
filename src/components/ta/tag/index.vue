@@ -26,71 +26,71 @@
      */
     type: {
       type: String as PropType<'primary' | 'success' | 'danger' | 'warning' | 'default'>,
-      default: () => 'default',
+      default: () => 'default'
     },
     /**
      * 大小, 可选值为 large medium default
      */
     size: {
       type: String as PropType<'large' | 'medium' | 'default'>,
-      default: () => 'default',
+      default: () => 'default'
     },
     /**
      * 标签颜色
      */
     color: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 是否为空心样式
      */
     plain: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否为圆角样式
      */
     round: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否为标记样式
      */
     mark: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 文本颜色，优先级高于 color 属性
      */
     textColor: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 是否为可关闭标签
      */
     closeable: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 自定义根节点样式
      */
     customStyle: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 自定义根节点类名
      */
     customClass: {
       type: String,
-      default: () => '',
-    },
+      default: () => ''
+    }
   })
 
   /**

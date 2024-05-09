@@ -4,7 +4,7 @@
  * @example
   hideHomeButton()
  */
-const hideHomeButton = ():void => {
+const hideHomeButton = (): void => {
   uni.hideHomeButton()
 }
 export { hideHomeButton }

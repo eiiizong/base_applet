@@ -27,7 +27,7 @@
 <!-- 添加之后 组件之间可以样式穿透 目前未找到setup语法如何编写-->
 <script lang="ts">
   export default {
-    options: { styleIsolation: 'shared' },
+    options: { styleIsolation: 'shared' }
   }
 </script>
 
@@ -50,50 +50,50 @@
      */
     show: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * z-index 层级
      */
     zIndex: {
       type: [Number, String],
-      default: () => 1,
+      default: () => 1
     },
     /**
      * 动画时长，单位为毫秒
      */
     duration: {
       type: [Number, Object] as PropType<number | Ta.TransitionPropsDuration>,
-      default: () => 300,
+      default: () => 300
     },
     /**
      * 是否锁定背景滚动，锁定时蒙层里的内容也将无法滚动
      */
     lockScroll: {
       type: Boolean,
-      default: () => true,
+      default: () => true
     },
     /**
      * 是否从页面中脱离出来，用于解决各种 fixed 失效问题，微信基础库 >= 2.25.2
      */
     rootPortal: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 自定义根节点样式
      */
     customStyle: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 自定义根节点类名
      */
     customClass: {
       type: String,
-      default: () => '',
-    },
+      default: () => ''
+    }
   })
 
   /**

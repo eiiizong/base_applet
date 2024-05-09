@@ -5,7 +5,7 @@ const isDev = getIsDev()
 enum Gender {
   male = '男',
   female = '女',
-  other = '其他',
+  other = '其他'
 }
 
 /**

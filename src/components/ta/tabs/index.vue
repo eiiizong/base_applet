@@ -16,11 +16,11 @@
           scroll-x="{{ scrollable }}"
           scroll-with-animation="{{ scrollWithAnimation }}"
           scroll-left="{{ scrollLeft }}"
-          class="{{ utils.bem('tabs__scroll', [type]) }}"
+          class="{{ }} utils.bem('tabs__scroll', [type])"
           style="{{ color ? 'border-color: ' + color : '' }}"
         >
           <view
-            class="{{ utils.bem('tabs__nav', [type, { complete: !ellipsis }]) }} nav-class"
+            class="{{ { }} utils.bem('tabs__nav', [type, complete: }]) nav-class !ellipsis"
             style="{{ computed.navStyle(color, type) }}"
           >
             <view
@@ -32,11 +32,11 @@
               wx:for="{{ tabs }}"
               wx:key="index"
               data-index="{{ index }}"
-              class="{{ computed.tabClass(index === currentIndex, ellipsis) }} {{ utils.bem('tab', { active: index === currentIndex, disabled: item.disabled, complete: !ellipsis }) }}"
+              class="{{ === }} {{ { === complete: !ellipsis }) }} active: disabled: computed.tabClass(index currentIndex, ellipsis) utils.bem('tab', index currentIndex, item.disabled,"
               style="{{ computed.tabStyle({ active: index === currentIndex, ellipsis, color, type, disabled: item.disabled, titleActiveColor, titleInactiveColor, swipeThreshold, scrollable }) }}"
               bind:tap="onTap"
             >
-              <view class="{{ ellipsis ? 'van-ellipsis' : '' }}" style="{{ item.titleStyle }}">
+              <view class="{{ ? : '' }} ellipsis 'van-ellipsis'" style="{{ item.titleStyle }}">
                 {{ item.title }}
                 <van-info
                   wx:if="{{ item.info !== null || item.dot }}"
@@ -61,7 +61,7 @@
       bind:touchcancel="onTouchEnd"
     >
       <view
-        class="{{ utils.bem('tabs__track', [{ animated }]) }} van-tabs__track"
+        class="{{ }]) }} utils.bem('tabs__track', [{ animated van-tabs__track"
         style="{{ computed.trackStyle({ duration, currentIndex, animated }) }}"
       >
         <slot />
@@ -84,141 +84,141 @@
      */
     type: {
       type: String as PropType<'card' | 'line'>,
-      default: () => 'line',
+      default: () => 'line'
     },
     /**
      * 标签主题色
      */
     color: {
       type: String,
-      default: () => '#ee0a24',
+      default: () => '#ee0a24'
     },
     /**
      * 当前选中标签的标识符
      */
     active: {
       type: [String, Number],
-      default: () => '0',
+      default: () => '0'
     },
     /**
      * 动画时间，单位秒
      */
     duration: {
       type: Number,
-      default: () => 0.3,
+      default: () => 0.3
     },
     /**
      * 底部条宽度，默认单位rpx
      */
     lineWidth: {
       type: [Number, String],
-      default: () => '80rpx',
+      default: () => '80rpx'
     },
     /**
      * 底部条高度，默认单位rpx
      */
     lineHeight: {
       type: [Number, String],
-      default: () => '6rpx',
+      default: () => '6rpx'
     },
     /**
      * 是否开启切换标签内容时的转场动画
      */
     animated: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否展示外边框，仅在 line 风格下生效
      */
     border: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否省略过长的标题文字
      */
     ellipsis: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否使用粘性定位布局
      */
     sticky: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否开启手势滑动切换
      */
     swipeable: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否开启标签页内容延迟渲染
      */
     lazyRender: {
       type: Boolean,
-      default: () => true,
+      default: () => true
     },
     /**
      * 粘性定位布局下与顶部的最小距离，单位rpx
      */
     offsetTop: {
       type: Number,
-      default: () => 0,
+      default: () => 0
     },
     /**
      * 滚动阈值，标签数量超过阈值且总宽度超过标签栏宽度时开始横向滚动
      */
     swipeThreshold: {
       type: Number,
-      default: () => 5,
+      default: () => 5
     },
     /**
      * 标题选中态颜色
      */
     titleActiveColor: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 标题默认态颜色
      */
     titleInactiveColor: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * z-index 层级
      */
     zIndex: {
       type: Number,
-      default: () => 1,
+      default: () => 1
     },
     /**
      * 是否开启切换前校验
      */
     useBeforeChange: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 自定义样式
      */
     customStyle: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 根节点样式类
      */
     customClass: {
       type: String,
-      default: () => '',
-    },
+      default: () => ''
+    }
   })
 
   /**

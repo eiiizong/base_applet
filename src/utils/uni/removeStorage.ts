@@ -21,7 +21,7 @@ const removeStorage = (key: string): Promise<any> => {
       fail(err) {
         console.error('uni.removeStorage 接口调用失败 => ', err)
         reject(err)
-      },
+      }
     })
   })
 }

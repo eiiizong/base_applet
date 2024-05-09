@@ -19,7 +19,7 @@ export const useTransition = (props: any, emit: any) => {
       enter: `${prefix}-${name}-enter ${prefix}-${name}-enter-active ${enterClass} ${enterActiveClass} `,
       'enter-to': `${prefix}-${name}-enter-to ${prefix}-${name}-enter-active ${enterToClass} ${enterActiveClass} `,
       leave: `${prefix}-${name}-leave ${prefix}-${name}-leave-active ${leaveClass} ${leaveActiveClass} `,
-      'leave-to': `${prefix}-${name}-leave-to ${prefix}-${name}-leave-active ${leaveToClass} ${leaveActiveClass}  `,
+      'leave-to': `${prefix}-${name}-leave-to ${prefix}-${name}-leave-active ${leaveToClass} ${leaveActiveClass}  `
     }
   }
 
@@ -144,6 +144,6 @@ export const useTransition = (props: any, emit: any) => {
     inited,
     display,
     currentDuration,
-    onTransitionEnd,
+    onTransitionEnd
   }
 }

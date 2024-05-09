@@ -16,29 +16,29 @@
      */
     dot: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 	图标右上角文字提示
      */
     info: {
       type: [String, Number],
-      default: () => '',
+      default: () => ''
     },
     /**
      * 自定义根节点样式
      */
     customStyle: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 自定义根节点类名
      */
     customClass: {
       type: String,
-      default: () => '',
-    },
+      default: () => ''
+    }
   })
 
   /**

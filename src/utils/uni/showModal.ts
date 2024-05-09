@@ -55,7 +55,7 @@ const showModal = (
       fail(err) {
         console.error('uni.showModal 接口调用失败 => ', err)
         reject(err)
-      },
+      }
     })
   })
 }

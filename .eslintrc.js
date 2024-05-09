@@ -3,7 +3,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
+    node: true
   },
   globals: {},
   /* 指定如何解析语法 */
@@ -15,8 +15,8 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     jsxPragma: 'React',
     ecmaFeatures: {
-      jsx: true,
-    },
+      jsx: true
+    }
   },
   /* 继承已有的规则 */
   extends: [
@@ -25,16 +25,16 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     '@unocss',
-    './.eslintrc-auto-import.json',
+    './.eslintrc-auto-import.json'
   ],
   plugins: ['vue', '@typescript-eslint'],
   overrides: [
     {
       files: ['*.ts', '*.tsx', '*.vue'],
       rules: {
-        'no-undef': 0,
-      },
-    },
+        'no-undef': 0
+      }
+    }
   ],
   /*
    * 'off' 或 0    ==>  关闭规则
@@ -50,8 +50,8 @@ module.exports = {
         vars: 'all', // 检测所有变量，包括全局环境中的变量。这是默认值。
         args: 'after-used', // 检测所有变量，包括全局环境中的变量。这是默认值。
         // 指定不需要检查的变量
-        varsIgnorePattern: 'props|emit',
-      },
+        varsIgnorePattern: 'props|emit'
+      }
     ],
     '@typescript-eslint/prefer-ts-expect-error': 2, // 禁止使用 @ts-ignore
     '@typescript-eslint/no-explicit-any': 0, // 禁止使用 any 类型
@@ -79,16 +79,16 @@ module.exports = {
       2,
       {
         singleline: 'ignore',
-        multiline: 'below',
-      },
+        multiline: 'below'
+      }
     ],
     // 强制设置第一个属性的位置
     '@typescript-eslint/no-this-alias': [
       'warn',
       {
         allowDestructuring: false, // Disallow `const { props, state } = this`; true by default
-        allowedNames: ['_this'], // this的別名可以为_this
-      },
+        allowedNames: ['_this'] // this的別名可以为_this
+      }
     ],
     // eslint（https://eslint.bootcss.com/docs/rules/）
     'no-unexpected-multiline': 2, // 禁止空余的多行
@@ -156,15 +156,15 @@ module.exports = {
         singleQuote: true,
         // 缩进空格数，默认2个空格
         tabWidth: 2,
-        // 多行时尽可能打印尾随逗号。
-        trailingComma: 'es5',
+        // 多行时尽可能不打印尾随逗号。
+        trailingComma: 'none',
         // 使用制表符而不是空格缩进行
         useTabs: false,
         // Vue文件脚本和样式标签缩进
         vueIndentScriptAndStyle: true,
         // 换行符使用 lf 结尾是 可选值"<auto|lf|crlf|cr>"
-        endOfLine: 'auto',
-      },
-    ],
-  },
+        endOfLine: 'auto'
+      }
+    ]
+  }
 }

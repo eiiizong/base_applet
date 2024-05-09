@@ -20,8 +20,8 @@
      */
     gutter: {
       type: Number,
-      default: () => 0,
-    },
+      default: () => 0
+    }
   })
 
   provide('gutter', props.gutter)

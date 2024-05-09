@@ -23,37 +23,37 @@
       list: [
         {
           path: 'button',
-          title: 'Button 按钮',
+          title: 'Button 按钮'
         },
         {
           path: 'cell',
-          title: 'Cell 单元格',
+          title: 'Cell 单元格'
         },
         {
           path: '',
-          title: 'ConfigProvider 全局配置',
+          title: 'ConfigProvider 全局配置'
         },
         {
           path: 'icon',
-          title: 'Icon 图标',
+          title: 'Icon 图标'
         },
         {
           path: '',
-          title: 'Image 图片',
+          title: 'Image 图片'
         },
         {
           path: 'col',
-          title: 'Layout 布局',
+          title: 'Layout 布局'
         },
         {
           path: 'popup',
-          title: 'Popup 弹出层',
+          title: 'Popup 弹出层'
         },
         {
           path: 'transition',
-          title: 'Transition 动画',
-        },
-      ],
+          title: 'Transition 动画'
+        }
+      ]
     },
     {
       groupName: '表单组件',
@@ -61,57 +61,57 @@
       list: [
         {
           path: '',
-          title: 'Calendar 日历',
+          title: 'Calendar 日历'
         },
         {
           path: '',
-          title: 'Cascader 级联选择',
+          title: 'Cascader 级联选择'
         },
         {
           path: '',
-          title: 'Checkbox 复选框',
+          title: 'Checkbox 复选框'
         },
         {
           path: '',
-          title: 'DatetimePicker 时间选择',
+          title: 'DatetimePicker 时间选择'
         },
         {
           path: '',
-          title: 'Field 输入框',
+          title: 'Field 输入框'
         },
         {
           path: '',
-          title: 'Picker 选择器',
+          title: 'Picker 选择器'
         },
         {
           path: '',
-          title: 'Radio 单选框',
+          title: 'Radio 单选框'
         },
         {
           path: '',
-          title: 'Rate 评分',
+          title: 'Rate 评分'
         },
         {
           path: '',
-          title: 'Search 搜索',
+          title: 'Search 搜索'
         },
         {
           path: '',
-          title: 'Slider 滑块',
+          title: 'Slider 滑块'
         },
         {
           path: '',
-          title: 'Stepper 步进器',
+          title: 'Stepper 步进器'
         },
         {
           path: '',
-          title: 'Switch 开关',
+          title: 'Switch 开关'
         },
         {
           path: '',
-          title: 'Uploader 文件上传',
-        },
-      ],
+          title: 'Uploader 文件上传'
+        }
+      ]
     },
     {
       groupName: '反馈组件',
@@ -119,41 +119,41 @@
       list: [
         {
           path: '',
-          title: 'ActionSheet 动作面板',
+          title: 'ActionSheet 动作面板'
         },
         {
           path: '',
-          title: 'Dialog 弹出框',
+          title: 'Dialog 弹出框'
         },
         {
           path: '',
-          title: 'DropdownMenu 下拉菜单',
+          title: 'DropdownMenu 下拉菜单'
         },
         {
           path: 'loading',
-          title: 'Loading 加载',
+          title: 'Loading 加载'
         },
         {
           path: '',
-          title: 'Notify 消息通知',
+          title: 'Notify 消息通知'
         },
         {
           path: 'overlay',
-          title: 'Overlay 遮罩层',
+          title: 'Overlay 遮罩层'
         },
         {
           path: '',
-          title: 'ShareSheet 分享面板',
+          title: 'ShareSheet 分享面板'
         },
         {
           path: '',
-          title: 'SwipeCell 滑动单元格',
+          title: 'SwipeCell 滑动单元格'
         },
         {
           path: '',
-          title: 'Toast 轻提示',
-        },
-      ],
+          title: 'Toast 轻提示'
+        }
+      ]
     },
     {
       groupName: '展示组件',
@@ -161,57 +161,57 @@
       list: [
         {
           path: '',
-          title: 'Circle 进度条',
+          title: 'Circle 进度条'
         },
         {
           path: '',
-          title: 'Collapse 折叠面板',
+          title: 'Collapse 折叠面板'
         },
         {
           path: '',
-          title: 'CountDown 倒计时',
+          title: 'CountDown 倒计时'
         },
         {
           path: '',
-          title: 'Divider 分割线',
+          title: 'Divider 分割线'
         },
         {
           path: '',
-          title: 'Empty 空状态',
+          title: 'Empty 空状态'
         },
         {
           path: '',
-          title: 'NoticeBar 通知栏',
+          title: 'NoticeBar 通知栏'
         },
         {
           path: '',
-          title: 'Panel 面板',
+          title: 'Panel 面板'
         },
         {
           path: '',
-          title: 'Progress 进度条',
+          title: 'Progress 进度条'
         },
         {
           path: '',
-          title: 'Skeleton 骨架屏',
+          title: 'Skeleton 骨架屏'
         },
         {
           path: '',
-          title: 'Steps 步骤条',
+          title: 'Steps 步骤条'
         },
         {
           path: '',
-          title: 'Sticky 粘性布局',
+          title: 'Sticky 粘性布局'
         },
         {
           path: 'tag',
-          title: 'Tag 标记',
+          title: 'Tag 标记'
         },
         {
           path: '',
-          title: 'TreeSelect 分类选择',
-        },
-      ],
+          title: 'TreeSelect 分类选择'
+        }
+      ]
     },
     {
       groupName: '导航组件',
@@ -219,29 +219,29 @@
       list: [
         {
           path: '',
-          title: 'Grid 宫格',
+          title: 'Grid 宫格'
         },
         {
           path: '',
-          title: 'IndexBar 索引栏',
+          title: 'IndexBar 索引栏'
         },
         {
           path: '',
-          title: 'Sidebar 侧边导航',
+          title: 'Sidebar 侧边导航'
         },
         {
           path: '',
-          title: 'NavBar 导航栏',
+          title: 'NavBar 导航栏'
         },
         {
           path: '',
-          title: 'Tab 标签页',
+          title: 'Tab 标签页'
         },
         {
           path: '',
-          title: 'Tabbar 标签栏',
-        },
-      ],
+          title: 'Tabbar 标签栏'
+        }
+      ]
     },
     {
       groupName: '业务组件',
@@ -249,22 +249,22 @@
       list: [
         {
           path: '',
-          title: 'Area 省市区选择',
+          title: 'Area 省市区选择'
         },
         {
           path: '',
-          title: 'Card 商品卡片',
+          title: 'Card 商品卡片'
         },
         {
           path: '',
-          title: 'SubmitBar 提交订单栏',
+          title: 'SubmitBar 提交订单栏'
         },
         {
           path: '',
-          title: 'GoodsAction 商品导航',
-        },
-      ],
-    },
+          title: 'GoodsAction 商品导航'
+        }
+      ]
+    }
   ])
 </script>
 

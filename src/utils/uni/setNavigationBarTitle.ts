@@ -21,7 +21,7 @@ const setNavigationBarTitle = (title: string): Promise<any> => {
       fail(err) {
         console.error('uni.setNavigationBarTitle 接口调用失败 => ', err)
         reject(err)
-      },
+      }
     })
   })
 }

@@ -63,7 +63,7 @@
     'after-enter',
     'before-leave',
     'leave',
-    'after-leave',
+    'after-leave'
   ])
   const props = defineProps({
     /**
@@ -71,127 +71,127 @@
      */
     show: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * z-index 层级
      */
     zIndex: {
       type: Number,
-      default: () => 100,
+      default: () => 100
     },
     /**
      * 是否显示遮罩层
      */
     overlay: {
       type: Boolean,
-      default: () => true,
+      default: () => true
     },
     /**
      * 弹出位置，可选值为 top bottom right left center
      */
     position: {
       type: String as PropType<Ta.PopupPropsPosition>,
-      default: () => 'center',
+      default: () => 'center'
     },
     /**
      * 动画时长，单位为毫秒
      */
     duration: {
       type: [Number, Object] as PropType<number | Ta.TransitionPropsDuration>,
-      default: () => 300,
+      default: () => 300
     },
     /**
      * 是否显示圆角
      */
     round: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否锁定背景滚动，锁定时蒙层里的内容也将无法滚动
      */
     lockScroll: {
       type: Boolean,
-      default: () => true,
+      default: () => true
     },
     /**
      * 是否在点击遮罩层后关闭
      */
     closeOnClickOverlay: {
       type: Boolean,
-      default: () => true,
+      default: () => true
     },
     /**
      * 是否显示关闭图标
      */
     closeable: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 关闭图标名称或图片链接
      */
     closeIcon: {
       type: String,
-      default: () => 'cross',
+      default: () => 'cross'
     },
     /**
      * 关闭图标位置，可选值为 top-left bottom-left bottom-right top-right
      */
     closeIconPosition: {
       type: String as PropType<Ta.PopupPropsCloseIconPosition>,
-      default: () => 'top-right',
+      default: () => 'top-right'
     },
     /**
      * 是否为 iPhoneX 留出底部安全距离
      */
     safeAreaInsetBottom: {
       type: Boolean,
-      default: () => true,
+      default: () => true
     },
     /**
      * 是否留出顶部安全距离（状态栏高度）
      */
     safeAreaInsetTop: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否留出底部 tabbar 安全距离（在使用 tabbar 组件 & 小程序自定义 tabbar 时，popup 组件层级无法盖住 tabbar）
      */
     safeAreaTabBar: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 是否从页面中脱离出来，用于解决各种 fixed 失效问题，微信基础库 >= 2.25.2
      */
     rootPortal: {
       type: Boolean,
-      default: () => false,
+      default: () => false
     },
     /**
      * 	自定义遮罩层样式
      */
     overlayStyle: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 自定义弹出层样式
      */
     customStyle: {
       type: String,
-      default: () => '',
+      default: () => ''
     },
     /**
      * 自定义根节点类名
      */
     customClass: {
       type: String,
-      default: () => '',
-    },
+      default: () => ''
+    }
   })
 
   const { inited, display, classes, currentDuration, onTransitionEnd } = useTransition(props, emit)
@@ -204,7 +204,7 @@
     let str = ''
     str = bem('popup', [
       position,
-      { round, safe: safeAreaInsetBottom, safeTop: safeAreaInsetTop, safeTabBar: safeAreaTabBar },
+      { round, safe: safeAreaInsetBottom, safeTop: safeAreaInsetTop, safeTabBar: safeAreaTabBar }
     ])
 
     if (classes.value) {
