@@ -17,7 +17,7 @@ import { useUpdateSystemLanguageDisplay } from '@/hooks'
 const useStoreUserSettings = defineStore('storeUserSettings', {
   state: (): Store.UserSettings => {
     return {
-      language: 'tibetan'
+      language: 'zh-Hans'
     }
   },
   getters: {

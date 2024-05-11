@@ -29,18 +29,14 @@
     locale.value = locale.value === 'tibetan' ? 'zh-Hans' : 'tibetan'
 
     useStoreUserSettings().updateStoreUserSettingsLanguage(locale.value as Store.UserSettings['language'])
-    // useUpdateNavigationBarTitle(locale.value as Store.UserSettings['language'], 'home')
   }
 
   const onClick2 = () => {
     showModal('hahhahaha')
   }
 
-  onLoad(() => {
-    useUpdateNavigationBarTitle('home')
-
-    // setNavigationBarTitle('23')
-    // useUpdateNavigationBarTitle(locale.value as Store.UserSettings['language'], 'home')
+  onShow(() => {
+    useUpdateNavigationBarTitle()
   })
 </script>
 

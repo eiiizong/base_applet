@@ -3,11 +3,11 @@
 </template>
 
 <script setup lang="ts">
-  // import { useUpdateNavigationBarTitle } from '@/hooks'
+  import { useUpdateNavigationBarTitle } from '@/hooks'
 
-  // onLoad(() => {
-  //   useUpdateNavigationBarTitle('my')
-  // })
+  onShow(() => {
+    useUpdateNavigationBarTitle()
+  })
 </script>
 
 <style lang="scss" scoped>

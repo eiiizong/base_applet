@@ -1,20 +1,31 @@
+import type { PageNmae } from '@/types'
+
 import messages from '@/locale'
 import { setNavigationBarTitle } from '@/utils/uni'
 import { useStoreUserSettings } from '@/stores/modules/useStoreUserSettings'
 
-type PageNmae = 'home' | 'my'
-
 /**
  * 更新页面标题
- * @param {PageNmae} pageNmae
- * @param {PageNmae} pageNmae
  */
-const useUpdateNavigationBarTitle = (pageNmae: PageNmae) => {
+const useUpdateNavigationBarTitle = () => {
+  // #ifndef H5
+  // h5 平台不执行以下代码
   const storeUserSettings = useStoreUserSettings()
-  const data = messages[storeUserSettings.getStoreUserSettingsLanguage]
-  const { title } = data[pageNmae]
+  const { getStoreUserSettingsLanguage } = storeUserSettings
+  const data = messages[getStoreUserSettingsLanguage]
 
-  setNavigationBarTitle(title)
+  const pages = getCurrentPages()
+  if (pages) {
+    const { route } = pages[pages.length - 1]
+    if (route) {
+      const name = route?.split('/')[2]
+      if (name) {
+        const { title } = data[name as PageNmae]
+        setNavigationBarTitle(title)
+      }
+    }
+  }
+  // #endif
 }
 
 export { useUpdateNavigationBarTitle }
