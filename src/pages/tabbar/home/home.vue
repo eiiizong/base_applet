@@ -37,6 +37,9 @@
   }
 
   onLoad(() => {
+    console.log(123)
+
+    // setNavigationBarTitle('23')
     // useUpdateNavigationBarTitle(locale.value as Store.UserSettings['language'], 'home')
   })
 </script>

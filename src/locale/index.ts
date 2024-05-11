@@ -1,5 +1,5 @@
-import tibetan from './tibetan'
-import zhHans from './zh-Hans'
+import tibetan from './tibetan.json'
+import zhHans from './zh-Hans.json'
 
 export default {
   tibetan,

@@ -15,8 +15,8 @@
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "i18n-ally.localesPaths": ["src/locales"],
-  "i18n-ally.enabledParsers": ["ts"],
+  "i18n-ally.localesPaths": ["src/locale"],
+  "i18n-ally.enabledParsers": ["json"],
   "i18n-ally.sourceLanguage": "en",
   "i18n-ally.displayLanguage": "zh-Hans",
   "i18n-ally.keystyle": "nested"
