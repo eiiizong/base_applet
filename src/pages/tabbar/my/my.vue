@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-  import { useUpdateNavigationBarTitle } from '@/hooks'
+  import { useUpdateNavigationBarTitle } from '@/hooks/useUpdateNavigationBarTitle'
 
   onShow(() => {
     useUpdateNavigationBarTitle()

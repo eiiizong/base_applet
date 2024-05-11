@@ -13,7 +13,7 @@
   import { showModal } from '@/utils/uni'
   import { useI18n } from 'vue-i18n'
   import { useStoreUserSettings } from '@/stores/modules/useStoreUserSettings'
-  import { useUpdateNavigationBarTitle } from '@/hooks'
+  import { useUpdateNavigationBarTitle } from '@/hooks/useUpdateNavigationBarTitle'
 
   const { locale } = useI18n()
 
