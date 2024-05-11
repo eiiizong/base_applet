@@ -1,7 +1,7 @@
-import zhTibetan from './zh-Tibetan.json'
+import ja from './ja.json'
 import zhHans from './zh-Hans.json'
 
 export default {
-  'zh-Tibetan': zhTibetan,
+  ja: ja,
   'zh-Hans': zhHans
 }

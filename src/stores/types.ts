@@ -20,9 +20,9 @@ declare namespace Store {
    */
   export interface UserSettings {
     /**
-     * 语言 zh-Tibetan 藏文 zh-Hans 中文
+     * 语言 ja 藏文 zh-Hans 中文
      */
-    language: 'zh-Tibetan' | 'zh-Hans'
+    language: 'ja' | 'zh-Hans'
   }
 }
 
