@@ -2,6 +2,7 @@ import type { Store } from '@/stores/types'
 
 import { defineStore } from 'pinia'
 import { useUpdateSystemLanguageDisplay } from '@/hooks'
+import { setLocale } from '@/utils/uni'
 
 /**
  * 命名规则：
@@ -32,6 +33,7 @@ const useStoreUserSettings = defineStore('storeUserSettings', {
      */
     updateStoreUserSettingsLanguage(str: Store.UserSettings['language']) {
       this.language = str
+      setLocale(str)
       useUpdateSystemLanguageDisplay(str)
     }
   },

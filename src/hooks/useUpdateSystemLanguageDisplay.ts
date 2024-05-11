@@ -11,6 +11,11 @@ import { setTabBarItem, setNavigationBarTitle } from '@/utils/uni'
 const useUpdateSystemLanguageDisplay = (lang: Store.UserSettings['language']) => {
   // 更新tabbar
   const data = messages[lang]
+
+  if (!data || !data.tabbar) {
+    return
+  }
+
   const { home, my } = data.tabbar
   setTabBarItem(0, home.text, home.iconPath, home.selectedIconPath, home.pagePath)
   setTabBarItem(1, my.text, my.iconPath, my.selectedIconPath, my.pagePath)

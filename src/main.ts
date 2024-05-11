@@ -12,6 +12,7 @@ import { setupStore } from '@/stores'
 import { useStoreUserSettings } from '@/stores/modules/useStoreUserSettings'
 import messages from '@/locale'
 import { useUpdateSystemLanguageDisplay } from '@/hooks'
+import { setLocale } from '@/utils/uni'
 
 /**
  * 创建国际化
@@ -24,6 +25,7 @@ const createLocalI18n = () => {
 
   if (storeLanguage) {
     locale = storeLanguage
+    setLocale(locale)
   }
 
   const i18nConfig = {

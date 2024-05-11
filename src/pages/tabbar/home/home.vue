@@ -24,9 +24,7 @@
   }
 
   const onC = () => {
-    console.log(locale.value)
-
-    locale.value = locale.value === 'tibetan' ? 'zh-Hans' : 'tibetan'
+    locale.value = locale.value === 'zh-Tibetan' ? 'zh-Hans' : 'zh-Tibetan'
 
     useStoreUserSettings().updateStoreUserSettingsLanguage(locale.value as Store.UserSettings['language'])
   }
