@@ -15,26 +15,20 @@
 /* 颜色变量 */
 
 /* 行为相关颜色 */
-$color-primary: #007aff;
+$color-primary: #3882ff;
 // $color-success: #4cd964;
 // $color-warning: #f0ad4e;
 // $color-error: #dd524d;
 
 /* 文字基本颜色 */
-// $text-color: #333; // 基本色
-// $text-color-inverse: #fff; // 反色
-// $text-color-grey: #999; // 辅助灰色，如加载更多的提示信息
-// $text-color-placeholder: #808080;
-// $text-color-disable: #c0c0c0;
+$color-text: #3d424d; // 基本色
+$color-text-placeholder: #abaeb3; // 辅助灰色
 
 /* 背景颜色 */
-$bg-color: #fff;
-// $bg-color-grey: #f8f8f8;
-// $bg-color-hover: #f1f1f1; // 点击状态颜色
-// $bg-color-mask: rgba(0, 0, 0, 0.4); // 遮罩颜色
+$color-bg: #fff;
 
 /* 边框颜色 */
-// $border-color: #c8c7cc;
+$color-border: #c8c7cc;
 
 /* 尺寸变量 */
 
@@ -54,8 +48,8 @@ $bg-color: #fff;
 // $border-radius-lg: 12rpx;
 // $border-radius-circle: 50%;
 
-/* 水平间距 */
-// $spacing-row-sm: 5px;
+/* 间距 */
+$spacing: 30rpx;
 // $spacing-row-base: 10px;
 // $spacing-row-lg: 15px;
 

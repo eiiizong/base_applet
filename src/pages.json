@@ -6,12 +6,6 @@
       "style": {
         "navigationBarTitleText": "首页"
       }
-    },
-    {
-      "path": "pages/tabbar/my/my",
-      "style": {
-        "navigationBarTitleText": "我的"
-      }
     }
   ],
   "globalStyle": {
@@ -21,7 +15,7 @@
     "navigationBarTitleText": "uniapp基础框架",
     "enablePullDownRefresh": false,
     "backgroundTextStyle": "light",
-    "backgroundColorTop": "#ffffff",
+    "backgroundColorTop": "#3882ff",
     "backgroundColorBottom": "#ffffff",
     "navigationStyle": "default",
     "onReachBottomDistance": 0, // 安卓和工具不支持负数
@@ -37,6 +31,32 @@
     }
   },
   "subPackages": [
+    {
+      "root": "pages/packageCommon",
+      "pages": [
+        {
+          "path": "login/login",
+          "style": {
+            "navigationBarTitleText": "登录",
+            "backgroundColorBottom": "#3882ff"
+          }
+        },
+        {
+          "path": "login-privacy-policy/login-privacy-policy",
+          "style": {
+            "navigationBarTitleText": "隐私条款",
+            "backgroundColorBottom": "#3882ff"
+          }
+        },
+        {
+          "path": "login-user-agreement/login-user-agreement",
+          "style": {
+            "navigationBarTitleText": "用户协议",
+            "backgroundColorBottom": "#3882ff"
+          }
+        }
+      ]
+    },
     {
       "root": "pages/packageComponents",
       "pages": [
@@ -109,35 +129,8 @@
       ]
     }
   ],
-  "tabBar": {
-    "color": "#939599",
-    "backgroundColor": "#ffffff",
-    "selectedColor": "#3882ff",
-    "borderStyle": "black",
-    "list": [
-      {
-        "text": "首页",
-        "pagePath": "pages/tabbar/home/home",
-        "iconPath": "static/images/tabbar/home.png",
-        "selectedIconPath": "static/images/tabbar/home_active.png"
-      },
-      {
-        "text": "我的",
-        "pagePath": "pages/tabbar/my/my",
-        "iconPath": "static/images/tabbar/my.png",
-        "selectedIconPath": "static/images/tabbar/my_active.png"
-      }
-    ],
-    "position": "bottom"
-  },
   "condition": {
     "current": 0,
-    "list": [
-      {
-        "name": "tabbar-my",
-        "path": "pages/tabbar/my/my",
-        "query": ""
-      }
-    ]
+    "list": []
   }
 }
