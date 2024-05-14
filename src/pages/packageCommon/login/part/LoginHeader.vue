@@ -7,10 +7,10 @@
     <!-- #ifdef MP-WEIXIN -->
     <template>
       <div class="title">
-        <span>请您进行人脸识别身份验证</span>
+        <span>{{ $t('login.header.name') }}</span>
       </div>
       <div class="tip">
-        <span class="zh">信息将与当前微信绑定（用于身份验证）</span>
+        <span class="zh">{{ $t('login.header.tip') }}</span>
       </div>
     </template>
     <!-- #endif -->
@@ -18,7 +18,7 @@
     <!-- #ifndef MP-WEIXIN -->
     <template>
       <div class="title">
-        <span>请您登录</span>
+        <span>{{ $t('login.headerApp.title') }}</span>
       </div>
     </template>
 
