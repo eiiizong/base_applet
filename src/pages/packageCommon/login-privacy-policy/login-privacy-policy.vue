@@ -1,15 +1,15 @@
 <template>
   <div class="login-privacy-policy">
-    <div class="main">
+    <div class="con">
       <div class="agree">
-        <div class="agree-title">隐私条款</div>
-        <div class="agree-items">
-          <div class="agree-item">
+        <div class="title">隐私条款</div>
+        <div class="items">
+          <div class="item">
             <div class="p">
               在使用服务前，请您务必仔细阅读并透彻理解本协议全部内容，在确认充分理解并同意后使用服务。您开始使用服务，即表示您已经同意本隐私政策。
             </div>
           </div>
-          <div class="agree-item">
+          <div class="item">
             <div class="p">
               1、保护用户个人信息是一项基本原则，我们将会采取合理的措施保护用户的个人信息。除法律法规规定的情形外，未经用户许可我们不会向第三方公开、透漏个人信息。软件对相关信息采用专业加密存储与传输方式，保障用户个人信息安全，如果您选择同意使用服务，
               即表示您认可并接受服务条款及其可能随时更新的内容。
@@ -40,25 +40,24 @@
 <script setup lang="ts"></script>
 
 <style lang="scss" scoped>
-  // .login-privacy-policy {
-  //   background-color: #fff;
-  //   padding: $spacing;
-  //   color: $color-text;
-  //   font-size: 32rpx;
-  //   line-height: 1.4;
-  //   .agree-title {
-  //     text-align: center;
-  //     margin-bottom: $spacing;
-  //     font-size: 36rpx;
-  //     font-weight: 700;
-  //     color: $color-title;
-  //   }
-  //   .agree-item {
-  //     margin-bottom: 20rpx;
-  //     .p {
-  //       margin-bottom: 12rpx;
-  //       text-indent: 2em;
-  //     }
-  //   }
-  // }
+  .login-privacy-policy {
+    background-color: #fff;
+    padding: $spacing;
+    color: $color-text;
+    font-size: 32rpx;
+    line-height: 1.4;
+  }
+  .title {
+    text-align: center;
+    margin-bottom: $spacing;
+    font-size: 36rpx;
+    font-weight: 700;
+  }
+  .item {
+    margin-bottom: 20rpx;
+    .p {
+      margin-bottom: 12rpx;
+      text-indent: 2em;
+    }
+  }
 </style>

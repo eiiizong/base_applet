@@ -41,5 +41,11 @@
       "part05": "隐私条款"
     },
     "button": "立即登录"
+  },
+  "login-privacy-policy": {
+    "title": "隐私条款"
+  },
+  "login-user-agreement": {
+    "title": "用户服务协议"
   }
 }

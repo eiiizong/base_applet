@@ -1,15 +1,15 @@
 <template>
   <div class="login-user-aggreement">
-    <div class="main">
+    <div class="con">
       <div class="agree">
-        <div class="agree-title">用户协议</div>
-        <div class="agree-items">
-          <div class="agree-item">
+        <div class="title">用户协议</div>
+        <div class="items">
+          <div class="item">
             <div class="p">
               欢迎您使用本平台。您在本平台注册后，方可成为本平台用户，使用本平台提供的服务。在您成为本平台用户之前，请确认您已仔细阅读、充分理解并接受本协议的全部条款。一旦您使用本平台服务，即视为您同意遵循本协议条款中的各项内容。本平台有权随时对协议条款进行修改。一旦协议条款发生变更和修改，将在相关页面上提示修改的内容。如果您不同意本协议的修改，可以取消已经获取的服务并停止使用；如果您继续使用本平台提供的服务，则视为您已经接受本协议的修改。
             </div>
           </div>
-          <div class="agree-item">
+          <div class="item">
             <div class="h4">一、协议适用主体范围</div>
             <div class="p">
               本平台的运营管理权归{{ unit }}所有。本协议是您和{{
@@ -17,13 +17,13 @@
               }}明确双方通过本平台办理相关业务过程中的权利义务所订立的协议。
             </div>
           </div>
-          <div class="agree-item">
+          <div class="item">
             <div class="h4">二、服务内容</div>
             <div class="p">
               本平台为用户提供诉求采集和办理服务，服务的具体内容由本平台根据实际情况提供。本平台保留随时变更、中断或终止部分或全部服务的权利。
             </div>
           </div>
-          <div class="agree-item">
+          <div class="item">
             <div class="h4">三、个人信息提供及账号管理</div>
             <div class="p">
               您身份认证时，请您填写正确的个人信息，并按页面引导提供真实、准确、最新和完整的个人资料，使用本人有效身份证件号码、手机号码等个人信息进行实名验证。如个人资料有任何变动，必须及时更新。
@@ -39,7 +39,7 @@
             </div>
             <div class="p">（四）若服务被终止或取消，本平台可以从服务器上永久地删除该用户的信息。</div>
           </div>
-          <div class="agree-item">
+          <div class="item">
             <div class="h4">四、用户行为规范</div>
             <div class="h5">（一）用户不得在本平台发布、转载、传送含有下列内容之一的信息：</div>
             <div class="p">1.反对宪法所确定的基本原则的。</div>
@@ -64,7 +64,7 @@
             <div class="p">7. 利用本平台进行任何可能对网络的正常运转造成不利影响的行为；</div>
             <div class="p">8.其他危害网络或本平台安全的行为。</div>
           </div>
-          <div class="agree-item">
+          <div class="item">
             <div class="h4">五、用户承诺和授权</div>
             <div class="p">
               （一）遵守中国法律法规，遵守所有与网络服务有关的协议、规定和程序，不从事任何非法的行为。
@@ -78,11 +78,11 @@
               （五）本平台提供的服务信息可能包括文字、软件、声音、图片、视频、图表、数据等。所有这些信息受著作、商标、专利等知识产权和其他财产所有权法律的保护，用户只有在获得本平台或其他相关权利人的授权许可之后才能使用这些信息。
             </div>
           </div>
-          <div class="agree-item">
+          <div class="item">
             <div class="h4">六、隐私保护</div>
             <div class="p">隐私保护的内容详见本平台的《隐私政策》。</div>
           </div>
-          <div class="agree-item">
+          <div class="item">
             <div class="h4">七、免责声明</div>
             <div class="p">
               （一）本平台仅负责按“现状”和“可得到”的状态向用户提供服务，但不作任何明示或暗示的保证；不担保本平台上的信息和服务能充分满足用户的需求；不保证任何信息和服务的准确性、完整性、适用性、及时性和合法可靠性等。
@@ -104,42 +104,41 @@
   </div>
 </template>
 <script setup lang="ts">
-  const unit = ref('有限责任公司')
+  const unit = ref('本应用注册单位')
 </script>
 <style lang="scss" scoped>
-  // .login-user-aggreement {
-  //   background-color: #fff;
-  //   padding: $spacing;
-  //   color: $color-text;
-  //   font-size: 32rpx;
-  //   line-height: 1.4;
-  //   .agree-title {
-  //     text-align: center;
-  //     margin-bottom: $spacing;
-  //     font-size: 36rpx;
-  //     font-weight: 700;
-  //     color: $color-title;
-  //   }
-  //   .agree-item {
-  //     margin-bottom: 20rpx;
-  //     .h4 {
-  //       color: tint($color-title, 10%);
-  //       font-size: 32rpx;
-  //       line-height: 1.4;
-  //       padding: 20rpx 0;
-  //       font-weight: 600;
-  //     }
-  //     .h5 {
-  //       color: tint($color-title, 15%);
-  //       font-size: 28rpx;
-  //       line-height: 1.4;
-  //       padding: 20rpx 0;
-  //       font-weight: 500;
-  //     }
-  //     .p {
-  //       margin-bottom: 12rpx;
-  //       text-indent: 2em;
-  //     }
-  //   }
-  // }
+  .login-user-aggreement {
+    background-color: #fff;
+    padding: $spacing;
+    color: $color-text;
+    font-size: 32rpx;
+    line-height: 1.4;
+  }
+  .title {
+    text-align: center;
+    margin-bottom: $spacing;
+    font-size: 36rpx;
+    font-weight: 700;
+  }
+  .item {
+    margin-bottom: 20rpx;
+    .h4 {
+      color: tint($color-text, 10%);
+      font-size: 32rpx;
+      line-height: 1.4;
+      padding: 20rpx 0;
+      font-weight: 600;
+    }
+    .h5 {
+      color: tint($color-text, 15%);
+      font-size: 28rpx;
+      line-height: 1.4;
+      padding: 20rpx 0;
+      font-weight: 500;
+    }
+    .p {
+      margin-bottom: 12rpx;
+      text-indent: 2em;
+    }
+  }
 </style>
