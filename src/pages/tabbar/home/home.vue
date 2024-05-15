@@ -4,16 +4,16 @@
     <div @click="onClick">{{ $t('tabbar.home.text') }}</div>
     <button @click="onC">切换语言</button>
     <button @click="onClick2">modal</button>
+    <button @click="onClick3">login</button>
   </div>
 </template>
 
 <script setup lang="ts">
   import type { Store } from '@/stores/types'
 
-  import { showModal } from '@/utils/uni'
+  import { showModal, navigateTo } from '@/utils/uni'
   import { useI18n } from 'vue-i18n'
   import { useStoreUserSettings } from '@/stores/modules/useStoreUserSettings'
-  import { useUpdateNavigationBarTitle } from '@/hooks/useUpdateNavigationBarTitle'
 
   const { locale } = useI18n()
 
@@ -33,9 +33,9 @@
     showModal('hahhahaha')
   }
 
-  onShow(() => {
-    useUpdateNavigationBarTitle()
-  })
+  const onClick3 = () => {
+    navigateTo('login', 'packageCommon')
+  }
 </script>
 
 <style lang="scss" scoped>

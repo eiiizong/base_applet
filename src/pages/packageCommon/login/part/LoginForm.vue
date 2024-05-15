@@ -26,10 +26,10 @@
       <!-- #endif -->
     </div>
     <div class="agreement-wrapper">
-      <div class="aw-checkbox d-f">
-        <checkbox-group @change="onChangeCheckbox">
-          <checkbox value="1" class="checkbox" />
-        </checkbox-group>
+      <checkbox-group @change="onChangeCheckbox">
+        <checkbox value="1" id="agree" class="checkbox" />
+      </checkbox-group>
+      <label class="cells" for="agree">
         <div class="cell">
           {{ $t('login.agreement.part01') }}
         </div>
@@ -39,11 +39,17 @@
           <span>{{ $t('login.agreement.part04') }}</span>
           <span>《{{ $t('login.agreement.part05') }}》</span>
         </div>
-      </div>
+      </label>
+    </div>
+    <div class="button-wrapper">
+      <button @click="emit('click', form)">{{ $t('login.button') }}</button>
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
+  const emit = defineEmits(['click'])
+
   const form = ref({
     name: '',
     idcard: '',
@@ -61,129 +67,40 @@
 </script>
 
 <style lang="scss" scoped>
-  .form-wrapper {
-    width: 100%;
-    margin-top: 32rpx;
-
-    .input-content {
+  .login-form {
+    .form-wrapper {
       width: 100%;
+      margin-top: 32rpx;
 
-      &:not(:first-child) {
-        margin-top: 24rpx;
-      }
-
-      .label {
-        display: flex;
-        font-size: 28rpx;
+      .form-item {
         width: 100%;
-
-        .required {
-          font-weight: 400;
-          color: #e50707;
-        }
-
-        .name {
-          font-weight: 400;
-          color: #333333;
-          white-space: nowrap;
-        }
-
-        .zw {
-          margin-left: 8rpx;
-          color: #333333;
-        }
-      }
-
-      .input-con {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin-top: 12rpx;
-
-        .input-style {
-          width: 100%;
-          display: block;
-          height: 66rpx;
-          background: #f6f9fe;
-          border-radius: 8rpx;
-          padding: 20rpx 24rpx;
-          @include textOverflow(1);
-        }
-
-        .placeholder-style {
-          font-size: 26rpx;
-          font-weight: 400;
-          color: #999999;
-        }
-
-        .btn-phone {
-          width: 198rpx;
-          background: #0063fe;
-          border-radius: 8rpx;
-          margin-left: 16rpx;
-          line-height: 1;
-          padding: 12rpx 8rpx;
-
-          .zh {
-            font-size: 26rpx;
-            font-weight: 400;
-            color: #ffffff;
-          }
-
-          .zw {
-            font-size: 26rpx;
-            color: #ffffff;
-          }
-        }
-      }
-    }
-  }
-
-  .agree-wrapper {
-    width: 100%;
-    margin-top: 32rpx;
-
-    .aw-checkbox {
-      width: 100%;
-
-      .checkbox-style {
-        transform: scale(0.7);
-      }
-
-      .awc-con {
-        font-size: 24rpx;
-        color: #999999;
-
-        .zh {
-          font-weight: 400;
-        }
-
-        .zw {
-          font-size: 24rpx;
-          color: #999999;
-        }
-      }
-    }
-
-    .view-service {
-      width: 100%;
-      line-height: 1;
-      margin-top: 20rpx;
-      padding-left: 58rpx;
-
-      .zh {
-        font-size: 24rpx;
-        font-weight: 400;
-        color: #999999;
 
         &:not(:first-child) {
-          margin-top: 12rpx;
+          margin-top: 24rpx;
         }
 
-        .zh-c {
-          color: #0063fe;
+        .label {
+          display: flex;
+          font-size: 28rpx;
+          width: 100%;
         }
+
+        .input-wrapper {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          margin-top: 12rpx;
+        }
+      }
+    }
+
+    .agreement-wrapper {
+      width: 100%;
+      margin-top: 32rpx;
+
+      .aw-checkbox {
+        width: 100%;
       }
     }
   }

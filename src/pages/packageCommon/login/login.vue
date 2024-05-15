@@ -2,16 +2,13 @@
   <div class="page login">
     <div class="login-con">
       <LoginHeader></LoginHeader>
+      <LoginForm></LoginForm>
     </div>
   </div>
 </template>
 <script setup lang="ts">
   import LoginHeader from './part/LoginHeader.vue'
-  import { useUpdateNavigationBarTitle } from '@/hooks/useUpdateNavigationBarTitle'
-
-  onShow(() => {
-    useUpdateNavigationBarTitle()
-  })
+  import LoginForm from './part/LoginForm.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -23,7 +20,8 @@
     &-con {
       width: 100%;
       background-color: #fff;
-      border-radius: 4rpx;
+      border-radius: 8rpx;
+      min-height: 100%;
     }
   }
 </style>
