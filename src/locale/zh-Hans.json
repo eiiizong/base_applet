@@ -29,7 +29,8 @@
       "tel": {
         "label": "手机号",
         "placeholder": "请点击右侧按钮获取您的手机号",
-        "placeholderApp": "请输入手机号"
+        "placeholderApp": "请输入手机号",
+        "button": "获取手机号"
       }
     },
     "agreement": {
