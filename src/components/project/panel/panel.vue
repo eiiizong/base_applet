@@ -1,8 +1,9 @@
 <template>
   <div class="panel">
-    <div class="title">
-      <div class="left"></div>
-      <div class="right"></div>
+    <div class="title-wrapper">
+      <div class="line"></div>
+      <div class="title">{{ title }}</div>
+      <div class="more" v-if="moreText">{{ moreText }}</div>
     </div>
     <div class="con">
       <slot></slot>
@@ -11,29 +12,63 @@
 </template>
 
 <script setup lang="ts">
-  // import imageBgHeader from '../images/bg-header.png'
-  // import type { Store } from '@/stores/types'
-
-  // import { navigateTo } from '@/utils/uni'
-  // import { useI18n } from 'vue-i18n'
-  // import { useStoreUserSettings } from '@/stores/modules'
-  // import { useUpdateNavigationBarTitle } from '@/hooks/'
-
-  // const { locale } = useI18n()
-
-  // /**
-  //  * 切换语言
-  //  */
-  // const onClickSetLanguage = () => {
-  //   locale.value = locale.value === 'ja' ? 'zh-Hans' : 'ja'
-  //   useStoreUserSettings().updateStoreUserSettingsLanguage(locale.value as Store.UserSettings['language'])
-  //   useUpdateNavigationBarTitle()
-  // }
+  const props = defineProps({
+    /**
+     * 标题
+     */
+    title: {
+      type: String,
+      required: true
+    },
+    /**
+     * 按钮名称
+     */
+    moreText: {
+      type: String,
+      default: () => ''
+    }
+  })
 </script>
 
 <style lang="scss" scoped>
   .panel {
     width: 690rpx;
     margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 8rpx;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0 $spacing;
+    .title-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 32rpx;
+      font-weight: 700;
+      line-height: 1;
+      color: $color-text;
+      padding-top: $spacing;
+      .line {
+        width: 8rpx;
+        height: 32rpx;
+        background-color: $color-primary;
+        border-radius: 2rpx;
+        margin-right: 10rpx;
+      }
+      .title {
+        flex: 1;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+      }
+      .more {
+        font-size: 24rpx;
+        font-weight: 500;
+        color: $color-primary;
+      }
+    }
+    .con {
+      padding: $spacing 0;
+    }
   }
 </style>
