@@ -51,9 +51,13 @@
           </div>
           <div class="cell">
             <span>{{ $t('login.agreement.part02') }}</span>
-            <span class="link">《{{ $t('login.agreement.part03') }}》</span>
+            <span class="link" @click.stop.prevent="navigateTo('login-user-agreement', 'packageCommon')">
+              《{{ $t('login.agreement.part03') }}》
+            </span>
             <span>{{ $t('login.agreement.part04') }}</span>
-            <span class="link">《{{ $t('login.agreement.part05') }}》</span>
+            <span class="link" @click.stop.prevent="navigateTo('login-privacy-policy', 'packageCommon')">
+              《{{ $t('login.agreement.part05') }}》
+            </span>
           </div>
         </div>
       </label>
@@ -65,6 +69,8 @@
 </template>
 
 <script setup lang="ts">
+  import { navigateTo } from '@/utils/uni'
+
   const emit = defineEmits(['click'])
 
   /**

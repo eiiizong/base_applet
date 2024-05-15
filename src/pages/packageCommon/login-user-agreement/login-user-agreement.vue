@@ -104,9 +104,7 @@
   </div>
 </template>
 <script setup lang="ts">
-  import { ref } from 'vue'
-
-  const unit = ref('成都市融资再担保有限责任公司')
+  const unit = ref('有限责任公司')
 </script>
 <style lang="scss" scoped>
   // .login-user-aggreement {
