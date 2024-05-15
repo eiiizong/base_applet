@@ -4,20 +4,32 @@
       <div class="form-item">
         <label class="label" for="name">{{ $t('login.form.name.label') }}</label>
         <div class="input-wrapper">
-          <input v-model="form.name" id="name" type="text" :placeholder="$t('login.form.name.placeholder')" />
+          <input
+            class="input"
+            v-model="form.name"
+            id="name"
+            type="text"
+            :placeholder="$t('login.form.name.placeholder')"
+          />
         </div>
       </div>
       <div class="form-item">
         <label class="label" for="idcard">{{ $t('login.form.idcard.label') }}</label>
         <div class="input-wrapper">
-          <input v-model="form.idcard" id="idcard" type="idcard" :placeholder="$t('login.form.idcard.placeholder')" />
+          <input
+            class="input"
+            v-model="form.idcard"
+            id="idcard"
+            type="idcard"
+            :placeholder="$t('login.form.idcard.placeholder')"
+          />
         </div>
       </div>
       <!-- #ifdef MP-WEIXIN -->
       <div class="form-item">
         <div class="label">{{ $t('login.form.tel.label') }}</div>
         <div class="input-wrapper flex">
-          <input v-model="form.tel" disabled type="tel" :placeholder="$t('login.form.tel.placeholder')" />
+          <input v-model="form.tel" disabled class="input" type="tel" :placeholder="$t('login.form.tel.placeholder')" />
           <button class="btn" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">
             {{ $t('login.form.tel.button') }}
           </button>
@@ -68,21 +80,20 @@
 
 <style lang="scss" scoped>
   .login-form {
+    padding: 40rpx;
     .form-wrapper {
       width: 100%;
       margin-top: 32rpx;
 
       .form-item {
         width: 100%;
-
-        &:not(:first-child) {
-          margin-top: 24rpx;
-        }
-
+        font-size: 28rpx;
+        margin-bottom: 26px;
         .label {
-          display: flex;
-          font-size: 28rpx;
-          width: 100%;
+          font-weight: 500;
+          line-height: 32rpx;
+          padding-bottom: 8rpx;
+          color: rgba($color-text, 0.8);
         }
 
         .input-wrapper {
@@ -91,6 +102,16 @@
           justify-content: space-between;
           width: 100%;
           margin-top: 12rpx;
+          height: 80rpx;
+          .input {
+            flex: 1;
+            overflow: hidden;
+            background-color: rgba(#f0f2f5, 0.7);
+            border-radius: 12rpx;
+            line-height: 40rpx;
+            height: 100%;
+            padding: 20rpx;
+          }
         }
       }
     }
