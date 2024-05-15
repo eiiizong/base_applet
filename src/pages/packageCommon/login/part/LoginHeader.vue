@@ -33,7 +33,7 @@
   .login-header {
     width: 100%;
     text-align: center;
-    padding: 26rpx 0;
+    padding-top: 26rpx;
     color: $color-text;
 
     .avatar {

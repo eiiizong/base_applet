@@ -13,7 +13,6 @@
 
 <style lang="scss" scoped>
   .login {
-    height: 100vh;
     background-color: $color-primary;
     overflow: auto;
     padding: $spacing;
