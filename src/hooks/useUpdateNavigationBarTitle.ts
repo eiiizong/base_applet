@@ -15,7 +15,7 @@ const useUpdateNavigationBarTitle = () => {
   const data = messages[getStoreUserSettingsLanguage]
 
   const pages = getCurrentPages()
-  if (pages) {
+  if (pages && pages.length) {
     const { route } = pages[pages.length - 1]
     if (route) {
       const name = route?.split('/')[2]
