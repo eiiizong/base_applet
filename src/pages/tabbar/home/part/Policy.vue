@@ -46,9 +46,9 @@
 
       .button {
         width: 100%;
-        height: 68rpx;
-        line-height: 68rpx;
-        font-size: 28rpx;
+        height: 80rpx;
+        line-height: 80rpx;
+        font-size: 30rpx;
         color: #fff;
         text-align: center;
         background-color: $color-primary;

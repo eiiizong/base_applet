@@ -26,7 +26,7 @@
         </div>
       </div>
       <!-- #ifdef MP-WEIXIN -->
-      <div class="form-item">
+      <div class="form-item" v-if="false">
         <div class="label">{{ $t('login.form.tel.label') }}</div>
         <div class="input-wrapper">
           <input v-model="form.tel" disabled class="input" type="tel" :placeholder="$t('login.form.tel.placeholder')" />
@@ -100,8 +100,8 @@
    */
   const isCanClickLogin = computed(() => {
     let res = true
-    const { name, idcard, tel, agree } = form.value
-    if (!name || !idcard || !tel || !agree) {
+    const { name, idcard, agree } = form.value
+    if (!name || !idcard || !agree) {
       res = false
     }
     return res
