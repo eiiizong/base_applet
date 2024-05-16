@@ -23,7 +23,7 @@
 
   import { navigateTo } from '@/utils/uni'
 
-  const policys = ref([{}, {}, {}])
+  const policys = ref([{}, {}])
 
   const onClickMore = () => {
     navigateTo('', '')
@@ -43,8 +43,16 @@
     }
     .buttons-wrapper {
       width: 100%;
+
       .button {
-        width: 1005;
+        width: 100%;
+        height: 68rpx;
+        line-height: 68rpx;
+        font-size: 28rpx;
+        color: #fff;
+        text-align: center;
+        background-color: $color-primary;
+        border-radius: 50px;
       }
     }
   }

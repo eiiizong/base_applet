@@ -1,6 +1,9 @@
 <template>
   <div class="card-policy">
-    <div class="name">转发财政部 国家卫生健康委 国家医疗保障局 国家中医药局关于印发基本公共卫生服务等5项补...</div>
+    <div class="name-wrapper">
+      <div class="iconimg iconimg-subsidy"></div>
+      <div class="name">转发财政部 国家卫生健康委</div>
+    </div>
     <div class="cells">
       <div class="cell">
         <div class="key">业务部门：</div>
@@ -8,7 +11,7 @@
       </div>
       <div class="cell">
         <div class="key">补贴项目：</div>
-        <div class="value">计划生育家庭特别扶助制度扶助</div>
+        <div class="value">计划生育家庭特别扶助制度扶助计划生育家庭特别扶助制度扶助</div>
       </div>
       <div class="cell">
         <div class="key">发布时间：</div>
@@ -35,44 +38,57 @@
 </script>
 
 <style lang="scss" scoped>
-  .panel {
-    width: 690rpx;
-    margin: 0 auto;
-    background-color: #ffffff;
-    border-radius: 8rpx;
-    overflow: hidden;
-    margin: 0 auto;
+  .card-policy {
+    width: 100%;
+    min-height: 214rpx;
+    position: relative;
     padding: 0 $spacing;
-    .title-wrapper {
+    .name-wrapper {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      font-size: 32rpx;
-      font-weight: 700;
-      line-height: 1;
-      color: $color-text;
-      padding-top: $spacing;
-      .line {
-        width: 8rpx;
-        height: 32rpx;
-        background-color: $color-primary;
-        border-radius: 2rpx;
+      border-bottom: solid 1px rgba($color-primary, 0.2);
+      position: relative;
+      z-index: 2;
+      .iconimg {
         margin-right: 10rpx;
       }
-      .title {
-        flex: 1;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-      }
-      .more {
-        font-size: 24rpx;
-        font-weight: 500;
-        color: $color-primary;
+      .name {
+        margin: 24rpx 0;
+        font-size: 28rpx;
+        line-height: 36rpx;
+        max-height: 72rpx;
+        font-weight: 700;
+        color: $color-text;
+        @include textOverflow(2);
       }
     }
-    .con {
-      padding: $spacing 0;
+    .cells {
+      position: relative;
+      z-index: 2;
+      padding: 20rpx 0;
+      .cell {
+        display: flex;
+        line-height: 1.4;
+        font-size: 24rpx;
+        margin-bottom: 12rpx;
+        .key {
+          color: rgba($color-text, 0.6);
+        }
+        .value {
+          flex: 1;
+          overflow: hidden;
+          color: $color-text;
+        }
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      left: 0;
+      height: 80px;
+      background-image: linear-gradient(180deg, #f6f7f8 0%, #ffffff 100%);
+      z-index: 1;
     }
   }
 </style>
