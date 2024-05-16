@@ -1,6 +1,6 @@
 <template>
   <div class="home-header">
-    <image :src="imageBgHeader" class="bg"></image>
+    <image :src="imageBgHeader" class="bg image"></image>
     <div class="con">
       <div class="language" @click="onClickSetLanguage">
         <div class="icon"></div>
@@ -12,6 +12,10 @@
           {{ locale === 'zh-Hans' ? '简体中文' : 'བོད་སྐད་' }}
         </div>
       </div>
+      <div class="avatar" @click="onClickToLogin">
+        <img src="" alt="" class="iamge" />
+        <div class="name">{{ userInfo.token ? 'zhangsna' : '立即登录' }}</div>
+      </div>
       <div class="search" @click="navigateTo('ploce')">{{ $t('home.header.searchPlaceholder') }}</div>
     </div>
   </div>
@@ -19,14 +23,17 @@
 
 <script setup lang="ts">
   import imageBgHeader from '../images/bg-header.png'
+
   import type { Store } from '@/stores/types'
 
   import { navigateTo } from '@/utils/uni'
   import { useI18n } from 'vue-i18n'
-  import { useStoreUserSettings } from '@/stores/modules'
+  import { useStoreUserSettings, useStoreUserInfo } from '@/stores/modules'
   import { useUpdateNavigationBarTitle } from '@/hooks/'
 
   const { locale } = useI18n()
+  const storeUserInfo = useStoreUserInfo()
+  const { userInfo } = storeUserInfo
 
   /**
    * 切换语言
@@ -35,6 +42,14 @@
     locale.value = locale.value === 'ja' ? 'zh-Hans' : 'ja'
     useStoreUserSettings().updateStoreUserSettingsLanguage(locale.value as Store.UserSettings['language'])
     useUpdateNavigationBarTitle()
+  }
+
+  const onClickToLogin = () => {
+    if (userInfo.token) {
+      return
+    } else {
+      navigateTo('login', 'packageCommon')
+    }
   }
 </script>
 
@@ -68,6 +83,11 @@
         padding-left: 8rpx;
         font-weight: 700;
       }
+    }
+    .avatar {
+      position: absolute;
+      top: 0;
+      right: $spacing;
     }
     .search {
       width: 100%;
