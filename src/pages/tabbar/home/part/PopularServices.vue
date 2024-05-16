@@ -29,6 +29,7 @@
 
   import { useI18n } from 'vue-i18n'
   import { navigateTo } from '@/utils/uni'
+  import { useStoreUserInfo } from '@/stores/modules'
 
   interface Nav {
     id: string
@@ -42,7 +43,10 @@
     imageHeight: number
   }
 
+  const storeUserInfo = useStoreUserInfo()
   const { t } = useI18n()
+  const { userInfo } = storeUserInfo
+
   const navs = computed(() => {
     return [
       {
@@ -51,7 +55,7 @@
         desc: t('home.popularServices.nav01.desc'),
         name: '',
         packageName: '',
-        isNeedLogin: false,
+        isNeedLogin: true,
         imageSrc: imageNav01,
         imageWidth: 140,
         imageHeight: 172
@@ -62,7 +66,7 @@
         desc: t('home.popularServices.nav02.desc'),
         name: '',
         packageName: '',
-        isNeedLogin: false,
+        isNeedLogin: true,
         imageSrc: imageNav02,
         imageWidth: 146,
         imageHeight: 162
@@ -73,7 +77,7 @@
         desc: t('home.popularServices.nav03.desc'),
         name: '',
         packageName: '',
-        isNeedLogin: false,
+        isNeedLogin: true,
         imageSrc: imageNav03,
         imageWidth: 152,
         imageHeight: 124
@@ -93,8 +97,12 @@
   })
 
   const onClick = (data: Nav) => {
-    const { name, packageName } = data
-    navigateTo(name, packageName)
+    const { name, packageName, isNeedLogin } = data
+    if (!isNeedLogin || userInfo.token) {
+      navigateTo(name, packageName)
+    } else {
+      navigateTo('login', 'packageCommon', { name, packageName })
+    }
   }
 </script>
 
