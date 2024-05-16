@@ -42,53 +42,55 @@
     imageHeight: number
   }
 
-  const { t } = useI18n
-  const navs = ref<Nav[]>([
-    {
-      id: '01',
-      title: t('home.popularServices.nav01.name'),
-      desc: t('home.popularServices.nav01.desc'),
-      name: '',
-      packageName: '',
-      isNeedLogin: false,
-      imageSrc: imageNav01,
-      imageWidth: 140,
-      imageHeight: 172
-    },
-    {
-      id: '02',
-      title: '资金查询',
-      desc: '补贴发放信息',
-      name: '',
-      packageName: '',
-      isNeedLogin: false,
-      imageSrc: imageNav02,
-      imageWidth: 146,
-      imageHeight: 162
-    },
-    {
-      id: '03',
-      title: '项目查询',
-      desc: '补贴项目信息',
-      name: '',
-      packageName: '',
-      isNeedLogin: false,
-      imageSrc: imageNav03,
-      imageWidth: 152,
-      imageHeight: 124
-    },
-    {
-      id: '04',
-      title: '政策查询',
-      desc: '补贴政策信息',
-      name: '',
-      packageName: '',
-      isNeedLogin: false,
-      imageSrc: imageNav04,
-      imageWidth: 146,
-      imageHeight: 114
-    }
-  ])
+  const { t } = useI18n()
+  const navs = computed(() => {
+    return [
+      {
+        id: '01',
+        title: t('home.popularServices.nav01.name'),
+        desc: t('home.popularServices.nav01.desc'),
+        name: '',
+        packageName: '',
+        isNeedLogin: false,
+        imageSrc: imageNav01,
+        imageWidth: 140,
+        imageHeight: 172
+      },
+      {
+        id: '02',
+        title: t('home.popularServices.nav02.name'),
+        desc: t('home.popularServices.nav02.desc'),
+        name: '',
+        packageName: '',
+        isNeedLogin: false,
+        imageSrc: imageNav02,
+        imageWidth: 146,
+        imageHeight: 162
+      },
+      {
+        id: '03',
+        title: t('home.popularServices.nav03.name'),
+        desc: t('home.popularServices.nav03.desc'),
+        name: '',
+        packageName: '',
+        isNeedLogin: false,
+        imageSrc: imageNav03,
+        imageWidth: 152,
+        imageHeight: 124
+      },
+      {
+        id: '04',
+        title: t('home.popularServices.nav04.name'),
+        desc: t('home.popularServices.nav04.desc'),
+        name: '',
+        packageName: '',
+        isNeedLogin: false,
+        imageSrc: imageNav04,
+        imageWidth: 146,
+        imageHeight: 114
+      }
+    ]
+  })
 
   const onClick = (data: Nav) => {
     const { name, packageName } = data
@@ -119,25 +121,32 @@
         width: 100%;
         position: absolute;
         left: 0;
-        bottom: 90rpx;
+        bottom: 100rpx;
         font-size: 30rpx;
+        line-height: 40px;
         font-weight: 700;
         color: #003b8d;
         line-height: 42rpx;
         padding-left: 20rpx;
         padding-right: 100rpx;
         z-index: 3;
+        @include textOverflow(2);
       }
       .desc {
+        width: 100%;
         position: absolute;
         font-weight: 400;
-        line-height: 24rpx;
+        line-height: 30rpx;
+        height: 60rpx;
         font-size: 24rpx;
         color: rgba(0, 59, 141, 0.4);
         position: absolute;
-        left: 20rpx;
-        bottom: 42rpx;
+        padding-left: 20rpx;
+        padding-right: 90rpx;
+        left: 0;
+        bottom: 20rpx;
         z-index: 3;
+        @include textOverflow(2);
       }
       .img {
         position: absolute;

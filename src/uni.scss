@@ -13,6 +13,7 @@
  */
 
 /* 颜色变量 */
+@use '~/assets/styles/scss/mixins/libs/text-overflow' as *;
 
 /* 行为相关颜色 */
 $color-primary: #3882ff;
