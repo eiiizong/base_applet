@@ -1,32 +1,35 @@
 <template>
-  <div class="panel">
-    <div class="title-wrapper">
-      <div class="line"></div>
-      <div class="title">{{ title }}</div>
-      <div class="more" v-if="moreText" @click="emit('clickMore')">{{ moreText }}</div>
-    </div>
-    <div class="con">
-      <slot></slot>
+  <div class="card-policy">
+    <div class="name">转发财政部 国家卫生健康委 国家医疗保障局 国家中医药局关于印发基本公共卫生服务等5项补...</div>
+    <div class="cells">
+      <div class="cell">
+        <div class="key">业务部门：</div>
+        <div class="value">区卫健委</div>
+      </div>
+      <div class="cell">
+        <div class="key">补贴项目：</div>
+        <div class="value">计划生育家庭特别扶助制度扶助</div>
+      </div>
+      <div class="cell">
+        <div class="key">发布时间：</div>
+        <div class="value">2024-5-2</div>
+      </div>
+      <div class="cell">
+        <div class="key">有效期：</div>
+        <div class="value">长期有效</div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  const emit = defineEmits(['clickMore'])
   const props = defineProps({
     /**
-     * 标题
+     * 渲染内容
      */
-    title: {
-      type: String,
-      required: true
-    },
-    /**
-     * 按钮名称
-     */
-    moreText: {
-      type: String,
-      default: () => ''
+    renderData: {
+      type: Object,
+      required: false
     }
   })
 </script>
