@@ -5,7 +5,8 @@
   "home": {
     "title": "牧民群众惠民补助资金查询系统",
     "header": {
-      "searchPlaceholder": "搜索政策文件"
+      "searchPlaceholder": "搜索政策文件",
+      "loginPlaceholder": "立即登录"
     },
     "popularServices": {
       "name": "热门服务",
