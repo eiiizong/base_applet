@@ -1,1 +1,72 @@
 // 所有页面公用样式
+.form {
+  $h: 80rpx;
+  $font-size: 28rpx;
+  .form {
+    &-item {
+      display: flex;
+      align-items: center;
+      height: $h;
+      font-size: $font-size;
+      border-bottom: 1px solid #c8c7cc;
+      &-label {
+        font-size: inherit;
+      }
+      &-input-wrapper {
+        flex: 1;
+        height: 100%;
+        overflow: hidden;
+        padding-left: 30rpx;
+      }
+      &-input {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        font-size: $font-size;
+        line-height: $h;
+        padding: 12rpx;
+        text-align: right;
+      }
+      &-picker {
+        width: 100%;
+        border: 0;
+        position: relative;
+
+        &-value,
+        &-placeholder {
+          width: 100%;
+          height: $h;
+          line-height: 40rpx;
+          text-align: right;
+          font-size: $font-size;
+          padding: ($h - 40rpx) / 2;
+          padding-right: 40rpx;
+        }
+        &-value {
+          color: #3d424d;
+        }
+        &-placeholder {
+          color: #888;
+        }
+        &-icon {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+        }
+      }
+    }
+  }
+  .button-query {
+    width: 100%;
+    height: 64rpx;
+    line-height: 64rpx;
+    font-size: 24rpx;
+    color: #fff;
+    text-align: center;
+    background-color: #3882ff;
+    border-radius: 8rpx;
+    margin-top: 30rpx;
+  }
+}
