@@ -1,6 +1,6 @@
 <template>
   <div class="query-criteria">
-    <ComponentProjectPanel :title="$t('home.policy.name')">
+    <ComponentProjectPanel :title="$t('policy.queryResult.title')">
       <div class="items">
         <div class="item" v-for="(item, index) in renderList" :key="index">
           <ComponentProjectCardPolicy :render-data="item"></ComponentProjectCardPolicy>

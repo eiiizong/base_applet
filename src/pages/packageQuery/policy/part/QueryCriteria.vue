@@ -1,6 +1,6 @@
 <template>
   <div class="query-criteria">
-    <ComponentProjectPanel :title="$t('home.policy.name')">
+    <ComponentProjectPanel :title="$t('policy.query.title')">
       <div class="form">
         <label class="form-item" for="name">
           <div class="form-item-label">政策名称</div>

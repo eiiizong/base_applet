@@ -74,5 +74,20 @@
   },
   "login-user-agreement": {
     "title": "用户服务协议"
+  },
+  "policy": {
+    "title": "政策查询",
+    "query": {
+      "title": "查询条件",
+      "name": "政策名称",
+      "namePlaceholder": "请输入政策名称",
+      "department": "业务部门",
+      "departmentPlaceholder": "请选择业务部门",
+      "project": "补贴项目",
+      "projectPlaceholder": "请选择补贴项目"
+    },
+    "queryResult": {
+      "title": "查询结果"
+    }
   }
 }
