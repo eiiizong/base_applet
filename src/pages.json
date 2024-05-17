@@ -136,6 +136,12 @@
           "style": {
             "navigationBarTitleText": "政策查询"
           }
+        },
+        {
+          "path": "project/project",
+          "style": {
+            "navigationBarTitleText": "项目查询"
+          }
         }
       ]
     }
