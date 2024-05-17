@@ -2,10 +2,18 @@
   <div class="page-scroll project-details">
     <ProjectDetailsHeader></ProjectDetailsHeader>
     <div class="items">
-      <Card type="01"></Card>
-      <Card type="02"></Card>
-      <Card type="03"></Card>
-      <Card type="04"></Card>
+      <div class="item">
+        <Card type="01"></Card>
+      </div>
+      <div class="item">
+        <Card type="02"></Card>
+      </div>
+      <div class="item">
+        <Card type="03"></Card>
+      </div>
+      <div class="item">
+        <Card type="04"></Card>
+      </div>
     </div>
   </div>
 </template>
@@ -25,6 +33,11 @@
     .scroll-view {
       flex: 1;
       overflow: hidden;
+    }
+    .items {
+      .item {
+        margin-bottom: $spacing;
+      }
     }
   }
 </style>

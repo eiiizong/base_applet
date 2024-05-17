@@ -40,7 +40,7 @@
       background-color: #fff;
       box-shadow: 0 0 8rpx 2rpx rgba(0, 0, 0, 0.1);
       padding: $spacing;
-      border-radius: 16rpx;
+      border-radius: 12rpx;
 
       .name {
         font-size: 32rpx;
