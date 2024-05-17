@@ -5,16 +5,24 @@
         <label class="form-item" for="name">
           <div class="form-item-label">政策名称</div>
           <div class="form-item-input-wrapper">
-            <input class="form-item-input input" type="text" id="name" placeholder="请输入政策名称" />
+            <input
+              v-model="form.name"
+              class="form-item-input input"
+              type="text"
+              id="name"
+              placeholder="请输入政策名称"
+            />
           </div>
         </label>
         <label class="form-item" for="name2">
           <div class="form-item-label">业务部门</div>
           <div class="form-item-input-wrapper">
             <picker id="name2" class="picker form-item-picker">
-              <div class="form-item-picker-value" v-if="false"></div>
+              <div class="form-item-picker-value" v-if="form.name2"></div>
               <div class="form-item-picker-placeholder" v-else>请选择业务部门</div>
-              <div class="form-item-picker-icon"></div>
+              <div class="form-item-picker-icon">
+                <ta-icon name="arrow" size="30rpx" />
+              </div>
             </picker>
           </div>
         </label>
@@ -22,13 +30,15 @@
           <div class="form-item-label">补贴项目</div>
           <div class="form-item-input-wrapper">
             <picker id="name3" class="picker form-item-picker">
-              <div class="form-item-picker-value" v-if="false"></div>
+              <div class="form-item-picker-value" v-if="form.name3"></div>
               <div class="form-item-picker-placeholder" v-else>请选择补贴项目</div>
-              <div class="form-item-picker-icon"></div>
+              <div class="form-item-picker-icon">
+                <ta-icon name="arrow" size="30rpx" />
+              </div>
             </picker>
           </div>
         </label>
-        <button class="button button-query">查询</button>
+        <button class="button button-query" @click="emit('query', form)">查询</button>
       </div>
     </ComponentProjectPanel>
   </div>
@@ -36,6 +46,14 @@
 
 <script setup lang="ts">
   import ComponentProjectPanel from '@/components/project/panel/panel.vue'
+
+  const emit = defineEmits(['query'])
+
+  const form = ref({
+    name: '',
+    name2: '',
+    name3: ''
+  })
 </script>
 
 <style lang="scss" scoped>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
+  import { useCheckLogin } from '@/hooks'
   onLaunch(() => {
-    // console.log('App Launch123345')
+    useCheckLogin()
   })
   onShow(() => {
     // console.log('App Show')

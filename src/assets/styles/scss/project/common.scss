@@ -1,6 +1,7 @@
 // 所有页面公用样式
+@use 'sass:math';
 .form {
-  $h: 80rpx;
+  $h: 88rpx;
   $font-size: 28rpx;
   .form {
     &-item {
@@ -8,7 +9,7 @@
       align-items: center;
       height: $h;
       font-size: $font-size;
-      border-bottom: 1px solid #c8c7cc;
+      border-bottom: 1px solid rgba(#c8c7cc, 0.4);
       &-label {
         font-size: inherit;
       }
@@ -40,8 +41,8 @@
           line-height: 40rpx;
           text-align: right;
           font-size: $font-size;
-          padding: ($h - 40rpx) / 2;
-          padding-right: 40rpx;
+          padding: math.div($h - 40rpx, 2);
+          padding-right: 30rpx;
         }
         &-value {
           color: #3d424d;
@@ -54,15 +55,19 @@
           top: 50%;
           transform: translateY(-50%);
           right: 0;
+          color: #aaa;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
     }
   }
   .button-query {
     width: 100%;
-    height: 64rpx;
-    line-height: 64rpx;
-    font-size: 24rpx;
+    height: 72rpx;
+    line-height: 72rpx;
+    font-size: 28rpx;
     color: #fff;
     text-align: center;
     background-color: #3882ff;
