@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="buttons-wrapper">
-        <button class="button">发现政策</button>
+        <button class="button" @click="onClickMore">发现政策</button>
       </div>
     </ComponentProjectPanel>
   </div>
@@ -25,8 +25,12 @@
 
   const policys = ref([{}, {}])
 
+  const onClick = (data: any) => {
+    console.log(data)
+  }
+
   const onClickMore = () => {
-    navigateTo('', '')
+    navigateTo('policy', 'packageQuery')
   }
 </script>
 

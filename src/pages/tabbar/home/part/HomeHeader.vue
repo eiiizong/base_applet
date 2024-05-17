@@ -19,7 +19,9 @@
         </div>
       </div>
 
-      <div class="search" @click="navigateTo('ploce')">{{ $t('home.header.searchPlaceholder') }}</div>
+      <div class="search" @click="navigateTo('policy', 'packageQuery', { focus: true })">
+        {{ $t('home.header.searchPlaceholder') }}
+      </div>
     </div>
   </div>
 </template>
