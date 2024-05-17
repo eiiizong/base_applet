@@ -1,6 +1,13 @@
 <script setup lang="ts">
+  import { getSystemInfoSync } from '@/utils/uni'
   import { useCheckLogin } from '@/hooks'
+  import { useStoreSystemInfo } from '@/stores/modules'
+
   onLaunch(() => {
+    const systemInfo = getSystemInfoSync()
+    const storeSystemInfo = useStoreSystemInfo()
+
+    storeSystemInfo.updateStoreSystemInfo(systemInfo)
     useCheckLogin()
   })
   onShow(() => {

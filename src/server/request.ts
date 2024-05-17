@@ -1,7 +1,12 @@
 // import type { Api } from './types'
 
+/**
+ * 登录类型 01 小程序 02 app 03 一体机
+ */
+type LoginType = '01' | '02' | '03'
+
 import { showModal, showLoading, hideLoading, request as uniRequest } from '@/utils/uni'
-import { useStoreUserInfo } from '@/stores/modules'
+import { useStoreUserInfo, useStoreSystemInfo } from '@/stores/modules'
 // import { AES_Encrypt, AES_Decrypt } from './aes' // 加密
 
 const { VITE_API_REQUEST_URL } = process.env
@@ -33,8 +38,15 @@ const request = (
   timeout = 60000
 ): Promise<any> => {
   const { userInfo } = useStoreUserInfo()
+  const { systemInfo } = useStoreSystemInfo()
+  const loginType: LoginType = '01'
 
-  let header = { 'content-type': 'application/json;charset=UTF-8', authorization: '' }
+  console.log(systemInfo?.deviceType)
+
+  let header = {
+    'content-type': 'application/json;charset=UTF-8',
+    authorization: ''
+  }
 
   // 根据加密情况使用content-type
   // if (isOpenDataEncryption) {
@@ -62,6 +74,11 @@ const request = (
     // 是否显示数据加载中
     if (isShowLoading) {
       showLoading()
+    }
+    data = {
+      ...data,
+      // 登陆类型(01 小程序 02 app 03 一体机)
+      loginType
     }
 
     uniRequest(url, data, header, method, timeout)
