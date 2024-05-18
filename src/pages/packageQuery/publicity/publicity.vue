@@ -16,7 +16,6 @@
 <style lang="scss" scoped>
   .publicity {
     width: 100%;
-    padding-bottom: 0;
     .wrapper {
       flex: 1;
       overflow: hidden;

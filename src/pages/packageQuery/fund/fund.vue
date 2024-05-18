@@ -1,6 +1,9 @@
 <template>
   <div class="page-scroll fund">
-    <FundHeader></FundHeader>
+    <div class="total-wrapper">
+      <FundTotal></FundTotal>
+    </div>
+
     <template v-if="queryResultData.list.length">
       <QueryResults :render-list="queryResultData.list"></QueryResults>
     </template>
@@ -16,7 +19,7 @@
   import ComponentProjectEmpty from '@/components/project/empty/empty.vue'
   import ComponentProjectDividerLoad from '@/components/project/divider-load/divider-load.vue'
 
-  import FundHeader from './part/FundHeader.vue'
+  import FundTotal from './part/FundTotal.vue'
   import QueryResults from './part/QueryResults.vue'
 
   /**
@@ -88,5 +91,8 @@
 <style lang="scss" scoped>
   .fund {
     width: 100%;
+    .total-wrapper {
+      padding: $spacing;
+    }
   }
 </style>

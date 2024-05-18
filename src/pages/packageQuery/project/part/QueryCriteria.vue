@@ -34,6 +34,7 @@
     .search-wrapper {
       padding: $spacing;
       padding-top: 0;
+      box-sizing: border-box;
       .input {
         background-color: rgba(#fff, 0.3);
         border-radius: 50px;
@@ -43,6 +44,7 @@
         line-height: 40rpx;
         height: 80rpx;
         color: #fff;
+        box-sizing: border-box;
       }
     }
 

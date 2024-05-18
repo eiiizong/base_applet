@@ -88,5 +88,6 @@
 <style lang="scss" scoped>
   .publicity-details {
     width: 100%;
+    padding-top: 16rpx;
   }
 </style>

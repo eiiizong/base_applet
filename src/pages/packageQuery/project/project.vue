@@ -97,7 +97,6 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-bottom: 0;
     .scroll-view {
       flex: 1;
       overflow: hidden;

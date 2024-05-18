@@ -97,6 +97,5 @@
   .policy {
     width: 100%;
     padding-top: $spacing;
-    padding-bottom: 0;
   }
 </style>

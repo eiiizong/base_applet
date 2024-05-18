@@ -30,6 +30,8 @@
 
 <style lang="scss" scoped>
   .project-details {
+    padding-bottom: $spacing;
+    box-sizing: border-box;
     .scroll-view {
       flex: 1;
       overflow: hidden;

@@ -125,10 +125,12 @@
         padding: $spacing 0;
         font-weight: 700;
         color: $color-text;
+        box-sizing: border-box;
       }
       .con {
         padding: $spacing;
         padding-bottom: $spacing * 2;
+        box-sizing: border-box;
       }
       .item {
         margin-bottom: 20rpx;
@@ -140,6 +142,7 @@
           margin-bottom: 20rpx;
           position: relative;
           padding-left: 20rpx;
+          box-sizing: border-box;
           &::before {
             content: '';
             position: absolute;
@@ -175,6 +178,7 @@
         background-image: linear-gradient(to right, $color-primary 0%, rgba($color-primary, 0.8) 100%);
         text-align: center;
         position: relative;
+        box-sizing: border-box;
 
         .text {
           @include textOverflow(1);

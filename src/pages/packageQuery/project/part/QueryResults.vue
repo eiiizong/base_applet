@@ -26,11 +26,14 @@
   .query-result {
     width: 100%;
     padding-bottom: $spacing;
+    box-sizing: border-box;
     .items {
       display: flex;
       flex-direction: column;
       padding: 0 $spacing;
+      box-sizing: border-box;
     }
+
     .item {
       &-name {
         font-weight: 700;
@@ -39,7 +42,7 @@
         position: relative;
         padding-left: $spacing;
         font-size: 32rpx;
-
+        box-sizing: border-box;
         &::before {
           content: '';
           position: absolute;

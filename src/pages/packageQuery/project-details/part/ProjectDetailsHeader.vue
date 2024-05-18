@@ -44,6 +44,7 @@
       box-shadow: 0 0 8rpx 2rpx rgba(0, 0, 0, 0.1);
       padding: $spacing;
       border-radius: 12rpx;
+      box-sizing: border-box;
 
       .name {
         font-size: 32rpx;
@@ -53,6 +54,7 @@
       }
       .cells {
         padding-top: 20rpx;
+        box-sizing: border-box;
       }
       .cell {
         display: flex;

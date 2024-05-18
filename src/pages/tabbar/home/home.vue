@@ -15,5 +15,6 @@
 <style lang="scss" scoped>
   .home {
     width: 100%;
+    padding-bottom: $spacing;
   }
 </style>
