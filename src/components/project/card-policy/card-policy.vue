@@ -1,5 +1,5 @@
 <template>
-  <div class="card-policy">
+  <div class="card-grant-details">
     <div class="name-wrapper">
       <div class="iconimg iconimg-subsidy"></div>
       <div class="name">转发财政部 国家卫生健康委</div>
@@ -38,7 +38,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .card-policy {
+  .card-grant-details {
     width: 100%;
     min-height: 214rpx;
     position: relative;

@@ -1,11 +1,8 @@
 <template>
-  <div class="fund-header">
+  <div class="publicity-details-header">
     <image class="image" :src="imageBgHeader"></image>
     <div class="con">
-      <div class="cell">
-        <div class="name">张**</div>
-        <div class="idcard">510902********6555</div>
-      </div>
+      <div class="cell">残疾人生活补贴和重度残疾人护理补贴</div>
     </div>
   </div>
 </template>
@@ -15,7 +12,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .fund-header {
+  .publicity-details-header {
     width: 100%;
     position: relative;
     padding: 0 14rpx;

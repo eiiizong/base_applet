@@ -1,6 +1,6 @@
 <template>
-  <div class="page-scroll fund">
-    <FundHeader></FundHeader>
+  <div class="page-scroll publicity-details">
+    <PublicityDetailsHeader></PublicityDetailsHeader>
     <template v-if="queryResultData.list.length">
       <QueryResults :render-list="queryResultData.list"></QueryResults>
     </template>
@@ -16,7 +16,7 @@
   import ComponentProjectEmpty from '@/components/project/empty/empty.vue'
   import ComponentProjectDividerLoad from '@/components/project/divider-load/divider-load.vue'
 
-  import FundHeader from './part/FundHeader.vue'
+  import PublicityDetailsHeader from './part/PublicityDetailsHeader.vue'
   import QueryResults from './part/QueryResults.vue'
 
   /**
@@ -86,7 +86,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .fund {
+  .publicity-details {
     width: 100%;
   }
 </style>
