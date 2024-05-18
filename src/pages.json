@@ -132,6 +132,13 @@
       "root": "pages/packageQuery",
       "pages": [
         {
+          "path": "fund/fund",
+          "style": {
+            "navigationBarTitleText": "资金查询",
+            "backgroundColorTop": "#f5f5f5"
+          }
+        },
+        {
           "path": "policy/policy",
           "style": {
             "navigationBarTitleText": "政策查询"
