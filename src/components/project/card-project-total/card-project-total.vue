@@ -1,5 +1,5 @@
 <template>
-  <div class="card-project">
+  <div class="card-project" @click="navigateTo('publicity-details', 'packageQuery')">
     <div class="name-wrapper">
       <div class="name">计划生育家庭特别扶助制度扶助计划生育家庭特别扶助制度扶助</div>
     </div>
@@ -19,6 +19,8 @@
 </template>
 
 <script setup lang="ts">
+  import { navigateTo } from '@/utils/uni'
+
   const props = defineProps({
     /**
      * 渲染内容

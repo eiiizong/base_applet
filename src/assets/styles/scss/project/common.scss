@@ -18,6 +18,7 @@
         height: 100%;
         overflow: hidden;
         padding-left: 30rpx;
+        box-sizing: border-box;
       }
       &-input {
         display: block;
@@ -28,6 +29,7 @@
         line-height: $h;
         padding: 12rpx;
         text-align: right;
+        box-sizing: border-box;
       }
       &-picker {
         width: 100%;
@@ -43,6 +45,7 @@
           font-size: $font-size;
           padding: math.div($h - 40rpx, 2);
           padding-right: 30rpx;
+          box-sizing: border-box;
         }
         &-value {
           color: #3d424d;

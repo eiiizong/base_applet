@@ -2,9 +2,27 @@
   <div class="publicity-main">
     <div class="title">按项目统计</div>
     <div class="toolbar">
-      <picker class="picker"></picker>
-      <picker class="picker"></picker>
-      <picker class="picker"></picker>
+      <picker class="picker">
+        <div class="picker-value" v-if="false"></div>
+        <div class="picker-placeholder" v-else>请选择区县</div>
+        <div class="picker-icon">
+          <ta-icon name="arrow-down" size="28rpx"></ta-icon>
+        </div>
+      </picker>
+      <picker class="picker">
+        <div class="picker-value" v-if="false"></div>
+        <div class="picker-placeholder" v-else>请选择乡镇</div>
+        <div class="picker-icon">
+          <ta-icon name="arrow-down" size="28rpx"></ta-icon>
+        </div>
+      </picker>
+      <picker class="picker">
+        <div class="picker-value" v-if="false"></div>
+        <div class="picker-placeholder" v-else>请选择年月</div>
+        <div class="picker-icon">
+          <ta-icon name="arrow-down" size="28rpx"></ta-icon>
+        </div>
+      </picker>
     </div>
     <div class="main">
       <scroll-view class="scroll-view tool" scroll-y>
@@ -38,12 +56,55 @@
 </script>
 
 <style lang="scss" scoped>
+  $color1: #436efe;
+  $color2: #ff6853;
   .publicity-main {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-
+    .title {
+      font-size: 32rpx;
+      line-height: 1;
+      color: $color-text;
+      padding-left: $spacing;
+      padding-bottom: $spacing;
+      font-weight: 700;
+    }
+    .toolbar {
+      background-color: $color-primary;
+      border-top-left-radius: 32rpx;
+      border-top-right-radius: 32rpx;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: $spacing;
+      .picker {
+        width: 30%;
+        line-height: 1;
+        background-color: #fff;
+        border-radius: 8rpx;
+        position: relative;
+        &-value,
+        &-placeholder {
+          line-height: 40rpx;
+          padding: 10rpx;
+          font-size: 28rpx;
+          width: 100%;
+          padding-right: 30rpx;
+        }
+        &-icon,
+        &-placeholder {
+          color: rgba($color-text, 0.6);
+        }
+        &-icon {
+          position: absolute;
+          top: 50%;
+          right: 10rpx;
+          transform: translateY(-50%);
+        }
+      }
+    }
     .main {
       flex: 1;
       overflow: hidden;
@@ -78,14 +139,16 @@
     }
     .result {
       padding-left: $spacing;
+      padding-top: $spacing;
       .total {
         display: flex;
         align-items: center;
         font-size: 28rpx;
         padding-right: $spacing;
         .card {
-          width: 50%;
-          background-color: $color-primary;
+          flex: 1;
+          overflow: hidden;
+          background-color: rgba($color2, 1);
           padding: $spacing;
           border-radius: 8rpx;
           display: flex;
@@ -95,11 +158,27 @@
           color: #fff;
           font-size: 24rpx;
           line-height: 1;
-          .util {
+          margin-right: 20rpx;
+          .value {
+            font-size: 32rpx;
+            font-weight: 700;
+          }
+          .unit {
             width: 100rpx;
             line-height: 40rpx;
             text-align: center;
             margin: 20rpx 0;
+            background-color: rgba(#fff, 0.2);
+            font-size: 24rpx;
+            border-radius: 50px;
+          }
+          .key {
+            font-size: 26rpx;
+            line-height: 1;
+          }
+          &:last-child {
+            margin-right: 0;
+            background-color: rgba($color1, 1);
           }
         }
       }
