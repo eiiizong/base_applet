@@ -7,7 +7,9 @@
     <div class="cells">
       <div class="cell">
         <div class="key">业务状态：</div>
-        <div class="value">张三</div>
+        <div class="value">
+          <div class="tag">完成</div>
+        </div>
       </div>
       <div class="cell">
         <div class="key">姓名：</div>
@@ -27,19 +29,19 @@
       </div>
       <div class="cell">
         <div class="key">发放期号：</div>
-        <div class="value primary">202223</div>
+        <div class="value">202223</div>
       </div>
       <div class="cell">
         <div class="key">经办时间：</div>
-        <div class="value primary">2024-3-2 16:25:26</div>
+        <div class="value">2024-3-2 16:25:26</div>
       </div>
       <div class="cell">
         <div class="key">经办部门：</div>
-        <div class="value primary">安多县残联</div>
+        <div class="value">安多县残联</div>
       </div>
       <div class="cell">
         <div class="key">实发时间：</div>
-        <div class="value primary">2024-3-15 16:25:51</div>
+        <div class="value">2024-3-15 16:25:51</div>
       </div>
     </div>
   </div>
@@ -64,7 +66,7 @@
     padding: 0 $spacing;
     background-color: #ffffff;
     box-shadow: 0rpx 2rpx 24rpx 0rpx rgba(8, 76, 192, 0.15);
-    border-radius: 32rpx;
+    border-radius: 16rpx;
     .name-wrapper {
       display: flex;
       align-items: center;
@@ -92,7 +94,8 @@
         display: flex;
         line-height: 1.4;
         font-size: 24rpx;
-        margin-bottom: 12rpx;
+        margin-bottom: 20rpx;
+
         .key {
           color: rgba($color-text, 0.6);
         }
@@ -100,6 +103,21 @@
           flex: 1;
           overflow: hidden;
           color: $color-text;
+          display: flex;
+          justify-content: flex-end;
+          font-weight: 500;
+          .tag {
+            font-size: 24rpx;
+            line-height: 1;
+            padding: 4rpx 8rpx;
+            color: $color-primary;
+            background-color: rgba($color-primary, 0.2);
+            border: 1px solid $color-primary;
+            border-radius: 4rpx;
+          }
+          &.primary {
+            color: $color-primary;
+          }
         }
       }
     }

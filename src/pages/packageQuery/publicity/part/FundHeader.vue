@@ -1,0 +1,53 @@
+<template>
+  <div class="fund-header">
+    <image class="image" :src="imageBgHeader"></image>
+    <div class="con">
+      <div class="cell">
+        <div class="name">张**</div>
+        <div class="idcard">510902********6555</div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+  import imageBgHeader from '../images/bg-header.png'
+</script>
+
+<style lang="scss" scoped>
+  .fund-header {
+    width: 100%;
+    position: relative;
+    padding: 0 14rpx;
+    .image {
+      display: block;
+      width: 722rpx;
+      height: 206rpx;
+      margin: 0 auto;
+    }
+    .con {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 30rpx;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .cell {
+        display: flex;
+        align-items: center;
+        font-size: 28rpx;
+        line-height: 1;
+        font-weight: 400;
+        color: #fff;
+        padding: 0 $spacing;
+        .idcard {
+          margin-left: 30rpx;
+        }
+      }
+    }
+  }
+</style>
