@@ -26,6 +26,7 @@
     position: relative;
     background-color: $color-primary;
     padding: $spacing;
+    box-sizing: border-box;
     .input {
       display: block;
       width: 100%;
@@ -38,6 +39,7 @@
       font-weight: 400;
       text-align: left;
       color: #fff;
+      box-sizing: border-box;
     }
   }
 </style>

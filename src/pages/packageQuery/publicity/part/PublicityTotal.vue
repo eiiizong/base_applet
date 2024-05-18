@@ -35,7 +35,8 @@
 </script>
 
 <style lang="scss" scoped>
-  $item-height: 160rpx;
+  @use 'sass:math';
+  $item-height: 150rpx;
   $color1: #436efe;
   $color2: #ff6853;
   $color3: #00c290;
@@ -44,11 +45,13 @@
     padding: $spacing;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
     .item {
       width: 100%;
       white-space: nowrap;
       position: relative;
       padding: $spacing;
+      box-sizing: border-box;
       border-radius: 12rpx;
       height: $item-height;
       background-image: linear-gradient(to bottom, rgba($color1, 0.2), #fff);
@@ -70,7 +73,8 @@
         font-weight: 700;
         font-size: 36rpx;
         line-height: 1;
-        padding-top: $spacing;
+        padding-top: 20rpx;
+        box-sizing: border-box;
         display: flex;
         align-items: center;
         .val {
@@ -81,6 +85,7 @@
           font-size: 26rpx;
           line-height: 1;
           padding-left: 4rpx;
+          box-sizing: border-box;
           color: rgba($color-text, 0.6);
         }
       }
@@ -96,7 +101,7 @@
       }
     }
     .right {
-      width: calc(50% - 10rpx);
+      width: math.div((750rpx - $spacing * 2), 2) - 10rpx;
       margin-left: 20rpx;
       .item {
         background-image: linear-gradient(to bottom, rgba($color2, 0.2), #fff);

@@ -47,6 +47,7 @@
     padding: 0 $spacing;
     background-color: #fff;
     border-radius: 8rpx;
+    box-sizing: border-box;
     .name-wrapper {
       display: flex;
       align-items: center;
@@ -70,6 +71,7 @@
       position: relative;
       z-index: 2;
       padding: 20rpx 0;
+      box-sizing: border-box;
       .cell {
         display: flex;
         line-height: 1.4;

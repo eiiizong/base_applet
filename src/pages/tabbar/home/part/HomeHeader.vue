@@ -77,6 +77,7 @@
       left: 0;
       width: 100%;
       height: 100%;
+      box-sizing: border-box;
     }
     .toolbar {
       display: flex;
@@ -91,6 +92,7 @@
         .value {
           font-size: 26rpx;
           padding-left: 8rpx;
+          box-sizing: border-box;
           font-weight: 700;
         }
       }
@@ -120,6 +122,7 @@
       font-size: 28rpx;
       margin-top: $spacing;
       padding: 0 $spacing;
+      box-sizing: border-box;
     }
   }
 </style>

@@ -34,6 +34,7 @@
       font-weight: 400;
       z-index: 1;
       padding: $spacing;
+      box-sizing: border-box;
     }
   }
 </style>

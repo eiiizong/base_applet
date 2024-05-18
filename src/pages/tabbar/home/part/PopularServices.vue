@@ -110,6 +110,7 @@
   .home-popular-services {
     width: 100%;
     padding-top: $spacing;
+    box-sizing: border-box;
     .items {
       display: flex;
       flex-wrap: wrap;
@@ -123,6 +124,7 @@
       border-radius: 8rpx;
       margin-bottom: 24rpx;
       padding-left: 16rpx;
+      box-sizing: border-box;
       position: relative;
       transition: all 0.3s;
       .title {
@@ -137,6 +139,7 @@
         line-height: 42rpx;
         padding-left: 20rpx;
         padding-right: 100rpx;
+        box-sizing: border-box;
         z-index: 3;
         @include textOverflow(2);
       }
@@ -151,6 +154,7 @@
         position: absolute;
         padding-left: 20rpx;
         padding-right: 90rpx;
+        box-sizing: border-box;
         left: 0;
         bottom: 20rpx;
         z-index: 3;

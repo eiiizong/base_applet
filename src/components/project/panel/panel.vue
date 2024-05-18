@@ -40,6 +40,7 @@
     overflow: hidden;
     margin: 0 auto;
     padding: 0 $spacing;
+    box-sizing: border-box;
     .title-wrapper {
       display: flex;
       align-items: center;
@@ -49,6 +50,7 @@
       line-height: 1;
       color: $color-text;
       padding-top: $spacing;
+      box-sizing: border-box;
       .line {
         width: 8rpx;
         height: 32rpx;
@@ -70,6 +72,7 @@
     }
     .con {
       padding: $spacing 0;
+      box-sizing: border-box;
     }
   }
 </style>

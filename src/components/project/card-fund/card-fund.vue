@@ -67,6 +67,7 @@
     background-color: #ffffff;
     box-shadow: 0rpx 2rpx 24rpx 0rpx rgba(8, 76, 192, 0.15);
     border-radius: 16rpx;
+    box-sizing: border-box;
     .name-wrapper {
       display: flex;
       align-items: center;
@@ -90,6 +91,7 @@
       position: relative;
       z-index: 2;
       padding: 20rpx 0;
+      box-sizing: border-box;
       .cell {
         display: flex;
         line-height: 1.4;
@@ -110,6 +112,7 @@
             font-size: 24rpx;
             line-height: 1;
             padding: 4rpx 8rpx;
+            box-sizing: border-box;
             color: $color-primary;
             background-color: rgba($color-primary, 0.2);
             border: 1px solid $color-primary;

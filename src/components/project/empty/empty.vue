@@ -44,6 +44,7 @@
     margin: 0 auto;
     text-align: center;
     padding-top: $spacing;
+    box-sizing: border-box;
     .image {
       width: 320rpx;
       height: 320rpx;

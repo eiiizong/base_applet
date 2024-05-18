@@ -38,6 +38,7 @@
   .home-policy {
     width: 100%;
     padding-top: $spacing;
+    box-sizing: border-box;
     .items {
       display: flex;
       flex-direction: column;
