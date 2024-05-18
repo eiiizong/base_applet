@@ -22,11 +22,13 @@
         <div class="value">2024年5月14日</div>
       </div>
     </div>
-    <div class="button">查看详情</div>
+    <div class="button" @click="navigateTo('project-details', 'packageQuery')">查看详情</div>
   </div>
 </template>
 
 <script setup lang="ts">
+  import { navigateTo } from '@/utils/uni'
+
   const props = defineProps({
     /**
      * 渲染内容

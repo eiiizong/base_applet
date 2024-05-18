@@ -77,7 +77,7 @@
         desc: t('home.popularServices.nav03.desc'),
         name: 'project',
         packageName: 'packageQuery',
-        isNeedLogin: true,
+        isNeedLogin: false,
         imageSrc: imageNav03,
         imageWidth: 152,
         imageHeight: 124

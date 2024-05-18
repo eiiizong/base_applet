@@ -37,6 +37,9 @@
     .items {
       .item {
         margin-bottom: $spacing;
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
     }
   }

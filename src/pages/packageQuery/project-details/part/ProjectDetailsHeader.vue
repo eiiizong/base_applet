@@ -13,28 +13,31 @@
           <div class="value">2022-01-01</div>
         </div>
       </div>
+      <image class="image" :src="imageIcon01"></image>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import imageIcon01 from '../images/icon-01.png'
+</script>
 
 <style lang="scss" scoped>
   .project-details-header {
     width: 100%;
-    height: 300rpx;
+    height: 260rpx;
     position: relative;
     .bg {
       width: 100%;
-      height: 200rpx;
+      height: 140rpx;
       background-color: $color-primary;
-      border-bottom-left-radius: 50%;
-      border-bottom-right-radius: 50%;
+      border-bottom-left-radius: 80rpx;
+      border-bottom-right-radius: 80rpx;
     }
     .card {
       width: 672rpx;
       position: absolute;
-      bottom: 0;
+      bottom: $spacing;
       left: 50%;
       transform: translateX(-50%);
       background-color: #fff;
@@ -57,6 +60,13 @@
         font-size: 26rpx;
         color: $color-text-placeholder;
         line-height: 1.8;
+      }
+      .image {
+        width: 126rpx;
+        height: 116rpx;
+        position: absolute;
+        right: $spacing;
+        bottom: $spacing;
       }
     }
   }
