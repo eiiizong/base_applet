@@ -1,5 +1,5 @@
 /**
- * 登陆类型
+ * 登录类型
  * 01 微信
  * 02 一体机
  * 03 安卓
@@ -14,7 +14,7 @@ export type LoginType = '01' | '02' | '03' | '04' | '05'
 export interface LoginApiSuccessResponse {
   appId?: unknown
   /**
-   * base64 头像
+   *用户头像 base64
    */
   avatar?: string
   createBy?: unknown
@@ -44,6 +44,9 @@ export interface LoginApiSuccessResponse {
   sessionKey?: string
   subscribe?: unknown
   updateBy?: unknown
-  updateTime?: unknown
+  /**
+   * 更新时间
+   */
+  updateTime?: string
   userDeviceId?: unknown
 }

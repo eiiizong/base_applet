@@ -22,7 +22,7 @@ interface Data {
 
 import { showLoading, hideLoading, request as uniRequest, showModal } from '@/utils/uni'
 import { getEnvData } from '@/utils/get'
-import { useStoreUserInfo, useStoreSystemInfo } from '@/stores/modules'
+import { useStoreUserInfo } from '@/stores/modules'
 
 const baseUrl = getEnvData('VITE_API_REQUEST_URL')
 
@@ -69,9 +69,7 @@ const request = (
   let requestData: AnyObject = data
 
   const storeUserInfo = useStoreUserInfo()
-  const { userInfo } = storeUserInfo
-  const { systemInfo } = useStoreSystemInfo()
-  console.log(systemInfo)
+  const { getStoreUserInfoToken } = storeUserInfo
 
   // 是否显示数据加载中
   if (isShowLoading) {
@@ -79,10 +77,10 @@ const request = (
   }
 
   // 存在token
-  if (userInfo.token) {
+  if (getStoreUserInfoToken) {
     requestHeader = {
       ...requestHeader,
-      authorization: 'Bearer ' + userInfo.token
+      authorization: 'Bearer ' + getStoreUserInfoToken
     }
   }
 
@@ -98,13 +96,12 @@ const request = (
     requestUrl = baseUrl + url
     uniRequest(requestUrl, requestData, requestHeader, method, timeout)
       .then((res) => {
-        console.log(res, 987, showErrorToast)
         const { statusCode, data } = res
         if (statusCode === 200 && data) {
           const { code, msg, data: data_, token } = data as Data
 
           if (token) {
-            storeUserInfo.updateStoreUserInfo({ token })
+            storeUserInfo.updateStoreUserInfoToken(token)
           }
 
           if (code === 200 && data_) {

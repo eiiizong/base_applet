@@ -1,6 +1,5 @@
 import type { Store } from '@/stores/types'
 
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 /**
@@ -14,28 +13,46 @@ import { defineStore } from 'pinia'
 /**
  * store 用户信息
  */
-const useStoreUserInfo = defineStore('storeUserInfo', () => {
-  /**
-   * 设置 userInfo 游客无须登录也可以访问
-   */
-  const userInfo = ref<Store.UserInfo>({})
-
-  /**
-   * 获取 userInfo
-   */
-  const getStoreUserInfo = computed(() => userInfo.value)
-
-  /**
-   * 更新 userInfo
-   */
-  function updateStoreUserInfo(data: Store.UserInfo) {
-    userInfo.value = {
-      ...userInfo.value,
-      ...data
+const useStoreUserInfo = defineStore('storeUserInfo', {
+  state: (): Store.UserInfo => {
+    return {
+      token: '',
+      avatar: '',
+      id: '',
+      idCard: '',
+      name: ''
     }
-  }
-
-  return { userInfo, getStoreUserInfo, updateStoreUserInfo }
+  },
+  getters: {
+    /**
+     * 获取token
+     */
+    getStoreUserInfoToken: (state) => state.token,
+    /**
+     * 获取用户信息
+     */
+    getStoreUserInfo: (state) => state
+  },
+  actions: {
+    /**
+     * 更新token
+     */
+    updateStoreUserInfoToken(str: Store.UserInfo['token']) {
+      this.token = str
+    },
+    /**
+     * 更新用户信息
+     */
+    updateStoreUserInfo(data: Store.UserInfo) {
+      const { token, avatar, id, idCard, name } = data
+      this.token = token
+      this.avatar = avatar
+      this.id = id
+      this.idCard = idCard
+      this.name = name
+    }
+  },
+  persist: true
 })
 
 export { useStoreUserInfo }

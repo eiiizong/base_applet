@@ -37,19 +37,23 @@
   import { useStoreUserSettings, useStoreUserInfo } from '@/stores/modules'
   import { useUpdateNavigationBarTitle } from '@/hooks/'
 
-  const { locale } = useI18n()
   const storeUserInfo = useStoreUserInfo()
-  const { userInfo } = storeUserInfo
+  const storeUserSettings = useStoreUserSettings()
+  const { locale } = useI18n()
+  const userInfo = storeUserInfo.getStoreUserInfo
 
   /**
    * 切换语言
    */
   const onClickSetLanguage = () => {
     locale.value = locale.value === 'ja' ? 'zh-Hans' : 'ja'
-    useStoreUserSettings().updateStoreUserSettingsLanguage(locale.value as Store.UserSettings['language'])
+    storeUserSettings.updateStoreUserSettingsLanguage(locale.value as Store.UserSettings['language'])
     useUpdateNavigationBarTitle()
   }
 
+  /**
+   * 点击头像去登录
+   */
   const onClickToLogin = () => {
     if (userInfo.id) {
       return
