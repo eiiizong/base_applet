@@ -1,5 +1,22 @@
 export type PageNmae = 'home' | 'my'
 /**
- * 登录类型
+ * 登录表单类型
  */
-export type LoginType = 'home' | 'my'
+export interface LoginPageForm {
+  /**
+   * 姓名
+   */
+  name: string
+  /**
+   * 身份证号
+   */
+  idcard: string
+  /**
+   * 手机号
+   */
+  tel: string
+  /**
+   * 是否同意协议
+   */
+  agree: boolean
+}

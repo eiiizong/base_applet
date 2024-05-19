@@ -55,7 +55,7 @@
         desc: t('home.popularServices.nav01.desc'),
         name: 'publicity',
         packageName: 'packageQuery',
-        isNeedLogin: false,
+        isNeedLogin: true,
         imageSrc: imageNav01,
         imageWidth: 140,
         imageHeight: 172
@@ -66,7 +66,7 @@
         desc: t('home.popularServices.nav02.desc'),
         name: 'fund',
         packageName: 'packageQuery',
-        isNeedLogin: false,
+        isNeedLogin: true,
         imageSrc: imageNav02,
         imageWidth: 146,
         imageHeight: 162

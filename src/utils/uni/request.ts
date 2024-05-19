@@ -1,7 +1,7 @@
 /**
  * 发起 HTTPS 网络请求
  * @param {string} url - 开发者服务器接口地址
- * @param {string | AnyObject | ArrayBuffer | undefined } [data] - 请求的参数
+ * @param {string | AnyObject | ArrayBuffer } [data] - 请求的参数
  * @param {any} [header] - 设置请求的 header，header 中不能设置 Referer
  * @param {'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'CONNECT'} [method='GET'] - HTTP 请求方法。默认值GET
  * @param {number} [timeout=60000] - 超时时间，单位为ms。默认值60000。
@@ -25,7 +25,7 @@
 // GeneralCallbackResult
 const request = (
   url: string,
-  data: string | AnyObject | ArrayBuffer | undefined = {},
+  data: string | AnyObject | ArrayBuffer = {},
   header: any = {},
   method: 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'CONNECT' = 'GET',
   timeout = 60000,
@@ -51,8 +51,6 @@ const request = (
         resolve(res)
       },
       fail(err) {
-        // eslint-disable-next-line no-console
-        console.error('uni.request 接口调用失败 => ', err)
         reject(err)
       }
     })

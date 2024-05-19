@@ -1,24 +1,39 @@
-// import type { Api } from './types'
-
 /**
- * 登录类型 01 小程序 02 app 03 一体机
+ * 开发者服务器返回的数据
  */
-type LoginType = '01' | '02' | '03'
+interface Data {
+  /**
+   * 状态码
+   */
+  code: 200 | 500
+  /**
+   * 错误信息
+   */
+  msg: string
+  /**
+   * 数据
+   */
+  data: any
+  /**
+   * token
+   */
+  token: string
+}
 
-import { showModal, showLoading, hideLoading, request as uniRequest } from '@/utils/uni'
+import { showLoading, hideLoading, request as uniRequest, showModal } from '@/utils/uni'
+import { getEnvData } from '@/utils/get'
 import { useStoreUserInfo, useStoreSystemInfo } from '@/stores/modules'
-// import { AES_Encrypt, AES_Decrypt } from './aes' // 加密
 
-const { VITE_API_REQUEST_URL } = process.env
-// const isOpenDataEncryption = VITE_OPEN_DATA_ENCRYPTION === 'true'
+const baseUrl = getEnvData('VITE_API_REQUEST_URL')
 
 /**
- * 自定义发起 HTTPS 网络请求 未定义token过期业务逻辑
+ * 自定义封装发起 HTTPS 网络请求
  * @param {string} url 开发者服务器接口地址，已默认加上前缀
- * @param {object} data 请求的参数
- * @param {boolean} isShowLoading [true] 请求数据时显示加载中
- * @param {boolean} showErrorToast [true] 是否显示错误提示
- * @param {"OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT" | undefined} method [POST] HTTP 请求方法。
+ * @param {string | AnyObject | ArrayBuffer} [data={}] 请求的参数
+ * @param {boolean} isShowLoading [isShowLoading=true] 请求数据时显示加载中
+ * @param {boolean} showErrorToast [showErrorToast=true] 是否显示错误提示
+ * @param {"OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT" | undefined} method [method='POST'] HTTP 请求方法。
+ * @param {number} timeout [timeout=6000] 请求超时时间，单位毫秒。
  * @returns { Promise }
  * @example
   request('test').then(res => {
@@ -31,61 +46,81 @@ const { VITE_API_REQUEST_URL } = process.env
 */
 const request = (
   url: string,
-  data: any = {},
+  data: AnyObject = {},
   isShowLoading = true,
   showErrorToast = true,
   method: 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'CONNECT' | undefined = 'POST',
-  timeout = 60000
+  timeout = 1000 * 60
 ): Promise<any> => {
-  const { userInfo } = useStoreUserInfo()
-  const { systemInfo } = useStoreSystemInfo()
-  const loginType: LoginType = '01'
-
-  console.log(systemInfo?.deviceType)
-
-  let header = {
+  /**
+   * 请求地址
+   */
+  let requestUrl = ''
+  /**
+   * 请求头
+   */
+  let requestHeader = {
     'content-type': 'application/json;charset=UTF-8',
     authorization: ''
   }
+  /**
+   * 请求体data
+   */
+  let requestData: AnyObject = data
 
-  // 根据加密情况使用content-type
-  // if (isOpenDataEncryption) {
-  //   header = {
-  //     'content-type': 'application/x-www-form-urlencoded'
-  //   }
-  // }
+  const storeUserInfo = useStoreUserInfo()
+  const { userInfo } = storeUserInfo
+  const { systemInfo } = useStoreSystemInfo()
+  console.log(systemInfo)
+
+  // 是否显示数据加载中
+  if (isShowLoading) {
+    showLoading()
+  }
 
   // 存在token
   if (userInfo.token) {
-    header = {
-      ...header,
+    requestHeader = {
+      ...requestHeader,
       authorization: 'Bearer ' + userInfo.token
     }
+  }
+
+  requestData = {
+    ...data
   }
 
   return new Promise((resolve, reject) => {
     // 没有请求地址时 终止程序
     if (!url) {
-      showModal('调用request接口参数 url 必须传入，请检查！')
-      reject(false)
+      reject(new Error('调用request接口参数 url 必须传入，请检查！'))
     }
-    url = VITE_API_REQUEST_URL + url
-
-    // 是否显示数据加载中
-    if (isShowLoading) {
-      showLoading()
-    }
-    data = {
-      ...data,
-      // 登陆类型(01 小程序 02 app 03 一体机)
-      loginType
-    }
-
-    uniRequest(url, data, header, method, timeout)
+    requestUrl = baseUrl + url
+    uniRequest(requestUrl, requestData, requestHeader, method, timeout)
       .then((res) => {
         console.log(res, 987, showErrorToast)
+        const { statusCode, data } = res
+        if (statusCode === 200 && data) {
+          const { code, msg, data: data_, token } = data as Data
+
+          storeUserInfo.updateStoreUserInfo({ token })
+
+          if (code === 200 && data_) {
+            resolve(data_)
+          } else {
+            if (showErrorToast) {
+              showModal(msg)
+            }
+            reject(data)
+          }
+        } else {
+          reject(res)
+        }
       })
       .catch((err) => {
+        if (showErrorToast) {
+          showModal(`请求错误，接口：${url}，请检查！`)
+        }
         reject(err)
       })
       .finally(() => {

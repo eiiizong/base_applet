@@ -26,7 +26,7 @@
         </div>
       </div>
       <!-- #ifdef MP-WEIXIN -->
-      <div class="form-item" v-if="false">
+      <!-- <div class="form-item">
         <div class="label">{{ $t('login.form.tel.label') }}</div>
         <div class="input-wrapper">
           <input v-model="form.tel" disabled class="input" type="tel" :placeholder="$t('login.form.tel.placeholder')" />
@@ -34,7 +34,7 @@
             {{ $t('login.form.tel.button') }}
           </button>
         </div>
-      </div>
+      </div> -->
       <!-- #endif -->
     </div>
     <div class="agreement-wrapper">
@@ -69,6 +69,7 @@
 </template>
 
 <script setup lang="ts">
+  import type { LoginPageForm } from '@/types'
   import { navigateTo } from '@/utils/uni'
 
   const emit = defineEmits(['click'])
@@ -76,23 +77,11 @@
   /**
    * 登录信息表单
    */
-  const form = ref({
-    /**
-     * 姓名
-     */
-    name: '',
-    /**
-     * 身份证号
-     */
-    idcard: '',
-    /**
-     * 手机号
-     */
+  const form = ref<LoginPageForm>({
+    name: '曾小明',
+    idcard: '510902199507236534',
     tel: '',
-    /**
-     * 是否同意协议
-     */
-    agree: false
+    agree: true
   })
 
   /**
@@ -110,9 +99,9 @@
   /**
    * 获取手机号回调
    */
-  const getPhoneNumber = (event: WechatMiniprogram.ButtonGetPhoneNumber) => {
-    console.log(event, 99)
-  }
+  // const getPhoneNumber = (event: WechatMiniprogram.ButtonGetPhoneNumber) => {
+  //   console.log(event, 99)
+  // }
 
   /**
    * 用户同意/不同意协议触发的事件

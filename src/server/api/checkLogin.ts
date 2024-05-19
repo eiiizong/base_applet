@@ -1,4 +1,5 @@
 import request from '@/server/request'
+import { useGetLoginType } from '@/hooks'
 
 /**
  * 获取码表
@@ -7,11 +8,11 @@ import request from '@/server/request'
  * @param {boolean} [isShowErrorToast=true] 是否显示错误提示 默认值 true
  */
 
-const requestAppletCheckLogin = (code: string, isShowLoading = true, isShowErrorToast = true): Promise<any> => {
+const requestAppletCheckLogin = (code: string, isShowLoading = true, isShowErrorToast = false): Promise<any> => {
   const data = {
-    code
+    code,
+    loginType: useGetLoginType()
   }
-
   return new Promise((resolve, reject) => {
     request('/api/applet/checkLogin', data, isShowLoading, isShowErrorToast)
       .then((res) => {
