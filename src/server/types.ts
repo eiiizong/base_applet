@@ -52,7 +52,7 @@ export interface LoginApiSuccessResponse {
 }
 
 /**
- * 查询个人民生资金查询汇总信息接口成功响应返回的数据格式
+ * 查询个人民生资金汇总信息接口成功响应返回的数据格式
  */
 export interface GetSelfFundCollectDataApiSuccessResponse {
   /**
@@ -63,4 +63,59 @@ export interface GetSelfFundCollectDataApiSuccessResponse {
    * 发放总次数
    */
   totalTime: number
+}
+
+/**
+ * 查询个人民生资金发放详情信息行数据返回的数据格式
+ */
+export interface GetSubsidyDetailPageListRow {
+  aac002: string
+  aac003: string
+  aae010: string
+  aae017: string
+  aae019: number
+  aae036: string
+  aae100: string
+  aae209: string
+  chb015: string
+  chb017: string
+  chb018: string
+  chb204: string
+  chi031: string
+  chm010: string
+  chm012: string
+  chm020: number
+  /**
+   * 业务状态(0-发放中，1-已发放)
+   */
+  crb00k: '0' | '1'
+  createBy: unknown
+  createTime: unknown
+  deptId: unknown
+  remark: unknown
+  updateBy: unknown
+  updateTime: unknown
+  userId: unknown
+}
+
+/**
+ * 查询个人民生资金发放详情信息信息接口成功响应返回的数据格式
+ */
+export interface GetSubsidyDetailPageListApiSuccessResponse {
+  /**
+   * 当前页
+   */
+  pageNum: number
+  /**
+   * 当前条数
+   */
+  pageSize: number
+  /**
+   * 数据列表
+   */
+  rows: GetSubsidyDetailPageListRow[]
+  /**
+   * 总条数
+   */
+  total: number
 }

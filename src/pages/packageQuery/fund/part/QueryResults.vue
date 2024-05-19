@@ -14,11 +14,12 @@
   import ComponentProjectPanel from '@/components/project/panel/panel.vue'
   import ComponentProjectCardFund from '@/components/project/card-fund/card-fund.vue'
 
+  import type { GetSubsidyDetailPageListRow } from '@/server/types'
   import type { PropType } from 'vue'
 
   const props = defineProps({
     renderList: {
-      type: Array as PropType<any[]>,
+      type: Array as PropType<GetSubsidyDetailPageListRow[]>,
       required: true
     }
   })

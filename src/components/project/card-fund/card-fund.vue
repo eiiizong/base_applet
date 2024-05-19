@@ -2,58 +2,63 @@
   <div class="card-fund">
     <div class="name-wrapper">
       <div class="iconimg iconimg-subsidy"></div>
-      <div class="name">残疾人生活补贴和重度残疾人护理补贴</div>
+      <div class="name">{{ renderData?.chi031 }}</div>
     </div>
     <div class="cells">
       <div class="cell">
         <div class="key">业务状态：</div>
         <div class="value">
-          <div class="tag">完成</div>
+          <div class="tag" :class="['tag-' + renderData?.crb00k]">
+            {{ renderData?.crb00k === '1' ? '完成' : '发放中' }}
+          </div>
         </div>
       </div>
       <div class="cell">
         <div class="key">姓名：</div>
-        <div class="value">张三</div>
+        <div class="value">{{ renderData?.aac003 }}</div>
       </div>
       <div class="cell">
         <div class="key">身份证号：</div>
-        <div class="value">510902222222222222</div>
+        <div class="value">{{ renderData?.aac002 }}</div>
       </div>
       <div class="cell">
         <div class="key">银行卡号：</div>
-        <div class="value">8232323232323232323232</div>
+        <div class="value">{{ renderData?.aae010 }}</div>
       </div>
       <div class="cell">
         <div class="key">发放金额：</div>
-        <div class="value primary">800元</div>
+        <div class="value primary">{{ renderData?.aae019 || 0 }}元</div>
       </div>
       <div class="cell">
         <div class="key">发放期号：</div>
-        <div class="value">202223</div>
+        <div class="value">{{ renderData?.aae209 }}</div>
       </div>
       <div class="cell">
         <div class="key">经办时间：</div>
-        <div class="value">2024-3-2 16:25:26</div>
+        <div class="value">{{ renderData?.aae036 }}</div>
       </div>
       <div class="cell">
         <div class="key">经办部门：</div>
-        <div class="value">安多县残联</div>
+        <div class="value">{{ renderData?.aae017 }}</div>
       </div>
       <div class="cell">
         <div class="key">实发时间：</div>
-        <div class="value">2024-3-15 16:25:51</div>
+        <div class="value">{{ renderData?.chb204 }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+  import type { PropType } from 'vue'
+  import type { GetSubsidyDetailPageListRow } from '@/server/types'
+
   const props = defineProps({
     /**
      * 渲染内容
      */
     renderData: {
-      type: Object,
+      type: Object as PropType<GetSubsidyDetailPageListRow>,
       required: false
     }
   })
@@ -117,6 +122,11 @@
             background-color: rgba($color-primary, 0.2);
             border: 1px solid $color-primary;
             border-radius: 4rpx;
+            &.tag-0 {
+              background-color: rgba(#f00, 0.2);
+              color: #f00;
+              border-color: #f00;
+            }
           }
           &.primary {
             color: $color-primary;

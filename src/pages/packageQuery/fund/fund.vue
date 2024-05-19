@@ -22,7 +22,7 @@
   import FundTotal from './part/FundTotal.vue'
   import QueryResults from './part/QueryResults.vue'
 
-  import type { GetSelfFundCollectDataApiSuccessResponse } from '@/server/types'
+  import type { GetSelfFundCollectDataApiSuccessResponse, GetSubsidyDetailPageListRow } from '@/server/types'
 
   import moment from 'moment'
   import { requestAppletGetSelfFundCollectData, requestAppletGetSubsidyDetailPageList } from '@/server/api'
@@ -52,7 +52,7 @@
     /**
      * 查询结果数据
      */
-    list: any[]
+    list: GetSubsidyDetailPageListRow[]
     /**
      * 是否请求完成 控制 no-data 组件在未请求完成时不显示
      */
@@ -62,7 +62,7 @@
      */
     isLoaded: boolean
   }>({
-    list: [1, 2, 3],
+    list: [],
     isRequestOver: false,
     isLoaded: true
   })
@@ -92,7 +92,10 @@
     const { year, pageNum, pageSize } = queryInfo
     requestAppletGetSubsidyDetailPageList(year, pageNum, pageSize)
       .then((res) => {
-        console.log(res, 99)
+        const { rows, total } = res
+        queryResultData.list = rows
+        queryResultData.isLoaded = false
+        console.log(total, 99)
       })
       .finally(() => {
         queryResultData.isRequestOver = true
@@ -129,6 +132,7 @@
 <style lang="scss" scoped>
   .fund {
     width: 100%;
+    height: 100vh;
     .total-wrapper {
       padding: $spacing;
     }

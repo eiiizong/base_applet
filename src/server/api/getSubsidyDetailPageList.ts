@@ -1,9 +1,9 @@
-import type { LoginApiSuccessResponse } from '@/server/types'
+import type { GetSubsidyDetailPageListApiSuccessResponse } from '@/server/types'
 
 import request from '@/server/request'
 
 /**
- * 查询分页查询补贴发放明细
+ * 查询个人民生资金发放详情信息
  * @param {string} year 年度
  * @param {number} pageSize 页数
  * @param {number} pageNum 每页条数
@@ -16,7 +16,7 @@ const requestAppletGetSubsidyDetailPageList = (
   pageNum: number,
   isShowLoading = true,
   isShowErrorToast = true
-): Promise<LoginApiSuccessResponse> => {
+): Promise<GetSubsidyDetailPageListApiSuccessResponse> => {
   const data = {
     year,
     pageSize,
