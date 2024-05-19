@@ -24,7 +24,7 @@ const requestAppletGetSubsidyDetailPageList = (
   }
 
   return new Promise((resolve, reject) => {
-    request('/api/applet/getSubsidyDetailPageList', data, isShowLoading, isShowErrorToast)
+    request('/api/applet/getSubsidyDetailPageList', data, isShowLoading, isShowErrorToast, 'GET', true)
       .then((res) => {
         resolve(res)
       })

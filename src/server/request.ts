@@ -33,6 +33,7 @@ const baseUrl = getEnvData('VITE_API_REQUEST_URL')
  * @param {boolean} isShowLoading [isShowLoading=true] 请求数据时显示加载中
  * @param {boolean} showErrorToast [showErrorToast=true] 是否显示错误提示
  * @param {"OPTIONS" | "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "TRACE" | "CONNECT" | undefined} method [method='POST'] HTTP 请求方法。
+ * @param {boolean} [autoQs=false]  是否自动序列化处理，关闭自动序列化后，HTTP请求头中的Content-Type将会被设置成'application/json; charset=utf-8'，借此可以传递JSON复杂对象或者对象数组，后台在参数中添加注解后自动解析
  * @param {number} timeout [timeout=6000] 请求超时时间，单位毫秒。
  * @returns { Promise }
  * @example
@@ -50,6 +51,7 @@ const request = (
   isShowLoading = true,
   showErrorToast = true,
   method: 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'CONNECT' | undefined = 'POST',
+  autoQs: boolean = false,
   timeout = 1000 * 60
 ): Promise<any> => {
   /**
@@ -60,8 +62,14 @@ const request = (
    * 请求头
    */
   let requestHeader = {
-    'content-type': 'application/json;charset=UTF-8',
+    'content-type': '',
     authorization: ''
+  }
+
+  if (autoQs) {
+    requestHeader['content-type'] = 'application/x-www-form-urlencoded'
+  } else {
+    requestHeader['content-type'] = 'application/json;charset=UTF-8'
   }
   /**
    * 请求体data
