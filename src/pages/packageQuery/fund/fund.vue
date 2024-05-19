@@ -103,6 +103,12 @@
         }
         queryResultData.list = [...queryResultData.list, ...rows]
       })
+      .catch(() => {
+        queryInfo.pageNum = 1
+        queryInfo.pageSize = 10
+        queryResultData.list = []
+        queryResultData.isLoaded = false
+      })
       .finally(() => {
         queryResultData.isRequestOver = true
       })
