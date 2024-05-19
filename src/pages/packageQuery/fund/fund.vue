@@ -93,9 +93,15 @@
     requestAppletGetSubsidyDetailPageList(year, pageNum, pageSize)
       .then((res) => {
         const { rows, total } = res
-        queryResultData.list = rows
-        queryResultData.isLoaded = false
-        console.log(total, 99)
+
+        // 还未加载完成
+        if (total > pageSize * pageNum) {
+          queryResultData.isLoaded = false
+        } else {
+          // 加载完成
+          queryResultData.isLoaded = true
+        }
+        queryResultData.list = [...queryResultData.list, ...rows]
       })
       .finally(() => {
         queryResultData.isRequestOver = true
@@ -132,7 +138,6 @@
 <style lang="scss" scoped>
   .fund {
     width: 100%;
-    height: 100vh;
     .total-wrapper {
       padding: $spacing;
     }
