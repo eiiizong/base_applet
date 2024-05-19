@@ -25,7 +25,7 @@ const useStoreUserSettings = defineStore('storeUserSettings', {
     /**
      * 获取系统语言
      */
-    getStoreUserSettingsLanguage: (state) => state.language
+    getStoreUserSettingsLanguage: (state: Store.UserSettings) => state.language
   },
   actions: {
     /**

@@ -50,3 +50,17 @@ export interface LoginApiSuccessResponse {
   updateTime?: string
   userDeviceId?: unknown
 }
+
+/**
+ * 查询个人民生资金查询汇总信息接口成功响应返回的数据格式
+ */
+export interface GetSelfFundCollectDataApiSuccessResponse {
+  /**
+   * 发放总金额（元）
+   */
+  totalMoney: number
+  /**
+   * 发放总次数
+   */
+  totalTime: number
+}

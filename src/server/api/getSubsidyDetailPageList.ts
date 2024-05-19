@@ -1,21 +1,30 @@
 import type { LoginApiSuccessResponse } from '@/server/types'
 
 import request from '@/server/request'
-import { useGetLoginParams } from '@/hooks'
 
 /**
- * 检测用户是否登录，登录成功后返回登录信息
+ * 查询分页查询补贴发放明细
+ * @param {string} year 年度
+ * @param {number} pageSize 页数
+ * @param {number} pageNum 每页条数
  * @param {boolean} [isShowLoading=true] 是否显示加载中动画 默认值 true
  * @param {boolean} [isShowErrorToast=true] 是否显示错误提示 默认值 true
  */
-const requestAppletCheckLogin = async (
+const requestAppletGetSubsidyDetailPageList = (
+  year: string,
+  pageSize: number,
+  pageNum: number,
   isShowLoading = true,
-  isShowErrorToast = false
+  isShowErrorToast = true
 ): Promise<LoginApiSuccessResponse> => {
-  const data = await useGetLoginParams()
+  const data = {
+    year,
+    pageSize,
+    pageNum
+  }
 
   return new Promise((resolve, reject) => {
-    request('/api/applet/checkLogin', data, isShowLoading, isShowErrorToast)
+    request('/api/applet/getSubsidyDetailPageList', data, isShowLoading, isShowErrorToast)
       .then((res) => {
         resolve(res)
       })
@@ -24,4 +33,4 @@ const requestAppletCheckLogin = async (
       })
   })
 }
-export { requestAppletCheckLogin }
+export { requestAppletGetSubsidyDetailPageList }

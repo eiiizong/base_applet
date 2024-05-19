@@ -1,7 +1,7 @@
 <template>
   <div class="page-scroll fund">
     <div class="total-wrapper">
-      <FundTotal></FundTotal>
+      <FundTotal :render-data="totalInfo"></FundTotal>
     </div>
 
     <template v-if="queryResultData.list.length">
@@ -22,6 +22,11 @@
   import FundTotal from './part/FundTotal.vue'
   import QueryResults from './part/QueryResults.vue'
 
+  import type { GetSelfFundCollectDataApiSuccessResponse } from '@/server/types'
+
+  import moment from 'moment'
+  import { requestAppletGetSelfFundCollectData, requestAppletGetSubsidyDetailPageList } from '@/server/api'
+
   /**
    * 查询条件
    */
@@ -29,7 +34,7 @@
     /**
      * 当前页数
      */
-    pageNo: 1,
+    pageNum: 1,
     /**
      * 每页请求条数
      */
@@ -37,7 +42,7 @@
     /**
      * 搜索关键字
      */
-    keyword: ''
+    year: moment().format('YYYY')
   })
 
   /**
@@ -63,28 +68,61 @@
   })
 
   /**
+   * 发放统计信息
+   */
+  const totalInfo = ref<GetSelfFundCollectDataApiSuccessResponse>({
+    totalMoney: 0,
+    totalTime: 0
+  })
+
+  /**
+   * 查询当前年度汇总信息
+   */
+  const queryTotalInfo = () => {
+    const { year } = queryInfo
+    requestAppletGetSelfFundCollectData(year).then((res) => {
+      totalInfo.value = { ...res }
+    })
+  }
+
+  /**
    * 查询数据
    */
   const queryData = () => {
-    // const { keyword, pageNo, pageSize } = queryInfo
-    // queryResultData.isRequestOver = false
-    // requestW015(keyword, pageNo, pageSize)
-    //   .then((res) => {
-    //     //
-    //   })
-    //   .finally(() => {
-    //     queryResultData.isRequestOver = true
-    //   })
+    const { year, pageNum, pageSize } = queryInfo
+    requestAppletGetSubsidyDetailPageList(year, pageNum, pageSize)
+      .then((res) => {
+        console.log(res, 99)
+      })
+      .finally(() => {
+        queryResultData.isRequestOver = true
+      })
   }
 
+  /**
+   * 通过年度查询数据
+   */
+  const queryAllDataByYear = () => {
+    queryInfo.pageNum = 1
+    queryInfo.pageSize = 10
+    queryResultData.isLoaded = false
+    queryResultData.isRequestOver = false
+    queryResultData.list = []
+    queryTotalInfo()
+    queryData()
+  }
   /**
    * 页面上拉触底事件的处理函数 上拉加载更多
    */
   onReachBottom(() => {
     if (!queryResultData.isLoaded) {
-      queryInfo.pageNo++
+      queryInfo.pageNum++
       queryData()
     }
+  })
+
+  onLoad(() => {
+    queryAllDataByYear()
   })
 </script>
 

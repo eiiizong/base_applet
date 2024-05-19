@@ -3,9 +3,9 @@
  */
 interface Data {
   /**
-   * 状态码
+   * 状态码 401无权限访问 403访问受限，授权过期
    */
-  code: 200 | 500
+  code: 200 | 401 | 403 | 500
   /**
    * 错误信息
    */
@@ -20,7 +20,7 @@ interface Data {
   token: string
 }
 
-import { showLoading, hideLoading, request as uniRequest, showModal } from '@/utils/uni'
+import { showLoading, hideLoading, request as uniRequest, showModal, navigateTo } from '@/utils/uni'
 import { getEnvData } from '@/utils/get'
 import { useStoreUserInfo } from '@/stores/modules'
 
@@ -69,7 +69,7 @@ const request = (
   let requestData: AnyObject = data
 
   const storeUserInfo = useStoreUserInfo()
-  const { getStoreUserInfoToken } = storeUserInfo
+  const token = storeUserInfo.getStoreUserInfoToken
 
   // 是否显示数据加载中
   if (isShowLoading) {
@@ -77,10 +77,10 @@ const request = (
   }
 
   // 存在token
-  if (getStoreUserInfoToken) {
+  if (token) {
     requestHeader = {
       ...requestHeader,
-      authorization: 'Bearer ' + getStoreUserInfoToken
+      authorization: 'Bearer ' + token
     }
   }
 
@@ -100,12 +100,23 @@ const request = (
         if (statusCode === 200 && data) {
           const { code, msg, data: data_, token } = data as Data
 
+          // 自定义数据 加入token为同一层级数据
+          const _data = { ...data_ }
           if (token) {
+            _data.token = token
             storeUserInfo.updateStoreUserInfoToken(token)
           }
 
           if (code === 200 && data_) {
-            resolve(data_)
+            resolve(_data)
+          } else if (code === 401) {
+            showModal('无权限访问，请联系管理员！')
+            reject(res)
+          } else if (code === 403) {
+            showModal('访问受限，授权过期，请重新登录！').then(() => {
+              navigateTo('login', 'packageCommon')
+            })
+            reject(res)
           } else {
             if (showErrorToast && msg) {
               showModal(msg)

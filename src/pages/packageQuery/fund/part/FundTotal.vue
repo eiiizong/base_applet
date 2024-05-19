@@ -4,22 +4,35 @@
       <image class="image" :src="imageIcon01"></image>
       <div class="info">
         <div class="key">发放总金额(元)</div>
-        <div class="value">454545</div>
+        <div class="value">{{ renderData.totalMoney || 0 }}</div>
       </div>
     </div>
     <div class="item">
       <image class="image" :src="imageIcon02"></image>
       <div class="info">
         <div class="key">发放总次数</div>
-        <div class="value">454545</div>
+        <div class="value">{{ renderData.totalTime || 0 }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+  import type { PropType } from 'vue'
   import imageIcon01 from '../images/icon-01.png'
   import imageIcon02 from '../images/icon-02.png'
+
+  import type { GetSelfFundCollectDataApiSuccessResponse } from '@/server/types'
+
+  const props = defineProps({
+    /**
+     * 渲染数据
+     */
+    renderData: {
+      type: Object as PropType<GetSelfFundCollectDataApiSuccessResponse>,
+      required: true
+    }
+  })
 </script>
 
 <style lang="scss" scoped>

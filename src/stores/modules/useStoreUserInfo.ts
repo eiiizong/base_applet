@@ -27,11 +27,11 @@ const useStoreUserInfo = defineStore('storeUserInfo', {
     /**
      * 获取token
      */
-    getStoreUserInfoToken: (state) => state.token,
+    getStoreUserInfoToken: (state: Store.UserInfo) => state.token,
     /**
      * 获取用户信息
      */
-    getStoreUserInfo: (state) => state
+    getStoreUserInfo: (state: Store.UserInfo) => state
   },
   actions: {
     /**

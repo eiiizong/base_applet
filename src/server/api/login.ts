@@ -4,7 +4,7 @@ import request from '@/server/request'
 import { useGetLoginParams } from '@/hooks'
 
 /**
- * 获取码表
+ * 登录
  * @param {string} name 姓名
  * @param {string} idCard 身份证号
  * @param {string} avatar [avatar=''] 头像 base64

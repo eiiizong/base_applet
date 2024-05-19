@@ -8,8 +8,6 @@ const useCheckLogin = () => {
   const storeUserInfo = useStoreUserInfo()
 
   requestAppletCheckLogin().then((res) => {
-    console.log(res, 98)
-
     storeUserInfo.updateStoreUserInfo(res)
   })
 }
