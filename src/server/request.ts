@@ -103,12 +103,14 @@ const request = (
         if (statusCode === 200 && data) {
           const { code, msg, data: data_, token } = data as Data
 
-          storeUserInfo.updateStoreUserInfo({ token })
+          if (token) {
+            storeUserInfo.updateStoreUserInfo({ token })
+          }
 
           if (code === 200 && data_) {
             resolve(data_)
           } else {
-            if (showErrorToast) {
+            if (showErrorToast && msg) {
               showModal(msg)
             }
             reject(data)

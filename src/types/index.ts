@@ -16,6 +16,10 @@ export interface LoginPageForm {
    */
   tel: string
   /**
+   * base64 头像
+   */
+  avatar: string
+  /**
    * 是否同意协议
    */
   agree: boolean

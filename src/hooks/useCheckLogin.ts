@@ -1,12 +1,14 @@
 import { requestAppletCheckLogin } from '@/server/api'
-import { login } from '@/utils/uni'
+import { useStoreUserInfo } from '@/stores/modules'
 
 /**
- * 更新页面标题
+ * 检测用户是否登录，已登录用户返回登录信息
  */
 const useCheckLogin = () => {
-  login().then((res) => {
-    requestAppletCheckLogin(res.code)
+  const storeUserInfo = useStoreUserInfo()
+
+  requestAppletCheckLogin().then((res) => {
+    storeUserInfo.updateStoreUserInfo(res)
   })
 }
 

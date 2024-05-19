@@ -1,4 +1,4 @@
 export { useCheckLogin } from './useCheckLogin'
-export { useGetLoginType } from './useGetLoginType'
+export { useGetLoginParams } from './useGetLoginParams'
 export { useUpdateNavigationBarTitle } from './useUpdateNavigationBarTitle'
 export { useUpdateSystemLanguageDisplay } from './useUpdateSystemLanguageDisplay'

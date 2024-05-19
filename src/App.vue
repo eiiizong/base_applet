@@ -8,6 +8,7 @@
     const storeSystemInfo = useStoreSystemInfo()
 
     storeSystemInfo.updateStoreSystemInfo(systemInfo)
+
     useCheckLogin()
   })
   onShow(() => {

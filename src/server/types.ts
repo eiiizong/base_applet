@@ -13,7 +13,10 @@ export type LoginType = '01' | '02' | '03' | '04' | '05'
  */
 export interface LoginApiSuccessResponse {
   appId?: unknown
-  avatar?: unknown
+  /**
+   * base64 头像
+   */
+  avatar?: string
   createBy?: unknown
   /**
    * 创建时间

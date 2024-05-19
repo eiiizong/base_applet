@@ -18,6 +18,9 @@
 
   const storeUserInfo = useStoreUserInfo()
 
+  /**
+   * 路由重定向参数
+   */
   const redirect = ref({
     name: '',
     packageName: ''
@@ -39,8 +42,8 @@
    * 登录
    */
   const login = (data: LoginPageForm) => {
-    const { name, idcard } = data
-    requestAppletLogin(name, idcard).then((res) => {
+    const { name, idcard, avatar } = data
+    requestAppletLogin(name, idcard, avatar).then((res) => {
       storeUserInfo.updateStoreUserInfo(res)
       loginSucccess()
     })

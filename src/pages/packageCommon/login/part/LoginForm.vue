@@ -63,7 +63,9 @@
       </label>
     </div>
     <div class="button-wrapper">
-      <button class="button" :disabled="!isCanClickLogin" @click="emit('click', form)">{{ $t('login.button') }}</button>
+      <button class="button" :disabled="!isCanClickLogin" open-type="chooseAvatar" @chooseavatar="onChooseAvatar">
+        {{ $t('login.button') }}
+      </button>
     </div>
   </div>
 </template>
@@ -81,6 +83,7 @@
     name: '曾小明',
     idcard: '510902199507236534',
     tel: '',
+    avatar: '',
     agree: true
   })
 
@@ -119,6 +122,40 @@
         agree: false
       }
     }
+  }
+
+  /**
+   * 图片链接转base64
+   */
+  const imageUrlTobase64 = (url: string) => {
+    return new Promise((resolve, reject) => {
+      const fs = uni.getFileSystemManager()
+      let suffix = url.substr(url.lastIndexOf('.') + 1)
+      let base64 = ''
+      try {
+        let base64Data = fs.readFileSync(url, 'base64')
+        base64 = 'data:image/' + suffix + ';base64,' + base64Data
+        resolve(base64)
+      } catch (err) {
+        reject(err)
+      }
+    })
+  }
+  /**
+   * 获取头像
+   */
+  const onChooseAvatar = async (event: any) => {
+    const { avatarUrl } = event.detail
+    if (avatarUrl) {
+      let imgBase64 = ''
+      try {
+        imgBase64 = (await imageUrlTobase64(avatarUrl)) as string
+      } catch (err) {
+        //
+      }
+      form.value.avatar = imgBase64
+    }
+    emit('click', form.value)
   }
 </script>
 

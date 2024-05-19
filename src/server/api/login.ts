@@ -1,9 +1,7 @@
 import type { LoginApiSuccessResponse } from '@/server/types'
 
 import request from '@/server/request'
-import { useGetLoginType } from '@/hooks'
-import { getEnvData } from '@/utils/get'
-import { getSystemInfoSync, login } from '@/utils/uni'
+import { useGetLoginParams } from '@/hooks'
 
 /**
  * 获取码表
@@ -21,37 +19,10 @@ const requestAppletLogin = async (
   isShowErrorToast = true
 ): Promise<LoginApiSuccessResponse> => {
   const data = {
-    // 小程序用户临时登录凭证 code
-    code: '',
     name,
     idCard,
     avatar,
-    // 移动端设备id
-    appId: '',
-    // 一体机设备id
-    deviceId: '',
-    loginType: useGetLoginType()
-  }
-
-  const platform = getEnvData('VITE_PLATFORM')
-  const system = getSystemInfoSync()
-  const { deviceId } = system
-  // app
-  if (platform === '02') {
-    data.appId = deviceId
-  } else if (platform === '03') {
-    // 一体机
-    data.deviceId = deviceId
-  } else {
-    // 微信小程序
-    try {
-      const loginRes = await login()
-      if (loginRes.code) {
-        data.code = loginRes.code
-      }
-    } catch (err) {
-      //
-    }
+    ...(await useGetLoginParams())
   }
 
   return new Promise((resolve, reject) => {

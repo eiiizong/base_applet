@@ -98,7 +98,7 @@
 
   const onClick = (data: Nav) => {
     const { name, packageName, isNeedLogin } = data
-    if (!isNeedLogin || userInfo.token) {
+    if (!isNeedLogin || userInfo.id) {
       navigateTo(name, packageName)
     } else {
       navigateTo('login', 'packageCommon', { name, packageName })

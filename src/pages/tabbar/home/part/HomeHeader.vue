@@ -14,8 +14,8 @@
           </div>
         </div>
         <div class="avatar" @click="onClickToLogin">
-          <image :src="imageAvatar" alt="" class="image" />
-          <div class="name">{{ userInfo.token ? 'zhangsna' : $t('home.header.loginPlaceholder') }}</div>
+          <image :src="userInfo.avatar ? userInfo.avatar : imageAvatar" alt="" class="image" />
+          <div class="name">{{ userInfo.id ? userInfo.name : $t('home.header.loginPlaceholder') }}</div>
         </div>
       </div>
 
@@ -51,7 +51,7 @@
   }
 
   const onClickToLogin = () => {
-    if (userInfo.token) {
+    if (userInfo.id) {
       return
     } else {
       navigateTo('login', 'packageCommon')
