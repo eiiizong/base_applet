@@ -45,7 +45,7 @@
 
   const storeUserInfo = useStoreUserInfo()
   const { t } = useI18n()
-  const { userInfo } = storeUserInfo
+  const userInfo = storeUserInfo.getStoreUserInfo
 
   const navs = computed(() => {
     return [
