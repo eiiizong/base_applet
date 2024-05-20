@@ -6,7 +6,7 @@
       @query="onClickQuery"
       @click="scrollViewId = $event"
     ></ProjectHeader>
-    <scroll-view class="scroll-view" scroll-y :scroll-into-view="scrollViewId">
+    <scroll-view class="scroll-view" scroll-y :scroll-into-view="scrollViewId" scroll-with-animation>
       <template v-if="chi031List.length">
         <div class="item" :id="item.chi037" v-for="item in chi031List" :key="item.chi037">
           <div class="item-name">{{ item.chi037Desc }}</div>
@@ -68,7 +68,7 @@
         for (let key in res) {
           if (res[key]) {
             newList.push({
-              chi037: index + '',
+              chi037: 'chi037_' + index + '',
               chi037Desc: key,
               list: res[key]
             })

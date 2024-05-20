@@ -12,7 +12,13 @@
       />
     </div>
 
-    <scroll-view class="scroll-view" scroll-x :scroll-into-view="scrollViewId" v-if="renderList.length">
+    <scroll-view
+      class="scroll-view"
+      scroll-x
+      :scroll-into-view="scrollViewId"
+      scroll-with-animation
+      v-if="renderList.length"
+    >
       <div
         class="item"
         :class="item.chi037 === scrollViewId ? 'checked' : ''"
@@ -21,7 +27,7 @@
         :key="item.chi037"
         @click="emit('click', item.chi037)"
       >
-        {{ item.chi037Desc }}
+        <div class="text">{{ item.chi037Desc }}</div>
       </div>
     </scroll-view>
   </div>
@@ -101,37 +107,39 @@
       border-bottom: 1px solid $color-border;
       .item {
         display: inline-block;
-        margin-right: 24rpx;
-        line-height: $scroll-view-height;
-        font-size: 32rpx;
-        color: $color-text;
-        position: relative;
-        transition: all 0.3s;
-        &::before {
-          content: '';
-          width: 0;
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          height: 0;
-          border-radius: 50px;
+        padding-left: $spacing;
+        box-sizing: border-box;
+        .text {
+          line-height: $scroll-view-height;
+          font-size: 32rpx;
+          color: $color-text;
+          position: relative;
           transition: all 0.3s;
-        }
-        &:first-child {
-          margin-left: $spacing;
+          &::before {
+            content: '';
+            width: 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            height: 0;
+            border-radius: 50px;
+            transition: all 0.3s;
+          }
         }
 
         &:last-child {
-          margin-right: $spacing;
+          padding-right: $spacing;
         }
         &.checked {
           color: $color-primary;
           font-weight: 700;
-
-          &::before {
-            width: 100%;
-            height: 6rpx;
-            background-color: $color-primary;
+          .text {
+            &::before {
+              width: 80%;
+              height: 6rpx;
+              background-color: $color-primary;
+            }
           }
         }
       }
