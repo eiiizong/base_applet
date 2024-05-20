@@ -1,5 +1,5 @@
 <template>
-  <div class="query-criteria">
+  <div class="project-header">
     <div class="search-wrapper">
       <input
         v-model="keyword"
@@ -13,26 +13,62 @@
     </div>
 
     <scroll-view class="scroll-view" scroll-x>
-      <div class="item" :class="item === 1 ? 'checked' : ''" v-for="item in 20" :id="'chi037_' + item" :key="item">
-        {{ '名称' + item }}
+      <div
+        class="item"
+        :class="item.chi037 === scrollViewId ? 'checked' : ''"
+        v-for="item in renderList"
+        :id="item.chi037"
+        :key="item.chi037"
+      >
+        {{ item.chi037Desc }}
       </div>
     </scroll-view>
   </div>
 </template>
 
 <script setup lang="ts">
+  import type { PropType } from 'vue'
+
   const emit = defineEmits(['query'])
 
+  const props = defineProps({
+    /**
+     * 渲染数据
+     */
+    renderList: {
+      type: Array as PropType<
+        {
+          chi037: string
+          chi037Desc: string
+        }[]
+      >,
+      required: true
+    },
+    /**
+     * 当前滚动到顶部的id
+     */
+    scrollViewId: {
+      type: String,
+      required: true
+    }
+  })
+
+  /**
+   * 查询关键词
+   */
   const keyword = ref('')
 
+  /**
+   * 点击查询按钮
+   */
   const onSearch = () => {
-    console.log(keyword.value)
+    emit('query', keyword.value)
   }
 </script>
 
 <style lang="scss" scoped>
   $scroll-view-height: 96rpx;
-  .query-criteria {
+  .project-header {
     width: 100%;
     background-color: $color-primary;
 

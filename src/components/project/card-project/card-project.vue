@@ -2,24 +2,28 @@
   <div class="card-project">
     <div class="name-wrapper">
       <div class="iconimg iconimg-subsidy"></div>
-      <div class="name">转发财政部 国家卫生健康委</div>
+      <div class="name">{{ renderData?.chi031 || '--' }}</div>
     </div>
     <div class="cells">
       <div class="cell">
         <div class="key">补贴对象：</div>
-        <div class="value">全区实施草原奖补政策范围内所有县（区、市)、乡镇、村（居）及牧户</div>
+        <div class="value">{{ renderData?.chm031 || '--' }}</div>
       </div>
       <div class="cell">
         <div class="key">补贴标准：</div>
-        <div class="value">禁牧补助每亩每年7.5元，草畜平衡奖励每亩每年2.5元</div>
+        <div class="value">{{ renderData?.chm032 || '--' }}</div>
       </div>
       <div class="cell">
         <div class="key">执行年限：</div>
-        <div class="value">2018-2026年</div>
+        <div class="value">
+          <span v-if="renderData?.chm033">{{ moment(renderData?.chm033).format('YYYY年MM月DD日') }}</span>
+          <span>至</span>
+          <span v-if="renderData?.chm034">{{ moment(renderData?.chm034).format('YYYY年MM月DD日') }}</span>
+        </div>
       </div>
       <div class="cell">
         <div class="key">更新时间：</div>
-        <div class="value">2024年5月14日</div>
+        <div class="value">{{ renderData?.updateTime || '暂无' }}</div>
       </div>
     </div>
     <div class="button" @click="navigateTo('project-details', 'packageQuery')">查看详情</div>
@@ -27,6 +31,10 @@
 </template>
 
 <script setup lang="ts">
+  import type { PropType } from 'vue'
+  import type { GetSubsidyProjectListRow } from '@/server/types'
+
+  import moment from 'moment'
   import { navigateTo } from '@/utils/uni'
 
   const props = defineProps({
@@ -34,7 +42,7 @@
      * 渲染内容
      */
     renderData: {
-      type: Object,
+      type: Object as PropType<GetSubsidyProjectListRow>,
       required: false
     }
   })

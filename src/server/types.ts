@@ -119,3 +119,35 @@ export interface GetSubsidyDetailPageListApiSuccessResponse {
    */
   total: number
 }
+
+/**
+ * 查询补贴项目列表行数据返回的数据格式
+ */
+export interface GetSubsidyProjectListRow {
+  aae100: string
+  chb015: string
+  chb017: string
+  chb018: string
+  chi031: string
+  chi037: string
+  chm030: number
+  chm031: string
+  chm032: string
+  chm033: string
+  chm034: string
+  chm035: string
+  chm036: string
+  createBy: unknown
+  createTime: unknown
+  deptId: unknown
+  remark: unknown
+  updateBy: unknown
+  updateTime: unknown
+  userId: unknown
+}
+/**
+ * 查询补贴项目列表接口成功响应返回的数据格式
+ */
+export interface GetSubsidyProjectListApiSuccessResponse {
+  [key: string]: GetSubsidyProjectListRow[]
+}

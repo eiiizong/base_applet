@@ -1,9 +1,13 @@
 <template>
   <div class="query-result">
     <div class="items">
-      <div class="item" v-for="(item, index) in renderList" :key="index">
-        <div class="item-name">业务局23</div>
-        <ComponentProjectCardProject :render-data="item"></ComponentProjectCardProject>
+      <div class="item" v-for="item in renderList" :key="item.chi037">
+        <div class="item-name">{{ item.chi037Desc }}</div>
+        <div class="cards">
+          <div class="item" v-for="(card, index) in item.list" :key="index">
+            <ComponentProjectCardProject :render-data="card"></ComponentProjectCardProject>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -13,10 +17,17 @@
   import ComponentProjectCardProject from '@/components/project/card-project/card-project.vue'
 
   import type { PropType } from 'vue'
+  import type { GetSubsidyProjectListRow } from '@/server/types'
 
   const props = defineProps({
     renderList: {
-      type: Array as PropType<any[]>,
+      type: Array as PropType<
+        {
+          chi037: string
+          chi037Desc: string
+          list: GetSubsidyProjectListRow[]
+        }[]
+      >,
       required: true
     }
   })
