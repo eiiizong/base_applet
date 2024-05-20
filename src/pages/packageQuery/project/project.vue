@@ -6,7 +6,7 @@
       @query="onClickQuery"
       @click="scrollViewId = $event"
     ></ProjectHeader>
-    <scroll-view class="scroll-view" scroll-y :scroll-into-view="scrollViewId" scroll-with-animation>
+    <scroll-view class="scroll-view" scroll-y :scroll-into-view="scrollViewId" scroll-with-animation @scroll="onScroll">
       <template v-if="chi031List.length">
         <div class="item" :id="item.chi037" v-for="item in chi031List" :key="item.chi037">
           <div class="item-name">{{ item.chi037Desc }}</div>
@@ -43,7 +43,7 @@
    * 当前滚动到顶部的id
    */
   const scrollViewId = ref('')
-
+  const timer = ref<NodeJS.Timeout | null>(null)
   /**
    * 查询结果数据
    */
@@ -55,6 +55,26 @@
     }[]
   >([])
 
+  /**
+   * 获取项目item高度
+   */
+  const getRange = () => {
+    const instance = getCurrentInstance()
+    const query = uni.createSelectorQuery().in(instance)
+    const data = chi031List.value
+    console.log(11111)
+    for (let i = 0, len = data.length; i < len; i++) {
+      const item = data[i]
+      console.log(item.chi037Desc, 77)
+      query
+        .select(item.chi037)
+        .boundingClientRect((data) => {
+          console.log(data)
+        })
+        .exec()
+      console.log(item.chi037Desc, 99)
+    }
+  }
   /**
    * 查询数据
    */
@@ -78,6 +98,11 @@
         if (newList.length) {
           scrollViewId.value = newList[0].chi037
           chi031List.value = [...newList]
+          nextTick(() => {
+            setTimeout(() => {
+              getRange()
+            }, 1000)
+          })
         }
       })
       .finally(() => {
@@ -91,6 +116,19 @@
   const onClickQuery = (keyord: string) => {
     chi031.value = keyord
     queryData()
+  }
+
+  /**
+   * 监听滚动
+   */
+  const onScroll = (event: WechatMiniprogram.ScrollViewScroll) => {
+    if (timer.value) {
+      clearTimeout(timer.value)
+    }
+    timer.value = setTimeout(() => {
+      const { scrollTop } = event.detail
+      console.log(scrollTop)
+    }, 300)
   }
 
   onLoad(() => {
