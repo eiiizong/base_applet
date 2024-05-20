@@ -165,6 +165,10 @@ module.exports = {
         // 换行符使用 lf 结尾是 可选值"<auto|lf|crlf|cr>"
         endOfLine: 'auto'
       }
-    ]
+    ],
+    // switch 语句中需要 default
+    'default-case': 'error',
+    // 强制数组方法的回调函数中有 return 语句
+    'array-callback-return': 'error'
   }
 }
