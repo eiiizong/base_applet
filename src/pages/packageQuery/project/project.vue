@@ -4,9 +4,15 @@
       :scroll-view-id="scrollViewId"
       :render-list="chi031List"
       @query="onClickQuery"
-      @click="scrollViewId = $event"
+      @click="onClickScrollItem"
     ></ProjectHeader>
-    <scroll-view class="scroll-view" scroll-y :scroll-into-view="scrollViewId" scroll-with-animation @scroll="onScroll">
+    <scroll-view
+      class="scroll-view"
+      scroll-y
+      :scroll-into-view="scrollViewConId"
+      scroll-with-animation
+      @scroll="onScroll"
+    >
       <template v-if="chi031List.length">
         <div class="item" :id="item.chi037" v-for="item in chi031List" :key="item.chi037">
           <div class="item-name">{{ item.chi037Desc }}</div>
@@ -31,6 +37,7 @@
   import type { GetSubsidyProjectListRow } from '@/server/types'
   import { requestAppletGetSubsidyProjectList } from '@/server/api'
 
+  const instance = getCurrentInstance()
   /**
    * 查询关键词
    */
@@ -40,10 +47,19 @@
    */
   const isRequestOver = ref(false)
   /**
-   * 当前滚动到顶部的id
+   * 当前滚动到顶部的id（控制业务局）
    */
   const scrollViewId = ref('')
+  /**
+   * 当前滚动到顶部的id（控制内容）
+   */
+  const scrollViewConId = ref('')
+  /**
+   * 是否为点击滚动 防止监听滚动的函数重复执行
+   */
+  const isClickScroll = ref(false)
   const timer = ref<NodeJS.Timeout | null>(null)
+  const rangeHeight = ref<number[]>([])
   /**
    * 查询结果数据
    */
@@ -56,24 +72,40 @@
   >([])
 
   /**
-   * 获取项目item高度
+   * 获取dom元素属性
    */
-  const getRange = () => {
-    const instance = getCurrentInstance()
+  const getDom = (id: string): Promise<UniApp.NodeInfo> => {
     const query = uni.createSelectorQuery().in(instance)
-    const data = chi031List.value
-    console.log(11111)
-    for (let i = 0, len = data.length; i < len; i++) {
-      const item = data[i]
-      console.log(item.chi037Desc, 77)
+    return new Promise((resolve) => {
       query
-        .select(item.chi037)
+        .select('#' + id)
         .boundingClientRect((data) => {
-          console.log(data)
+          resolve(data as UniApp.NodeInfo)
         })
         .exec()
-      console.log(item.chi037Desc, 99)
+    })
+  }
+  /**
+   * 获取项目item高度
+   */
+  const getRange = async () => {
+    const data = chi031List.value
+    const range = []
+    let num = 0
+    for (let i = 0, len = data.length; i < len; i++) {
+      const item = data[i]
+      range.push(num)
+      try {
+        // eslint-disable-next-line no-await-in-loop
+        const dom = await getDom(item.chi037)
+        if (dom) {
+          num += dom.height || 0
+        }
+      } catch (err) {
+        //
+      }
     }
+    rangeHeight.value = [...range]
   }
   /**
    * 查询数据
@@ -122,13 +154,42 @@
    * 监听滚动
    */
   const onScroll = (event: WechatMiniprogram.ScrollViewScroll) => {
+    if (isClickScroll.value) {
+      return
+    }
+
     if (timer.value) {
       clearTimeout(timer.value)
     }
     timer.value = setTimeout(() => {
       const { scrollTop } = event.detail
-      console.log(scrollTop)
+      const len = rangeHeight.value.length
+      for (let i = 0; i < len; i++) {
+        const item = rangeHeight.value[i]
+        const lastItem = rangeHeight.value[i + 1]
+        if (scrollTop > item && scrollTop < lastItem) {
+          scrollViewId.value = chi031List.value[i].chi037
+          break
+        }
+      }
     }, 300)
+  }
+
+  /**
+   * 点击业务局滚动
+   */
+  const onClickScrollItem = (id: string) => {
+    scrollViewId.value = id
+    scrollViewConId.value = id
+    isClickScroll.value = true
+
+    if (timer.value) {
+      clearTimeout(timer.value)
+    } else {
+      timer.value = setTimeout(() => {
+        isClickScroll.value = false
+      }, 500)
+    }
   }
 
   onLoad(() => {
