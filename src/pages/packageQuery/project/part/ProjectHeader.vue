@@ -12,13 +12,14 @@
       />
     </div>
 
-    <scroll-view class="scroll-view" scroll-x>
+    <scroll-view class="scroll-view" scroll-x :scroll-into-view="scrollViewId" v-if="renderList.length">
       <div
         class="item"
         :class="item.chi037 === scrollViewId ? 'checked' : ''"
         v-for="item in renderList"
         :id="item.chi037"
         :key="item.chi037"
+        @click="emit('click', item.chi037)"
       >
         {{ item.chi037Desc }}
       </div>
@@ -29,7 +30,7 @@
 <script setup lang="ts">
   import type { PropType } from 'vue'
 
-  const emit = defineEmits(['query'])
+  const emit = defineEmits(['query', 'click'])
 
   const props = defineProps({
     /**
