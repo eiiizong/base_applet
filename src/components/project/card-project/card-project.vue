@@ -26,7 +26,19 @@
         <div class="value">{{ renderData?.updateTime || '暂无' }}</div>
       </div>
     </div>
-    <div class="button" @click="navigateTo('project-details', 'packageQuery')">查看详情</div>
+    <div
+      class="button"
+      @click="
+        navigateTo('project-details', 'packageQuery', {
+          chm030: renderData?.chm030,
+          chi031: renderData?.chi031,
+          chi037: renderData?.chi037,
+          updateTime: renderData?.updateTime
+        })
+      "
+    >
+      查看详情
+    </div>
   </div>
 </template>
 

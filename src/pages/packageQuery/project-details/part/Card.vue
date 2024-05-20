@@ -5,8 +5,7 @@
       <div class="name">{{ name }}</div>
       <div class="con" v-if="type === '01'">
         <div class="list">
-          <div class="text">1、农牧区“一孩、双女”户困难家庭人数农牧区“一孩、双女”户困难家庭人数</div>
-          <div class="text">2、农牧区“一孩、双女”户困难家庭人数</div>
+          <div class="text" v-for="(item, index) in chm031" :key="index">{{ index + 1 + '、' + item }}</div>
         </div>
       </div>
       <div class="con" v-if="type === '02'">
@@ -68,6 +67,12 @@
     type: {
       type: String as PropType<'01' | '02' | '03' | '04'>,
       required: true
+    },
+    /**
+     * 补贴对象
+     */
+    chm031: {
+      type: Array as PropType<string[]>
     }
   })
 

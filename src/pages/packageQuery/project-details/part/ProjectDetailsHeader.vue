@@ -2,15 +2,15 @@
   <div class="project-details-header">
     <div class="bg"></div>
     <div class="card">
-      <div class="name">计划生育家庭特别扶助制度扶助</div>
+      <div class="name">{{ renderData?.chi031 }}</div>
       <div class="cells">
         <div class="cell">
           <div class="key">主管部门：</div>
-          <div class="value">卫健委</div>
+          <div class="value">{{ renderData?.chi037 }}</div>
         </div>
         <div class="cell">
           <div class="key">更新时间：</div>
-          <div class="value">2022-01-01</div>
+          <div class="value">{{ renderData?.updateTime || '暂无' }}</div>
         </div>
       </div>
       <image class="image" :src="imageIcon01"></image>
@@ -19,7 +19,21 @@
 </template>
 
 <script setup lang="ts">
+  import type { PropType } from 'vue'
   import imageIcon01 from '../images/icon-01.png'
+
+  const props = defineProps({
+    /**
+     * 渲染数据
+     */
+    renderData: {
+      type: Object as PropType<{
+        chi031: string
+        chi037: string
+        updateTime: string
+      }>
+    }
+  })
 </script>
 
 <style lang="scss" scoped>

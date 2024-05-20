@@ -1,3 +1,5 @@
+import type { S } from 'vite/dist/node/types.d-aGj9QkWt'
+
 /**
  * 登录类型
  * 01 微信
@@ -150,4 +152,36 @@ export interface GetSubsidyProjectListRow {
  */
 export interface GetSubsidyProjectListApiSuccessResponse {
   [key: string]: GetSubsidyProjectListRow[]
+}
+
+/**
+ * 查询补贴项目详情接口成功响应返回的数据格式
+ */
+export interface GetSubsidyProjectDetailApiSuccessResponse {
+  aae100: string
+  chb015: null
+  chb017: null
+  chb018: null
+  chi031: string
+  chi037: string
+  chm030: number
+  /**
+   * 补贴对象
+   */
+  chm031: string
+  /**
+   * 补贴标准
+   */
+  chm032: string
+  chm033: string
+  chm034: string
+  chm035: null
+  chm036: null
+  createBy: null
+  createTime: string
+  deptId: number
+  remark: null
+  updateBy: null
+  updateTime: null
+  userId: number
 }
