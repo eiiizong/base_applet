@@ -15,36 +15,36 @@ export default {
     presetWeapp({ prefix }),
     // attributify autocomplete
     presetWeappAttributify(),
-    presetIcons(),
+    presetIcons()
   ],
   shortcuts: [
     {
-      'uno-center': 'uno-flex uno-justify-center uno-items-center',
-    },
+      'uno-center': 'uno-flex uno-justify-center uno-items-center'
+    }
   ],
   transformers: [
     transformerDirectives({
-      enforce: 'pre',
+      enforce: 'pre'
     }),
 
     // https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerAttributify
     transformerAttributify(),
 
     // https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerClass
-    transformerClass(),
+    transformerClass()
   ],
   theme: {
     color: {
       blue: 'rgba(22, 33, 255, 1)',
       red: '#e74c3c',
       sun: '#f1c40f',
-      green: '#16a085',
+      green: '#16a085'
     },
     border: {
       blue: 'rgba(22, 33, 255, 1)',
       red: '#e74c3c',
       sun: '#f1c40f',
-      green: '#16a085',
-    },
-  },
+      green: '#16a085'
+    }
+  }
 }

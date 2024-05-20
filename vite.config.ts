@@ -26,10 +26,10 @@ export default defineConfig(({ mode, command }) => {
       alias: {
         '@': pathResolve('src') + '/',
         '~': pathResolve('src') + '/',
-        '#': pathResolve('types') + '/',
-      },
+        '#': pathResolve('types') + '/'
+      }
     },
     define: { 'process.env': { ...viteEnv } },
-    plugins: createVitePlugins(viteEnv, isBuild),
+    plugins: createVitePlugins(viteEnv, isBuild)
   }
 })
