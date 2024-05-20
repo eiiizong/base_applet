@@ -1,5 +1,3 @@
-import type { S } from 'vite/dist/node/types.d-aGj9QkWt'
-
 /**
  * 登录类型
  * 01 微信
@@ -182,6 +180,6 @@ export interface GetSubsidyProjectDetailApiSuccessResponse {
   deptId: number
   remark: null
   updateBy: null
-  updateTime: null
+  updateTime: string
   userId: number
 }

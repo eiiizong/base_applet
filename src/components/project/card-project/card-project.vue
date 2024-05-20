@@ -30,10 +30,7 @@
       class="button"
       @click="
         navigateTo('project-details', 'packageQuery', {
-          chm030: renderData?.chm030,
-          chi031: renderData?.chi031,
-          chi037: renderData?.chi037,
-          updateTime: renderData?.updateTime
+          chm030: renderData?.chm030
         })
       "
     >

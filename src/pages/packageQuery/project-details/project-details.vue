@@ -6,13 +6,16 @@
         <Card type="01" :chm031="projectInfo.chm031"></Card>
       </div>
       <div class="item">
-        <Card type="02"></Card>
+        <Card type="02" :chm032="projectInfo.chm032"></Card>
       </div>
       <div class="item">
         <Card type="03"></Card>
       </div>
       <div class="item">
         <Card type="04"></Card>
+      </div>
+      <div class="item">
+        <Card type="05"></Card>
       </div>
     </div>
   </div>
@@ -66,7 +69,10 @@
   const getData = () => {
     const { chm030 } = projectInfo.value
     requestAppletGetSubsidyProjectDetail(chm030).then((res) => {
-      const { chm031, chm032 } = res
+      const { chm031, chm032, chi031, chi037, updateTime } = res
+      projectInfo.value.chi031 = chi031
+      projectInfo.value.chi037 = chi037
+      projectInfo.value.updateTime = updateTime
       projectInfo.value.chm031 = [chm031]
       projectInfo.value.chm032 = [chm032]
       console.log(res)
@@ -74,19 +80,10 @@
   }
 
   onLoad((e) => {
-    const { chm030, chi031, chi037, updateTime } = e || {}
+    const { chm030 } = e || {}
     if (chm030) {
       projectInfo.value.chm030 = chm030
       getData()
-    }
-    if (chi031) {
-      projectInfo.value.chi031 = chi031
-    }
-    if (chi037) {
-      projectInfo.value.chi037 = chi037
-    }
-    if (updateTime) {
-      projectInfo.value.updateTime = updateTime
     }
   })
 </script>

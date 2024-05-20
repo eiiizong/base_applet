@@ -9,6 +9,11 @@
         </div>
       </div>
       <div class="con" v-if="type === '02'">
+        <div class="list">
+          <div class="text" v-for="(item, index) in chm032" :key="index">{{ index + 1 + '、' + item }}</div>
+        </div>
+      </div>
+      <div class="con" v-if="type === '03'">
         <div class="item">
           <div class="item-name">农牧区“一孩、双女”户困难家农牧区“一孩、双女”户困难家庭庭</div>
           <div class="list">
@@ -25,7 +30,7 @@
         </div>
       </div>
 
-      <div class="con" v-if="type === '03'">
+      <div class="con" v-if="type === '04'">
         <div class="process-item">
           <div class="text">流程名称1</div>
         </div>
@@ -43,7 +48,7 @@
         </div>
       </div>
 
-      <div class="con" v-if="type === '04'">
+      <div class="con" v-if="type === '05'">
         <ComponentProjectCardPolicy></ComponentProjectCardPolicy>
       </div>
     </div>
@@ -57,6 +62,7 @@
   import image02 from '../images/02.png'
   import image03 from '../images/03.png'
   import image04 from '../images/04.png'
+  import image05 from '../images/05.png'
 
   import ComponentProjectCardPolicy from '@/components/project/card-policy/card-policy.vue'
 
@@ -65,14 +71,22 @@
      * 类型 01
      */
     type: {
-      type: String as PropType<'01' | '02' | '03' | '04'>,
+      type: String as PropType<'01' | '02' | '03' | '04' | '05'>,
       required: true
     },
     /**
      * 补贴对象
      */
     chm031: {
-      type: Array as PropType<string[]>
+      type: Array as PropType<string[]>,
+      required: false
+    },
+    /**
+     * 补贴标准
+     */
+    chm032: {
+      type: Array as PropType<string[]>,
+      required: false
     }
   })
 
@@ -82,12 +96,15 @@
       return image01
     }
     if (type === '02') {
-      return image02
+      return image05
     }
     if (type === '03') {
-      return image03
+      return image02
     }
     if (type === '04') {
+      return image03
+    }
+    if (type === '05') {
       return image04
     }
     return ''
@@ -99,12 +116,15 @@
       return '领取对象'
     }
     if (type === '02') {
-      return '申报材料'
+      return '补贴标准'
     }
     if (type === '03') {
-      return '办理流程'
+      return '申报材料'
     }
     if (type === '04') {
+      return '办理流程'
+    }
+    if (type === '05') {
       return '政策材料'
     }
     return ''
