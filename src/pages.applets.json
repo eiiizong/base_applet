@@ -1,0 +1,178 @@
+{
+  "pages": [
+    // pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/tabbar/home/home",
+      "style": {
+        "navigationBarTitleText": "牧民群众惠民补助资金查询系统"
+      }
+    }
+  ],
+  "globalStyle": {
+    "backgroundColor": "#f5f5f5",
+    "navigationBarBackgroundColor": "#3882ff",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "uniapp基础框架",
+    "enablePullDownRefresh": false,
+    "backgroundTextStyle": "light",
+    "backgroundColorTop": "#3882ff",
+    "backgroundColorBottom": "#f5f5f5",
+    "navigationStyle": "default",
+    "onReachBottomDistance": 10, // 安卓和工具不支持负数
+    "h5": {
+      "navigationStyle": "custom"
+    }
+  },
+  // unplugin-vue-components 在微信小程序中自动导入无效 使用easycom机制兼容处理
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^ta-(.*)": "@/components/ta/$1/index.vue"
+    }
+  },
+  "subPackages": [
+    {
+      "root": "pages/packageCommon",
+      "pages": [
+        {
+          "path": "login/login",
+          "style": {
+            "navigationBarTitleText": "登录",
+            "backgroundColorBottom": "#3882ff"
+          }
+        },
+        {
+          "path": "login-privacy-policy/login-privacy-policy",
+          "style": {
+            "navigationBarTitleText": "隐私条款",
+            "backgroundColorBottom": "#3882ff"
+          }
+        },
+        {
+          "path": "login-user-agreement/login-user-agreement",
+          "style": {
+            "navigationBarTitleText": "用户协议",
+            "backgroundColorBottom": "#3882ff"
+          }
+        }
+      ]
+    },
+    // {
+    //   "root": "pages/packageComponents",
+    //   "pages": [
+    //     {
+    //       "path": "button/button",
+    //       "style": {
+    //         "navigationBarTitleText": "Button 按钮"
+    //       }
+    //     },
+    //     {
+    //       "path": "cell/cell",
+    //       "style": {
+    //         "navigationBarTitleText": "Cell 单元格"
+    //       }
+    //     },
+    //     {
+    //       "path": "icon/icon",
+    //       "style": {
+    //         "navigationBarTitleText": "Icon 图标"
+    //       }
+    //     },
+    //     {
+    //       "path": "col/col",
+    //       "style": {
+    //         "navigationBarTitleText": "Layout 布局"
+    //       }
+    //     },
+    //     {
+    //       "path": "dashboard/dashboard",
+    //       "style": {
+    //         "navigationBarTitleText": "Ta Weapp"
+    //       }
+    //     },
+    //     {
+    //       "path": "loading/loading",
+    //       "style": {
+    //         "navigationBarTitleText": "Loading 加载"
+    //       }
+    //     },
+    //     {
+    //       "path": "overlay/overlay",
+    //       "style": {
+    //         "navigationBarTitleText": "Overlay 遮罩层"
+    //       }
+    //     },
+    //     {
+    //       "path": "popup/popup",
+    //       "style": {
+    //         "navigationBarTitleText": "Popup 弹出层"
+    //       }
+    //     },
+    //     // {
+    //     //   "path": "sticky/sticky",
+    //     //   "style": {
+    //     //     "navigationBarTitleText": "Sticky 粘性布局"
+    //     //   }
+    //     // },
+    //     {
+    //       "path": "tag/tag",
+    //       "style": {
+    //         "navigationBarTitleText": "Tag 标记"
+    //       }
+    //     },
+    //     {
+    //       "path": "transition/transition",
+    //       "style": {
+    //         "navigationBarTitleText": "Transition 动画"
+    //       }
+    //     }
+    //   ]
+    // },
+    {
+      "root": "pages/packageQuery",
+      "pages": [
+        {
+          "path": "fund/fund",
+          "style": {
+            "navigationBarTitleText": "资金查询",
+            "backgroundColorTop": "#f5f5f5"
+          }
+        },
+        {
+          "path": "policy/policy",
+          "style": {
+            "navigationBarTitleText": "政策查询"
+          }
+        },
+        {
+          "path": "project/project",
+          "style": {
+            "navigationBarTitleText": "项目查询"
+          }
+        },
+        {
+          "path": "project-details/project-details",
+          "style": {
+            "navigationBarTitleText": "补贴项目详情"
+          }
+        },
+        {
+          "path": "publicity/publicity",
+          "style": {
+            "navigationBarTitleText": "综合查询"
+          }
+        },
+        {
+          "path": "publicity-details/publicity-details",
+          "style": {
+            "navigationBarTitleText": "综合查询详情"
+          }
+        }
+      ]
+    }
+  ],
+  "condition": {
+    "current": 0,
+    "list": []
+  }
+}
