@@ -6,7 +6,9 @@
         <div class="main">
           <div class="cell">{{ chi031 }}</div>
         </div>
-        <div class="footer">西藏自治区-那曲市-安多县</div>
+        <div class="footer">
+          {{ chb017 ? '西藏自治区-那曲市-安多县' : '西藏自治区-那曲市-安多县-' + chb017 }}
+        </div>
       </div>
     </div>
   </div>
@@ -17,6 +19,10 @@
 
   const props = defineProps({
     chi031: {
+      type: String,
+      required: true
+    },
+    chb017: {
       type: String,
       required: true
     }

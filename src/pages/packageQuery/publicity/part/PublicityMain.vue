@@ -58,7 +58,7 @@
         </div>
         <div class="items">
           <div class="item" v-for="(item, index) in curRenderData.subsidyCountVoList" :key="index">
-            <ComponentCardProjectTotal :render-data="item"></ComponentCardProjectTotal>
+            <ComponentCardProjectTotal :render-data="item" @click="onClickJumpRoute"></ComponentCardProjectTotal>
           </div>
         </div>
       </scroll-view>
@@ -76,6 +76,7 @@
   import type { GetAllSummaryStatisticsDepartCountVo, GetChb015AndChb018ListChb015Vo } from '@/server/types'
 
   import { requestAppletGetChb015AndChb018List } from '@/server/api'
+  import { navigateTo } from '@/utils/uni'
   import moment from 'moment'
 
   const emit = defineEmits(['queryChb015', 'queryChb017', 'queryAae209'])
@@ -223,6 +224,10 @@
       form.value.aae209 = value
       emit('queryAae209', moment(value).format('YYYYMM'))
     }
+  }
+
+  const onClickJumpRoute = (chi031: string) => {
+    navigateTo('publicity-details', 'packageQuery', { chi031, chb017: form.value.chb017 })
   }
 
   watch(

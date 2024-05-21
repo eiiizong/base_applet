@@ -1,5 +1,5 @@
 <template>
-  <div class="card-project" @click="navigateTo('publicity-details', 'packageQuery', { chi031: renderData?.chi031 })">
+  <div class="card-project" @click="emit('click', renderData?.chi031)">
     <div class="name-wrapper">
       <div class="name">{{ renderData?.chi031 }}</div>
     </div>
@@ -19,11 +19,10 @@
 </template>
 
 <script setup lang="ts">
-  import { navigateTo } from '@/utils/uni'
-
   import type { PropType } from 'vue'
   import type { GetAllSummaryStatisticsSubsidyCountVo } from '@/server/types'
 
+  const emit = defineEmits(['click'])
   const props = defineProps({
     /**
      * 渲染内容

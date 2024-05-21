@@ -1,6 +1,6 @@
 <template>
   <div class="page-scroll publicity-details">
-    <PublicityDetailsHeader :chi031="queryInfo.chi031"></PublicityDetailsHeader>
+    <PublicityDetailsHeader :chi031="queryInfo.chi031" :chb017="queryInfo.chb017"></PublicityDetailsHeader>
     <template v-if="queryResultData.list.length">
       <QueryResults :render-list="queryResultData.list"></QueryResults>
     </template>
@@ -37,7 +37,11 @@
     /**
      * 补贴项目名称
      */
-    chi031: ''
+    chi031: '',
+    /**
+     * 乡镇
+     */
+    chb017: ''
   })
 
   /**
@@ -102,10 +106,13 @@
   })
 
   onLoad((e) => {
-    const { chi031 } = e || {}
+    const { chi031, chb017 } = e || {}
     if (chi031) {
       queryInfo.chi031 = chi031
       queryData()
+    }
+    if (chb017) {
+      queryInfo.chb017 = chb017
     }
   })
 </script>
