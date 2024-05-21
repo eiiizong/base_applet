@@ -1,16 +1,16 @@
 <template>
   <div class="card-project" @click="navigateTo('publicity-details', 'packageQuery')">
     <div class="name-wrapper">
-      <div class="name">计划生育家庭特别扶助制度扶助计划生育家庭特别扶助制度扶助</div>
+      <div class="name">{{ renderData?.chi031 }}</div>
     </div>
     <div class="cells">
       <div class="cell">
-        <div class="value">555.99</div>
+        <div class="value">{{ renderData?.totalMoney }}</div>
         <div class="unit">万元</div>
         <div class="key">涉及金额</div>
       </div>
       <div class="cell">
-        <div class="value">555</div>
+        <div class="value">{{ renderData?.totalPerson }}</div>
         <div class="unit">人</div>
         <div class="key">覆盖户(人数)</div>
       </div>
@@ -21,12 +21,15 @@
 <script setup lang="ts">
   import { navigateTo } from '@/utils/uni'
 
+  import type { PropType } from 'vue'
+  import type { GetAllSummaryStatisticsSubsidyCountVo } from '@/server/types'
+
   const props = defineProps({
     /**
      * 渲染内容
      */
     renderData: {
-      type: Object,
+      type: Object as PropType<GetAllSummaryStatisticsSubsidyCountVo>,
       required: false
     }
   })

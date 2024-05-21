@@ -16,8 +16,8 @@
           <ta-icon name="arrow-down" size="26rpx"></ta-icon>
         </div>
       </picker>
-      <picker class="picker" fields="year" mode="date" start="2000" :end="moment().format('YYYY')">
-        <div class="picker-value" v-if="form.year">{{ form.year }}</div>
+      <picker class="picker" fields="month" mode="date" start="2000-01" :end="moment().format('YYYY-MM')">
+        <div class="picker-value" v-if="form.aae209">{{ form.aae209 }}</div>
         <div class="picker-placeholder" v-else>请选择年月</div>
         <div class="picker-icon">
           <ta-icon name="arrow-down" size="26rpx"></ta-icon>
@@ -26,26 +26,32 @@
     </div>
     <div class="main">
       <scroll-view class="scroll-view tool" scroll-y>
-        <div class="item" v-for="item in 20" :key="item" :class="[item === 1 ? 'checked' : '']">
-          <div class="text">{{ '农业农村局' }}</div>
+        <div
+          class="item"
+          v-for="(item, index) in renderList"
+          :key="index"
+          :class="[form.chi037 === item.chi037 ? 'checked' : '']"
+          @click="form.chi037 = item.chi037"
+        >
+          <div class="text">{{ item.chi037 }}</div>
         </div>
       </scroll-view>
       <scroll-view class="scroll-view result" scroll-y>
         <div class="total">
           <div class="card">
-            <div class="value">66666</div>
+            <div class="value">{{ curRenderData.totalMoney }}</div>
             <div class="unit">万元</div>
             <div class="key">涉及金额</div>
           </div>
           <div class="card">
-            <div class="value">66666</div>
+            <div class="value">{{ curRenderData.totalPerson }}</div>
             <div class="unit">人</div>
             <div class="key">覆盖户(人数)</div>
           </div>
         </div>
         <div class="items">
-          <div class="item" v-for="item in 20" :key="item">
-            <ComponentCardProjectTotal></ComponentCardProjectTotal>
+          <div class="item" v-for="(item, index) in curRenderData.subsidyCountVoList" :key="index">
+            <ComponentCardProjectTotal :render-data="item"></ComponentCardProjectTotal>
           </div>
         </div>
       </scroll-view>
@@ -55,13 +61,68 @@
 
 <script setup lang="ts">
   import ComponentCardProjectTotal from '@/components/project/card-project-total/card-project-total.vue'
+  import type { PropType } from 'vue'
+  import type { GetAllSummaryStatisticsDepartCountVo } from '@/server/types'
+
   import moment from 'moment'
 
+  const props = defineProps({
+    /**
+     * 渲染数据
+     */
+    renderList: {
+      type: Array as PropType<GetAllSummaryStatisticsDepartCountVo[]>,
+      required: true
+    }
+  })
+
   const form = ref({
+    chi037: '',
     chb015: '',
     chb017: '',
-    year: ''
+    aae209: ''
   })
+
+  const curRenderData = computed(() => {
+    let res: GetAllSummaryStatisticsDepartCountVo = {
+      chi037: '',
+      projectNum: 0,
+      totalMoney: 0,
+      totalPerson: 0,
+      subsidyCountVoList: []
+    }
+    const { renderList } = props
+    const len = renderList.length
+    const { chi037 } = form.value
+
+    if (len) {
+      for (let i = 0; i < len; i++) {
+        const item = renderList[i]
+        if (item.chi037 === chi037) {
+          res = item
+          break
+        }
+      }
+    }
+
+    return res
+  })
+
+  const init = () => {
+    const { renderList } = props
+    if (renderList.length) {
+      form.value.chi037 = renderList[0].chi037
+    } else {
+      form.value.chi037 = ''
+    }
+  }
+
+  watch(
+    () => props.renderList,
+    () => {
+      init()
+    }
+  )
 </script>
 
 <style lang="scss" scoped>

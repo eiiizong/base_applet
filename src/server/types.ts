@@ -183,3 +183,58 @@ export interface GetSubsidyProjectDetailApiSuccessResponse {
   updateTime: string
   userId: number
 }
+
+/**
+ * 综合查询汇总统计接口基础数据数据格式
+ */
+export interface GetAllSummaryStatisticsBaseVo {
+  /**
+   * 涉及补贴项目数
+   */
+  projectNum: number
+  /**
+   * 涉及金额
+   */
+  totalMoney: number
+  /**
+   * 涉及人数
+   */
+  totalPerson: number
+}
+
+/**
+ * 综合查询汇总统计接口补贴项目数据数据格式
+ */
+export interface GetAllSummaryStatisticsSubsidyCountVo extends GetAllSummaryStatisticsBaseVo {
+  /**
+   * 补贴项目名称
+   */
+  chi031: string
+  /**
+   * 补贴项目所属业务局
+   */
+  chi037: string
+}
+
+/**
+ * 综合查询汇总统计接口业务局数据数据格式
+ */
+export interface GetAllSummaryStatisticsDepartCountVo extends GetAllSummaryStatisticsBaseVo {
+  /**
+   * 业务局名称
+   */
+  chi037: string
+  /**
+   * 业务局包含的补贴项目
+   */
+  subsidyCountVoList: GetAllSummaryStatisticsSubsidyCountVo[]
+}
+/**
+ * 综合查询汇总统计接口成功响应返回的数据格式
+ */
+export interface GetAllSummaryStatisticsApiSuccessResponse extends GetAllSummaryStatisticsBaseVo {
+  /**
+   * 业务局信息
+   */
+  departCountVos: GetAllSummaryStatisticsDepartCountVo[]
+}

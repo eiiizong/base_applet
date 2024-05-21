@@ -1,20 +1,29 @@
-import type { GetSelfFundCollectDataApiSuccessResponse } from '@/server/types'
+import type { GetAllSummaryStatisticsApiSuccessResponse } from '@/server/types'
 
 import request from '@/server/request'
 
 /**
- * 查询个人民生资金查询汇总信息
- * @param {string} year 年度
+ * 综合查询汇总统计
+ * @param {string} [queryName=''] 查询关键字
+ * @param {string} [chb015=''] 区县
+ * @param {string} [chb017=''] 乡镇
+ * @param {string} [aae209=''] 期号
  * @param {boolean} [isShowLoading=true] 是否显示加载中动画 默认值 true
  * @param {boolean} [isShowErrorToast=true] 是否显示错误提示 默认值 true
  */
 const requestAppletGetAllSummaryStatistics = (
-  year: string,
+  queryName: string = '',
+  chb015: string = '',
+  chb017: string = '',
+  aae209: string = '',
   isShowLoading = true,
   isShowErrorToast = true
-): Promise<GetSelfFundCollectDataApiSuccessResponse> => {
+): Promise<GetAllSummaryStatisticsApiSuccessResponse> => {
   const data = {
-    year
+    queryName,
+    chb015,
+    chb017,
+    aae209
   }
 
   return new Promise((resolve, reject) => {

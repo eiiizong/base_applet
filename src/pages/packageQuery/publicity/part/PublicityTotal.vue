@@ -4,7 +4,7 @@
       <div class="item">
         <div class="key">补贴总金额</div>
         <div class="value">
-          <div class="val">454545</div>
+          <div class="val">{{ renderData.totalMoney || 0 }}</div>
           <div class="unit">万元</div>
         </div>
         <image class="image" :src="image01"></image>
@@ -13,13 +13,13 @@
     <div class="right">
       <div class="item">
         <div class="key">补贴项目数</div>
-        <div class="value">454545</div>
+        <div class="value">{{ renderData.projectNum || 0 }}</div>
         <image class="image" :src="image02"></image>
       </div>
       <div class="item">
         <div class="key">覆盖户(人数)</div>
         <div class="value">
-          <div class="val">454545</div>
+          <div class="val">{{ renderData.totalPerson || 0 }}</div>
           <div class="unit">万人</div>
         </div>
         <image class="image" :src="image03"></image>
@@ -32,6 +32,19 @@
   import image01 from '../images/01.png'
   import image02 from '../images/02.png'
   import image03 from '../images/03.png'
+
+  import type { PropType } from 'vue'
+  import type { GetAllSummaryStatisticsBaseVo } from '@/server/types'
+
+  const props = defineProps({
+    /**
+     * 渲染数据
+     */
+    renderData: {
+      type: Object as PropType<GetAllSummaryStatisticsBaseVo>,
+      required: true
+    }
+  })
 </script>
 
 <style lang="scss" scoped>
