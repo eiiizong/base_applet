@@ -2,21 +2,28 @@
   <div class="publicity-main">
     <div class="title">按项目统计</div>
     <div class="toolbar">
-      <picker class="picker">
+      <picker class="picker" @change="onChangeChb015" :range="addressData" range-key="chb015" mode="selector">
         <div class="picker-value" v-if="form.chb015">{{ form.chb015 }}</div>
         <div class="picker-placeholder" v-else>请选择区县</div>
         <div class="picker-icon">
           <ta-icon name="arrow-down" size="26rpx"></ta-icon>
         </div>
       </picker>
-      <picker class="picker">
+      <picker class="picker" :disabled="!form.chb015" :range="chb017List" @change="onChangeChb017">
         <div class="picker-value" v-if="form.chb017">{{ form.chb017 }}</div>
         <div class="picker-placeholder" v-else>请选择乡镇</div>
         <div class="picker-icon">
           <ta-icon name="arrow-down" size="26rpx"></ta-icon>
         </div>
       </picker>
-      <picker class="picker" fields="month" mode="date" start="2000-01" :end="moment().format('YYYY-MM')">
+      <picker
+        class="picker"
+        fields="month"
+        mode="date"
+        start="2000-01"
+        :end="moment().format('YYYY-MM')"
+        @change="onChangeAae209"
+      >
         <div class="picker-value" v-if="form.aae209">{{ form.aae209 }}</div>
         <div class="picker-placeholder" v-else>请选择年月</div>
         <div class="picker-icon">
@@ -24,7 +31,7 @@
         </div>
       </picker>
     </div>
-    <div class="main">
+    <div class="main" v-if="renderList.length">
       <scroll-view class="scroll-view tool" scroll-y>
         <div
           class="item"
@@ -56,16 +63,22 @@
         </div>
       </scroll-view>
     </div>
+    <template v-else>
+      <ComponentProjectEmpty v-if="isRequestOver"></ComponentProjectEmpty>
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
   import ComponentCardProjectTotal from '@/components/project/card-project-total/card-project-total.vue'
+  import ComponentProjectEmpty from '@/components/project/empty/empty.vue'
   import type { PropType } from 'vue'
-  import type { GetAllSummaryStatisticsDepartCountVo } from '@/server/types'
+  import type { GetAllSummaryStatisticsDepartCountVo, GetChb015AndChb018ListChb015Vo } from '@/server/types'
 
+  import { requestAppletGetChb015AndChb018List } from '@/server/api'
   import moment from 'moment'
 
+  const emit = defineEmits(['queryChb015', 'queryChb017', 'queryAae209'])
   const props = defineProps({
     /**
      * 渲染数据
@@ -73,9 +86,19 @@
     renderList: {
       type: Array as PropType<GetAllSummaryStatisticsDepartCountVo[]>,
       required: true
+    },
+    /**
+     * 是否请求完成
+     */
+    isRequestOver: {
+      type: Boolean,
+      required: true
     }
   })
 
+  /**
+   * 查询表单信息
+   */
   const form = ref({
     chi037: '',
     chb015: '',
@@ -83,6 +106,14 @@
     aae209: ''
   })
 
+  /**
+   * 区县乡镇数据
+   */
+  const addressData = ref<GetChb015AndChb018ListChb015Vo[]>([])
+
+  /**
+   * 获取当前渲染数据的业务局
+   */
   const curRenderData = computed(() => {
     let res: GetAllSummaryStatisticsDepartCountVo = {
       chi037: '',
@@ -108,6 +139,31 @@
     return res
   })
 
+  /**
+   * 获取当前渲染数据的乡镇
+   */
+  const chb017List = computed(() => {
+    let res: string[] = []
+    const data = addressData.value
+    const len = data.length
+    const { chb015 } = form.value
+
+    if (len) {
+      for (let i = 0; i < len; i++) {
+        const item = data[i]
+        if (item.chb015 === chb015) {
+          res = item.chb017List
+          break
+        }
+      }
+    }
+
+    return res
+  })
+
+  /**
+   * 初始化
+   */
   const init = () => {
     const { renderList } = props
     if (renderList.length) {
@@ -117,12 +173,68 @@
     }
   }
 
+  /**
+   * 从服务器获取区县渲染数据
+   */
+  const getRenderData = () => {
+    requestAppletGetChb015AndChb018List().then((res) => {
+      const { chb015Vos } = res
+      addressData.value = [...chb015Vos]
+      console.log(addressData)
+    })
+  }
+
+  /**
+   * 区县改变触发的事件 通知重新查询
+   */
+  const onChangeChb015 = (event: WechatMiniprogram.PickerChange) => {
+    const { value } = event.detail
+
+    if (typeof value === 'string') {
+      const val = addressData.value[Number(value)].chb015
+      if (val !== form.value.chb015) {
+        form.value.chb015 = val
+        form.value.chb017 = ''
+        emit('queryChb015', val)
+      }
+    }
+  }
+
+  /**
+   * 乡镇改变触发的事件 通知重新查询
+   */
+  const onChangeChb017 = (event: WechatMiniprogram.PickerChange) => {
+    const { value } = event.detail
+    if (typeof value === 'string') {
+      const val = chb017List.value[Number(value)]
+      if (val !== form.value.chb017) {
+        form.value.chb017 = val
+        emit('queryChb017', val)
+      }
+    }
+  }
+
+  /**
+   * 期号改变触发的事件 通知重新查询
+   */
+  const onChangeAae209 = (event: WechatMiniprogram.PickerChange) => {
+    const { value } = event.detail
+    if (typeof value === 'string') {
+      form.value.aae209 = value
+      emit('queryAae209', moment(value).format('YYYYMM'))
+    }
+  }
+
   watch(
     () => props.renderList,
     () => {
       init()
     }
   )
+
+  onMounted(() => {
+    getRenderData()
+  })
 </script>
 
 <style lang="scss" scoped>

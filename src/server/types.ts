@@ -238,3 +238,26 @@ export interface GetAllSummaryStatisticsApiSuccessResponse extends GetAllSummary
    */
   departCountVos: GetAllSummaryStatisticsDepartCountVo[]
 }
+
+/**
+ *查询区县乡镇级联接口成功响应返回的数据格式
+ */
+export interface GetChb015AndChb018ListChb015Vo {
+  /**
+   * 区县
+   */
+  chb015: string
+  /**
+   * 区县包含的乡镇
+   */
+  chb017List: string[]
+}
+/**
+ * 查询区县乡镇级联接口成功响应返回的数据格式
+ */
+export interface GetChb015AndChb018ListApiSuccessResponse {
+  /**
+   * 区县
+   */
+  chb015Vos: GetChb015AndChb018ListChb015Vo[]
+}
