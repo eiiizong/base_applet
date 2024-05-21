@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="buttons-wrapper">
-        <button class="button" @click="onClickMore">发现政策</button>
+        <button class="button" @click="onClickMore">{{ $t('home.policy.buttonText') }}</button>
       </div>
     </ComponentProjectPanel>
   </div>

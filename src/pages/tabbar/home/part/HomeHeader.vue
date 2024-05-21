@@ -4,10 +4,10 @@
     <div class="con">
       <div class="toolbar">
         <div class="language" @click="onClickSetLanguage">
-          <div class="icon"></div>
+          <image class="image"></image>
           <div class="info">
-            <div class="cell">语言选择</div>
-            <div class="cell">སྐད་བརྡ་གདམ་གསེས།</div>
+            <div class="cell">语言切换</div>
+            <div class="cell">སྐད་བརྡ་བརྗེ་བ།</div>
           </div>
           <div class="value">
             {{ locale === 'zh-Hans' ? '简体中文' : 'བོད་སྐད་' }}
@@ -90,6 +90,9 @@
       .language {
         display: flex;
         align-items: center;
+        .image {
+          width: 0;
+        }
         .info {
           font-size: 24rpx;
         }

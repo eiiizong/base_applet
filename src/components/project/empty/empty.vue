@@ -1,7 +1,7 @@
 <template>
   <div class="empty">
     <image class="image" :class="['type-' + type]" :src="iconSrc" v-if="iconSrc" alt="" />
-    <div class="desc">{{ description }}</div>
+    <div class="desc">{{ description || $t('compontens.empty.description') }}</div>
   </div>
 </template>
 
@@ -15,7 +15,7 @@
      */
     description: {
       type: String,
-      default: () => '暂无相关数据'
+      default: () => ''
     },
     /**
      * 图片类型 1 2

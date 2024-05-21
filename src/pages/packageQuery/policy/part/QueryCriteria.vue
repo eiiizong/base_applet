@@ -3,23 +3,23 @@
     <ComponentProjectPanel :title="$t('policy.query.title')">
       <div class="form">
         <label class="form-item" for="name">
-          <div class="form-item-label">政策名称</div>
+          <div class="form-item-label">{{ $t('policy.query.name') }}</div>
           <div class="form-item-input-wrapper">
             <input
               v-model="form.name"
               class="form-item-input input"
               type="text"
               id="name"
-              placeholder="请输入政策名称"
+              :placeholder="$t('policy.query.namePlaceholder')"
             />
           </div>
         </label>
         <label class="form-item" for="name2">
-          <div class="form-item-label">业务部门</div>
+          <div class="form-item-label">{{ $t('policy.query.department') }}</div>
           <div class="form-item-input-wrapper">
             <picker id="name2" class="picker form-item-picker">
               <div class="form-item-picker-value" v-if="form.name2"></div>
-              <div class="form-item-picker-placeholder" v-else>请选择业务部门</div>
+              <div class="form-item-picker-placeholder" v-else>{{ $t('policy.query.departmentPlaceholder') }}</div>
               <div class="form-item-picker-icon">
                 <ta-icon name="arrow" size="30rpx" />
               </div>
@@ -27,18 +27,18 @@
           </div>
         </label>
         <label class="form-item" for="name3">
-          <div class="form-item-label">补贴项目</div>
+          <div class="form-item-label">{{ $t('policy.query.project') }}</div>
           <div class="form-item-input-wrapper">
             <picker id="name3" class="picker form-item-picker">
               <div class="form-item-picker-value" v-if="form.name3"></div>
-              <div class="form-item-picker-placeholder" v-else>请选择补贴项目</div>
+              <div class="form-item-picker-placeholder" v-else>{{ $t('policy.query.projectPlaceholder') }}</div>
               <div class="form-item-picker-icon">
                 <ta-icon name="arrow" size="30rpx" />
               </div>
             </picker>
           </div>
         </label>
-        <button class="button button-query" @click="emit('query', form)">查询</button>
+        <button class="button button-query" @click="emit('query', form)">{{ $t('policy.query.button') }}</button>
       </div>
     </ComponentProjectPanel>
   </div>

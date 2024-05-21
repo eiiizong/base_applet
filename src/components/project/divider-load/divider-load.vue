@@ -1,6 +1,6 @@
 <template>
   <div class="divider-load">
-    <span class="text">{{ isLoaded ? '没有更多数据了' : '上拉加载更多' }}</span>
+    <span class="text">{{ isLoaded ? $t('compontens.dividerLoad.over') : $t('compontens.dividerLoad.over') }}</span>
   </div>
 </template>
 

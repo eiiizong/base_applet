@@ -2,6 +2,15 @@
   "app": {
     "name": "牧民群众惠民补助资金查询系统"
   },
+  "compontens": {
+    "empty": {
+      "description": "暂无相关数据"
+    },
+    "dividerLoad": {
+      "over": "没有更多数据了",
+      "noOver": "上拉加载更多"
+    }
+  },
   "home": {
     "title": "牧民群众惠民补助资金查询系统",
     "header": {
@@ -29,11 +38,9 @@
     },
     "policy": {
       "name": "最新政策",
-      "moreText": "查看更多"
+      "moreText": "查看更多",
+      "buttonText": "发现政策"
     }
-  },
-  "my": {
-    "title": "我的"
   },
   "login": {
     "title": "登录",
@@ -84,7 +91,8 @@
       "department": "业务部门",
       "departmentPlaceholder": "请选择业务部门",
       "project": "补贴项目",
-      "projectPlaceholder": "请选择补贴项目"
+      "projectPlaceholder": "请选择补贴项目",
+      "button": "查询"
     },
     "queryResult": {
       "title": "查询结果"
