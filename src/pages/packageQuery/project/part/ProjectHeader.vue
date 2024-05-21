@@ -7,7 +7,7 @@
         type="text"
         confirm-type="search"
         placeholder-style="color:rgba(255, 255, 255, 0.8);"
-        placeholder="请输入关键字搜索"
+        :placeholder="$t('project.header.searchPlaceholder')"
         @confirm="onSearch"
       />
     </div>

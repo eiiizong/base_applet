@@ -97,5 +97,14 @@
     "queryResult": {
       "title": "查询结果"
     }
+  },
+  "project": {
+    "title": "项目查询",
+    "header": {
+      "searchPlaceholder": "请输入关键字搜索"
+    }
+  },
+  "project-details": {
+    "title": "项目详情查询"
   }
 }
