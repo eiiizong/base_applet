@@ -1,18 +1,18 @@
 <template>
   <view class="page-header" :style="{ backgroundImage: 'url(' + imageBgHeader + ')' }">
-    <div v-if="deviceInfo && deviceInfo.aab300Desc" class="left address flex items-center">
+    <div v-if="deviceInfo && deviceInfo.aab300Desc" class="left address uno-flex uno-items-center">
       <div class="icon" :style="{ backgroundImage: 'url(' + imageIconAddress + ')' }"></div>
       <div class="text">
         <div class="zh-cn">{{ deviceInfo.aab300Desc || '' }}</div>
       </div>
     </div>
 
-    <div class="flex items-center center justify-center flex-col">
+    <div class="center uno-flex uno-flex-col uno-justify-center uno-items-center">
       <div class="zh-cn AlibabaPuHuiTiBold">{{ websiteTitle }}</div>
     </div>
 
     <div class="right">
-      <div class="col flex items-center">
+      <div class="col uno-flex uno-items-center">
         <div class="date">{{ currentDate.date }}</div>
         <div class="week">{{ currentDate.week }}</div>
       </div>
