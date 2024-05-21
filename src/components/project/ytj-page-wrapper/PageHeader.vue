@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div class="center uno-flex uno-flex-col uno-justify-center uno-items-center">
+    <div class="center uno-center uno-flex-col">
       <div class="zh-cn AlibabaPuHuiTiBold">{{ websiteTitle }}</div>
     </div>
 
