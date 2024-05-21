@@ -1,4 +1,7 @@
 export { requestAppletCheckLogin } from './checkLogin'
+export { requestAppletGetAllQueryDetaila } from './getAllQueryDetail'
+export { requestAppletGetAllSummaryStatistics } from './getAllSummaryStatistics'
+export { requestAppletGetChb015AndChb018List } from './getChb015AndChb018List'
 export { requestAppletGetSelfFundCollectData } from './getSelfFundCollectData'
 export { requestAppletGetSubsidyDetailPageList } from './getSubsidyDetailPageList'
 export { requestAppletGetSubsidyProjectList } from './getSubsidyProjectList'

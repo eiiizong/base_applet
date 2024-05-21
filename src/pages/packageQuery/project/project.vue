@@ -183,13 +183,9 @@
     scrollViewConId.value = id
     isClickScroll.value = true
 
-    if (timer.value) {
-      clearTimeout(timer.value)
-    } else {
-      timer.value = setTimeout(() => {
-        isClickScroll.value = false
-      }, 500)
-    }
+    timer.value = setTimeout(() => {
+      isClickScroll.value = false
+    }, 500)
   }
 
   onLoad(() => {
