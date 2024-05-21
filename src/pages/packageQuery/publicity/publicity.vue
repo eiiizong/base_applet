@@ -1,5 +1,5 @@
 <template>
-  <div class="page publicity">
+  <div class="page-scroll publicity">
     <PublicityHeader></PublicityHeader>
     <PublicityTotal></PublicityTotal>
     <div class="wrapper">
@@ -17,8 +17,8 @@
   .publicity {
     width: 100%;
     .wrapper {
-      flex: 1;
-      overflow: hidden;
+      // flex: 1;
+      overflow: auto;
     }
   }
 </style>

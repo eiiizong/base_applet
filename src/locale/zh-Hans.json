@@ -106,5 +106,8 @@
   },
   "project-details": {
     "title": "项目详情查询"
+  },
+  "publicity": {
+    "title": "综合查询"
   }
 }

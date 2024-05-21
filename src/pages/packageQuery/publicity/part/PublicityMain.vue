@@ -3,30 +3,32 @@
     <div class="title">按项目统计</div>
     <div class="toolbar">
       <picker class="picker">
-        <div class="picker-value" v-if="false"></div>
+        <div class="picker-value" v-if="form.chb015">{{ form.chb015 }}</div>
         <div class="picker-placeholder" v-else>请选择区县</div>
         <div class="picker-icon">
-          <ta-icon name="arrow-down" size="28rpx"></ta-icon>
+          <ta-icon name="arrow-down" size="26rpx"></ta-icon>
         </div>
       </picker>
       <picker class="picker">
-        <div class="picker-value" v-if="false"></div>
+        <div class="picker-value" v-if="form.chb017">{{ form.chb017 }}</div>
         <div class="picker-placeholder" v-else>请选择乡镇</div>
         <div class="picker-icon">
-          <ta-icon name="arrow-down" size="28rpx"></ta-icon>
+          <ta-icon name="arrow-down" size="26rpx"></ta-icon>
         </div>
       </picker>
-      <picker class="picker">
-        <div class="picker-value" v-if="false"></div>
+      <picker class="picker" fields="year" mode="date" start="2000" :end="moment().format('YYYY')">
+        <div class="picker-value" v-if="form.year">{{ form.year }}</div>
         <div class="picker-placeholder" v-else>请选择年月</div>
         <div class="picker-icon">
-          <ta-icon name="arrow-down" size="28rpx"></ta-icon>
+          <ta-icon name="arrow-down" size="26rpx"></ta-icon>
         </div>
       </picker>
     </div>
     <div class="main">
       <scroll-view class="scroll-view tool" scroll-y>
-        <div class="item" v-for="item in 20" :key="item">{{ '农业农村局' + item }}</div>
+        <div class="item" v-for="item in 20" :key="item" :class="[item === 1 ? 'checked' : '']">
+          <div class="text">{{ '农业农村局' }}</div>
+        </div>
       </scroll-view>
       <scroll-view class="scroll-view result" scroll-y>
         <div class="total">
@@ -53,6 +55,13 @@
 
 <script setup lang="ts">
   import ComponentCardProjectTotal from '@/components/project/card-project-total/card-project-total.vue'
+  import moment from 'moment'
+
+  const form = ref({
+    chb015: '',
+    chb017: '',
+    year: ''
+  })
 </script>
 
 <style lang="scss" scoped>
@@ -70,6 +79,7 @@
       padding-left: $spacing;
       padding-bottom: $spacing;
       font-weight: 700;
+      box-sizing: border-box;
     }
     .toolbar {
       background-color: $color-primary;
@@ -79,19 +89,21 @@
       align-items: center;
       justify-content: space-between;
       padding: $spacing;
+      box-sizing: border-box;
       .picker {
-        width: 30%;
+        width: 210rpx;
         line-height: 1;
         background-color: #fff;
         border-radius: 8rpx;
         position: relative;
         &-value,
         &-placeholder {
-          line-height: 40rpx;
-          padding: 10rpx;
-          font-size: 28rpx;
           width: 100%;
-          padding-right: 30rpx;
+          line-height: 40rpx;
+          padding: 10rpx 12rpx;
+          font-size: 26rpx;
+          padding-right: 40rpx;
+          box-sizing: border-box;
         }
         &-icon,
         &-placeholder {
@@ -100,7 +112,7 @@
         &-icon {
           position: absolute;
           top: 50%;
-          right: 10rpx;
+          right: 12rpx;
           transform: translateY(-50%);
         }
       }
@@ -110,83 +122,97 @@
       overflow: hidden;
       display: flex;
       .tool {
-        width: 240rpx;
+        width: 220rpx;
         background-color: #fff;
-        padding-top: $spacing;
+        padding: $spacing;
+
         .item {
           width: 100%;
-          font-size: 28rpx;
-          line-height: 1;
-          padding: 20rpx 10rpx;
           text-align: center;
-          margin-bottom: 20rpx;
+          padding: 12rpx 10rpx;
           border-radius: 8rpx;
+          box-sizing: border-box;
+          margin-bottom: 8rpx;
           transition: all 0.3s;
-          &.checked {
-            background-color: rgba($color-primary, 0.2);
-          }
-        }
-      }
-    }
-    .scroll-view {
-      height: 100%;
-      overflow: hidden;
-
-      box-sizing: border-box;
-      &.result {
-        flex: 1;
-      }
-    }
-    .result {
-      padding-left: $spacing;
-      padding-top: $spacing;
-      .total {
-        display: flex;
-        align-items: center;
-        font-size: 28rpx;
-        padding-right: $spacing;
-        .card {
-          flex: 1;
-          overflow: hidden;
-          background-color: rgba($color2, 1);
-          padding: $spacing;
-          border-radius: 8rpx;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          color: #fff;
-          font-size: 24rpx;
-          line-height: 1;
-          margin-right: 20rpx;
-          .value {
-            font-size: 32rpx;
-            font-weight: 700;
-          }
-          .unit {
-            width: 100rpx;
-            line-height: 40rpx;
-            text-align: center;
-            margin: 20rpx 0;
-            background-color: rgba(#fff, 0.2);
-            font-size: 24rpx;
-            border-radius: 50px;
-          }
-          .key {
-            font-size: 26rpx;
-            line-height: 1;
+          background-color: transparent;
+          color: $color-text;
+          .text {
+            max-width: 100%;
+            display: inline-block;
+            font-size: 28rpx;
+            line-height: 1.2;
+            text-align: left;
+            transition: all 0.3s;
           }
           &:last-child {
-            margin-right: 0;
-            background-color: rgba($color1, 1);
+            margin-bottom: 0;
+          }
+          &.checked {
+            background-color: $color-primary;
+            color: #fff;
           }
         }
       }
-      .items {
-        padding-right: $spacing;
-        padding-top: 20rpx;
-        .item {
-          margin-bottom: 20rpx;
+      .result {
+        padding-left: $spacing;
+        padding-top: $spacing;
+
+        .total {
+          display: flex;
+          align-items: center;
+          font-size: 28rpx;
+          padding-right: $spacing;
+          .card {
+            flex: 1;
+            overflow: hidden;
+            background-color: rgba($color2, 0.8);
+            padding: $spacing;
+            border-radius: 8rpx;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 24rpx;
+            line-height: 1;
+            margin-right: 20rpx;
+            .value {
+              font-size: 32rpx;
+              font-weight: 700;
+            }
+            .unit {
+              width: 100rpx;
+              line-height: 40rpx;
+              text-align: center;
+              margin: 20rpx 0;
+              background-color: rgba(#fff, 0.2);
+              font-size: 24rpx;
+              border-radius: 50px;
+            }
+            .key {
+              font-size: 26rpx;
+              line-height: 1;
+            }
+            &:last-child {
+              margin-right: 0;
+              background-color: rgba($color1, 0.8);
+            }
+          }
+        }
+        .items {
+          padding-right: $spacing;
+          padding-top: 20rpx;
+          .item {
+            margin-bottom: 20rpx;
+          }
+        }
+      }
+      .scroll-view {
+        height: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+        &.result {
+          flex: 1;
         }
       }
     }

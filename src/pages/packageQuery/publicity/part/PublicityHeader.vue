@@ -6,17 +6,25 @@
       type="text"
       confirm-type="search"
       placeholder-style="color:rgba(255, 255, 255, 0.8);"
-      placeholder="请输入关键字搜索"
+      :placeholder="$t('project.header.searchPlaceholder')"
       @confirm="onSearch"
     />
   </div>
 </template>
 
 <script setup lang="ts">
+  const emit = defineEmits(['query'])
+
+  /**
+   * 查询关键词
+   */
   const keyword = ref('')
 
+  /**
+   * 点击查询按钮
+   */
   const onSearch = () => {
-    console.log(keyword.value)
+    emit('query', keyword.value)
   }
 </script>
 
