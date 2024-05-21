@@ -2,36 +2,52 @@
   <div class="card-grant-details">
     <div class="name-wrapper">
       <div class="iconimg iconimg-subsidy"></div>
-      <div class="name">张三 51090*********2222</div>
+      <div class="name">
+        {{ renderData?.aac003 }}
+      </div>
     </div>
     <div class="cells">
       <div class="cell">
+        <div class="key">身份证号：</div>
+        <div class="value">{{ renderData?.aac002 }}</div>
+      </div>
+      <div class="cell">
+        <div class="key">户籍地址：</div>
+        <div class="value">
+          {{ (renderData?.chb015 || '') + (renderData?.chb017 || '') + (renderData?.chb018 || '') }}
+        </div>
+      </div>
+
+      <div class="cell">
         <div class="key">发放金额：</div>
-        <div class="value red">800元</div>
+        <div class="value red">{{ renderData?.aae019 || 0 }}元</div>
       </div>
       <div class="cell">
         <div class="key">发放期号：</div>
-        <div class="value">202223</div>
+        <div class="value">{{ renderData?.aae209 }}</div>
       </div>
       <div class="cell">
         <div class="key">业务局：</div>
-        <div class="value">安多县残联</div>
+        <div class="value">{{ renderData?.chi037 }}</div>
       </div>
       <div class="cell">
-        <div class="key">经办人：</div>
-        <div class="value">次仁多吉</div>
+        <div class="key">经办部门：</div>
+        <div class="value">{{ renderData?.aae017 }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+  import type { PropType } from 'vue'
+  import type { GetAllQueryDetailRow } from '@/server/types'
+
   const props = defineProps({
     /**
      * 渲染内容
      */
     renderData: {
-      type: Object,
+      type: Object as PropType<GetAllQueryDetailRow>,
       required: false
     }
   })

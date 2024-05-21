@@ -261,3 +261,56 @@ export interface GetChb015AndChb018ListApiSuccessResponse {
    */
   chb015Vos: GetChb015AndChb018ListChb015Vo[]
 }
+
+/**
+ * 综合查询详情信息行数据返回的数据格式
+ */
+export interface GetAllQueryDetailRow {
+  aac002: string
+  aac003: string
+  aae010: string
+  aae017: string
+  aae019: number
+  aae036: string
+  aae100: string
+  aae209: string
+  chb015: string
+  chb017: string
+  chb018: string
+  chb204: string
+  chi031: string
+  chi037: string
+  chm010: string
+  chm012: string
+  chm020: number
+  crb00k: string
+  createBy: unknown
+  createTime: string
+  deptId: number
+  remark: unknown
+  updateBy: unknown
+  updateTime: unknown
+  userId: number
+}
+
+/**
+ * 综合查询详情接口成功响应返回的数据格式
+ */
+export interface GetAllQueryDetailApiSuccessResponse {
+  /**
+   * 当前页
+   */
+  pageNum: number
+  /**
+   * 当前条数
+   */
+  pageSize: number
+  /**
+   * 数据列表
+   */
+  rows: GetAllQueryDetailRow[]
+  /**
+   * 总条数
+   */
+  total: number
+}

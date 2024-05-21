@@ -4,9 +4,9 @@
     <div class="con-wrapper">
       <div class="con">
         <div class="main">
-          <div class="cell">残疾人生活补贴和重度残疾人护理补贴</div>
+          <div class="cell">{{ chi031 }}</div>
         </div>
-        <div class="footer">西藏自治区-那曲市-安多县-扎仁镇</div>
+        <div class="footer">西藏自治区-那曲市-安多县</div>
       </div>
     </div>
   </div>
@@ -14,6 +14,13 @@
 
 <script setup lang="ts">
   import imageBgHeader from '../images/bg-header.png'
+
+  const props = defineProps({
+    chi031: {
+      type: String,
+      required: true
+    }
+  })
 </script>
 
 <style lang="scss" scoped>

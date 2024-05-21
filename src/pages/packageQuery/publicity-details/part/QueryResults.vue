@@ -12,10 +12,10 @@
   import ComponentProjectCardGrantDetails from '@/components/project/card-grant-details/card-grant-details.vue'
 
   import type { PropType } from 'vue'
-
+  import type { GetAllQueryDetailRow } from '@/server/types'
   const props = defineProps({
     renderList: {
-      type: Array as PropType<any[]>,
+      type: Array as PropType<GetAllQueryDetailRow[]>,
       required: true
     }
   })

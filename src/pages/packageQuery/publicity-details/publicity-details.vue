@@ -1,6 +1,6 @@
 <template>
   <div class="page-scroll publicity-details">
-    <PublicityDetailsHeader></PublicityDetailsHeader>
+    <PublicityDetailsHeader :chi031="queryInfo.chi031"></PublicityDetailsHeader>
     <template v-if="queryResultData.list.length">
       <QueryResults :render-list="queryResultData.list"></QueryResults>
     </template>
@@ -19,6 +19,9 @@
   import PublicityDetailsHeader from './part/PublicityDetailsHeader.vue'
   import QueryResults from './part/QueryResults.vue'
 
+  import type { GetAllQueryDetailRow } from '@/server/types'
+  import { requestAppletGetAllQueryDetaila } from '@/server/api'
+
   /**
    * 查询条件
    */
@@ -26,15 +29,15 @@
     /**
      * 当前页数
      */
-    pageNo: 1,
+    pageNum: 1,
     /**
      * 每页请求条数
      */
     pageSize: 10,
     /**
-     * 搜索关键字
+     * 补贴项目名称
      */
-    keyword: ''
+    chi031: ''
   })
 
   /**
@@ -44,7 +47,7 @@
     /**
      * 查询结果数据
      */
-    list: any[]
+    list: GetAllQueryDetailRow[]
     /**
      * 是否请求完成 控制 no-data 组件在未请求完成时不显示
      */
@@ -54,7 +57,7 @@
      */
     isLoaded: boolean
   }>({
-    list: [1, 2, 3],
+    list: [],
     isRequestOver: false,
     isLoaded: true
   })
@@ -63,15 +66,29 @@
    * 查询数据
    */
   const queryData = () => {
-    // const { keyword, pageNo, pageSize } = queryInfo
-    // queryResultData.isRequestOver = false
-    // requestW015(keyword, pageNo, pageSize)
-    //   .then((res) => {
-    //     //
-    //   })
-    //   .finally(() => {
-    //     queryResultData.isRequestOver = true
-    //   })
+    const { chi031, pageNum, pageSize } = queryInfo
+    requestAppletGetAllQueryDetaila(chi031, pageNum, pageSize)
+      .then((res) => {
+        const { rows, total } = res
+
+        // 还未加载完成
+        if (total > pageSize * pageNum) {
+          queryResultData.isLoaded = false
+        } else {
+          // 加载完成
+          queryResultData.isLoaded = true
+        }
+        queryResultData.list = [...queryResultData.list, ...rows]
+      })
+      .catch(() => {
+        queryInfo.pageNum = 1
+        queryInfo.pageSize = 10
+        queryResultData.list = []
+        queryResultData.isLoaded = false
+      })
+      .finally(() => {
+        queryResultData.isRequestOver = true
+      })
   }
 
   /**
@@ -79,7 +96,15 @@
    */
   onReachBottom(() => {
     if (!queryResultData.isLoaded) {
-      queryInfo.pageNo++
+      queryInfo.pageNum++
+      queryData()
+    }
+  })
+
+  onLoad((e) => {
+    const { chi031 } = e || {}
+    if (chi031) {
+      queryInfo.chi031 = chi031
       queryData()
     }
   })

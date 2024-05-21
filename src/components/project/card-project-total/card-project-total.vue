@@ -1,5 +1,5 @@
 <template>
-  <div class="card-project" @click="navigateTo('publicity-details', 'packageQuery')">
+  <div class="card-project" @click="navigateTo('publicity-details', 'packageQuery', { chi031: renderData?.chi031 })">
     <div class="name-wrapper">
       <div class="name">{{ renderData?.chi031 }}</div>
     </div>
