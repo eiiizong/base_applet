@@ -12,7 +12,7 @@ const ValideCode = [1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2]
 /**
  * 检验18位身份证的校验码是否正确。
  * 校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。
- * @param val 身份证号码
+ * @param valueArr 身份证号码组成的数组
  */
 const isTrueValidateIdCard = (valueArr: string[]) => {
   let sum = 0 // 声明加权求和变量
