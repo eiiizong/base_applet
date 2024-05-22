@@ -48,12 +48,10 @@ const showModal = (
         } else if (res.cancel) {
           reject(false)
         } else {
-          console.error('uni.showModal 接口调用出现未知错误 => ', res)
           reject(res)
         }
       },
       fail(err) {
-        console.error('uni.showModal 接口调用失败 => ', err)
         reject(err)
       }
     })

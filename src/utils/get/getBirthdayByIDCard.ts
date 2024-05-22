@@ -1,7 +1,3 @@
-import { getIsDev } from './getIsDev'
-
-const isDev = getIsDev()
-
 /**
  * 根据身份证号（使用该方法前先校验身份证号格式是否正确）获取出生日期
  * @param {String} value 身份证号
@@ -11,11 +7,7 @@ const getBirthdayByIDCard = (value: string): string => {
   value = (value + '').trim().toUpperCase()
 
   let birthday = ''
-  if (!value) {
-    if (isDev) {
-      console.error('身份证号码为空，请检查！')
-    }
-  } else {
+  if (value) {
     const len = value.length
 
     if (len === 15) {
@@ -23,13 +15,13 @@ const getBirthdayByIDCard = (value: string): string => {
     } else if (len === 18) {
       birthday = value.slice(6, 14)
     } else {
-      if (isDev) {
-        console.error('身份证号码只能为15位或18位，其它不合法，请检查！')
-      }
+      //
     }
 
-    // 通过正则表达式来指定输出格式为: 1990-01-01
-    birthday = birthday.replace(/(.{4})(.{2})/, '$1-$2-')
+    if (birthday) {
+      // 通过正则表达式来指定输出格式为: 1990-01-01
+      birthday = birthday.replace(/(.{4})(.{2})/, '$1-$2-')
+    }
   }
   return birthday
 }

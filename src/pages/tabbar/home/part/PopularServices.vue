@@ -5,8 +5,8 @@
         <div class="item" v-for="item in navs" :key="item.id" @click="onClick(item)">
           <div class="title">{{ item.title }}</div>
           <div class="desc">{{ item.desc }}</div>
-          <img
-            class="img"
+          <image
+            class="image"
             :src="item.imageSrc"
             :style="{
               width: item.imageWidth / 2 + 'rpx',
@@ -160,7 +160,7 @@
         z-index: 3;
         @include textOverflow(2);
       }
-      .img {
+      .image {
         position: absolute;
         top: 50%;
         right: 20rpx;

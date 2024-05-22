@@ -181,7 +181,6 @@
     requestAppletGetChb015AndChb018List().then((res) => {
       const { chb015Vos } = res
       addressData.value = [...chb015Vos]
-      console.log(addressData)
     })
   }
 

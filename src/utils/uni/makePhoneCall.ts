@@ -19,7 +19,6 @@ const makePhoneCall = (phoneNumber: string): Promise<any> => {
         resolve(res)
       },
       fail(err) {
-        console.error('uni.makePhoneCall 接口调用失败 => ', err)
         reject(err)
       }
     })

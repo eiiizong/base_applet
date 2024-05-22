@@ -75,7 +75,6 @@
       projectInfo.value.updateTime = updateTime
       projectInfo.value.chm031 = [chm031]
       projectInfo.value.chm032 = [chm032]
-      console.log(res)
     })
   }
 

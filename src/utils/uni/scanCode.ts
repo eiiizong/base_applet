@@ -36,7 +36,6 @@ const scanCode = (
         resolve(res)
       },
       fail(err) {
-        console.error('uni.scanCode 接口调用失败 => ', err)
         reject(err)
       }
     })

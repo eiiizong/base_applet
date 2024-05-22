@@ -19,7 +19,6 @@ const getSetting = (withSubscriptions: boolean = false): Promise<UniApp.GetSetti
         resolve(res)
       },
       fail(err) {
-        console.error('uni.getSetting 接口调用失败 => ', err)
         reject(err)
       }
     })

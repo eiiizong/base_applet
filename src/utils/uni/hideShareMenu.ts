@@ -12,7 +12,6 @@ const hideShareMenu = (hideShareItems: any[] = []): Promise<any> => {
         resolve(res)
       },
       fail(err) {
-        console.error('uni.hideShareMenu 接口调用失败 => ', err)
         reject(err)
       }
     })
