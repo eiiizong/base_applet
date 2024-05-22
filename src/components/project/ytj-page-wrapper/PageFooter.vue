@@ -1,16 +1,13 @@
 <template>
   <view class="page-footer">
-    <div class="tools" :class="'tools-' + route.path">
-      <template v-if="route.path !== 'login'">
+    <div class="tools" :class="'tools-' + pathName">
+      <template v-if="pathName !== 'login'">
         <!-- 退出登录 -->
-        <div v-if="userInfo.token" class="logout">
-          <div class="info">您好，{{ formatUserName(userInfo.aac003) }}</div>
-
+        <div v-if="token" class="logout">
+          <div class="info">您好，{{ name }}</div>
           <button class="login-btn btn" @click="onClickLogout">
             <div class="bg"></div>
-            <div class="con d-f ai-c jc-c fd-c">
-              <div class="zh-cn">退出登录</div>
-            </div>
+            <div class="con uno-center">退出登录</div>
           </button>
         </div>
 
@@ -18,66 +15,48 @@
         <div v-else class="login">
           <button class="login-btn btn" @click="onClickJumpRoute('login')">
             <div class="bg"></div>
-            <div class="con d-f ai-c jc-c fd-c">
-              <div class="zh-cn">立即登录</div>
-            </div>
+            <div class="con uno-center">立即登录</div>
           </button>
         </div>
       </template>
 
-      <div v-if="route.path !== 'home' || userInfo.token" class="tips" :class="userInfo.token ? 'tips-login' : ''">
+      <div v-if="pathName !== 'home' || token" class="tips" :class="token ? 'tips-login' : ''">
         <span>无操作</span>
         <span class="value AlibabaPuHuiTiBold">{{ operationTime }}</span>
         <span>秒</span>
-        <span v-if="userInfo.token">退出登录</span>
+        <span v-if="token">退出登录</span>
         <span v-else>返回首页</span>
       </div>
 
-      <div v-if="route.path !== 'home'" class="navigation">
+      <div v-if="pathName !== 'home'" class="navigation">
         <button class="btn btn-home" @click="onClickJumpRoute('home')">
           <div class="bg"></div>
-          <div class="con d-f ai-c jc-c fd-c">
-            <div class="zh-cn">首页</div>
-          </div>
+          <div class="con uno-center">首页</div>
         </button>
         <button class="btn btn-back" @click="onClickJumpRoute('back')">
           <div class="bg"></div>
-          <div class="con d-f ai-c jc-c fd-c">
-            <div class="zh-cn">返回</div>
-          </div>
+          <div class="con uno-center">返回</div>
         </button>
       </div>
     </div>
 
-    <div class="wrapper d-f ai-c">
-      <div class="cell">
-        <div class="zh-cn">
-          <div class="key">终端设备编号：</div>
-          <div class="value">{{ deviceInfo?.hostname || '--' }}</div>
-        </div>
+    <div class="wrapper uno-flex uno-items-center">
+      <div class="cell uno-flex uno-items-center">
+        <div class="key">终端设备编号：</div>
+        <div class="value">{{ deviceInfo?.hostname || '--' }}</div>
       </div>
-      <div class="cell">
-        <div class="zh-cn">
-          <div class="key">建设单位：</div>
-          <div class="value">中国农业银行股份有限公司西藏自治区分行</div>
-        </div>
-      </div>
-      <div class="cell">
-        <div class="zh-cn">
-          <div class="key">技术支持：</div>
-          <div class="value">四川久远银海软件股份有限公司</div>
-        </div>
+      <div class="cell uno-flex uno-items-center">
+        <div class="key">建设单位：</div>
+        <div class="value">中国农业银行股份有限公司西藏自治区分行</div>
       </div>
     </div>
   </view>
 </template>
 
 <script setup lang="ts">
-  import { toRefs } from 'vue'
+  import { useStoreUserInfo, useStoreCurrentRouteInfo, useStoreDeviceInfo } from '@/stores/modules'
 
-  import { useStoreUserInfo, useStoreRoute, useStoreDeviceInfo } from '@/stores/modules'
-  import { formatUserName } from '@/utils/format'
-  import { navigateBack, navigateTo, reLaunch, showLoading } from '@/utils/uni-api'
+  import { navigateBack, navigateTo, reLaunch, showLoading } from '@/utils/uni'
 
   const props = defineProps({
     operationTime: {
@@ -87,28 +66,32 @@
   })
 
   const storeUserInfo = useStoreUserInfo()
-  const storeRoute = useStoreRoute()
+  const storeCurrentRouteInfo = useStoreCurrentRouteInfo()
   const storeDeviceInfo = useStoreDeviceInfo()
 
-  const { userInfo } = toRefs(storeUserInfo)
-  const { route } = toRefs(storeRoute)
+  const { name, token } = toRefs(storeUserInfo)
+  const { name: pathName } = toRefs(storeCurrentRouteInfo)
   const { deviceInfo } = toRefs(storeDeviceInfo)
 
+  /**
+   * 跳转路由
+   */
   const onClickJumpRoute = (pathName: string) => {
     showLoading()
     if (pathName === 'back') {
       navigateBack()
     } else if (pathName === 'home') {
-      reLaunch(pathName)
+      reLaunch(pathName, 'packageYTJ')
     } else {
-      navigateTo(pathName)
+      navigateTo(pathName, 'packageYTJ')
     }
   }
 
-  // 退出登录
+  /**
+   * 退出登录
+   */
   const onClickLogout = () => {
-    showLoading()
-    reLaunch('home')
+    reLaunch('home', 'packageYTJ')
     storeUserInfo.$reset()
   }
 </script>
@@ -267,28 +250,12 @@
 
       .cell {
         margin-right: 2.5rem;
-        .zh-cn,
-        .tibetan {
-          display: flex;
-          align-items: center;
-        }
-        .zh-cn {
-          font-size: 1.25rem;
-          line-height: 1.75rem;
-        }
-        .tibetan {
-          font-size: 1rem;
-          line-height: 1.375rem;
-          color: rgba(#fff, 0.8);
-          padding-top: 0.375rem;
-          .key {
-            display: flex;
-            align-items: center;
-            color: inherit;
-          }
-        }
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        white-space: nowrap;
+
         .key {
-          white-space: nowrap;
+          opacity: 0.8;
         }
 
         &:last-child {

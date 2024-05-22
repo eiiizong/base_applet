@@ -1,10 +1,10 @@
 <template>
-  <view class="page-full-screen" :style="{ backgroundImage: 'url(' + imageBg + ')' }" @click="onClick">
-    <PageHeader :current-date="new Date()" />
-    <!-- <div class="page-main">
+  <view class="page-full-screen" :style="{ backgroundImage: 'url(' + imageBg + ')' }" @click.stop.prevent="onClick">
+    <PageHeader :current-date="currentDate" />
+    <div class="page-main">
       <slot></slot>
     </div>
-    <PageFooter :operation-time="operationTime" /> -->
+    <PageFooter :operation-time="operationTime" />
   </view>
 </template>
 
@@ -12,28 +12,22 @@
   import imageBg from './images/bg.png'
 
   import PageHeader from './PageHeader.vue'
-  // import PageFooter from './PageFooter.vue'
+  import PageFooter from './PageFooter.vue'
 
-  // import { getEnvData } from '@/utils/get'
-  // import { useStoreOperationTime, useStoreCurrentDate } from '@/stores/modules'
+  import { useStoreOperationTime, useStoreCurrentDate } from '@/stores/modules'
 
-  // const storeOperationTime = useStoreOperationTime()
-  // const storeCurrentDate = useStoreCurrentDate()
+  const storeOperationTime = useStoreOperationTime()
+  const storeCurrentDate = useStoreCurrentDate()
 
-  // const { operationTime } = toRefs(storeOperationTime)
-  // const { currentDate } = toRefs(storeCurrentDate)
+  const { operationTime } = toRefs(storeOperationTime)
+  const { currentDate } = toRefs(storeCurrentDate)
 
+  /**
+   * 点击屏幕任意位置重置剩余操作时间
+   */
   const onClick = () => {
-    // storeOperationTime.$reset()
+    storeOperationTime.$reset()
   }
-
-  onMounted(() => {
-    //
-  })
-
-  onUnmounted(() => {
-    //
-  })
 </script>
 
 <style lang="scss" scoped>

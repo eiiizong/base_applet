@@ -8,7 +8,7 @@
     </div>
 
     <div class="center uno-center uno-flex-col">
-      <div class="zh-cn AlibabaPuHuiTiBold">{{ websiteTitle }}</div>
+      <div class="AlibabaPuHuiTiBold">{{ websiteTitle }}</div>
     </div>
 
     <div class="right">
@@ -37,6 +37,9 @@
   const websiteTitle = computed(() => t('app.name'))
 
   const props = defineProps({
+    /**
+     * 当前日期时间
+     */
     currentDate: {
       type: Object as PropType<{
         date: string

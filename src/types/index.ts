@@ -1,4 +1,4 @@
-export type PageNmae = 'home' | 'my'
+export type PageNmae = 'home'
 /**
  * 登录表单类型
  */

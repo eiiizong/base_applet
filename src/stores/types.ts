@@ -21,6 +21,16 @@ declare namespace Store {
      */
     language: 'ja' | 'zh-Hans'
   }
+
+  /**
+   * store 当前路由信息
+   */
+  export interface CurrentRouteInfo {
+    /**
+     * 路由名称
+     */
+    name: 'home' | 'login' | ''
+  }
 }
 
 export type { Store }

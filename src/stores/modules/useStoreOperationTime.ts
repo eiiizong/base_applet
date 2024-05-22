@@ -1,4 +1,3 @@
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { getEnvData } from '@/utils/get'
 
@@ -13,16 +12,26 @@ import { getEnvData } from '@/utils/get'
 /**
  * store【一体机使用】剩余操作时间
  */
-const useStoreOperationTime = defineStore('storeOperationTime', () => {
-  const operationTime = ref<number>(Number(getEnvData('VITE_OPERATION_TIME')))
-
-  const getStoreOperationTime = computed(() => operationTime.value)
-
-  function updateStoreOperationTime(data: number) {
-    operationTime.value = data
+const useStoreOperationTime = defineStore('storeOperationTime', {
+  state: () => {
+    return {
+      operationTime: Number(getEnvData('VITE_OPERATION_TIME'))
+    }
+  },
+  getters: {
+    /**
+     * 获取操作时间
+     */
+    getOperationTime: (state) => state.operationTime
+  },
+  actions: {
+    /**
+     * 更新操作时间
+     */
+    updateOperationTime(str: number) {
+      this.operationTime = str
+    }
   }
-
-  return { operationTime, getStoreOperationTime, updateStoreOperationTime }
 })
 
 export { useStoreOperationTime }

@@ -1,4 +1,7 @@
+export { useStoreCurrentDate } from './useStoreCurrentDate'
+export { useStoreCurrentRouteInfo } from './useStoreCurrentRouteInfo'
 export { useStoreDeviceInfo } from './useStoreDeviceInfo'
+export { useStoreOperationTime } from './useStoreOperationTime'
 export { useStoreSystemInfo } from './useStoreSystemInfo'
 export { useStoreUserInfo } from './useStoreUserInfo'
 export { useStoreUserSettings } from './useStoreUserSettings'
