@@ -18,7 +18,7 @@ import { setLocale } from '@/utils/uni'
 const useStoreUserSettings = defineStore('storeUserSettings', {
   state: (): Store.UserSettings => {
     return {
-      language: 'zh-Hans'
+      language: 'ja'
     }
   },
   getters: {

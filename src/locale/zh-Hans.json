@@ -1,6 +1,17 @@
 {
   "app": {
-    "name": "牧民群众惠民补助资金查询系统"
+    "name": "牧民群众惠民补助资金查询系统",
+    "form": {
+      "chb015-placeholder": "请选择区县",
+      "chb017-placeholder": "请选择乡镇",
+      "aae209-placeholder": "请选择年月"
+    },
+    "unit": {
+      "yuan": "元",
+      "wanyuan": "万元",
+      "ren": "人",
+      "wanren": "万人"
+    }
   },
   "compontens": {
     "empty": {
@@ -108,6 +119,15 @@
     "title": "项目详情查询"
   },
   "publicity": {
-    "title": "综合查询"
+    "title": "综合查询",
+    "total": {
+      "money": "补贴总金额",
+      "project": "补贴项目数",
+      "person": "覆盖户(人数)"
+    },
+    "queryTitle": "按项目统计"
+  },
+  "publicity-details": {
+    "title": "综合查询详情"
   }
 }

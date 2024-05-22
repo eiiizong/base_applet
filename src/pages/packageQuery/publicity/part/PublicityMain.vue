@@ -1,17 +1,17 @@
 <template>
   <div class="publicity-main">
-    <div class="title">按项目统计</div>
+    <div class="title">{{ $t('publicity.queryTitle') }}</div>
     <div class="toolbar">
       <picker class="picker" @change="onChangeChb015" :range="addressData" range-key="chb015" mode="selector">
         <div class="picker-value" v-if="form.chb015">{{ form.chb015 }}</div>
-        <div class="picker-placeholder" v-else>请选择区县</div>
+        <div class="picker-placeholder" v-else>{{ $t('app.form.chb015-placeholder') }}</div>
         <div class="picker-icon">
           <ta-icon name="arrow-down" size="26rpx"></ta-icon>
         </div>
       </picker>
       <picker class="picker" :disabled="!form.chb015" :range="chb017List" @change="onChangeChb017">
         <div class="picker-value" v-if="form.chb017">{{ form.chb017 }}</div>
-        <div class="picker-placeholder" v-else>请选择乡镇</div>
+        <div class="picker-placeholder" v-else>{{ $t('app.form.chb017-placeholder') }}</div>
         <div class="picker-icon">
           <ta-icon name="arrow-down" size="26rpx"></ta-icon>
         </div>
@@ -25,7 +25,7 @@
         @change="onChangeAae209"
       >
         <div class="picker-value" v-if="form.aae209">{{ form.aae209 }}</div>
-        <div class="picker-placeholder" v-else>请选择年月</div>
+        <div class="picker-placeholder" v-else>{{ $t('app.form.aae209-placeholder') }}</div>
         <div class="picker-icon">
           <ta-icon name="arrow-down" size="26rpx"></ta-icon>
         </div>
@@ -282,6 +282,7 @@
           font-size: 26rpx;
           padding-right: 40rpx;
           box-sizing: border-box;
+          @include textOverflow(1);
         }
         &-icon,
         &-placeholder {

@@ -4,7 +4,7 @@
     <div class="con">
       <div class="toolbar">
         <div class="language" @click="onClickSetLanguage">
-          <image class="image"></image>
+          <image class="image" :src="locale === 'zh-Hans' ? imageLang01 : imageLang02"></image>
           <div class="info">
             <div class="cell">语言切换</div>
             <div class="cell">སྐད་བརྡ་བརྗེ་བ།</div>
@@ -27,6 +27,8 @@
 </template>
 
 <script setup lang="ts">
+  import imageLang01 from '../images/lang01.png'
+  import imageLang02 from '../images/lang02.png'
   import imageBgHeader from '../images/bg-header.png'
   import imageAvatar from '../images/avatar.png'
 
@@ -91,7 +93,9 @@
         display: flex;
         align-items: center;
         .image {
-          width: 0;
+          width: 88rpx;
+          height: 88rpx;
+          margin-right: 10rpx;
         }
         .info {
           font-size: 24rpx;

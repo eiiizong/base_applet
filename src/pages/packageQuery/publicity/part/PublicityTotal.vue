@@ -2,25 +2,25 @@
   <div class="publicity-total">
     <div class="left">
       <div class="item">
-        <div class="key">补贴总金额</div>
+        <div class="key">{{ $t('publicity.total.money') }}</div>
         <div class="value">
           <div class="val">{{ renderData.totalMoney || 0 }}</div>
-          <div class="unit">万元</div>
+          <div class="unit">{{ $t('app.unit.wanyuan') }}</div>
         </div>
         <image class="image" :src="image01"></image>
       </div>
     </div>
     <div class="right">
       <div class="item">
-        <div class="key">补贴项目数</div>
+        <div class="key">{{ $t('publicity.total.project') }}</div>
         <div class="value">{{ renderData.projectNum || 0 }}</div>
         <image class="image" :src="image02"></image>
       </div>
       <div class="item">
-        <div class="key">覆盖户(人数)</div>
+        <div class="key">{{ $t('publicity.total.person') }}</div>
         <div class="value">
           <div class="val">{{ renderData.totalPerson || 0 }}</div>
-          <div class="unit">万人</div>
+          <div class="unit">{{ $t('app.unit.wanren') }}</div>
         </div>
         <image class="image" :src="image03"></image>
       </div>
