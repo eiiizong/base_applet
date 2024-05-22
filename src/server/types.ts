@@ -314,3 +314,66 @@ export interface GetAllQueryDetailApiSuccessResponse {
    */
   total: number
 }
+
+/**
+ * 政策数据格式
+ */
+export interface PolicyVo {
+  chb015: string
+  chb017: string
+  chb018: string
+  chi031: string
+  chi037: null
+  chm010: string
+  chm012: string
+  /**
+   * 政策主键
+   */
+  chm050: number
+  /**
+   * 政策名称
+   */
+  chm051: string
+  /**
+   *
+   */
+  chm052: string
+  /**
+   *
+   */
+  chm053: string
+  chm054: unknown
+  isNew: unknown
+}
+
+/**
+ * 获取最新政策数据接口成功响应返回的数据格式
+ */
+export interface GetLatestPolicyListApiSuccessResponse {
+  /**
+   * 数据列表
+   */
+  policyVoList: PolicyVo[]
+}
+
+/**
+ * 获取主管部门及其补贴项目数据接口成功响应返回的数据格式
+ */
+export interface GetChi037AndChi031ListApiSuccessResponse {
+  /**
+   * 数据列表
+   */
+  chi037List: {
+    [key: string]: string[]
+  }
+}
+
+/**
+ * 获取政策数据
+ */
+export interface GetDepartPolicyListApiSuccessResponse {
+  /**
+   * 数据列表
+   */
+  list: PolicyVo[]
+}

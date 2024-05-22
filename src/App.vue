@@ -25,6 +25,7 @@
   })
   onShow(() => {
     // 一体机端执行
+    // #ifdef APP-PLUS
     if (platform === '03') {
       useOpenTimerOperationTime()
       useOpenTimerCurrentDate()
@@ -33,14 +34,17 @@
       // 隐藏手机底部导航按键
       plus.navigator.hideSystemNavigation()
     }
+    // #endif
   })
 
   onHide(() => {
     // 一体机端执行
+    // #ifdef APP-PLUS
     if (platform === '03') {
       useCloseTimerOperationTime()
       useCloseTimerCurrentDate()
     }
+    // #endif
   })
 </script>
 

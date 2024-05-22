@@ -2,15 +2,18 @@
   <div class="home-policy">
     <ComponentProjectPanel
       :title="$t('home.policy.name')"
-      :more-text="$t('home.policy.moreText')"
+      :more-text="policys.length ? $t('home.policy.moreText') : ''"
       @clickMore="onClickMore"
     >
-      <div class="items">
+      <div class="items" v-if="policys.length">
         <div class="item" v-for="(item, index) in policys" :key="index" @click="onClick(item)">
           <ComponentProjectCardPolicy :render-data="item"></ComponentProjectCardPolicy>
         </div>
       </div>
-      <div class="buttons-wrapper">
+      <template v-else>
+        <ComponentProjectEmpty v-if="isRequestOver"></ComponentProjectEmpty>
+      </template>
+      <div class="buttons-wrapper" v-if="policys.length">
         <button class="button" @click="onClickMore">{{ $t('home.policy.buttonText') }}</button>
       </div>
     </ComponentProjectPanel>
@@ -18,12 +21,16 @@
 </template>
 
 <script setup lang="ts">
+  import ComponentProjectEmpty from '@/components/project/empty/empty.vue'
   import ComponentProjectPanel from '@/components/project/panel/panel.vue'
   import ComponentProjectCardPolicy from '@/components/project/card-policy/card-policy.vue'
 
+  import type { PolicyVo } from '@/server/types'
   import { navigateTo } from '@/utils/uni'
+  import { requestAppletGetLatestPolicyList } from '@/server/api'
 
-  const policys = ref([{}, {}])
+  const policys = ref<PolicyVo[]>([])
+  const isRequestOver = ref(false)
 
   const onClick = (data: any) => {
     console.log(data)
@@ -32,6 +39,25 @@
   const onClickMore = () => {
     navigateTo('policy', 'packageQuery')
   }
+
+  /**
+   * 获取政策数据
+   */
+  const getData = () => {
+    isRequestOver.value = false
+    requestAppletGetLatestPolicyList()
+      .then((res) => {
+        const { policyVoList } = res
+        policys.value = [...policyVoList]
+      })
+      .finally(() => {
+        isRequestOver.value = true
+      })
+  }
+
+  onMounted(() => {
+    getData()
+  })
 </script>
 
 <style lang="scss" scoped>

@@ -20,7 +20,7 @@
   import QueryResults from './part/QueryResults.vue'
 
   import type { GetAllQueryDetailRow } from '@/server/types'
-  import { requestAppletGetAllQueryDetaila } from '@/server/api'
+  import { requestAppletGetAllQueryDetail } from '@/server/api'
 
   /**
    * 查询条件
@@ -71,7 +71,7 @@
    */
   const queryData = () => {
     const { chi031, pageNum, pageSize } = queryInfo
-    requestAppletGetAllQueryDetaila(chi031, pageNum, pageSize)
+    requestAppletGetAllQueryDetail(chi031, pageNum, pageSize)
       .then((res) => {
         const { rows, total } = res
 

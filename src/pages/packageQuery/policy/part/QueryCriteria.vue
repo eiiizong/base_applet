@@ -46,6 +46,7 @@
 
 <script setup lang="ts">
   import ComponentProjectPanel from '@/components/project/panel/panel.vue'
+  import { requestAppletGetChi037AndChi031List } from '@/server/api'
 
   const emit = defineEmits(['query'])
 
@@ -53,6 +54,35 @@
     name: '',
     name2: '',
     name3: ''
+  })
+
+  const chi037Options = ref<
+    {
+      chi037: string
+      list: string[]
+    }[]
+  >([])
+
+  /**
+   * 获取筛选条件渲染数据
+   */
+  const getData = () => {
+    requestAppletGetChi037AndChi031List().then((res) => {
+      const newList = []
+      const { chi037List } = res
+      for (let key in chi037List) {
+        newList.push({
+          chi037: key,
+          list: chi037List[key]
+        })
+      }
+      chi037Options.value = [...newList]
+      console.log(newList)
+    })
+  }
+
+  onMounted(() => {
+    getData()
   })
 </script>
 

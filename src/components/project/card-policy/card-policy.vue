@@ -2,36 +2,43 @@
   <div class="card-grant-details">
     <div class="name-wrapper">
       <div class="iconimg iconimg-subsidy"></div>
-      <div class="name">转发财政部 国家卫生健康委</div>
+      <div class="name">{{ renderData?.chm051 }}</div>
     </div>
     <div class="cells">
       <div class="cell">
         <div class="key">业务部门：</div>
-        <div class="value">区卫健委</div>
+        <div class="value">{{ renderData?.chi037 || '暂无' }}</div>
       </div>
       <div class="cell">
         <div class="key">补贴项目：</div>
-        <div class="value">计划生育家庭特别扶助制度扶助计划生育家庭特别扶助制度扶助</div>
+        <div class="value">{{ renderData?.chi031 }}</div>
       </div>
       <div class="cell">
         <div class="key">发布时间：</div>
-        <div class="value">2024-5-2</div>
+        <div class="value">{{ moment(renderData?.chm052).format('YYYY年MM月DD日') }}</div>
       </div>
       <div class="cell">
         <div class="key">有效期：</div>
-        <div class="value">长期有效</div>
+        <div class="value">
+          <span v-if="renderData?.chm053">{{ moment(renderData?.chm053).format('YYYY年MM月DD日') }}</span>
+          <span>至</span>
+          <span v-if="renderData?.chm054">{{ moment(renderData?.chm054).format('YYYY年MM月DD日') }}</span>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+  import type { PropType } from 'vue'
+  import type { PolicyVo } from '@/server/types'
+  import moment from 'moment'
   const props = defineProps({
     /**
      * 渲染内容
      */
     renderData: {
-      type: Object,
+      type: Object as PropType<PolicyVo>,
       required: false
     }
   })

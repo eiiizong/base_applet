@@ -10,7 +10,7 @@ import request from '@/server/request'
  * @param {boolean} [isShowLoading=true] 是否显示加载中动画 默认值 true
  * @param {boolean} [isShowErrorToast=true] 是否显示错误提示 默认值 true
  */
-const requestAppletGetAllQueryDetaila = (
+const requestAppletGetAllQueryDetail = (
   chi031: string,
   pageNum: number = 1,
   pageSize: number = 10,
@@ -33,4 +33,4 @@ const requestAppletGetAllQueryDetaila = (
       })
   })
 }
-export { requestAppletGetAllQueryDetaila }
+export { requestAppletGetAllQueryDetail }
