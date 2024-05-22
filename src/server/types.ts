@@ -174,7 +174,14 @@ export interface GetSubsidyProjectDetailApiSuccessResponse {
   chm033: string
   chm034: string
   chm035: null
-  chm036: null
+  /**
+   * 审批；流程
+   */
+  chm036: string
+  /**
+   * 申报材料
+   */
+  chm037: string
   createBy: null
   createTime: string
   deptId: number
@@ -369,7 +376,7 @@ export interface GetChi037AndChi031ListApiSuccessResponse {
 }
 
 /**
- * 获取政策数据
+ * 获取政策数据接口成功响应返回的数据格式
  */
 export interface GetDepartPolicyListApiSuccessResponse {
   /**

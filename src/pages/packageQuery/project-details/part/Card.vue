@@ -1,5 +1,5 @@
 <template>
-  <div class="project-details-card">
+  <div class="project-details-card" v-if="isShow">
     <image class="image" :src="imageSrc" />
     <div class="con-wrapper">
       <div class="name">{{ name }}</div>
@@ -14,42 +14,26 @@
         </div>
       </div>
       <div class="con" v-if="type === '03'">
-        <div class="item">
-          <div class="item-name">农牧区“一孩、双女”户困难家农牧区“一孩、双女”户困难家庭庭</div>
+        <div class="item" v-for="(item, index) of chm037" :key="index">
+          <div class="item-name">{{ item.aka131 }}</div>
           <div class="list">
-            <div class="text">1、身份证</div>
-            <div class="text">2、户口本</div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-name">农牧区“一孩、双女”户困难家庭</div>
-          <div class="list">
-            <div class="text">1、身份证</div>
-            <div class="text">2、户口本</div>
+            <div class="text" v-for="(item2, i) in item.material" :key="i">{{ i + 1 + '、' + item2 }}</div>
           </div>
         </div>
       </div>
 
       <div class="con" v-if="type === '04'">
-        <div class="process-item">
-          <div class="text">流程名称1</div>
-        </div>
-        <div class="process-item">
-          <div class="text">流程名称2</div>
-        </div>
-        <div class="process-item">
-          <div class="text">流程名称31流程名流程名称31流程名称31流程称31流程</div>
-        </div>
-        <div class="process-item">
-          <div class="text">流程名称4</div>
-        </div>
-        <div class="process-item">
-          <div class="text">流程名称5</div>
+        <div class="process-item" v-for="(item, index) in chm036" :key="index">
+          <div class="text">{{ item }}</div>
         </div>
       </div>
 
       <div class="con" v-if="type === '05'">
-        <ComponentProjectCardPolicy></ComponentProjectCardPolicy>
+        <ComponentProjectCardPolicy
+          v-for="item in policys"
+          :key="item.chm050"
+          :render-data="item"
+        ></ComponentProjectCardPolicy>
       </div>
     </div>
   </div>
@@ -64,6 +48,7 @@
   import image04 from '../images/04.png'
   import image05 from '../images/05.png'
 
+  import type { PolicyVo } from '@/server/types'
   import ComponentProjectCardPolicy from '@/components/project/card-policy/card-policy.vue'
 
   const props = defineProps({
@@ -87,7 +72,43 @@
     chm032: {
       type: Array as PropType<string[]>,
       required: false
+    },
+    /**
+     * 审批流程
+     */
+    chm036: {
+      type: Array as PropType<string[]>,
+      required: false
+    },
+    /**
+     * 申报材料
+     */
+    chm037: {
+      type: Array as PropType<
+        {
+          aka131: string
+          material: string[]
+        }[]
+      >,
+      required: false
+    },
+    /**
+     * 相关政策材料
+     */
+    policys: {
+      type: Array as PropType<PolicyVo[]>,
+      required: false
     }
+  })
+
+  const isShow = computed(() => {
+    let res = false
+    const { chm031, chm032, chm036, chm037, policys } = props
+    if (chm031 || chm032 || chm036?.length || chm037?.length || policys?.length) {
+      res = true
+    }
+
+    return res
   })
 
   const imageSrc = computed(() => {

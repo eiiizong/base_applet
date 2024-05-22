@@ -100,12 +100,12 @@
       res = false
     }
 
-    // if (idcard) {
-    //   const result = checkIDCard(idcard)
-    //   if (!result.isOk) {
-    //     res = false
-    //   }
-    // }
+    if (idcard) {
+      const result = checkIDCard(idcard)
+      if (!result.isOk) {
+        res = false
+      }
+    }
     return res
   })
 
