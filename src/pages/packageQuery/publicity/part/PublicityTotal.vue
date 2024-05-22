@@ -49,7 +49,7 @@
 
 <style lang="scss" scoped>
   @use 'sass:math';
-  $item-height: 150rpx;
+  $item-height: 180rpx;
   $color1: #436efe;
   $color2: #ff6853;
   $color3: #00c290;
@@ -64,10 +64,10 @@
       white-space: nowrap;
       position: relative;
       padding: $spacing;
-      box-sizing: border-box;
       border-radius: 12rpx;
       height: $item-height;
       background-image: linear-gradient(to bottom, rgba($color1, 0.2), #fff);
+      box-sizing: border-box;
       .image {
         position: absolute;
         right: $spacing;
@@ -77,9 +77,10 @@
       }
       .key {
         font-size: 30rpx;
-        line-height: 1;
+        line-height: 1.2;
         color: rgba($color-text, 1);
         font-weight: 500;
+        white-space: normal;
       }
       .value {
         color: $color1;
@@ -119,6 +120,7 @@
       .item {
         background-image: linear-gradient(to bottom, rgba($color2, 0.2), #fff);
         margin-bottom: 20rpx;
+        padding-right: 100rpx;
         .value {
           color: $color2;
         }
