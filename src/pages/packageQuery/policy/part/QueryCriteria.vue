@@ -2,23 +2,23 @@
   <div class="query-criteria">
     <ComponentProjectPanel :title="$t('policy.query.title')">
       <div class="form">
-        <label class="form-item" for="name">
+        <label class="form-item" for="policyName">
           <div class="form-item-label">{{ $t('policy.query.name') }}</div>
           <div class="form-item-input-wrapper">
             <input
-              v-model="form.name"
+              v-model="form.policyName"
               class="form-item-input input"
               type="text"
-              id="name"
+              id="policyName"
               :placeholder="$t('policy.query.namePlaceholder')"
             />
           </div>
         </label>
-        <label class="form-item" for="name2">
+        <label class="form-item" for="chi037">
           <div class="form-item-label">{{ $t('policy.query.department') }}</div>
           <div class="form-item-input-wrapper">
-            <picker id="name2" class="picker form-item-picker">
-              <div class="form-item-picker-value" v-if="form.name2"></div>
+            <picker id="chi037" class="picker form-item-picker">
+              <div class="form-item-picker-value" v-if="form.chi037"></div>
               <div class="form-item-picker-placeholder" v-else>{{ $t('policy.query.departmentPlaceholder') }}</div>
               <div class="form-item-picker-icon">
                 <ta-icon name="arrow" size="30rpx" />
@@ -26,11 +26,11 @@
             </picker>
           </div>
         </label>
-        <label class="form-item" for="name3">
+        <label class="form-item" for="chi031">
           <div class="form-item-label">{{ $t('policy.query.project') }}</div>
           <div class="form-item-input-wrapper">
-            <picker id="name3" class="picker form-item-picker">
-              <div class="form-item-picker-value" v-if="form.name3"></div>
+            <picker id="chi031" class="picker form-item-picker">
+              <div class="form-item-picker-value" v-if="form.chi031"></div>
               <div class="form-item-picker-placeholder" v-else>{{ $t('policy.query.projectPlaceholder') }}</div>
               <div class="form-item-picker-icon">
                 <ta-icon name="arrow" size="30rpx" />
@@ -38,7 +38,10 @@
             </picker>
           </div>
         </label>
-        <button class="button button-query" @click="emit('query', form)">{{ $t('policy.query.button') }}</button>
+        <div class="button-wrapper">
+          <button class="button button-query" @click="emit('query', form)">{{ $t('policy.query.button') }}</button>
+          <button class="button button-query" @click="emit('query', form)">重置</button>
+        </div>
       </div>
     </ComponentProjectPanel>
   </div>
@@ -51,11 +54,14 @@
   const emit = defineEmits(['query'])
 
   const form = ref({
-    name: '',
-    name2: '',
-    name3: ''
+    policyName: '',
+    chi037: '',
+    chi031: ''
   })
 
+  /**
+   * 业务局及其补贴项目数据
+   */
   const chi037Options = ref<
     {
       chi037: string
@@ -77,7 +83,6 @@
         })
       }
       chi037Options.value = [...newList]
-      console.log(newList)
     })
   }
 

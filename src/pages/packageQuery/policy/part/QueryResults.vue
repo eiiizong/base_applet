@@ -15,10 +15,11 @@
   import ComponentProjectCardPolicy from '@/components/project/card-policy/card-policy.vue'
 
   import type { PropType } from 'vue'
+  import type { PolicyVo } from '@/server/types'
 
   const props = defineProps({
     renderList: {
-      type: Array as PropType<any[]>,
+      type: Array as PropType<PolicyVo[]>,
       required: true
     }
   })

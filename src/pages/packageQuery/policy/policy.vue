@@ -18,6 +18,9 @@
   import QueryCriteria from './part/QueryCriteria.vue'
   import QueryResults from './part/QueryResults.vue'
 
+  import type { PolicyVo } from '@/server/types'
+  import { requestAppletGetDepartPolicyList } from '@/server/api'
+
   /**
    * 查询条件
    */
@@ -25,15 +28,23 @@
     /**
      * 当前页数
      */
-    pageNo: 1,
+    pageNum: 1,
     /**
      * 每页请求条数
      */
     pageSize: 10,
     /**
-     * 搜索关键字
+     * 政策名称
      */
-    keyword: ''
+    policyName: '',
+    /**
+     * 政策名称
+     */
+    chi031: '',
+    /**
+     * 政策名称
+     */
+    chi037: ''
   })
 
   /**
@@ -43,7 +54,7 @@
     /**
      * 查询结果数据
      */
-    list: any[]
+    list: PolicyVo[]
     /**
      * 是否请求完成 控制 no-data 组件在未请求完成时不显示
      */
@@ -53,7 +64,7 @@
      */
     isLoaded: boolean
   }>({
-    list: [1, 2, 3],
+    list: [],
     isRequestOver: false,
     isLoaded: true
   })
@@ -62,24 +73,45 @@
    * 查询数据
    */
   const queryData = () => {
-    // const { keyword, pageNo, pageSize } = queryInfo
-    // queryResultData.isRequestOver = false
-    // requestW015(keyword, pageNo, pageSize)
-    //   .then((res) => {
-    //     //
-    //   })
-    //   .finally(() => {
-    //     queryResultData.isRequestOver = true
-    //   })
+    queryResultData.isRequestOver = false
+    queryResultData.list = []
+    queryResultData.isLoaded = false
+
+    const { policyName, chi031, chi037, pageNum, pageSize } = queryInfo
+    requestAppletGetDepartPolicyList(policyName, chi037, chi031, pageNum, pageSize)
+      .then((res) => {
+        const { rows, total } = res
+
+        // 还未加载完成
+        if (total > pageSize * pageNum) {
+          queryResultData.isLoaded = false
+        } else {
+          // 加载完成
+          queryResultData.isLoaded = true
+        }
+        queryResultData.list = [...queryResultData.list, ...rows]
+      })
+      .catch(() => {
+        queryInfo.pageNum = 1
+        queryInfo.pageSize = 10
+        queryResultData.list = []
+        queryResultData.isLoaded = false
+      })
+      .finally(() => {
+        queryResultData.isRequestOver = true
+      })
   }
 
   /**
    * 点击查询按钮查询
    */
   const onClickQuery = (form: any) => {
-    console.log(form)
-
-    //
+    const { policyName, chi031, chi037 } = form
+    queryInfo.policyName = policyName
+    queryInfo.chi031 = chi031
+    queryInfo.chi037 = chi037
+    queryInfo.pageNum = 1
+    queryData()
   }
 
   /**
@@ -87,9 +119,13 @@
    */
   onReachBottom(() => {
     if (!queryResultData.isLoaded) {
-      queryInfo.pageNo++
+      queryInfo.pageNum++
       queryData()
     }
+  })
+
+  onLoad(() => {
+    queryData()
   })
 </script>
 

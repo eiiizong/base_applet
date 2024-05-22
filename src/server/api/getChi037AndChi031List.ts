@@ -3,7 +3,7 @@ import type { GetChi037AndChi031ListApiSuccessResponse } from '@/server/types'
 import request from '@/server/request'
 
 /**
- * 获取政策数据
+ * 获取主管部门及其补贴项目数据
  * @param {boolean} [isShowLoading=true] 是否显示加载中动画 默认值 true
  * @param {boolean} [isShowErrorToast=true] 是否显示错误提示 默认值 true
  */

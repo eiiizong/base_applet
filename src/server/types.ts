@@ -373,7 +373,19 @@ export interface GetChi037AndChi031ListApiSuccessResponse {
  */
 export interface GetDepartPolicyListApiSuccessResponse {
   /**
+   * 当前页
+   */
+  pageNum: number
+  /**
+   * 当前条数
+   */
+  pageSize: number
+  /**
    * 数据列表
    */
-  list: PolicyVo[]
+  rows: PolicyVo[]
+  /**
+   * 总条数
+   */
+  total: number
 }
