@@ -61,7 +61,7 @@
     useStoreOperationTime
   } from '@/stores/modules'
 
-  import { navigateBack, navigateTo, reLaunch, showLoading } from '@/utils/uni'
+  import { navigateBack, navigateTo, reLaunch } from '@/utils/uni'
 
   const storeUserInfo = useStoreUserInfo()
   const storeOperationTime = useStoreOperationTime()
@@ -77,7 +77,6 @@
    * 跳转路由
    */
   const onClickJumpRoute = (pathName: string) => {
-    showLoading()
     if (pathName === 'back') {
       navigateBack()
     } else if (pathName === 'home') {
