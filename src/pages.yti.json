@@ -14,11 +14,8 @@
     "backgroundTextStyle": "light",
     "backgroundColorTop": "#3882ff",
     "backgroundColorBottom": "#f5f5f5",
-    "navigationStyle": "default",
-    "onReachBottomDistance": 0,
-    "h5": {
-      "navigationStyle": "custom"
-    }
+    "navigationStyle": "custom",
+    "onReachBottomDistance": 0
   },
   "easycom": {
     "autoscan": true,
