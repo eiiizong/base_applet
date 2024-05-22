@@ -19,12 +19,19 @@ type Key =
   | 'VITE_OPEN_DATA_ENCRYPTION'
 
 /**
+ * 编译类型 01 微信小程序 02 app 03一体机
+ */
+type VitePlatform = '01' | '02' | '03'
+
+/**
  * 获取当前环境配置的值
  * @param key 键
  * @returns
  */
 const getEnvData = (key: Key) => {
-  return process.env[key]
+  const value = process.env[key] || ''
+  return value
 }
 
 export { getEnvData }
+export type { VitePlatform }

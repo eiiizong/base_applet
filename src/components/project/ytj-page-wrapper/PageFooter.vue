@@ -47,7 +47,7 @@
       </div>
       <div class="cell uno-flex uno-items-center">
         <div class="key">建设单位：</div>
-        <div class="value">中国农业银行股份有限公司西藏自治区分行</div>
+        <div class="value">安多县行政审批和便民服务局</div>
       </div>
     </div>
   </view>

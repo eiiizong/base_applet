@@ -1,25 +1,46 @@
 <script setup lang="ts">
+  import { type VitePlatform, getEnvData } from '@/utils/get'
   import { getSystemInfoSync } from '@/utils/uni'
-  import { getEnvData } from '@/utils/get'
-  import { useCheckLogin } from '@/hooks'
+  import {
+    useCheckLogin,
+    useCloseTimerCurrentDate,
+    useOpenTimerCurrentDate,
+    useCloseTimerOperationTime,
+    useOpenTimerOperationTime
+  } from '@/hooks'
   import { useStoreSystemInfo } from '@/stores/modules'
+
+  const platform = getEnvData('VITE_PLATFORM') as VitePlatform
 
   onLaunch(() => {
     const systemInfo = getSystemInfoSync()
     const storeSystemInfo = useStoreSystemInfo()
-    const platform = getEnvData('VITE_PLATFORM')
 
     storeSystemInfo.updateStoreSystemInfo(systemInfo)
 
-    if (platform === '1' || platform === '2') {
+    // 小程序端和app端检测用户是否登录
+    if (platform === '01' || platform === '02') {
       useCheckLogin()
     }
   })
   onShow(() => {
-    // console.log('App Show')
+    // 一体机端执行
+    if (platform === '03') {
+      useOpenTimerOperationTime()
+      useOpenTimerCurrentDate()
+      // 隐藏手机顶部状态栏
+      plus && plus.navigator.setFullscreen(true)
+      // 隐藏手机底部导航按键
+      plus && plus.navigator.hideSystemNavigation()
+    }
   })
+
   onHide(() => {
-    // console.log('App Hide')
+    // 一体机端执行
+    if (platform === '03') {
+      useCloseTimerOperationTime()
+      useCloseTimerCurrentDate()
+    }
   })
 </script>
 
