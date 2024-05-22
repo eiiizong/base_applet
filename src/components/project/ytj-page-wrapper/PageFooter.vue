@@ -54,24 +54,24 @@
 </template>
 
 <script setup lang="ts">
-  import { useStoreUserInfo, useStoreCurrentRouteInfo, useStoreDeviceInfo } from '@/stores/modules'
+  import {
+    useStoreUserInfo,
+    useStoreCurrentRouteInfo,
+    useStoreDeviceInfo,
+    useStoreOperationTime
+  } from '@/stores/modules'
 
   import { navigateBack, navigateTo, reLaunch, showLoading } from '@/utils/uni'
 
-  const props = defineProps({
-    operationTime: {
-      type: Number,
-      required: true
-    }
-  })
-
   const storeUserInfo = useStoreUserInfo()
+  const storeOperationTime = useStoreOperationTime()
   const storeCurrentRouteInfo = useStoreCurrentRouteInfo()
   const storeDeviceInfo = useStoreDeviceInfo()
 
   const { name, token } = toRefs(storeUserInfo)
   const { name: pathName } = toRefs(storeCurrentRouteInfo)
   const { deviceInfo } = toRefs(storeDeviceInfo)
+  const { operationTime } = toRefs(storeOperationTime)
 
   /**
    * 跳转路由

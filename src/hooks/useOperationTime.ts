@@ -31,7 +31,7 @@ const useOpenTimerOperationTime = () => {
     }
 
     // 剩余操作时间归0 退出登录返回首页
-    if (operationTime.value <= 0) {
+    if (operationTime.value <= 1) {
       useCloseTimerOperationTime()
       storeUserInfo.$reset()
       if (pathName.value !== 'home') {

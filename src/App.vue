@@ -29,9 +29,9 @@
       useOpenTimerOperationTime()
       useOpenTimerCurrentDate()
       // 隐藏手机顶部状态栏
-      plus && plus.navigator.setFullscreen(true)
+      plus.navigator.setFullscreen(true)
       // 隐藏手机底部导航按键
-      plus && plus.navigator.hideSystemNavigation()
+      plus.navigator.hideSystemNavigation()
     }
   })
 

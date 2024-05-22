@@ -4,7 +4,7 @@
     <div class="page-main">
       <slot></slot>
     </div>
-    <PageFooter :operation-time="operationTime" />
+    <PageFooter />
   </view>
 </template>
 
@@ -19,7 +19,6 @@
   const storeOperationTime = useStoreOperationTime()
   const storeCurrentDate = useStoreCurrentDate()
 
-  const { operationTime } = toRefs(storeOperationTime)
   const { currentDate } = toRefs(storeCurrentDate)
 
   /**
