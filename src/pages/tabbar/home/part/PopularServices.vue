@@ -66,7 +66,7 @@
         desc: t('home.popularServices.nav02.desc'),
         name: 'fund',
         packageName: 'packageQuery',
-        isNeedLogin: false,
+        isNeedLogin: true,
         imageSrc: imageNav02,
         imageWidth: 146,
         imageHeight: 162

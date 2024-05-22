@@ -12,7 +12,7 @@ const ValideCode = [1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2]
 /**
  * 检验18位身份证的校验码是否正确。
  * 校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。
- * @param valueArr 身份证号码数组
+ * @param val 身份证号码
  */
 const isTrueValidateIdCard = (valueArr: string[]) => {
   let sum = 0 // 声明加权求和变量
@@ -53,7 +53,7 @@ const checkIDCard = (value: string, errorMsgPrefix = '身份证号码'): IdCardC
   // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X。
   if (!/(^\d{15}$)|(^\d{17}([0-9]|X)$)/.test(value)) {
     checkResult.isOk = false
-    checkResult.errMsg = `${errorMsgPrefix}格式有误请检查！`
+    checkResult.errMsg = `${errorMsgPrefix}格式有误，请检查！`
     return checkResult
   }
 
@@ -78,7 +78,7 @@ const checkIDCard = (value: string, errorMsgPrefix = '身份证号码'): IdCardC
 
       if (!isCorrect) {
         checkResult.isOk = false
-        checkResult.errMsg = `${errorMsgPrefix}出生日期有误请检查！`
+        checkResult.errMsg = `${errorMsgPrefix}出生日期有误，请检查！`
         return checkResult
       } else {
         // 将15位身份证转成18位
@@ -90,7 +90,7 @@ const checkIDCard = (value: string, errorMsgPrefix = '身份证号码'): IdCardC
 
         if (!res) {
           checkResult.isOk = false
-          checkResult.errMsg = `${errorMsgPrefix}格式有误请检查！`
+          checkResult.errMsg = `${errorMsgPrefix}格式有误，请检查！`
         } else {
           checkResult.isOk = true
           checkResult.errMsg = ''
@@ -99,7 +99,7 @@ const checkIDCard = (value: string, errorMsgPrefix = '身份证号码'): IdCardC
       }
     } else {
       checkResult.isOk = false
-      checkResult.errMsg = `${errorMsgPrefix}格式出现未知错误请检查！`
+      checkResult.errMsg = `${errorMsgPrefix}格式出现未知错误，请检查！`
       return checkResult
     }
   }
@@ -123,7 +123,7 @@ const checkIDCard = (value: string, errorMsgPrefix = '身份证号码'): IdCardC
 
       if (!isCorrect) {
         checkResult.isOk = false
-        checkResult.errMsg = `${errorMsgPrefix}出生日期有误请检查！`
+        checkResult.errMsg = `${errorMsgPrefix}出生日期有误，请检查！`
         return checkResult
       } else {
         // 检验18位身份证的校验码是否正确。
@@ -131,7 +131,7 @@ const checkIDCard = (value: string, errorMsgPrefix = '身份证号码'): IdCardC
         const res = isTrueValidateIdCard(value.split(''))
         if (!res) {
           checkResult.isOk = false
-          checkResult.errMsg = `${errorMsgPrefix}格式有误请检查！`
+          checkResult.errMsg = `${errorMsgPrefix}格式有误，请检查！`
         } else {
           checkResult.isOk = true
           checkResult.errMsg = ''

@@ -73,10 +73,6 @@
    * 查询数据
    */
   const queryData = () => {
-    queryResultData.isRequestOver = false
-    queryResultData.list = []
-    queryResultData.isLoaded = false
-
     const { policyName, chi031, chi037, pageNum, pageSize } = queryInfo
     requestAppletGetDepartPolicyList(policyName, chi037, chi031, pageNum, pageSize)
       .then((res) => {

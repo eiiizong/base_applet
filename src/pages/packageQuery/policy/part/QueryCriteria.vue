@@ -17,8 +17,14 @@
         <label class="form-item" for="chi037">
           <div class="form-item-label">{{ $t('policy.query.department') }}</div>
           <div class="form-item-input-wrapper">
-            <picker id="chi037" class="picker form-item-picker">
-              <div class="form-item-picker-value" v-if="form.chi037"></div>
+            <picker
+              id="chi037"
+              class="picker form-item-picker"
+              :range="chi037Options"
+              range-key="chi037"
+              @change="onChangeChi037"
+            >
+              <div class="form-item-picker-value" v-if="form.chi037">{{ form.chi037 }}</div>
               <div class="form-item-picker-placeholder" v-else>{{ $t('policy.query.departmentPlaceholder') }}</div>
               <div class="form-item-picker-icon">
                 <ta-icon name="arrow" size="30rpx" />
@@ -29,8 +35,14 @@
         <label class="form-item" for="chi031">
           <div class="form-item-label">{{ $t('policy.query.project') }}</div>
           <div class="form-item-input-wrapper">
-            <picker id="chi031" class="picker form-item-picker">
-              <div class="form-item-picker-value" v-if="form.chi031"></div>
+            <picker
+              id="chi031"
+              class="picker form-item-picker"
+              :disabled="!form.chi037"
+              :range="chi031List"
+              @change="onChangeChi031"
+            >
+              <div class="form-item-picker-value" v-if="form.chi031">{{ form.chi031 }}</div>
               <div class="form-item-picker-placeholder" v-else>{{ $t('policy.query.projectPlaceholder') }}</div>
               <div class="form-item-picker-icon">
                 <ta-icon name="arrow" size="30rpx" />
@@ -38,9 +50,9 @@
             </picker>
           </div>
         </label>
-        <div class="button-wrapper">
-          <button class="button button-query" @click="emit('query', form)">{{ $t('policy.query.button') }}</button>
-          <button class="button button-query" @click="emit('query', form)">重置</button>
+        <div class="button-wrapper uno-flex uno-justify-center">
+          <button class="button button-query" @click="onClickQuery">{{ $t('policy.query.button') }}</button>
+          <button class="button button-query" @click="onClickReset">重置</button>
         </div>
       </div>
     </ComponentProjectPanel>
@@ -69,6 +81,19 @@
     }[]
   >([])
 
+  const chi031List = computed(() => {
+    let arr: string[] = []
+    const { chi037 } = form.value
+    const data = chi037Options.value
+    for (let i = 0; i < data.length; i++) {
+      const item = data[i]
+      if (chi037 === item.chi037) {
+        arr = [...item.list]
+      }
+    }
+    return arr
+  })
+
   /**
    * 获取筛选条件渲染数据
    */
@@ -86,6 +111,39 @@
     })
   }
 
+  const onChangeChi037 = (event: WechatMiniprogram.PickerChange) => {
+    const { value } = event.detail
+
+    if (typeof value === 'string') {
+      const val = chi037Options.value[Number(value)].chi037
+      if (val !== form.value.chi037) {
+        form.value.chi037 = val
+        form.value.chi031 = ''
+      }
+    }
+  }
+
+  const onChangeChi031 = (event: WechatMiniprogram.PickerChange) => {
+    const { value } = event.detail
+
+    if (typeof value === 'string') {
+      const val = chi031List.value[Number(value)]
+      if (val !== form.value.chi037) {
+        form.value.chi031 = val
+      }
+    }
+  }
+
+  const onClickQuery = () => {
+    emit('query', form.value)
+  }
+
+  const onClickReset = () => {
+    form.value.policyName = ''
+    form.value.chi031 = ''
+    form.value.chi037 = ''
+    emit('query', form.value)
+  }
   onMounted(() => {
     getData()
   })
@@ -102,11 +160,11 @@
     .item {
       margin-bottom: $spacing;
     }
-    .buttons-wrapper {
+    .button-wrapper {
       width: 100%;
 
       .button {
-        width: 100%;
+        width: 40%;
         height: 64rpx;
         line-height: 64rpx;
         font-size: 24rpx;
@@ -114,6 +172,15 @@
         text-align: center;
         background-color: $color-primary;
         border-radius: 8rpx;
+        margin-right: $spacing;
+        box-sizing: border-box;
+        font-weight: 500;
+        &:last-child {
+          margin-right: 0;
+          background-color: #fff;
+          color: $color-text;
+          border: 1px solid rgba($color-text, 0.4);
+        }
       }
     }
   }

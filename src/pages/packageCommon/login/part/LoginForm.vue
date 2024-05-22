@@ -18,10 +18,12 @@
         <div class="input-wrapper">
           <input
             class="input"
+            maxlength="18"
             v-model="form.idcard"
             id="idcard"
             type="idcard"
             :placeholder="$t('login.form.idcard.placeholder')"
+            @blur="onBlurCheckIdCard"
           />
         </div>
       </div>
@@ -72,7 +74,8 @@
 
 <script setup lang="ts">
   import type { LoginPageForm } from '@/types'
-  import { navigateTo } from '@/utils/uni'
+  import { navigateTo, showModal } from '@/utils/uni'
+  import { checkIDCard } from '@/utils/check'
 
   const emit = defineEmits(['click'])
 
@@ -80,8 +83,8 @@
    * 登录信息表单
    */
   const form = ref<LoginPageForm>({
-    name: '曾小明',
-    idcard: '510902199507236534',
+    name: '',
+    idcard: '',
     tel: '',
     avatar: '',
     agree: true
@@ -96,15 +99,15 @@
     if (!name || !idcard || !agree) {
       res = false
     }
+
+    // if (idcard) {
+    //   const result = checkIDCard(idcard)
+    //   if (!result.isOk) {
+    //     res = false
+    //   }
+    // }
     return res
   })
-
-  /**
-   * 获取手机号回调
-   */
-  // const getPhoneNumber = (event: WechatMiniprogram.ButtonGetPhoneNumber) => {
-  //   console.log(event, 99)
-  // }
 
   /**
    * 用户同意/不同意协议触发的事件
@@ -141,6 +144,7 @@
       }
     })
   }
+
   /**
    * 获取头像
    */
@@ -156,6 +160,22 @@
       form.value.avatar = imgBase64
     }
     emit('click', form.value)
+  }
+
+  /**
+   * 失去焦点校验身份证号
+   */
+  const onBlurCheckIdCard = (event: any) => {
+    const { value } = event.detail
+
+    if (value) {
+      console.log(value)
+
+      const res = checkIDCard(value)
+      if (!res.isOk) {
+        showModal(res.errMsg)
+      }
+    }
   }
 </script>
 
