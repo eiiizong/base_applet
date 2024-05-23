@@ -1,15 +1,20 @@
 <template>
   <div class="page-scroll fund">
-    <ComponentProjectCardInfo
-      main-text="张三* 510902********6534"
-      footer-text="个人补贴详情"
-    ></ComponentProjectCardInfo>
+    <ComponentProjectCardInfo :main-text="name + '' + idCard" footer-text="个人补贴详情"></ComponentProjectCardInfo>
 
     <div class="toolbar uno-flex uno-justify-between">
       <div class="title">查询结果</div>
-      <picker class="picker" fields="year" mode="date" start="2000" :end="moment().format('YYYY')">
+      <picker
+        class="picker"
+        fields="year"
+        mode="date"
+        start="2000"
+        :end="moment().format('YYYY')"
+        @change="onChangeYear"
+      >
         <div class="picker-value" v-if="queryInfo.year">{{ queryInfo.year + '年' }}</div>
         <div class="picker-placeholder" v-else>请选择年份</div>
+        <div class="picker-icon iconimg iconimg-arrow-down"></div>
       </picker>
     </div>
 
@@ -40,7 +45,10 @@
 
   import moment from 'moment'
   import { requestAppletGetSelfFundCollectData, requestAppletGetSubsidyDetailPageList } from '@/server/api'
+  import { useStoreUserInfo } from '@/stores/modules'
 
+  const storeUserInfo = useStoreUserInfo()
+  const { name, idCard } = toRefs(storeUserInfo)
   /**
    * 查询条件
    */
@@ -76,95 +84,7 @@
      */
     isLoaded: boolean
   }>({
-    list: [
-      {
-        aac002: 'string',
-        aac003: 'string',
-        aae010: 'string',
-        aae017: 'string',
-        aae019: 1,
-        aae036: 'string',
-        aae100: 'string',
-        aae209: 'string',
-        chb015: 'string',
-        chb017: 'string',
-        chb018: 'string',
-        chb204: 'string',
-        chi031: 'string',
-        chm010: 'string',
-        chm012: 'string',
-        chm020: 2,
-        /**
-         * 业务状态(0-发放中，1-已发放)
-         */
-        crb00k: '0',
-        createBy: 'unknown',
-        createTime: 'unknown',
-        deptId: 'unknown',
-        remark: 'unknown',
-        updateBy: 'unknown',
-        updateTime: 'unknown',
-        userId: 'unknown'
-      },
-      {
-        aac002: 'string',
-        aac003: 'string',
-        aae010: 'string',
-        aae017: 'string',
-        aae019: 1,
-        aae036: 'string',
-        aae100: 'string',
-        aae209: 'string',
-        chb015: 'string',
-        chb017: 'string',
-        chb018: 'string',
-        chb204: 'string',
-        chi031: 'string',
-        chm010: 'string',
-        chm012: 'string',
-        chm020: 2,
-        /**
-         * 业务状态(0-发放中，1-已发放)
-         */
-        crb00k: '0',
-        createBy: 'unknown',
-        createTime: 'unknown',
-        deptId: 'unknown',
-        remark: 'unknown',
-        updateBy: 'unknown',
-        updateTime: 'unknown',
-        userId: 'unknown'
-      },
-      {
-        aac002: 'string',
-        aac003: 'string',
-        aae010: 'string',
-        aae017: 'string',
-        aae019: 1,
-        aae036: 'string',
-        aae100: 'string',
-        aae209: 'string',
-        chb015: 'string',
-        chb017: 'string',
-        chb018: 'string',
-        chb204: 'string',
-        chi031: 'string',
-        chm010: 'string',
-        chm012: 'string',
-        chm020: 2,
-        /**
-         * 业务状态(0-发放中，1-已发放)
-         */
-        crb00k: '0',
-        createBy: 'unknown',
-        createTime: 'unknown',
-        deptId: 'unknown',
-        remark: 'unknown',
-        updateBy: 'unknown',
-        updateTime: 'unknown',
-        userId: 'unknown'
-      }
-    ],
+    list: [],
     isRequestOver: false,
     isLoaded: true
   })
@@ -224,10 +144,23 @@
     queryInfo.pageSize = 10
     queryResultData.isLoaded = false
     queryResultData.isRequestOver = false
-    // queryResultData.list = []
+    queryResultData.list = []
     queryTotalInfo()
-    // queryData()
+    queryData()
   }
+
+  /**
+   * 改变年份查询数据
+   */
+  const onChangeYear = (event: WechatMiniprogram.PickerChange) => {
+    const { value } = event.detail
+    if (typeof value === 'string') {
+      const val = moment(value).format('YYYY')
+      queryInfo.year = val
+      queryAllDataByYear()
+    }
+  }
+
   /**
    * 页面上拉触底事件的处理函数 上拉加载更多
    */
@@ -248,6 +181,7 @@
     width: 100%;
     .toolbar {
       padding: $spacing;
+      padding-top: $spacing - 14rpx;
       .title {
         line-height: 1;
         font-weight: 700;
@@ -271,10 +205,24 @@
       }
       .picker {
         box-sizing: border-box;
+        position: relative;
+        height: 40rpx;
         &-value,
         &-placeholder {
           font-size: 28rpx;
-          line-height: 32rpx;
+          line-height: 40rpx;
+          padding-right: 30rpx;
+        }
+        &-value {
+          color: $color-text;
+          font-weight: 700;
+          font-size: 32rpx;
+        }
+        &-icon {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
         }
       }
     }

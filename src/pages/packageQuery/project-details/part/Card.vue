@@ -104,7 +104,7 @@
   const isShow = computed(() => {
     let res = false
     const { chm031, chm032, chm036, chm037, policys } = props
-    if (chm031 || chm032 || chm036?.length || chm037?.length || policys?.length) {
+    if (chm031?.length || chm032?.length || chm036?.length || chm037?.length || policys?.length) {
       res = true
     }
 

@@ -1,6 +1,9 @@
 <template>
   <div class="page-scroll publicity-details">
-    <PublicityDetailsHeader :chi031="queryInfo.chi031" :chb017="queryInfo.chb017"></PublicityDetailsHeader>
+    <ComponentProjectCardInfo
+      :main-text="queryInfo.chi031"
+      :footer-text="queryInfo.chb017 ? '西藏自治区-那曲市-安多县-' + queryInfo.chb017 : '西藏自治区-那曲市-安多县'"
+    ></ComponentProjectCardInfo>
     <template v-if="queryResultData.list.length">
       <QueryResults :render-list="queryResultData.list"></QueryResults>
     </template>
@@ -13,10 +16,10 @@
   </div>
 </template>
 <script setup lang="ts">
+  import ComponentProjectCardInfo from '@/components/project/card-info/card-info.vue'
   import ComponentProjectEmpty from '@/components/project/empty/empty.vue'
   import ComponentProjectDividerLoad from '@/components/project/divider-load/divider-load.vue'
 
-  import PublicityDetailsHeader from './part/PublicityDetailsHeader.vue'
   import QueryResults from './part/QueryResults.vue'
 
   import type { GetAllQueryDetailRow } from '@/server/types'
