@@ -15,7 +15,8 @@ class MPAnimation {
   currentStepAnimates: any
   next: any
   $: any
-  isEnd: any
+  isEnd: any;
+  [key: string]: any
 
   constructor(options: any, _this: any) {
     this.options = options
