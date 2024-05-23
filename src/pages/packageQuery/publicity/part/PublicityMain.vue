@@ -5,16 +5,12 @@
       <picker class="picker" @change="onChangeChb015" :range="addressData" range-key="chb015" mode="selector">
         <div class="picker-value" v-if="form.chb015">{{ form.chb015 }}</div>
         <div class="picker-placeholder" v-else>{{ $t('app.form.chb015-placeholder') }}</div>
-        <div class="picker-icon">
-          <ta-icon name="arrow-down" size="26rpx"></ta-icon>
-        </div>
+        <div class="picker-icon iconimg iconimg-arrow-down"></div>
       </picker>
       <picker class="picker" :disabled="!form.chb015" :range="chb017List" @change="onChangeChb017">
         <div class="picker-value" v-if="form.chb017">{{ form.chb017 }}</div>
         <div class="picker-placeholder" v-else>{{ $t('app.form.chb017-placeholder') }}</div>
-        <div class="picker-icon">
-          <ta-icon name="arrow-down" size="26rpx"></ta-icon>
-        </div>
+        <div class="picker-icon iconimg iconimg-arrow-down"></div>
       </picker>
       <picker
         class="picker"
@@ -26,9 +22,7 @@
       >
         <div class="picker-value" v-if="form.aae209">{{ form.aae209 }}</div>
         <div class="picker-placeholder" v-else>{{ $t('app.form.aae209-placeholder') }}</div>
-        <div class="picker-icon">
-          <ta-icon name="arrow-down" size="26rpx"></ta-icon>
-        </div>
+        <div class="picker-icon iconimg iconimg-arrow-down"></div>
       </picker>
     </div>
     <div class="main" v-if="renderList.length">
@@ -290,7 +284,7 @@
         &-icon {
           position: absolute;
           top: 50%;
-          right: 12rpx;
+          right: 4rpx;
           transform: translateY(-50%);
         }
       }
