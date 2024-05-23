@@ -11,6 +11,7 @@
   },
   // 把prettier设置为vscode默认的代码格式化工具
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.foldingStrategy": "indentation",
   // vue文件的默认格式化工具选择prettier
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

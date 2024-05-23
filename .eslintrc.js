@@ -169,13 +169,10 @@ module.exports = {
     // switch 语句中需要 default
     'default-case': 'error',
     // 强制数组方法的回调函数中有 return 语句
-    'array-callback-return': 'error'
-    // '@unocss/<rule-name>': 'error', // or "error",
-    // '@unocss/<another-rule-name>': [
-    //   'error' /* or "error" */,
-    //   {
-    //     /* options */
-    //   }
-    // ]
+    'array-callback-return': 'error',
+    // uno 对类选择器强制执行特定的顺序。
+    '@unocss/order': 1,
+    // uno 对属性选择器强制执行特定顺序
+    '@unocss/order-attributify': 1
   }
 }
