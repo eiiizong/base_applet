@@ -5,10 +5,10 @@ const fileSystemManager = getFileSystemManager()
 
 /**
  * 创建并打开文件
- * @param filePath 创建并打开文件
- * @param fileName
- * @param arrayBuffer
- * @param fileType
+ * @param {string} filePath 文件将要保存的路径
+ * @param {string} fileName 文件名称，已添加后缀的。例如file.pdf
+ * @param {ArrayBuffer} arrayBuffer 文件数据
+ * @param {FileType} fileType 文件类型
  */
 const createAndOpenFile = (filePath: string, fileName: string, arrayBuffer: ArrayBuffer, fileType: FileType) => {
   // 获取历史文件列表
@@ -49,6 +49,13 @@ const createAndOpenFile = (filePath: string, fileName: string, arrayBuffer: Arra
 
 /**
  * 创建文件目录
+ */
+
+/**
+ * 创建文件目录
+ * @param {string} base64Str base64 文件数据
+ * @param {string} fileName 文件名称，已添加后缀的。例如file.pdf
+ * @param {FileType} fileType 文件类型
  */
 const createFileDir = (base64Str: string, fileName: string, fileType: FileType) => {
   const arrayBuffer = base64ToArrayBuffer(base64Str)
