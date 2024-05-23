@@ -18,10 +18,10 @@
 </template>
 
 <script setup lang="ts">
-  import type { PropType } from 'vue'
   import imageIcon01 from '../images/icon-01.png'
   import imageIcon02 from '../images/icon-02.png'
 
+  import type { PropType } from 'vue'
   import type { GetSelfFundCollectDataApiSuccessResponse } from '@/server/types'
 
   const props = defineProps({

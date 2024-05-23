@@ -1,12 +1,24 @@
 /**
- * 登录类型
- * 01 微信
- * 02 一体机
- * 03 安卓
- * 04 ios
- * 05 鸿蒙
+ * 分页查询基础数据格式
  */
-export type LoginType = '01' | '02' | '03' | '04' | '05'
+interface PaginationQueryBaseVo<T> {
+  /**
+   * 当前页
+   */
+  pageNum: number
+  /**
+   * 当前条数
+   */
+  pageSize: number
+  /**
+   * 数据列表
+   */
+  rows: T[]
+  /**
+   * 总条数
+   */
+  total: number
+}
 
 /**
  * 登录接口成功响应返回的数据格式
@@ -101,24 +113,8 @@ export interface GetSubsidyDetailPageListRow {
 /**
  * 查询个人民生资金发放详情信息信息接口成功响应返回的数据格式
  */
-export interface GetSubsidyDetailPageListApiSuccessResponse {
-  /**
-   * 当前页
-   */
-  pageNum: number
-  /**
-   * 当前条数
-   */
-  pageSize: number
-  /**
-   * 数据列表
-   */
-  rows: GetSubsidyDetailPageListRow[]
-  /**
-   * 总条数
-   */
-  total: number
-}
+export interface GetSubsidyDetailPageListApiSuccessResponse
+  extends PaginationQueryBaseVo<GetSubsidyDetailPageListRow> {}
 
 /**
  * 查询补贴项目列表行数据返回的数据格式
@@ -303,24 +299,7 @@ export interface GetAllQueryDetailRow {
 /**
  * 综合查询详情接口成功响应返回的数据格式
  */
-export interface GetAllQueryDetailApiSuccessResponse {
-  /**
-   * 当前页
-   */
-  pageNum: number
-  /**
-   * 当前条数
-   */
-  pageSize: number
-  /**
-   * 数据列表
-   */
-  rows: GetAllQueryDetailRow[]
-  /**
-   * 总条数
-   */
-  total: number
-}
+export interface GetAllQueryDetailApiSuccessResponse extends PaginationQueryBaseVo<GetAllQueryDetailRow> {}
 
 /**
  * 政策数据格式
@@ -378,21 +357,4 @@ export interface GetChi037AndChi031ListApiSuccessResponse {
 /**
  * 获取政策数据接口成功响应返回的数据格式
  */
-export interface GetDepartPolicyListApiSuccessResponse {
-  /**
-   * 当前页
-   */
-  pageNum: number
-  /**
-   * 当前条数
-   */
-  pageSize: number
-  /**
-   * 数据列表
-   */
-  rows: PolicyVo[]
-  /**
-   * 总条数
-   */
-  total: number
-}
+export interface GetDepartPolicyListApiSuccessResponse extends PaginationQueryBaseVo<PolicyVo> {}

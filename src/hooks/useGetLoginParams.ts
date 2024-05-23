@@ -1,16 +1,32 @@
-import type { LoginType } from '@/server/types'
-
 import { getEnvData } from '@/utils/get'
 import { getSystemInfoSync, login } from '@/utils/uni'
 
+/**
+ * 登录类型
+ * 01 微信
+ * 02 一体机
+ * 03 安卓
+ * 04 ios
+ * 05 鸿蒙
+ */
+type LoginType = '01' | '02' | '03' | '04' | '05'
+
 interface Param {
-  // 小程序用户临时登录凭证 code
+  /**
+   * 小程序用户临时登录凭证 code
+   */
   code: string
-  // 移动端设备id
+  /**
+   * 移动端设备id
+   */
   appId: string
-  // 一体机设备id
+  /**
+   * 一体机设备id
+   */
   deviceId: string
-  // 登录类型
+  /**
+   * 登录类型 01 微信 02 一体机 03 安卓 04 ios 05 鸿蒙
+   */
   loginType?: LoginType
 }
 /**
