@@ -6,4 +6,4 @@ const getStyleBackgroundImage = (value: string): string => {
   return `background-image: url(${value}); `
 }
 
-export { getStyleBackgroundImage }
+export default getStyleBackgroundImage

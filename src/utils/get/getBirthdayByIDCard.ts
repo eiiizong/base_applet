@@ -26,4 +26,4 @@ const getBirthdayByIDCard = (value: string): string => {
   return birthday
 }
 
-export { getBirthdayByIDCard }
+export default getBirthdayByIDCard

@@ -7,4 +7,4 @@ const hideLoading = () => {
   uni.hideLoading()
 }
 
-export { hideLoading }
+export default hideLoading

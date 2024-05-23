@@ -5,20 +5,20 @@ export { base64ToArrayBuffer } from './base64ToArrayBuffer'
 export { arrayBufferToBase64 } from './arrayBufferToBase64'
 
 // 基础-系统
-export { getSystemInfo } from './getSystemInfo'
-export { getSystemInfoAsync } from './getSystemInfoAsync'
-export { getSystemInfoSync } from './getSystemInfoSync'
+export { default as getSystemInfo } from './getSystemInfo'
+export { default as getSystemInfoAsync } from './getSystemInfoAsync'
+export { default as getSystemInfoSync } from './getSystemInfoSync'
 
 // 基础-更新
-export { updateWeChatApp } from './updateWeChatApp'
-export { getUpdateManager } from './getUpdateManager'
+export { default as updateWeChatApp } from './updateWeChatApp'
+export { default as getUpdateManager } from './getUpdateManager'
 
 // 路由
-export { switchTab } from './switchTab'
-export { reLaunch } from './reLaunch'
-export { redirectTo } from './redirectTo'
-export { navigateTo } from './navigateTo'
-export { navigateBack } from './navigateBack'
+export { default as switchTab } from './switchTab'
+export { default as reLaunch } from './reLaunch'
+export { default as redirectTo } from './redirectTo'
+export { default as navigateTo } from './navigateTo'
+export { default as navigateBack } from './navigateBack'
 
 // 跳转
 export { navigateToMiniProgram } from './navigateToMiniProgram'
@@ -30,18 +30,18 @@ export { showShareMenu } from './showShareMenu'
 export { hideShareMenu } from './hideShareMenu'
 
 // 界面-交互
-export { showToast } from './showToast'
-export { showModal } from './showModal'
-export { showLoading } from './showLoading'
+export { default as showToast } from './showToast'
+export { default as showModal } from './showModal'
+export { default as showLoading } from './showLoading'
 export { showActionSheet } from './showActionSheet'
-export { hideToast } from './hideToast'
-export { hideLoading } from './hideLoading'
+export { default as hideToast } from './hideToast'
+export { default as hideLoading } from './hideLoading'
 export { enableAlertBeforeUnload } from './enableAlertBeforeUnload'
 export { disableAlertBeforeUnload } from './disableAlertBeforeUnload'
 
 // 界面-导航栏
 export { showNavigationBarLoading } from './showNavigationBarLoading'
-export { setNavigationBarTitle } from './setNavigationBarTitle'
+export { default as setNavigationBarTitle } from './setNavigationBarTitle'
 export { setNavigationBarColor } from './setNavigationBarColor'
 export { hideNavigationBarLoading } from './hideNavigationBarLoading'
 export { hideHomeButton } from './hideHomeButton'
@@ -54,7 +54,7 @@ export { setBackgroundColor } from './setBackgroundColor'
 export { showTabBarRedDot } from './showTabBarRedDot'
 export { showTabBar } from './showTabBar'
 export { setTabBarStyle } from './setTabBarStyle'
-export { setTabBarItem } from './setTabBarItem'
+export { default as setTabBarItem } from './setTabBarItem'
 export { setTabBarBadge } from './setTabBarBadge'
 export { removeTabBarBadge } from './removeTabBarBadge'
 export { hideTabBarRedDot } from './hideTabBarRedDot'
@@ -65,7 +65,7 @@ export { stopPullDownRefresh } from './stopPullDownRefresh'
 export { startPullDownRefresh } from './startPullDownRefresh'
 
 // 网络-发起请求
-export { request } from './request'
+export { default as request } from './request'
 
 // 网络-下载
 export { downloadFile } from './downloadFile'

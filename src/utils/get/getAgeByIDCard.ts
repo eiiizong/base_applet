@@ -1,4 +1,4 @@
-import { getIsDev } from './getIsDev'
+import getIsDev from './getIsDev'
 
 const isDev = getIsDev()
 
@@ -56,4 +56,4 @@ const getAgeByIDCard = (value: string): string => {
   return age
 }
 
-export { getAgeByIDCard }
+export default getAgeByIDCard

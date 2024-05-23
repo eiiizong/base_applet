@@ -20,4 +20,4 @@
 const getSystemInfoSync = (): UniApp.GetSystemInfoResult => {
   return uni.getSystemInfoSync()
 }
-export { getSystemInfoSync }
+export default getSystemInfoSync

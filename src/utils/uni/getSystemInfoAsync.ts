@@ -25,4 +25,4 @@ const getSystemInfoAsync = (): Promise<UniApp.SystemInfo> => {
     })
   })
 }
-export { getSystemInfoAsync }
+export default getSystemInfoAsync

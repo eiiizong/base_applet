@@ -58,4 +58,4 @@ const showModal = (
   })
 }
 
-export { showModal }
+export default showModal

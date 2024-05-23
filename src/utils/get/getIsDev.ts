@@ -5,4 +5,4 @@ const getIsDev = () => {
   return process.env.VITE_NODE_ENV === 'development'
 }
 
-export { getIsDev }
+export default getIsDev

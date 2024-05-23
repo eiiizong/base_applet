@@ -5,4 +5,4 @@
  */
 const getUpdateManager = (): UniApp.UpdateManager => uni.getUpdateManager()
 
-export { getUpdateManager }
+export default getUpdateManager

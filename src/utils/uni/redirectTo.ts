@@ -31,8 +31,6 @@ const redirectTo = (
           resolve(res)
         },
         fail(err) {
-          // eslint-disable-next-line no-console
-          console.error(`uni.redirectTo 接口调用失败！跳转路径：${url}`, err)
           reject(err)
         }
       })
@@ -45,4 +43,4 @@ const redirectTo = (
   })
 }
 
-export { redirectTo }
+export default redirectTo

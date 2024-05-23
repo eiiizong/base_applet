@@ -33,5 +33,5 @@ const getEnvData = (key: Key) => {
   return value
 }
 
-export { getEnvData }
+export default getEnvData
 export type { VitePlatform }

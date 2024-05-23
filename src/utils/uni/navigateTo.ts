@@ -63,4 +63,4 @@ const navigateTo = (
   })
 }
 
-export { navigateTo }
+export default navigateTo

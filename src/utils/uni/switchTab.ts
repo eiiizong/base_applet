@@ -27,8 +27,6 @@ const switchTab = (name: string): Promise<any> => {
           resolve(res)
         },
         fail(err) {
-          // eslint-disable-next-line no-console
-          console.error('uni.switchTab 接口调用失败。跳转路径：${url}`=> ', err)
           reject(err)
         }
       })
@@ -36,4 +34,4 @@ const switchTab = (name: string): Promise<any> => {
   })
 }
 
-export { switchTab }
+export default switchTab

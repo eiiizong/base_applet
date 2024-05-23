@@ -24,4 +24,4 @@ const setNavigationBarTitle = (title: string): Promise<any> => {
     })
   })
 }
-export { setNavigationBarTitle }
+export default setNavigationBarTitle

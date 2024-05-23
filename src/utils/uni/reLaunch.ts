@@ -31,8 +31,6 @@ const reLaunch = (
           resolve(res)
         },
         fail(err) {
-          // eslint-disable-next-line no-console
-          console.error(`uni.reLaunch 接口调用失败！跳转路径：${url}`, err)
           reject(err)
         }
       })
@@ -45,4 +43,4 @@ const reLaunch = (
   })
 }
 
-export { reLaunch }
+export default reLaunch

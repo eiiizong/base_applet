@@ -55,4 +55,4 @@ const request = (
       }
     })
   )
-export { request }
+export default request

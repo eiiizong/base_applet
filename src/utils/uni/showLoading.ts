@@ -14,10 +14,8 @@ const showLoading = (title = '加载中', mask = true): Promise<any> =>
         resolve(res)
       },
       fail(err) {
-        // eslint-disable-next-line no-console
-        console.error('showLoading 接口调用失败 => ', err)
         reject(err)
       }
     })
   })
-export { showLoading }
+export default showLoading

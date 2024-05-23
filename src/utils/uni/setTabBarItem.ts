@@ -39,11 +39,9 @@ const setTabBarItem = (
         resolve(res)
       },
       fail(err) {
-        // eslint-disable-next-line no-console
-        console.error('setTabBarItem 接口调用失败 => ', err)
         reject(err)
       }
     })
   })
 }
-export { setTabBarItem }
+export default setTabBarItem

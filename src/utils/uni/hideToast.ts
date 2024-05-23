@@ -6,4 +6,4 @@
 const hideToast = (): void => {
   uni.hideToast()
 }
-export { hideToast }
+export default hideToast

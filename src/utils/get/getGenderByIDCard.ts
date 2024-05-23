@@ -28,4 +28,4 @@ const getGenderByIDCard = (value: string): string => {
   return result
 }
 
-export { getGenderByIDCard }
+export default getGenderByIDCard

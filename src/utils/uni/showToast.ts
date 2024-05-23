@@ -43,4 +43,4 @@ const showToast = (
     })
   })
 
-export { showToast }
+export default showToast

@@ -17,11 +17,9 @@ const updateWeChatApp = (): Promise<any> => {
         resolve(res)
       },
       fail(err) {
-        // eslint-disable-next-line no-console
-        console.error('uni.updateWeChatApp 接口调用失败 => ', err)
         reject(err)
       }
     })
   })
 }
-export { updateWeChatApp }
+export default updateWeChatApp

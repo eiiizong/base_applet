@@ -31,12 +31,10 @@ const navigateBack = (
         resolve(res)
       },
       fail(err) {
-        // eslint-disable-next-line no-console
-        console.error('navigateBack 接口调用失败 => ', err)
         reject(err)
       }
     })
   })
 }
 
-export { navigateBack }
+export default navigateBack
