@@ -1,9 +1,10 @@
 <template>
-  <view class="page-header" :style="{ backgroundImage: 'url(' + imageBgHeader + ')' }">
-    <div v-if="deviceInfo && deviceInfo.aab300Desc" class="left address uno-flex uno-items-center">
-      <div class="icon" :style="{ backgroundImage: 'url(' + imageIconAddress + ')' }"></div>
-      <div class="text">
-        <div class="zh-cn">{{ deviceInfo.aab300Desc || '' }}</div>
+  <view class="page-header" :style="getStyleBackgroundImage(imageBgHeader)">
+    <div class="language uno-flex uno-items-center" @click="onClickSetLanguage">
+      <image class="image" :src="locale === 'zh-Hans' ? imageLang01 : imageLang02"></image>
+      <div class="info">
+        <div class="cell">语言切换</div>
+        <div class="cell">སྐད་བརྡ་བརྗེ་བ།</div>
       </div>
     </div>
 
@@ -23,17 +24,19 @@
 
 <script setup lang="ts">
   import imageBgHeader from './images/bg-header.png'
-  import imageIconAddress from './images/icon-address.png'
+  import imageLang01 from './images/lang01.png'
+  import imageLang02 from './images/lang02.png'
 
   import type { PropType } from 'vue'
+  import type { Store } from '@/stores/types'
 
   import { useI18n } from 'vue-i18n'
-  import { useStoreDeviceInfo } from '@/stores/modules'
 
-  const storeDeviceInfo = useStoreDeviceInfo()
-  const { deviceInfo } = storeDeviceInfo
-  const { t } = useI18n()
+  import { getStyleBackgroundImage } from '@/utils/get'
+  import { useStoreUserSettings } from '@/stores/modules'
 
+  const { t, locale } = useI18n()
+  const storeUserSettings = useStoreUserSettings()
   const websiteTitle = computed(() => t('app.name'))
 
   const props = defineProps({
@@ -49,6 +52,14 @@
       required: true
     }
   })
+
+  /**
+   * 切换语言
+   */
+  const onClickSetLanguage = () => {
+    locale.value = locale.value === 'ja' ? 'zh-Hans' : 'ja'
+    storeUserSettings.updateStoreUserSettingsLanguage(locale.value as Store.UserSettings['language'])
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -61,7 +72,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    .address {
+    .language {
       position: absolute;
       top: 1.375rem;
       left: 2rem;
@@ -70,38 +81,20 @@
       border-radius: 20rem;
       border: 0.0625rem solid rgba(255, 255, 255, 0.24);
       padding: 0 1.5rem;
-      .icon {
-        width: 1.25rem;
-        height: 1.75rem;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        margin-right: 0.5rem;
+      .image {
+        width: 88rpx;
+        height: 88rpx;
       }
-      .text {
-        font-size: 1.375rem;
-        line-height: 1.5rem;
-        font-weight: 500;
-        text-align: center;
-      }
-      .tibetan {
-        line-height: 1.5rem;
-        font-size: 1.125rem;
+      .info {
+        margin-left: 8rpx;
       }
     }
     .center {
       width: 100%;
       padding-top: 2rem;
-      .zh-cn {
-        font-size: 2rem;
-        font-weight: 700;
-        line-height: 2.25rem;
-      }
-      .tibetan {
-        font-size: 1.5rem;
-        line-height: 2rem;
-        padding-top: 0.5rem;
-      }
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 2.25rem;
     }
     .right {
       position: absolute;
@@ -116,7 +109,7 @@
         }
         .week {
           font-weight: 500;
-          padding-left: 1rem;
+          padding-left: 0.5rem;
         }
       }
       .time {

@@ -1,7 +1,11 @@
 <template>
-  <view class="page-full-screen" :style="{ backgroundImage: 'url(' + imageBg + ')' }" @click.stop.prevent="onClick">
+  <view
+    class="page-full-screen uno-flex uno-flex-col uno-overflow-hidden"
+    :style="getStyleBackgroundImage(imageBg)"
+    @click.stop.prevent="onClick"
+  >
     <PageHeader :current-date="currentDate" />
-    <div class="page-main">
+    <div class="page-main uno-flex uno-flex-col uno-flex-1 uno-overflow-hidden">
       <slot></slot>
     </div>
     <PageFooter />
@@ -15,6 +19,7 @@
   import PageFooter from './PageFooter.vue'
 
   import { useStoreOperationTime, useStoreCurrentDate } from '@/stores/modules'
+  import { getStyleBackgroundImage } from '@/utils/get'
 
   const storeOperationTime = useStoreOperationTime()
   const storeCurrentDate = useStoreCurrentDate()
@@ -34,19 +39,8 @@
     width: 100%;
     height: 100%;
     height: 100vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    .page-main {
-      flex: 1;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      // align-items: center;
-      // justify-content: center;
-    }
   }
 </style>

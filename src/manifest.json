@@ -1,5 +1,5 @@
 {
-  "name": "%app.name%",
+  "name": "安多民生",
   "appid": "__UNI__CC96700",
   "description": "uniapp基础框架，搭配pinia、eslint、vite、typescript、sass、AutoImport",
   "versionName": "1.0.0",
