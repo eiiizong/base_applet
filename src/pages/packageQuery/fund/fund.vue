@@ -1,5 +1,18 @@
 <template>
   <div class="page-scroll fund">
+    <ComponentProjectCardInfo
+      main-text="张三* 510902********6534"
+      footer-text="个人补贴详情"
+    ></ComponentProjectCardInfo>
+
+    <div class="toolbar uno-flex uno-justify-between">
+      <div class="title">查询结果</div>
+      <picker class="picker" fields="year" mode="date" start="2000" :end="moment().format('YYYY')">
+        <div class="picker-value" v-if="queryInfo.year">{{ queryInfo.year + '年' }}</div>
+        <div class="picker-placeholder" v-else>请选择年份</div>
+      </picker>
+    </div>
+
     <div class="total-wrapper">
       <FundTotal :render-data="totalInfo"></FundTotal>
     </div>
@@ -18,6 +31,7 @@
 <script setup lang="ts">
   import ComponentProjectEmpty from '@/components/project/empty/empty.vue'
   import ComponentProjectDividerLoad from '@/components/project/divider-load/divider-load.vue'
+  import ComponentProjectCardInfo from '@/components/project/card-info/card-info.vue'
 
   import FundTotal from './part/FundTotal.vue'
   import QueryResults from './part/QueryResults.vue'
@@ -62,7 +76,95 @@
      */
     isLoaded: boolean
   }>({
-    list: [],
+    list: [
+      {
+        aac002: 'string',
+        aac003: 'string',
+        aae010: 'string',
+        aae017: 'string',
+        aae019: 1,
+        aae036: 'string',
+        aae100: 'string',
+        aae209: 'string',
+        chb015: 'string',
+        chb017: 'string',
+        chb018: 'string',
+        chb204: 'string',
+        chi031: 'string',
+        chm010: 'string',
+        chm012: 'string',
+        chm020: 2,
+        /**
+         * 业务状态(0-发放中，1-已发放)
+         */
+        crb00k: '0',
+        createBy: 'unknown',
+        createTime: 'unknown',
+        deptId: 'unknown',
+        remark: 'unknown',
+        updateBy: 'unknown',
+        updateTime: 'unknown',
+        userId: 'unknown'
+      },
+      {
+        aac002: 'string',
+        aac003: 'string',
+        aae010: 'string',
+        aae017: 'string',
+        aae019: 1,
+        aae036: 'string',
+        aae100: 'string',
+        aae209: 'string',
+        chb015: 'string',
+        chb017: 'string',
+        chb018: 'string',
+        chb204: 'string',
+        chi031: 'string',
+        chm010: 'string',
+        chm012: 'string',
+        chm020: 2,
+        /**
+         * 业务状态(0-发放中，1-已发放)
+         */
+        crb00k: '0',
+        createBy: 'unknown',
+        createTime: 'unknown',
+        deptId: 'unknown',
+        remark: 'unknown',
+        updateBy: 'unknown',
+        updateTime: 'unknown',
+        userId: 'unknown'
+      },
+      {
+        aac002: 'string',
+        aac003: 'string',
+        aae010: 'string',
+        aae017: 'string',
+        aae019: 1,
+        aae036: 'string',
+        aae100: 'string',
+        aae209: 'string',
+        chb015: 'string',
+        chb017: 'string',
+        chb018: 'string',
+        chb204: 'string',
+        chi031: 'string',
+        chm010: 'string',
+        chm012: 'string',
+        chm020: 2,
+        /**
+         * 业务状态(0-发放中，1-已发放)
+         */
+        crb00k: '0',
+        createBy: 'unknown',
+        createTime: 'unknown',
+        deptId: 'unknown',
+        remark: 'unknown',
+        updateBy: 'unknown',
+        updateTime: 'unknown',
+        userId: 'unknown'
+      }
+    ],
     isRequestOver: false,
     isLoaded: true
   })
@@ -122,9 +224,9 @@
     queryInfo.pageSize = 10
     queryResultData.isLoaded = false
     queryResultData.isRequestOver = false
-    queryResultData.list = []
+    // queryResultData.list = []
     queryTotalInfo()
-    queryData()
+    // queryData()
   }
   /**
    * 页面上拉触底事件的处理函数 上拉加载更多
@@ -144,8 +246,41 @@
 <style lang="scss" scoped>
   .fund {
     width: 100%;
+    .toolbar {
+      padding: $spacing;
+      .title {
+        line-height: 1;
+        font-weight: 700;
+        font-size: 32rpx;
+        color: $color-text;
+        padding-left: 20rpx;
+        box-sizing: border-box;
+        position: relative;
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 8rpx;
+          height: 32rpx;
+          background-color: $color-primary;
+          border-radius: 2rpx;
+          margin-right: 10rpx;
+        }
+      }
+      .picker {
+        box-sizing: border-box;
+        &-value,
+        &-placeholder {
+          font-size: 28rpx;
+          line-height: 32rpx;
+        }
+      }
+    }
     .total-wrapper {
       padding: $spacing;
+      padding-top: 0;
     }
   }
 </style>
