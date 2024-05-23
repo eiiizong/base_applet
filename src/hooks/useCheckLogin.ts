@@ -12,4 +12,4 @@ const useCheckLogin = () => {
   })
 }
 
-export { useCheckLogin }
+export default useCheckLogin

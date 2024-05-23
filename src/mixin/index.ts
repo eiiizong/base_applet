@@ -1,4 +1,4 @@
-import { useUpdateNavigationBarTitle } from '@/hooks/useUpdateNavigationBarTitle'
+import { useUpdateNavigationBarTitle } from '@/hooks'
 import { useStoreCurrentRouteInfo } from '@/stores/modules'
 
 /**

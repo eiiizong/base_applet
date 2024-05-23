@@ -24,4 +24,4 @@ const requestAppletCheckLogin = async (
       })
   })
 }
-export { requestAppletCheckLogin }
+export default requestAppletCheckLogin

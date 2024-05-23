@@ -36,4 +36,4 @@ const requestAppletGetAllSummaryStatistics = (
       })
   })
 }
-export { requestAppletGetAllSummaryStatistics }
+export default requestAppletGetAllSummaryStatistics

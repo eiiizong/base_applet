@@ -23,4 +23,4 @@ const requestAppletGetChi037AndChi031List = (
       })
   })
 }
-export { requestAppletGetChi037AndChi031List }
+export default requestAppletGetChi037AndChi031List

@@ -2,7 +2,7 @@ import type { PageNmae } from '@/types'
 
 import messages from '@/locale'
 import { setNavigationBarTitle } from '@/utils/uni'
-import { useStoreUserSettings } from '@/stores/modules/useStoreUserSettings'
+import { useStoreUserSettings } from '@/stores/modules'
 
 /**
  * 更新页面标题
@@ -28,4 +28,4 @@ const useUpdateCurrentRouteInfo = () => {
   // #endif
 }
 
-export { useUpdateCurrentRouteInfo }
+export default useUpdateCurrentRouteInfo

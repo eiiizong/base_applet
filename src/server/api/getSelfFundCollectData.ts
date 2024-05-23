@@ -27,4 +27,4 @@ const requestAppletGetSelfFundCollectData = (
       })
   })
 }
-export { requestAppletGetSelfFundCollectData }
+export default requestAppletGetSelfFundCollectData

@@ -24,4 +24,4 @@ const useStoreSystemInfo = defineStore('storeSystemInfo', () => {
   return { systemInfo, getStoreSystemInfo, updateStoreSystemInfo }
 })
 
-export { useStoreSystemInfo }
+export default useStoreSystemInfo

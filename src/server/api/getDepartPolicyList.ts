@@ -39,4 +39,4 @@ const requestAppletGetDepartPolicyList = (
       })
   })
 }
-export { requestAppletGetDepartPolicyList }
+export default requestAppletGetDepartPolicyList

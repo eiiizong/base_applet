@@ -23,4 +23,4 @@ const requestAppletGetLatestPolicyList = (
       })
   })
 }
-export { requestAppletGetLatestPolicyList }
+export default requestAppletGetLatestPolicyList

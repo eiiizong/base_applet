@@ -58,4 +58,4 @@ const useGetLoginParams = async () => {
   return param
 }
 
-export { useGetLoginParams }
+export default useGetLoginParams

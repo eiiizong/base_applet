@@ -171,8 +171,8 @@ module.exports = {
     // 强制数组方法的回调函数中有 return 语句
     'array-callback-return': 'error',
     // uno 对类选择器强制执行特定的顺序。
-    '@unocss/order': 1,
+    '@unocss/order': 0,
     // uno 对属性选择器强制执行特定顺序
-    '@unocss/order-attributify': 1
+    '@unocss/order-attributify': 0
   }
 }

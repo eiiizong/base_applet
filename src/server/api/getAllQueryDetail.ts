@@ -33,4 +33,4 @@ const requestAppletGetAllQueryDetail = (
       })
   })
 }
-export { requestAppletGetAllQueryDetail }
+export default requestAppletGetAllQueryDetail

@@ -40,4 +40,4 @@ const useStoreUserSettings = defineStore('storeUserSettings', {
   persist: true
 })
 
-export { useStoreUserSettings }
+export default useStoreUserSettings

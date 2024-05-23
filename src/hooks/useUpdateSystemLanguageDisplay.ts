@@ -37,4 +37,4 @@ const useUpdateSystemLanguageDisplay = (lang: Store.UserSettings['language']) =>
   // #endif
 }
 
-export { useUpdateSystemLanguageDisplay }
+export default useUpdateSystemLanguageDisplay

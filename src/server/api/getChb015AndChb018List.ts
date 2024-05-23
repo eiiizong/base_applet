@@ -23,4 +23,4 @@ const requestAppletGetChb015AndChb018List = (
       })
   })
 }
-export { requestAppletGetChb015AndChb018List }
+export default requestAppletGetChb015AndChb018List

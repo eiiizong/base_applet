@@ -55,4 +55,4 @@ const useStoreUserInfo = defineStore('storeUserInfo', {
   persist: true
 })
 
-export { useStoreUserInfo }
+export default useStoreUserInfo

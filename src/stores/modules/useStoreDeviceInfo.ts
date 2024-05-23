@@ -26,4 +26,4 @@ const useStoreDeviceInfo = defineStore('storeDeviceInfo', () => {
   return { deviceInfo, getStoreDeviceInfo, updateStoreDeviceInfo }
 })
 
-export { useStoreDeviceInfo }
+export default useStoreDeviceInfo

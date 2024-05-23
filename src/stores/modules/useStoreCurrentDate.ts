@@ -42,4 +42,4 @@ const useStoreCurrentDate = defineStore('storeCurrentDate', () => {
   return { currentDate, getStoreCurrentDate, updateStoreCurrentDate }
 })
 
-export { useStoreCurrentDate }
+export default useStoreCurrentDate

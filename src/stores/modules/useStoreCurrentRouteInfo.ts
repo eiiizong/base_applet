@@ -40,4 +40,4 @@ const useStoreCurrentRouteInfo = defineStore('storeCurrentRouteInfo', {
   }
 })
 
-export { useStoreCurrentRouteInfo }
+export default useStoreCurrentRouteInfo

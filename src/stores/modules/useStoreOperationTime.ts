@@ -34,4 +34,4 @@ const useStoreOperationTime = defineStore('storeOperationTime', {
   }
 })
 
-export { useStoreOperationTime }
+export default useStoreOperationTime

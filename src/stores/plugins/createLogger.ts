@@ -46,4 +46,4 @@ const createLogger = ({ store }: PiniaPluginContext) => {
   )
 }
 
-export { createLogger }
+export default createLogger

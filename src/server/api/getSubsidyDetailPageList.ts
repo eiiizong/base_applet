@@ -33,4 +33,4 @@ const requestAppletGetSubsidyDetailPageList = (
       })
   })
 }
-export { requestAppletGetSubsidyDetailPageList }
+export default requestAppletGetSubsidyDetailPageList

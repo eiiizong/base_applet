@@ -27,4 +27,4 @@ const requestAppletGetSubsidyProjectList = (
       })
   })
 }
-export { requestAppletGetSubsidyProjectList }
+export default requestAppletGetSubsidyProjectList

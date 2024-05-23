@@ -10,4 +10,4 @@ const reset = ({ store }: PiniaPluginContext) => {
   }
 }
 
-export { reset }
+export default reset

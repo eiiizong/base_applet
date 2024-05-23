@@ -10,7 +10,7 @@ import { createSSRApp } from 'vue'
 import { createI18n } from 'vue-i18n' // v9.x'
 
 import { setupStore } from '@/stores'
-import { useStoreUserSettings } from '@/stores/modules/useStoreUserSettings'
+import { useStoreUserSettings } from '@/stores/modules'
 import messages from '@/locale'
 import { useUpdateSystemLanguageDisplay } from '@/hooks'
 import mixinUpdate from '@/mixin'
