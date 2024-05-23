@@ -3,7 +3,7 @@
     <YtjContentWrapper>
       <view class="login">
         <div class="title">请选择登录方式</div>
-        <LoginTypes />
+        <LoginTypes @click="onClickLogin" />
         <LoginTips />
       </view>
     </YtjContentWrapper>
@@ -22,19 +22,25 @@
 
   // import { useUpdateRoute, usePlayAudio } from '@/hooks/project'
 
+  /**
+   * 是否显示身份证登录弹窗
+   */
   const isShowPopupIdCardLogin = ref(false)
 
-  // const s = (type: string) => {
-  //   if (type === 'SSC') {
-  //     isShowPopupSSCLogin.value = true
-  //     usePlayAudio('/static/audio/03.mp3')
-  //   }
+  /**
+   * 点击登录方式登录
+   */
+  const onClickLogin = (type: string) => {
+    // if (type === 'SSC') {
+    //   isShowPopupSSCLogin.value = true
+    //   // usePlayAudio('/static/audio/03.mp3')
+    // }
 
-  //   if (type === 'idCard') {
-  //     isShowPopupIdCardLogin.value = true
-  //     usePlayAudio('/static/audio/02.mp3')
-  //   }
-  // }
+    if (type === 'idCard') {
+      isShowPopupIdCardLogin.value = true
+      // usePlayAudio('/static/audio/02.mp3')
+    }
+  }
 
   onShow(() => {
     // usePlayAudio('/static/audio/01.mp3')
@@ -45,7 +51,7 @@
 <style lang="scss" scoped>
   .login {
     width: 100%;
-    padding: 12.25rem 1.125rem;
+    padding: 12rem 1.125rem;
     .title {
       width: 100%;
       text-align: center;

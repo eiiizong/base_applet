@@ -29,7 +29,7 @@
 <style lang="scss" scoped>
   .login-types {
     width: 100%;
-    padding-top: 3.375rem;
+    padding-top: 5rem;
     .item {
       position: relative;
       .img {
