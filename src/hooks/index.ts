@@ -2,6 +2,7 @@ export { default as useCheckLogin } from './useCheckLogin'
 export { useCloseTimerCurrentDate, useOpenTimerCurrentDate } from './useCurrentDate'
 export { default as useGetLoginParams } from './useGetLoginParams'
 export { useCloseTimerOperationTime, useOpenTimerOperationTime } from './useOperationTime'
+export { default as usePlayAudio } from './usePlayAudio'
 
 // #ifndef H5
 export { default as usePreviewPDF } from './usePreviewPDF'

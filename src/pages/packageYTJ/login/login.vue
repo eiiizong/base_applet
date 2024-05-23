@@ -20,7 +20,7 @@
   import LoginTypes from './LoginTypes.vue'
   import LoginPopupIdCard from './LoginPopupIdCard.vue'
 
-  // import { useUpdateRoute, usePlayAudio } from '@/hooks/project'
+  import { usePlayAudio } from '@/hooks'
 
   /**
    * 是否显示身份证登录弹窗
@@ -31,20 +31,14 @@
    * 点击登录方式登录
    */
   const onClickLogin = (type: string) => {
-    // if (type === 'SSC') {
-    //   isShowPopupSSCLogin.value = true
-    //   // usePlayAudio('/static/audio/03.mp3')
-    // }
-
     if (type === 'idCard') {
       isShowPopupIdCardLogin.value = true
-      // usePlayAudio('/static/audio/02.mp3')
+      usePlayAudio('/static/audio/02.mp3')
     }
   }
 
   onShow(() => {
-    // usePlayAudio('/static/audio/01.mp3')
-    // useUpdateRoute()
+    usePlayAudio('/static/audio/01.mp3')
   })
 </script>
 
