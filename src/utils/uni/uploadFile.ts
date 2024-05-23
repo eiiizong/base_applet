@@ -45,12 +45,10 @@ const uploadFile = (
         resolve(res)
       },
       fail(err) {
-        // eslint-disable-next-line no-console
-        console.error('uni.uploadFile 接口调用失败 => ', err)
         reject(err)
       }
     })
   })
 }
 
-export { uploadFile }
+export default uploadFile

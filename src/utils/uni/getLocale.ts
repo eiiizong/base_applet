@@ -7,4 +7,4 @@
 const getLocale = (): string => {
   return uni.getLocale()
 }
-export { getLocale }
+export default getLocale

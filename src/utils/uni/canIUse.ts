@@ -43,4 +43,4 @@
 const canIUse = (str: string): boolean => {
   return uni.canIUse(str)
 }
-export { canIUse }
+export default canIUse

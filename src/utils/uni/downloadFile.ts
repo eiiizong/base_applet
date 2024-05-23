@@ -23,11 +23,9 @@ const downloadFile = (url: string, header = {}, timeout = 60000): Promise<UniApp
         resolve(res)
       },
       fail(err) {
-        // eslint-disable-next-line no-console
-        console.error('uni.downloadFile 接口调用失败 => ', err)
         reject(err)
       }
     })
   })
 }
-export { downloadFile }
+export default downloadFile

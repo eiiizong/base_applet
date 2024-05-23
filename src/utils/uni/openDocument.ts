@@ -22,16 +22,14 @@ const openDocument = (
     uni.openDocument({
       filePath,
       fileType,
+      showMenu,
       success(res) {
         resolve(res)
       },
       fail(err) {
-        // eslint-disable-next-line no-console
-        console.error('uni.openDocument 接口调用失败 => ', err)
         reject(err)
-      },
-      showMenu
+      }
     })
   })
 }
-export { openDocument }
+export default openDocument

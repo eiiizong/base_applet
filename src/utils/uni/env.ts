@@ -9,4 +9,4 @@ const env = () => {
   return wx.env
 }
 
-export { env }
+export default env

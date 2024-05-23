@@ -7,4 +7,4 @@
 const getFileSystemManager = () => {
   return uni.getFileSystemManager()
 }
-export { getFileSystemManager }
+export default getFileSystemManager

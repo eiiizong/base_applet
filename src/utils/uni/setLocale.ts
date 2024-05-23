@@ -7,4 +7,4 @@
 const setLocale = (locale: string): void => {
   uni.setLocale(locale)
 }
-export { setLocale }
+export default setLocale

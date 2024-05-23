@@ -1,8 +1,8 @@
 // 基础
-export { env } from './env'
-export { canIUse } from './canIUse'
-export { base64ToArrayBuffer } from './base64ToArrayBuffer'
-export { arrayBufferToBase64 } from './arrayBufferToBase64'
+export { default as env } from './env'
+export { default as canIUse } from './canIUse'
+export { default as base64ToArrayBuffer } from './base64ToArrayBuffer'
+export { default as arrayBufferToBase64 } from './arrayBufferToBase64'
 
 // 基础-系统
 export { default as getSystemInfo } from './getSystemInfo'
@@ -68,10 +68,10 @@ export { startPullDownRefresh } from './startPullDownRefresh'
 export { default as request } from './request'
 
 // 网络-下载
-export { downloadFile } from './downloadFile'
+export { default as downloadFile } from './downloadFile'
 
 // 网络-上传
-export { uploadFile } from './uploadFile'
+export { default as uploadFile } from './uploadFile'
 
 // 支付
 export { requestPayment } from './requestPayment'
@@ -93,7 +93,7 @@ export { chooseImage } from './chooseImage'
 export { chooseMedia } from './chooseMedia'
 
 // 开放接口-登录
-export { login } from './login'
+export { default as login } from './login'
 
 // 开放接口-生物认证
 export { startSoterAuthentication } from './startSoterAuthentication'
@@ -104,8 +104,8 @@ export { getLocation } from './getLocation'
 export { chooseLocation } from './chooseLocation'
 
 // 文件
-export { openDocument } from './openDocument'
-export { getFileSystemManager } from './getFileSystemManager'
+export { default as openDocument } from './openDocument'
+export { default as getFileSystemManager } from './getFileSystemManager'
 
 // 开放接口-用户信息
 export { getUserProfile } from './getUserProfile'
@@ -132,5 +132,5 @@ export { checkIsSupportFacialRecognition } from './checkIsSupportFacialRecogniti
 export { startFacialRecognitionVerify } from './startFacialRecognitionVerify'
 
 // uniapp 特有api
-export { getLocale } from './getLocale'
-export { setLocale } from './setLocale'
+export { default as getLocale } from './getLocale'
+export { default as setLocale } from './setLocale'

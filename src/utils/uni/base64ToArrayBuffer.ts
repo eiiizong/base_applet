@@ -15,4 +15,4 @@
 const base64ToArrayBuffer = (str: string): ArrayBuffer => {
   return uni.base64ToArrayBuffer(str)
 }
-export { base64ToArrayBuffer }
+export default base64ToArrayBuffer
