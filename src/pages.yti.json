@@ -3,6 +3,10 @@
     {
       "path": "pages/packageYTJ/home/home",
       "style": {}
+    },
+    {
+      "path": "pages/packageYTJ/login/logins",
+      "style": {}
     }
   ],
   "globalStyle": {

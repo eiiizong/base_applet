@@ -27,6 +27,7 @@
   onShow(() => {
     // 一体机端执行
     // #ifdef APP-PLUS
+    // #endif
     if (platform === '03') {
       useOpenTimerOperationTime()
       useOpenTimerCurrentDate()
@@ -35,12 +36,13 @@
       // 隐藏手机底部导航按键
       plus.navigator.hideSystemNavigation()
     }
-    // #endif
 
     // 微信小程序检测应用更新
     // #ifdef MP-WEIXIN
-    checkAppletAppUpdate()
     // #endif
+    if (platform === '02') {
+      checkAppletAppUpdate()
+    }
   })
 
   onHide(() => {
