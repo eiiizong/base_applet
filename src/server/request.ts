@@ -52,7 +52,7 @@ const request = (
   showErrorToast = true,
   method: 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'CONNECT' | undefined = 'POST',
   autoQs: boolean = false,
-  timeout = 1000 * 2
+  timeout = 1000 * 60
 ): Promise<any> => {
   /**
    * 请求地址
