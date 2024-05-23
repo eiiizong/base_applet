@@ -5,4 +5,4 @@
  */
 const clearStorage = (): void => uni.clearStorage()
 
-export { clearStorage }
+export default clearStorage

@@ -84,7 +84,7 @@ export { removeStorage } from './removeStorage'
 export { getStorageSync } from './getStorageSync'
 export { getStorage } from './getStorage'
 export { clearStorageSync } from './clearStorageSync'
-export { clearStorage } from './clearStorage'
+export { default as clearStorage } from './clearStorage'
 
 // 媒体-图片
 export { previewImage } from './previewImage'

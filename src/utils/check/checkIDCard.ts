@@ -148,4 +148,4 @@ const checkIDCard = (value: string, errorMsgPrefix = '身份证号码'): IdCardC
   return checkResult
 }
 
-export { checkIDCard }
+export default checkIDCard

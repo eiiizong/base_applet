@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { type VitePlatform, getEnvData } from '@/utils/get'
+  import { checkAppletAppUpdate } from '@/utils/check'
   import { getSystemInfoSync } from '@/utils/uni'
   import {
     useCheckLogin,
@@ -34,6 +35,11 @@
       // 隐藏手机底部导航按键
       plus.navigator.hideSystemNavigation()
     }
+    // #endif
+
+    // 微信小程序检测应用更新
+    // #ifdef MP-WEIXIN
+    checkAppletAppUpdate()
     // #endif
   })
 

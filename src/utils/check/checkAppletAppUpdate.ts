@@ -1,9 +1,8 @@
 import { getUpdateManager, showModal, clearStorage } from '@/utils/uni'
 /**
  * 检测小程序是否有更新，提示用户更新重启应用
- * @example checkAppUpdate()
  */
-const checkAppUpdate = (): void => {
+const checkAppletAppUpdate = (): void => {
   const updateManager = getUpdateManager()
 
   updateManager.onCheckForUpdate((res) => {
@@ -24,4 +23,4 @@ const checkAppUpdate = (): void => {
     showModal('新版本更新失败，请检查网络后重试！')
   })
 }
-export { checkAppUpdate }
+export default checkAppletAppUpdate
