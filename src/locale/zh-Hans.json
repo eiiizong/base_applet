@@ -1,6 +1,7 @@
 {
   "app": {
     "name": "牧民群众惠民补助资金查询系统",
+    "ytjTitle": "牧民群众惠民补助资金查询系统",
     "form": {
       "chb015-placeholder": "请选择区县",
       "chb017-placeholder": "请选择乡镇",

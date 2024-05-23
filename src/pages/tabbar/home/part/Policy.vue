@@ -6,7 +6,7 @@
       @clickMore="onClickMore"
     >
       <div class="items" v-if="policys.length">
-        <div class="item" v-for="(item, index) in policys" :key="index" @click="onClick(item)">
+        <div class="item" v-for="(item, index) in policys" :key="index">
           <ComponentProjectCardPolicy :render-data="item"></ComponentProjectCardPolicy>
         </div>
       </div>
@@ -32,10 +32,9 @@
   const policys = ref<PolicyVo[]>([])
   const isRequestOver = ref(false)
 
-  const onClick = (data: any) => {
-    console.log(data)
-  }
-
+  /**
+   * 点击查看更多政策文件 跳转路由
+   */
   const onClickMore = () => {
     navigateTo('policy', 'packageQuery')
   }

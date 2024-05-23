@@ -87,7 +87,7 @@
     idcard: '',
     tel: '',
     avatar: '',
-    agree: true
+    agree: false
   })
 
   /**
@@ -169,8 +169,6 @@
     const { value } = event.detail
 
     if (value) {
-      console.log(value)
-
       const res = checkIDCard(value)
       if (!res.isOk) {
         showModal(res.errMsg)

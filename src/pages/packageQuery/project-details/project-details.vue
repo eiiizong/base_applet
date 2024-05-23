@@ -96,7 +96,6 @@
       projectInfo.value.chm032 = [chm032]
       projectInfo.value.chm036 = JSON.parse(chm036)
       projectInfo.value.chm037 = JSON.parse(chm037)
-      console.log(projectInfo.value)
 
       if (chi031) {
         requestAppletGetDepartPolicyList('', '', chi031, 1, 999).then((res) => {

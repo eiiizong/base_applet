@@ -1,5 +1,5 @@
 <template>
-  <div class="page login">
+  <div class="login page">
     <div class="login-con">
       <LoginHeader></LoginHeader>
       <LoginForm @click="onClickLogin"></LoginForm>

@@ -1,7 +1,3 @@
-import { getIsDev } from './getIsDev'
-
-const isDev = getIsDev()
-
 enum Gender {
   male = '男',
   female = '女',
@@ -18,23 +14,14 @@ const getGenderByIDCard = (value: string): string => {
 
   let result: Gender = Gender.other
 
-  if (!value) {
-    if (isDev) {
-      console.error('身份证号码为空，请检查！')
-    }
-  } else {
+  if (value) {
     const len = value.length
-
-    if (len !== 15 && len !== 18) {
-      if (isDev) {
-        console.error('身份证号码只能为15位或18位，其它不合法，请检查！')
+    if (len === 15 || len === 18) {
+      if (parseInt(value.slice(-2, -1)) % 2 === 1) {
+        result = Gender.male
+      } else {
+        result = Gender.female
       }
-    }
-
-    if (parseInt(value.slice(-2, -1)) % 2 === 1) {
-      result = Gender.male
-    } else {
-      result = Gender.female
     }
   }
 
