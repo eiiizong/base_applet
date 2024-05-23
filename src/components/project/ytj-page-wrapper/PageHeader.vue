@@ -72,6 +72,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    box-sizing: border-box;
     .language {
       position: absolute;
       top: 1.375rem;
@@ -81,12 +82,15 @@
       border-radius: 20rem;
       border: 0.0625rem solid rgba(255, 255, 255, 0.24);
       padding: 0 1.5rem;
+      box-sizing: border-box;
       .image {
         width: 88rpx;
         height: 88rpx;
       }
       .info {
         margin-left: 8rpx;
+        font-size: 1.25rem;
+        line-height: 1.2;
       }
     }
     .center {
@@ -95,6 +99,7 @@
       font-size: 2rem;
       font-weight: 700;
       line-height: 2.25rem;
+      box-sizing: border-box;
     }
     .right {
       position: absolute;
@@ -110,6 +115,7 @@
         .week {
           font-weight: 500;
           padding-left: 0.5rem;
+          box-sizing: border-box;
         }
       }
       .time {
@@ -117,6 +123,7 @@
         font-size: 1.75rem;
         line-height: 2rem;
         padding-top: 0.5rem;
+        box-sizing: border-box;
         font-weight: 700;
       }
     }

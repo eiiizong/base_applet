@@ -1,6 +1,6 @@
 <template>
-  <view class="page-footer">
-    <div class="tools" :class="'tools-' + pathName">
+  <view class="page-footer uno-flex uno-flex-col">
+    <div class="tools uno-flex-1" :class="'tools-' + pathName">
       <template v-if="pathName !== 'login'">
         <!-- 退出登录 -->
         <div v-if="token" class="logout">
@@ -40,10 +40,10 @@
       </div>
     </div>
 
-    <div class="wrapper uno-flex uno-items-center">
+    <div class="wrapper uno-flex uno-items-center uno-justify-between">
       <div class="cell uno-flex uno-items-center">
         <div class="key">终端设备编号：</div>
-        <div class="value">{{ deviceInfo?.hostname || '--' }}</div>
+        <div class="value">{{ 'AD0000001' }}</div>
       </div>
       <div class="cell uno-flex uno-items-center">
         <div class="key">建设单位：</div>
@@ -54,23 +54,17 @@
 </template>
 
 <script setup lang="ts">
-  import {
-    useStoreUserInfo,
-    useStoreCurrentRouteInfo,
-    useStoreDeviceInfo,
-    useStoreOperationTime
-  } from '@/stores/modules'
+  import { useStoreUserInfo, useStoreCurrentRouteInfo, useStoreOperationTime } from '@/stores/modules'
 
   import { navigateBack, navigateTo, reLaunch } from '@/utils/uni'
 
   const storeUserInfo = useStoreUserInfo()
   const storeOperationTime = useStoreOperationTime()
   const storeCurrentRouteInfo = useStoreCurrentRouteInfo()
-  const storeDeviceInfo = useStoreDeviceInfo()
 
   const { name, token } = toRefs(storeUserInfo)
   const { name: pathName } = toRefs(storeCurrentRouteInfo)
-  const { deviceInfo } = toRefs(storeDeviceInfo)
+
   const { operationTime } = toRefs(storeOperationTime)
 
   /**
@@ -104,13 +98,14 @@
     color: #fff;
     font-size: 1.25rem;
     line-height: 1.75rem;
-    padding-left: 2rem;
-    padding-top: 0.625rem;
+    padding: 2rem;
+    box-sizing: border-box;
     .tools {
       width: 100%;
       position: relative;
       height: 5.5rem;
       padding-right: 2rem;
+      box-sizing: border-box;
 
       .btn {
         width: 11.625rem;
@@ -245,21 +240,14 @@
     }
     .wrapper {
       width: 100%;
-      padding-top: 0.5rem;
+      padding-top: 1rem;
+      box-sizing: border-box;
 
       .cell {
-        margin-right: 2.5rem;
         font-size: 1.25rem;
         line-height: 1.75rem;
         white-space: nowrap;
-
-        .key {
-          opacity: 0.8;
-        }
-
-        &:last-child {
-          margin-right: 0;
-        }
+        opacity: 0.6;
       }
     }
   }

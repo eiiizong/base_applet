@@ -7,6 +7,10 @@
     {
       "path": "pages/packageYTJ/login/login",
       "style": {}
+    },
+    {
+      "path": "pages/packageYTJ/policy/policy",
+      "style": {}
     }
   ],
   "globalStyle": {

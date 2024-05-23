@@ -1,33 +1,23 @@
 <template>
-  <div class="login-types d-f ai-c jc-c">
+  <div class="login-types uno-center">
     <div v-for="item in loginType" :key="item.id" class="item" @click="emit('click', item.id)">
       <image class="img" :src="item.bgSrc" />
       <div class="name">
-        <div class="zh-cn">{{ item.name }}</div>
-        <div class="tibetan">
-          <ComponentProjectTranslate :content="item.name" />
-        </div>
+        {{ item.name }}
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import ComponentProjectTranslate from '@/components/project/translate/translate.vue'
-
-  import { ref, onMounted } from 'vue'
+  import imageIdcard from './images/idcard.png'
 
   const emit = defineEmits(['click'])
   const loginType = ref([
-    // {
-    //   id: 'SSC',
-    //   name: '社保卡登录',
-    //   bgSrc: '/static/images/login/ssc.png'
-    // },
     {
       id: 'idCard',
       name: '身份证登录',
-      bgSrc: '/static/images/login/idcard.png'
+      bgSrc: imageIdcard
     }
   ])
 
@@ -55,13 +45,7 @@
         color: #fff;
         font-size: 2rem;
         line-height: 1;
-        .zh-cn {
-          font-weight: 700;
-        }
-        .tibetan {
-          font-weight: 500;
-          padding-top: 1rem;
-        }
+        font-weight: 700;
       }
     }
   }
