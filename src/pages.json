@@ -11,6 +11,14 @@
     {
       "path": "pages/packageYTJ/policy/policy",
       "style": {}
+    },
+    {
+      "path": "pages/packageComponents/popup/popup",
+      "style": {}
+    },
+    {
+      "path": "pages/packageComponents/transition/transition",
+      "style": {}
     }
   ],
   "globalStyle": {
