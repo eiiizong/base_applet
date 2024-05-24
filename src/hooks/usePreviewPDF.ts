@@ -5,11 +5,12 @@ import { requestDownloadResource } from '@/server/api'
 /**
  * 预览 pdf
  * @param {string} fileId 文件id
+ * @param {string} fileName 文件名称
  * @param {FileType} [fileType='pdf'] 文件了类型。默认值：pdf。
  */
-const usePreviewPDF = (fileId: string, fileType: FileType = 'pdf') => {
+const usePreviewPDF = (fileId: string, fileName: string = 'file', fileType: FileType = 'pdf') => {
   showLoading()
-  requestDownloadResource(fileId)
+  requestDownloadResource(fileId, fileName)
     .then((res) => {
       const { tempFilePath } = res
       if (tempFilePath) {

@@ -48,9 +48,9 @@
   })
 
   const onClick = () => {
-    const { chm056 } = props.renderData || {}
+    const { chm055, chm056 } = props.renderData || {}
     if (chm056) {
-      usePreviewPDF(chm056)
+      usePreviewPDF(chm056, chm055)
     } else {
       showModal('暂无相关文件')
     }

@@ -24,6 +24,7 @@ class MPAnimation {
     this.currentStepAnimates = {}
     this.next = 0
     this.$ = _this
+    console.log(_this)
   }
 
   _nvuePushAnimates(type: any, args: any) {

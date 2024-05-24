@@ -115,7 +115,7 @@
    * 初始化动画条件
    */
   const transformStyles = computed(() => {
-    return 'transform:' + transform.value + ';' + 'opacity:' + opacity.value + ';' + stylesObject.value + ';'
+    return 'transform:' + transform.value + ';' + 'opacity:' + opacity.value + ';' + stylesObject.value
   })
 
   const animationType = (type: boolean) => {
@@ -269,6 +269,7 @@
     transform.value = ''
     isShow.value = true
     let { opacity: opacity_, transform: transform_ } = styleInit(false)
+
     if (typeof opacity_ !== 'undefined') {
       opacity.value = opacity_
     }
@@ -279,8 +280,9 @@
 
       timer.value = setTimeout(() => {
         animation.value = createAnimation(config.value, instance)
-        console.log(instance, animation.value)
+
         tranfromInit(false).step()
+        console.log(instance, animation.value)
         animation.value.run()
         emit('change', {
           detail: isShow.value

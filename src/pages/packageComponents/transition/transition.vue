@@ -2,7 +2,7 @@
   <div class="demo-page-transition">
     <demo-block title="基础用法" padding>
       <ta-cell title="Fade（淡入）" @click="trigger('fade')" is-link />
-      <ta-cell title="Slide-Top（上滑进入）" @click="trigger('slide-top')" is-link />
+      <ta-cell title="Slide-Top（上滑进入）" @click="trigger(['fade', 'slide-top'])" is-link />
       <ta-cell title="Slide Bottom（下滑进入）" @click="trigger('slide-bottom')" is-link />
       <ta-cell title="Slide Left（左滑进入）" @click="trigger('slide-left')" is-link />
       <ta-cell title="Slide Right（右滑进入）" @click="trigger('slide-right')" is-link />
@@ -20,9 +20,9 @@
   type Name = 'fade' | 'slide-top' | 'slide-right' | 'slide-bottom' | 'slide-left' | 'zoom-in' | 'zoom-out'
 
   const show = ref(false)
-  const name = ref<Name>('fade')
+  const name = ref<Name | Name[]>('fade')
 
-  const trigger = (transitionName: Name) => {
+  const trigger = (transitionName: Name | Name[]) => {
     name.value = transitionName
     show.value = !show.value
   }
