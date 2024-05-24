@@ -73,6 +73,7 @@
     background-color: $color-primary;
     overflow: auto;
     padding: $spacing;
+    box-sizing: border-box;
     &-con {
       width: 100%;
       background-color: #fff;

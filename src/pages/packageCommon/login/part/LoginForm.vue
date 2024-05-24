@@ -180,6 +180,7 @@
 <style lang="scss" scoped>
   .login-form {
     padding: $spacing;
+    box-sizing: border-box;
     .form-wrapper {
       width: 100%;
       margin-top: $spacing;
@@ -191,6 +192,7 @@
           font-weight: 500;
           line-height: 32rpx;
           padding-bottom: 8rpx;
+          box-sizing: border-box;
           color: rgba($color-text, 0.8);
         }
 
@@ -209,6 +211,7 @@
             line-height: 40rpx;
             height: 100%;
             padding: 20rpx;
+            box-sizing: border-box;
             &[disabled] {
               opacity: 0.8;
             }
@@ -222,6 +225,7 @@
             background-color: $color-primary;
             color: #fff;
             margin-left: $spacing;
+            box-sizing: border-box;
           }
         }
       }
@@ -246,6 +250,7 @@
         border-radius: 2px;
         display: flex;
         margin-top: 8rpx;
+        box-sizing: border-box;
         .icon {
           margin: auto;
           width: 20rpx;
@@ -260,6 +265,7 @@
           top: -2rpx;
           opacity: 0;
           transition: all 0.3s;
+          box-sizing: border-box;
         }
         &.checked {
           background-color: $color-primary;
@@ -286,6 +292,7 @@
     }
     .button-wrapper {
       padding-top: $spacing * 2;
+      box-sizing: border-box;
       .button {
         width: 100%;
         font-size: 30rpx;

@@ -54,7 +54,7 @@
   }
 
   /**
-   * 点击头像去登录
+   * 点击头像去登录/退出登录
    */
   const onClickToLogin = () => {
     if (userInfo.id) {
