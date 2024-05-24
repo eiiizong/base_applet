@@ -1,4 +1,5 @@
 export { default as requestAppletCheckLogin } from './checkLogin'
+export { default as requestDownloadResource } from './downloadResource'
 export { default as requestAppletGetAllQueryDetail } from './getAllQueryDetail'
 export { default as requestAppletGetAllSummaryStatistics } from './getAllSummaryStatistics'
 export { default as requestAppletGetChb015AndChb018List } from './getChb015AndChb018List'

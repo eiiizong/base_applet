@@ -5,7 +5,7 @@ export { useCloseTimerOperationTime, useOpenTimerOperationTime } from './useOper
 export { default as usePlayAudio } from './usePlayAudio'
 
 // #ifndef H5
-// export { default as usePreviewPDF } from './usePreviewPDF'
+export { default as usePreviewPDF } from './usePreviewPDF'
 // #endif
 
 export { default as useUpdateNavigationBarTitle } from './useUpdateNavigationBarTitle'

@@ -1,5 +1,5 @@
 <template>
-  <div class="card-grant-details">
+  <div class="card-policy" @click="onClick">
     <div class="name-wrapper">
       <div class="iconimg iconimg-subsidy"></div>
       <div class="name">{{ renderData?.chm051 }}</div>
@@ -32,7 +32,11 @@
 <script setup lang="ts">
   import type { PropType } from 'vue'
   import type { PolicyVo } from '@/server/types'
+
   import moment from 'moment'
+  import { usePreviewPDF } from '@/hooks'
+  import { showModal } from '@/utils/uni'
+
   const props = defineProps({
     /**
      * 渲染内容
@@ -42,10 +46,19 @@
       required: false
     }
   })
+
+  const onClick = () => {
+    const { chm056 } = props.renderData || {}
+    if (chm056) {
+      usePreviewPDF(chm056)
+    } else {
+      showModal('暂无')
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
-  .card-grant-details {
+  .card-policy {
     width: 100%;
     min-height: 214rpx;
     position: relative;

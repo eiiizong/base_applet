@@ -329,6 +329,7 @@ export interface PolicyVo {
    */
   chm053: string
   chm054: unknown
+  chm056: string
   isNew: unknown
 }
 

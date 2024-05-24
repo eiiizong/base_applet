@@ -48,7 +48,7 @@
      * 内置过渡动画类型
      */
     modeClass: {
-      type: [Array as PropType<Mode[]>, String as PropType<Mode>],
+      type: [Array, String] as PropType<Mode[] | Mode>,
       default: () => 'fade'
     },
     /**
@@ -62,7 +62,7 @@
      * 组件样式，同 css 样式，注意带’-‘连接符的属性需要使用小驼峰写法如：backgroundColor:red
      */
     styles: {
-      type: Object,
+      type: Object as PropType<{ [key: string]: string }>,
       default: () => {
         return {}
       }
@@ -79,22 +79,26 @@
   const isShow = ref(false)
   const transform = ref('')
   const opacity = ref(1)
-  const animationData = ref({})
+  const animationData = ref<any>({})
   const durationTime = ref(300)
   const config = ref({})
   const timer = ref<NodeJS.Timeout | null>(null)
   const animation = ref<any>(null)
 
+  /**
+   * 驼峰转中横线
+   */
   const toLine = (name: string) => {
     return name.replace(/([A-Z])/g, '-$1').toLowerCase()
   }
+
   /**
    * 生成样式数据
    */
   const stylesObject = computed(() => {
     let transform = ''
     const { styles, duration } = props
-    let _styles = {
+    let _styles: { [key: string]: string } = {
       ...styles,
       'transition-duration': duration / 1000 + 's'
     }
@@ -113,6 +117,18 @@
     return 'transform:' + transform.value + ';' + 'opacity:' + opacity.value + ';' + stylesObject.value + ';'
   })
 
+  const animationType = (type: boolean) => {
+    return {
+      fade: type ? 1 : 0,
+      'slide-top': `translateY(${type ? '0' : '-100%'})`,
+      'slide-right': `translateX(${type ? '0' : '100%'})`,
+      'slide-bottom': `translateY(${type ? '0' : '100%'})`,
+      'slide-left': `translateX(${type ? '0' : '-100%'})`,
+      'zoom-in': `scaleX(${type ? 1 : 0.8}) scaleY(${type ? 1 : 0.8})`,
+      'zoom-out': `scaleX(${type ? 1 : 1.2}) scaleY(${type ? 1 : 1.2})`
+    }
+  }
+
   /**
    * ref 触发 初始化动画
    */
@@ -126,25 +142,82 @@
   /**
    * 处理动画开始前的默认样式
    */
-  const styleInit = (type: string) => {
-    let styles = {
+  const styleInit = (type: boolean) => {
+    const { modeClass } = props
+    let styles: {
+      transform: string
+      opacity?: number
+    } = {
       transform: ''
     }
-    let buildStyle = (type, mode) => {
+    let buildStyle = (type: boolean, mode: Mode) => {
       if (mode === 'fade') {
         styles.opacity = animationType(type)[mode]
       } else {
         styles.transform += animationType(type)[mode] + ' '
       }
     }
-    if (typeof this.modeClass === 'string') {
-      buildStyle(type, this.modeClass)
+    if (typeof modeClass === 'string') {
+      buildStyle(type, modeClass)
     } else {
-      this.modeClass.forEach((mode) => {
+      modeClass.forEach((mode) => {
         buildStyle(type, mode)
       })
     }
     return styles
+  }
+
+  /**
+   * 内置动画类型与实际动画对应字典
+   */
+  const animationMode = () => {
+    return {
+      fade: 'opacity',
+      'slide-top': 'translateY',
+      'slide-right': 'translateX',
+      'slide-bottom': 'translateY',
+      'slide-left': 'translateX',
+      'zoom-in': 'scale',
+      'zoom-out': 'scale'
+    }
+  }
+
+  /**
+   * 处理内置组合动画
+   */
+  const tranfromInit = (type: boolean) => {
+    let buildTranfrom = (type: boolean, mode: Mode) => {
+      let aniNum = null
+      if (mode === 'fade') {
+        aniNum = type ? 0 : 1
+      } else {
+        aniNum = type ? '-100%' : '0'
+        if (mode === 'zoom-in') {
+          aniNum = type ? 0.8 : 1
+        }
+        if (mode === 'zoom-out') {
+          aniNum = type ? 1.2 : 1
+        }
+        if (mode === 'slide-right') {
+          aniNum = type ? '100%' : '0'
+        }
+        if (mode === 'slide-bottom') {
+          aniNum = type ? '100%' : '0'
+        }
+      }
+      animation.value[animationMode()[mode]](aniNum)
+    }
+
+    const { modeClass } = props
+    if (typeof modeClass === 'string') {
+      buildTranfrom(type, modeClass)
+    } else {
+      modeClass.forEach((mode) => {
+        buildTranfrom(type, mode)
+      })
+    }
+
+    return animation.value
   }
 
   /**
@@ -154,20 +227,20 @@
     timer.value && clearTimeout(timer.value)
     transform.value = ''
     isShow.value = true
-    let { opacity, transform } = styleInit(false)
-    if (typeof opacity !== 'undefined') {
-      this.opacity = opacity
+    let { opacity: opacity_, transform: transform_ } = styleInit(false)
+    if (typeof opacity_ !== 'undefined') {
+      opacity.value = opacity_
     }
-    this.transform = transform
+    transform.value = transform_
     // 确保动态样式已经生效后，执行动画，如果不加 nextTick ，会导致 wx 动画执行异常
-    this.$nextTick(() => {
+    nextTick(() => {
       // TODO 定时器保证动画完全执行，目前有些问题，后面会取消定时器
-      this.timer = setTimeout(() => {
-        this.animation = createAnimation(this.config, this)
-        this.tranfromInit(false).step()
-        this.animation.run()
-        this.$emit('change', {
-          detail: this.isShow
+      timer.value = setTimeout(() => {
+        animation.value = createAnimation(config.value, this)
+        tranfromInit(false).step()
+        animation.value.run()
+        emit('change', {
+          detail: isShow.value
         })
       }, 20)
     })
@@ -177,7 +250,20 @@
    * 关闭过渡动画
    */
   const close = () => {
-    //
+    if (!animation.value) return
+    tranfromInit(true)
+      .step()
+      .run(() => {
+        isShow.value = false
+        animationData.value = null
+        animation.value = null
+        let { opacity: opacity_, transform: transform_ } = styleInit(false)
+        opacity.value = opacity_ || 1
+        transform.value = transform_
+        emit('change', {
+          detail: isShow.value
+        })
+      })
   }
 
   watch(
