@@ -1,7 +1,7 @@
 <template>
   <view v-if="showPopup" class="uni-popup" :class="[popupstyle, isDesktop ? 'fixforpc-z-index' : '']">
     <view @touchstart="touchstart">
-      <uni-transition
+      <UniTransition
         key="1"
         v-if="maskShow"
         name="mask"
@@ -11,7 +11,7 @@
         :show="showTrans"
         @click="onTap"
       />
-      <uni-transition
+      <UniTransition
         key="2"
         :mode-class="ani"
         name="content"
@@ -23,7 +23,7 @@
         <view class="uni-popup__wrapper" :style="{ backgroundColor: bg }" :class="[popupstyle]" @click="clear">
           <slot />
         </view>
-      </uni-transition>
+      </UniTransition>
     </view>
     <!-- #ifdef H5 -->
     <keypress v-if="maskShow" @esc="onTap" />
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+  import UniTransition from '@/components/uni/uni-transition/components/uni-transition/uni-transition.vue'
   // #ifdef H5
   import keypress from './keypress.js'
   // #endif
@@ -62,6 +63,7 @@
   export default {
     name: 'UniPopup',
     components: {
+      UniTransition,
       // #ifdef H5
       keypress
       // #endif

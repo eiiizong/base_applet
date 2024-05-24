@@ -1,5 +1,5 @@
 <template>
-  <uni-popup :show="modelValue" position="center" :is-mask-click="false" overlay>
+  <uni-popup :show="modelValue" position="center" mode-class="fade" :is-mask-click="false" overlay>
     <div class="login-popup-idcard">
       <div class="title">
         <div class="text">身份证登录</div>
