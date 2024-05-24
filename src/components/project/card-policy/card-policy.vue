@@ -52,7 +52,7 @@
     if (chm056) {
       usePreviewPDF(chm056)
     } else {
-      showModal('暂无')
+      showModal('暂无相关文件')
     }
   }
 </script>

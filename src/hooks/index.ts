@@ -1,6 +1,7 @@
 export { default as useCheckLogin } from './useCheckLogin'
 export { useCloseTimerCurrentDate, useOpenTimerCurrentDate } from './useCurrentDate'
 export { default as useGetLoginParams } from './useGetLoginParams'
+export { default as useLogOut } from './useLogOut'
 export { useCloseTimerOperationTime, useOpenTimerOperationTime } from './useOperationTime'
 export { default as usePlayAudio } from './usePlayAudio'
 

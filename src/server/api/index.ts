@@ -11,3 +11,4 @@ export { default as requestAppletGetSubsidyDetailPageList } from './getSubsidyDe
 export { default as requestAppletGetSubsidyProjectList } from './getSubsidyProjectList'
 export { default as requestAppletGetSubsidyProjectDetail } from './getSubsidyProjectDetail'
 export { default as requestAppletLogin } from './login'
+export { default as requestAppletLogOut } from './logOut'

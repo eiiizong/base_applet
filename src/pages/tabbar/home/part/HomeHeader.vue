@@ -34,10 +34,10 @@
 
   import type { Store } from '@/stores/types'
 
-  import { navigateTo } from '@/utils/uni'
+  import { navigateTo, showModal } from '@/utils/uni'
   import { useI18n } from 'vue-i18n'
   import { useStoreUserSettings, useStoreUserInfo } from '@/stores/modules'
-  import { useUpdateNavigationBarTitle } from '@/hooks/'
+  import { useUpdateNavigationBarTitle, useLogOut } from '@/hooks'
 
   const storeUserInfo = useStoreUserInfo()
   const storeUserSettings = useStoreUserSettings()
@@ -58,7 +58,9 @@
    */
   const onClickToLogin = () => {
     if (userInfo.id) {
-      return
+      showModal('是否确定退出登录？', '提示', true).then(() => {
+        useLogOut()
+      })
     } else {
       navigateTo('login', 'packageCommon')
     }

@@ -16,10 +16,10 @@ import { defineStore } from 'pinia'
 const useStoreUserInfo = defineStore('storeUserInfo', {
   state: (): Store.UserInfo => {
     return {
-      token: '1',
+      token: '',
       avatar: '',
       id: '',
-      idCard: '曾小明',
+      idCard: '',
       name: ''
     }
   },
