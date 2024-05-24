@@ -24,7 +24,6 @@ class MPAnimation {
     this.currentStepAnimates = {}
     this.next = 0
     this.$ = _this
-    console.log(_this)
   }
 
   _nvuePushAnimates(type: any, args: any) {
@@ -102,12 +101,15 @@ class MPAnimation {
   }
 
   run(fn: any) {
+    console.log('this.$===', this.$)
+
     // #ifndef APP-NVUE
     this.$.animationData = this.animation.export()
     this.$.timer = setTimeout(() => {
       typeof fn === 'function' && fn()
     }, this.$.durationTime)
     // #endif
+
     // #ifdef APP-NVUE
     this.isEnd = false
     const ref = this.$.$refs['ani'] && this.$.$refs['ani'].ref
@@ -158,6 +160,8 @@ animateTypes1.concat(animateTypes2, animateTypes3).forEach((type) => {
 
 export function createAnimation(option: any, _this: any) {
   if (!_this) return
-  clearTimeout(_this.timer)
+  console.log(_this, 897)
+
+  _this.timer && clearTimeout(_this.timer)
   return new MPAnimation(option, _this)
 }

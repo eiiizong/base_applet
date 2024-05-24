@@ -11,10 +11,12 @@
     </demo-block>
   </div>
 
-  <ta-transition :show="show" :mode-class="name" custom-class="block" />
+  <!-- <uni-transition :show="show" :mode-class="name" custom-class="block" /> -->
 </template>
 
 <script setup lang="ts">
+  // import UniTransition from '@/components/uni/transition/transition.vue'
+
   import DemoBlock from '../components/demo-block/index.vue'
 
   type Name = 'fade' | 'slide-top' | 'slide-right' | 'slide-bottom' | 'slide-left' | 'zoom-in' | 'zoom-out'

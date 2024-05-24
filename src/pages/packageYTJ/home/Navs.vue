@@ -11,7 +11,8 @@
         :key="item.id"
         class="item"
         :style="{ backgroundImage: 'url(' + item.bgSrc + ')' }"
-        @click="onClickJumpRoute(item)">
+        @click="onClickJumpRoute(item)"
+      >
         <div class="name-wrapper d-f">
           <div class="name">
             <div class="zh-cn">{{ item.name }}</div>

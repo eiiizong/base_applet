@@ -282,7 +282,8 @@
         animation.value = createAnimation(config.value, instance)
 
         tranfromInit(false).step()
-        console.log(instance, animation.value)
+        console.log('instance', instance)
+        console.log('animation.value', animation.value.run)
         animation.value.run()
         emit('change', {
           detail: isShow.value
