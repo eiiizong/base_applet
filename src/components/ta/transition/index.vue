@@ -141,6 +141,46 @@
   }
 
   /**
+   * ref 触发 动画分组
+   * @param {Object} obj
+   */
+  const step = (obj: any, config = {}) => {
+    if (!animation.value) return
+    for (let i in obj) {
+      try {
+        if (typeof obj[i] === 'object') {
+          animation.value[i](...obj[i])
+        } else {
+          animation.value[i](obj[i])
+        }
+      } catch (e) {
+        console.error(`方法 ${i} 不存在`)
+      }
+    }
+    animation.value.step(config)
+    return instance
+  }
+
+  /**
+   *  ref 触发 执行动画
+   */
+  const run = (fn: Function) => {
+    if (!animation.value) {
+      return
+    }
+    animation.value.run(fn)
+  }
+
+  /**
+   * 点击组件触发回调
+   */
+  const onClick = () => {
+    emit('click', {
+      detail: isShow.value
+    })
+  }
+
+  /**
    * 处理动画开始前的默认样式
    */
   const styleInit = (type: boolean) => {
@@ -299,7 +339,9 @@
   })
 
   defineExpose({
-    init
+    init,
+    step,
+    run
   })
 </script>
 

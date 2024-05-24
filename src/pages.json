@@ -1,10 +1,8 @@
 {
   "pages": [
     {
-      "path": "pages/tabbar/home/home",
-      "style": {
-        "navigationBarTitleText": "牧民群众惠民补助资金查询系统"
-      }
+      "path": "pages/packageComponents/transition/transition",
+      "style": {}
     }
   ],
   "globalStyle": {

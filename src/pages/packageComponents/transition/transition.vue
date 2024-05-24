@@ -24,10 +24,7 @@
 
   const trigger = (transitionName: Name) => {
     name.value = transitionName
-    show.value = true
-    setTimeout(() => {
-      show.value = false
-    }, 500)
+    show.value = !show.value
   }
 </script>
 
@@ -45,16 +42,6 @@
       margin: -100rpx 0 0 -100rpx;
       background-color: #1989fa;
       border-radius: 8rpx;
-    }
-    .ta-enter-active-class,
-    .ta-leave-active-class {
-      transition-property: background-color, transform;
-    }
-
-    .ta-enter-class,
-    .ta-leave-to-class {
-      background-color: red;
-      transform: rotate(-360deg) translate3d(-100%, -100%, 0);
     }
   }
 </style>
