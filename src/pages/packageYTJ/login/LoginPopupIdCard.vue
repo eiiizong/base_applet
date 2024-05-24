@@ -1,5 +1,5 @@
 <template>
-  <ta-popup :show="modelValue" position="center" :is-mask-click="false" overlay>
+  <uni-popup :show="modelValue" position="center" :is-mask-click="false" overlay>
     <div class="login-popup-idcard">
       <div class="title">
         <div class="text">身份证登录</div>
@@ -18,10 +18,11 @@
         <image class="image" :src="imageIdCardGif" />
       </div>
     </div>
-  </ta-popup>
+  </uni-popup>
 </template>
 
 <script setup lang="ts">
+  import UniPopup from '@/components/uni/uni-popup/components/uni-popup/uni-popup.vue'
   import imageIdCardGif from './images/idcard.gif'
   // import { useStoreUserInfo } from '@/stores/modules'
   // import { requestLogin } from '@/server/api'
