@@ -129,7 +129,7 @@ export { setClipboardData } from './setClipboardData'
 
 // 其他的方法
 export { checkIsSupportFacialRecognition } from './checkIsSupportFacialRecognition'
-export { startFacialRecognitionVerify } from './startFacialRecognitionVerify'
+export { default as startFacialRecognitionVerifyWX } from './startFacialRecognitionVerify_wx'
 
 // uniapp 特有api
 export { default as getLocale } from './getLocale'

@@ -12,7 +12,7 @@
   import LoginHeader from './part/LoginHeader.vue'
   import LoginForm from './part/LoginForm.vue'
 
-  import { navigateBack, redirectTo } from '@/utils/uni'
+  import { navigateBack, redirectTo, startFacialRecognitionVerifyWX } from '@/utils/uni'
   import { requestAppletLogin } from '@/server/api'
   import { useStoreUserInfo } from '@/stores/modules'
 
@@ -54,7 +54,10 @@
    * 点击立即登录按钮
    */
   const onClickLogin = (data: LoginPageForm) => {
-    login(data)
+    const { name, idcard } = data
+    startFacialRecognitionVerifyWX(name, idcard).then(() => {
+      login(data)
+    })
   }
 
   onLoad((e) => {

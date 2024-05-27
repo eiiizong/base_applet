@@ -1,4 +1,4 @@
-import { showModal } from './'
+import showModal from './showModal'
 
 interface StartFacialRecognitionVerifyeSucccessRes {
   /**
@@ -50,7 +50,7 @@ declare namespace CustomUniApp {
 declare const uni: CustomUniApp.Uni
 
 /**
- * 请求进行基于生物识别的人脸核身 
+ * 请求进行基于生物识别的人脸核身 (微信小程序使用)
  * @param {string} name - 姓名。
  * @param {string} idCardNumber - 身份证号码。
  * @param {boolean} [showErrModal=true] - 是否显示错误提示 默认值true。
@@ -62,7 +62,7 @@ declare const uni: CustomUniApp.Uni
     // error
   })
  */
-const startFacialRecognitionVerify = (
+const startFacialRecognitionVerifyWX = (
   name: string,
   idCardNumber: string,
   showErrModal = true
@@ -271,4 +271,4 @@ const startFacialRecognitionVerify = (
   })
 }
 
-export { startFacialRecognitionVerify }
+export default startFacialRecognitionVerifyWX
