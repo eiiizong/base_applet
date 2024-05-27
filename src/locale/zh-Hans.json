@@ -133,5 +133,126 @@
   },
   "fund": {
     "title": "资金查询"
+  },
+  "system": {
+    "showLoading": {},
+    "showModal": {
+      "confirm": "确定",
+      "cancel": "取消",
+      "title": "提示"
+    }
+  },
+  "page": {
+    "home": {
+      "title": "牧民群众惠民补助资金查询系统",
+      "header": {
+        "searchPlaceholder": "搜索政策文件",
+        "loginPlaceholder": "立即登录"
+      },
+      "popularServices": {
+        "name": "热门服务",
+        "nav01": {
+          "name": "综合查询",
+          "desc": "公开公示信息"
+        },
+        "nav02": {
+          "name": "资金查询",
+          "desc": "补贴发放信息"
+        },
+        "nav03": {
+          "name": "项目查询",
+          "desc": "补贴项目信息"
+        },
+        "nav04": {
+          "name": "政策查询",
+          "desc": "补贴政策信息"
+        }
+      },
+      "policy": {
+        "name": "最新政策",
+        "moreText": "查看更多",
+        "buttonText": "发现政策"
+      }
+    },
+    "login": {
+      "title": "登录",
+      "header": {
+        "name": "请您进行人脸识别身份验证",
+        "tip": "信息将与当前微信绑定（用于身份验证）"
+      },
+      "headerApp": {
+        "title": "请您登录"
+      },
+      "form": {
+        "name": {
+          "label": "姓名",
+          "placeholder": "请输入您的姓名"
+        },
+        "idcard": {
+          "label": "身份证号",
+          "placeholder": "请输入您的身份证号"
+        },
+        "tel": {
+          "label": "手机号",
+          "placeholder": "请点击右侧按钮获取您的手机号",
+          "placeholderApp": "请输入手机号",
+          "button": "获取手机号"
+        }
+      },
+      "agreement": {
+        "part01": "我同意牧民群众惠民补助资金查询系统收集、保存、使用/转交我所提交的信息用于快捷登录",
+        "part02": "查看",
+        "part03": "用户服务协议",
+        "part04": "及",
+        "part05": "隐私条款"
+      },
+      "button": "立即登录"
+    },
+    "login-privacy-policy": {
+      "title": "隐私条款"
+    },
+    "login-user-agreement": {
+      "title": "用户服务协议"
+    },
+    "policy": {
+      "title": "政策查询",
+      "query": {
+        "title": "查询条件",
+        "name": "政策名称",
+        "namePlaceholder": "请输入政策名称",
+        "department": "业务部门",
+        "departmentPlaceholder": "请选择业务部门",
+        "project": "补贴项目",
+        "projectPlaceholder": "请选择补贴项目",
+        "button": "查询"
+      },
+      "queryResult": {
+        "title": "查询结果"
+      }
+    },
+    "project": {
+      "title": "项目查询",
+      "header": {
+        "searchPlaceholder": "请输入关键字搜索"
+      }
+    },
+    "project-details": {
+      "title": "项目详情查询"
+    },
+    "publicity": {
+      "title": "综合查询",
+      "total": {
+        "money": "补贴总金额",
+        "project": "补贴项目数",
+        "person": "覆盖户(人数)"
+      },
+      "queryTitle": "按项目统计"
+    },
+    "publicity-details": {
+      "title": "综合查询详情"
+    },
+    "fund": {
+      "title": "资金查询"
+    }
   }
 }
