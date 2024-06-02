@@ -17,7 +17,7 @@
         <div class="item" v-for="(item, index) of chm037" :key="index">
           <div class="item-name">{{ item.aka131 }}</div>
           <div class="list">
-            <div class="text" v-for="(item2, i) in item.material" :key="i">{{ i + 1 + '、' + item2 }}</div>
+            <div class="text" v-for="(item2, i) in item.value.split('；')" :key="i">{{ i + 1 + '、' + item2 }}</div>
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@
       type: Array as PropType<
         {
           aka131: string
-          material: string[]
+          value: string
         }[]
       >,
       required: false

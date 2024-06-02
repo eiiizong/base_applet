@@ -2,7 +2,7 @@
   <div class="project-details-header">
     <div class="bg"></div>
     <div class="card">
-      <div class="name">{{ renderData?.chi031 }}</div>
+      <div class="name">{{ renderData?.chi031Desc }}</div>
       <div class="cells">
         <div class="cell">
           <div class="key">主管部门：</div>
@@ -29,6 +29,7 @@
     renderData: {
       type: Object as PropType<{
         chi031: string
+        chi031Desc: string
         chi037: string
         updateTime: string
       }>

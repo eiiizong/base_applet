@@ -2,18 +2,18 @@
   <div class="card-project">
     <div class="name-wrapper">
       <div class="iconimg iconimg-subsidy"></div>
-      <div class="name">{{ renderData?.chi031 || '--' }}</div>
+      <div class="name">{{ renderData?.chi031Desc || '--' }}</div>
     </div>
     <div class="cells">
       <div class="cell">
         <div class="key">补贴对象：</div>
-        <div class="value">{{ renderData?.chm031 || '--' }}</div>
+        <div class="value">{{ JSON.parse(renderData?.chm031 || '').join('、') || '--' }}</div>
       </div>
       <div class="cell">
         <div class="key">补贴标准：</div>
-        <div class="value">{{ renderData?.chm032 || '--' }}</div>
+        <div class="value">{{ JSON.parse(renderData?.chm032 || '').join('、') || '--' }}</div>
       </div>
-      <div class="cell">
+      <div class="cell" v-if="renderData?.chm033 && renderData?.chm034">
         <div class="key">执行年限：</div>
         <div class="value">
           <span v-if="renderData?.chm033">{{ moment(renderData?.chm033).format('YYYY年MM月DD日') }}</span>
@@ -23,7 +23,7 @@
       </div>
       <div class="cell">
         <div class="key">更新时间：</div>
-        <div class="value">{{ renderData?.updateTime || '暂无' }}</div>
+        <div class="value">{{ renderData?.createTime.substring(0, 10) || '暂无' }}</div>
       </div>
     </div>
     <div

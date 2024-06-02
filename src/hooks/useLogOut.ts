@@ -1,4 +1,4 @@
-import { requestAppletLogOut } from '@/server/api'
+import { requestLogout } from '@/server/api'
 import { useStoreUserInfo } from '@/stores/modules'
 
 /**
@@ -7,7 +7,7 @@ import { useStoreUserInfo } from '@/stores/modules'
 const useLogOut = () => {
   const storeUserInfo = useStoreUserInfo()
 
-  requestAppletLogOut().then(() => {
+  requestLogout().then(() => {
     storeUserInfo.$reset()
   })
 }

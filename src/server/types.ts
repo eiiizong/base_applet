@@ -126,6 +126,7 @@ export interface GetSubsidyProjectListRow {
   chb017: string
   chb018: string
   chi031: string
+  chi031Desc: string
   chi037: string
   chm030: number
   chm031: string
@@ -135,7 +136,7 @@ export interface GetSubsidyProjectListRow {
   chm035: string
   chm036: string
   createBy: unknown
-  createTime: unknown
+  createTime: string
   deptId: unknown
   remark: unknown
   updateBy: unknown
@@ -158,6 +159,7 @@ export interface GetSubsidyProjectDetailApiSuccessResponse {
   chb017: null
   chb018: null
   chi031: string
+  chi031Desc: string
   chi037: string
   chm030: number
   /**
