@@ -12,8 +12,6 @@ const usePreviewPDF = (fileId: string, fileName: string = 'file', fileType: File
   showLoading()
   requestDownloadResource(fileId, fileName)
     .then((res) => {
-      console.log(res, 98)
-
       const { tempFilePath } = res
       if (tempFilePath) {
         openDocument(tempFilePath, fileType)
