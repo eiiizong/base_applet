@@ -1,7 +1,7 @@
 <template>
   <div class="page-scroll publicity-details">
     <ComponentProjectCardInfo
-      :main-text="queryInfo.chi031"
+      :main-text="queryInfo.chi031Desc"
       :footer-text="queryInfo.chb017 ? '西藏自治区-那曲市-安多县-' + queryInfo.chb017 : '西藏自治区-那曲市-安多县'"
     ></ComponentProjectCardInfo>
     <template v-if="queryResultData.list.length">
@@ -41,6 +41,7 @@
      * 补贴项目名称
      */
     chi031: '',
+    chi031Desc: '',
     /**
      * 乡镇
      */
@@ -109,9 +110,10 @@
   })
 
   onLoad((e) => {
-    const { chi031, chb017 } = e || {}
+    const { chi031, chi031Desc, chb017 } = e || {}
     if (chi031) {
       queryInfo.chi031 = chi031
+      queryInfo.chi031Desc = chi031Desc
       queryData()
     }
     if (chb017) {

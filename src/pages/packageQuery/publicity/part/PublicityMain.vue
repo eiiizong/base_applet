@@ -240,8 +240,8 @@
     }
   }
 
-  const onClickJumpRoute = (chi031: string) => {
-    navigateTo('publicity-details', 'packageQuery', { chi031, chb017: form.value.chb017 })
+  const onClickJumpRoute = (chi031: string, chi031Desc: string) => {
+    navigateTo('publicity-details', 'packageQuery', { chi031, chi031Desc, chb017: form.value.chb017 })
   }
 
   watch(

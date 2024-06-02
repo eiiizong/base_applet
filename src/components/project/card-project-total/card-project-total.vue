@@ -1,5 +1,5 @@
 <template>
-  <div class="card-project" @click="emit('click', renderData?.chi031)">
+  <div class="card-project" @click="emit('click', renderData?.chi031, renderData?.chi031Desc)">
     <div class="name-wrapper">
       <div class="name">{{ renderData?.chi031Desc }}</div>
     </div>
