@@ -243,18 +243,14 @@ export interface GetAllSummaryStatisticsApiSuccessResponse extends GetAllSummary
 }
 
 /**
- *查询区县乡镇级联接口成功响应返回的数据格式
+ * picker下拉选数据格式
  */
-export interface GetChb015AndChb018ListChb015Vo {
-  /**
-   * 区县
-   */
-  chb015: string
-  /**
-   * 区县包含的乡镇
-   */
-  chb017List: string[]
+export interface Option {
+  label: string
+  value: string
+  children: Option[] | null
 }
+
 /**
  * 查询区县乡镇级联接口成功响应返回的数据格式
  */
@@ -262,7 +258,7 @@ export interface GetChb015AndChb018ListApiSuccessResponse {
   /**
    * 区县
    */
-  chb015Vos: GetChb015AndChb018ListChb015Vo[]
+  chb015Vos: Option[]
 }
 
 /**
@@ -347,28 +343,13 @@ export interface GetLatestPolicyListApiSuccessResponse {
 }
 
 /**
- * picker下拉选数据格式
- */
-export interface Option {
-  label: string
-  value: string
-}
-
-/**
- * picker数据级联选择数据格式
- */
-export interface OptionChildren extends Option {
-  children: Option[] | null
-}
-
-/**
  * 获取主管部门及其补贴项目数据接口成功响应返回的数据格式
  */
 export interface GetChi037AndChi031ListApiSuccessResponse {
   /**
    * 数据列表
    */
-  chi037List: OptionChildren[]
+  chi037List: Option[]
 }
 
 /**

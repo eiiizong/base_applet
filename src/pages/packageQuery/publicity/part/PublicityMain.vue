@@ -2,13 +2,13 @@
   <div class="publicity-main">
     <div class="title">{{ $t('publicity.queryTitle') }}</div>
     <div class="toolbar">
-      <picker class="picker" @change="onChangeChb015" :range="addressData" range-key="chb015" mode="selector">
-        <div class="picker-value" v-if="form.chb015">{{ form.chb015 }}</div>
+      <picker class="picker" @change="onChangeChb015" :range="addressData" range-key="label" mode="selector">
+        <div class="picker-value" v-if="form.chb015">{{ getDesc(addressData, form.chb015) }}</div>
         <div class="picker-placeholder" v-else>{{ $t('app.form.chb015-placeholder') }}</div>
         <div class="picker-icon iconimg iconimg-arrow-down"></div>
       </picker>
-      <picker class="picker" :disabled="!form.chb015" :range="chb017List" @change="onChangeChb017">
-        <div class="picker-value" v-if="form.chb017">{{ form.chb017 }}</div>
+      <picker class="picker" :disabled="!form.chb015" :range="chb017List" @change="onChangeChb017" range-key="label">
+        <div class="picker-value" v-if="form.chb017">{{ getDesc(chb017List, form.chb017) }}</div>
         <div class="picker-placeholder" v-else>{{ $t('app.form.chb017-placeholder') }}</div>
         <div class="picker-icon iconimg iconimg-arrow-down"></div>
       </picker>
@@ -67,7 +67,7 @@
   import ComponentCardProjectTotal from '@/components/project/card-project-total/card-project-total.vue'
   import ComponentProjectEmpty from '@/components/project/empty/empty.vue'
   import type { PropType } from 'vue'
-  import type { GetAllSummaryStatisticsDepartCountVo, GetChb015AndChb018ListChb015Vo } from '@/server/types'
+  import type { GetAllSummaryStatisticsDepartCountVo, Option } from '@/server/types'
 
   import { requestAppletGetChb015AndChb018List } from '@/server/api'
   import { navigateTo } from '@/utils/uni'
@@ -104,7 +104,7 @@
   /**
    * 区县乡镇数据
    */
-  const addressData = ref<GetChb015AndChb018ListChb015Vo[]>([])
+  const addressData = ref<Option[]>([])
 
   /**
    * 获取当前渲染数据的业务局
@@ -138,7 +138,7 @@
    * 获取当前渲染数据的乡镇
    */
   const chb017List = computed(() => {
-    let res: string[] = []
+    let res: Option[] = []
     const data = addressData.value
     const len = data.length
     const { chb015 } = form.value
@@ -146,8 +146,8 @@
     if (len) {
       for (let i = 0; i < len; i++) {
         const item = data[i]
-        if (item.chb015 === chb015) {
-          res = item.chb017List
+        if (item.value === chb015) {
+          res = item.children || []
           break
         }
       }
@@ -156,6 +156,20 @@
     return res
   })
 
+  /**
+   * 码值转文字
+   */
+  const getDesc = (arr: Option[], val: string) => {
+    let str = ''
+    for (let i = 0, len = arr.length; i < len; i++) {
+      const item = arr[i]
+      if (item.value === val) {
+        str = item.label
+        break
+      }
+    }
+    return str
+  }
   /**
    * 初始化
    */
@@ -185,7 +199,7 @@
     const { value } = event.detail
 
     if (typeof value === 'string') {
-      const val = addressData.value[Number(value)].chb015
+      const val = addressData.value[Number(value)].value
       if (val !== form.value.chb015) {
         form.value.chb015 = val
         form.value.chb017 = ''
@@ -200,7 +214,7 @@
   const onChangeChb017 = (event: WechatMiniprogram.PickerChange) => {
     const { value } = event.detail
     if (typeof value === 'string') {
-      const val = chb017List.value[Number(value)]
+      const val = chb017List.value[Number(value)].value
       if (val !== form.value.chb017) {
         form.value.chb017 = val
         emit('queryChb017', val)

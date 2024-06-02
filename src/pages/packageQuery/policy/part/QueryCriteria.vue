@@ -62,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { OptionChildren, Option } from '@/server/types'
+  import type { Option } from '@/server/types'
 
   import ComponentProjectPanel from '@/components/project/panel/panel.vue'
   import { requestAppletGetChi037AndChi031List } from '@/server/api'
@@ -78,7 +78,7 @@
   /**
    * 业务局及其补贴项目数据
    */
-  const chi037Options = ref<OptionChildren[]>([])
+  const chi037Options = ref<Option[]>([])
 
   const chi031List = computed(() => {
     let arr: Option[] = []
@@ -96,7 +96,7 @@
   /**
    * 码值转文字
    */
-  const getDesc = (arr: OptionChildren[] | Option[], val: string) => {
+  const getDesc = (arr: Option[], val: string) => {
     let str = ''
     for (let i = 0, len = arr.length; i < len; i++) {
       const item = arr[i]
