@@ -115,7 +115,7 @@ const request = (
             storeUserInfo.updateStoreUserInfoToken(token)
           }
 
-          if (code === 200 && data_) {
+          if (code === 200) {
             resolve(_data)
           } else if (code === 401) {
             showModal('无权限访问，请联系管理员！')

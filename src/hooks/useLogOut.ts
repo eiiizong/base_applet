@@ -1,5 +1,6 @@
 import { requestLogout } from '@/server/api'
 import { useStoreUserInfo } from '@/stores/modules'
+import { showToast } from '@/utils/uni'
 
 /**
  * 退出登录
@@ -9,6 +10,7 @@ const useLogOut = () => {
 
   requestLogout().then(() => {
     storeUserInfo.$reset()
+    showToast('退出成功', 'success')
   })
 }
 
