@@ -13,6 +13,7 @@
   import LoginForm from './part/LoginForm.vue'
 
   import { navigateBack, redirectTo, startFacialRecognitionVerifyWX } from '@/utils/uni'
+  import { getIsDev } from '@/utils/get'
   import { requestAppletLogin } from '@/server/api'
   import { useStoreUserInfo } from '@/stores/modules'
 
@@ -55,9 +56,13 @@
    */
   const onClickLogin = (data: LoginPageForm) => {
     const { name, idcard } = data
-    startFacialRecognitionVerifyWX(name, idcard).then(() => {
+    if (getIsDev()) {
       login(data)
-    })
+    } else {
+      startFacialRecognitionVerifyWX(name, idcard).then(() => {
+        login(data)
+      })
+    }
   }
 
   onLoad((e) => {

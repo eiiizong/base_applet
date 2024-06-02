@@ -7,11 +7,11 @@
     <div class="cells">
       <div class="cell">
         <div class="key">业务部门：</div>
-        <div class="value">{{ renderData?.chi037 || '暂无' }}</div>
+        <div class="value">{{ renderData?.chi037Desc || '暂无' }}</div>
       </div>
       <div class="cell">
         <div class="key">补贴项目：</div>
-        <div class="value">{{ renderData?.chi031 }}</div>
+        <div class="value">{{ renderData?.chi031Desc }}</div>
       </div>
       <div class="cell">
         <div class="key">发布时间：</div>

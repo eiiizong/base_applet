@@ -309,7 +309,9 @@ export interface PolicyVo {
   chb017: string
   chb018: string
   chi031: string
-  chi037: null
+  chi031Desc: string
+  chi037: string
+  chi037Desc: string
   chm010: string
   chm012: string
   /**
