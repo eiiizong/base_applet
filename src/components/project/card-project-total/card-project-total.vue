@@ -1,7 +1,7 @@
 <template>
   <div class="card-project" @click="emit('click', renderData?.chi031)">
     <div class="name-wrapper">
-      <div class="name">{{ renderData?.chi031 }}</div>
+      <div class="name">{{ renderData?.chi031Desc }}</div>
     </div>
     <div class="cells">
       <div class="cell">

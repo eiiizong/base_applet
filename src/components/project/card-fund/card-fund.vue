@@ -2,7 +2,7 @@
   <div class="card-fund">
     <div class="name-wrapper">
       <div class="iconimg iconimg-subsidy"></div>
-      <div class="name">{{ renderData?.chi031 }}</div>
+      <div class="name">{{ renderData?.chi031Desc }}</div>
       <div class="tag" :class="['tag-' + renderData?.crb00k]">
         {{ renderData?.crb00k === '1' ? '已发放' : '发放中' }}
       </div>

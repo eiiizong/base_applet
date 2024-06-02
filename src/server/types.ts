@@ -94,6 +94,7 @@ export interface GetSubsidyDetailPageListRow {
   chb018: string
   chb204: string
   chi031: string
+  chi031Desc: string
   chm010: string
   chm012: string
   chm020: number
@@ -213,6 +214,7 @@ export interface GetAllSummaryStatisticsSubsidyCountVo extends GetAllSummaryStat
    * 补贴项目名称
    */
   chi031: string
+  chi031Desc: string
   /**
    * 补贴项目所属业务局
    */
@@ -227,6 +229,7 @@ export interface GetAllSummaryStatisticsDepartCountVo extends GetAllSummaryStati
    * 业务局名称
    */
   chi037: string
+  chi037Desc: string
   /**
    * 业务局包含的补贴项目
    */

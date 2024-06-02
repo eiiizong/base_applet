@@ -32,9 +32,9 @@
           v-for="(item, index) in renderList"
           :key="index"
           :class="[form.chi037 === item.chi037 ? 'checked' : '']"
-          @click="form.chi037 = item.chi037"
+          @click="onClickChi037(item.chi037)"
         >
-          <div class="text">{{ item.chi037 }}</div>
+          <div class="text">{{ item.chi037Desc }}</div>
         </div>
       </scroll-view>
       <scroll-view class="scroll-view result" scroll-y>
@@ -112,6 +112,7 @@
   const curRenderData = computed(() => {
     let res: GetAllSummaryStatisticsDepartCountVo = {
       chi037: '',
+      chi037Desc: '',
       projectNum: 0,
       totalMoney: 0,
       totalPerson: 0,
@@ -205,6 +206,12 @@
         form.value.chb017 = ''
         emit('queryChb015', val)
       }
+    }
+  }
+
+  const onClickChi037 = (str: string) => {
+    if (str !== form.value.chi037) {
+      form.value.chi037 = str
     }
   }
 
