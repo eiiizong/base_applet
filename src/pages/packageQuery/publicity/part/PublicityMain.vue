@@ -253,7 +253,8 @@
       box-sizing: border-box;
     }
     .toolbar {
-      background-color: $color-primary;
+      background-color: rgba($color-primary, 0.6);
+      background-image: linear-gradient(to bottom, rgba($color-primary, 0.4), $color-bg);
       border-top-left-radius: 32rpx;
       border-top-right-radius: 32rpx;
       display: flex;

@@ -21,10 +21,10 @@
               id="chi037"
               class="picker form-item-picker"
               :range="chi037Options"
-              range-key="chi037"
+              range-key="label"
               @change="onChangeChi037"
             >
-              <div class="form-item-picker-value" v-if="form.chi037">{{ form.chi037 }}</div>
+              <div class="form-item-picker-value" v-if="form.chi037">{{ getDesc(chi037Options, form.chi037) }}</div>
               <div class="form-item-picker-placeholder" v-else>{{ $t('policy.query.departmentPlaceholder') }}</div>
               <div class="form-item-picker-icon">
                 <ta-icon name="arrow" size="30rpx" />
@@ -38,11 +38,13 @@
             <picker
               id="chi031"
               class="picker form-item-picker"
+              :class="[!form.chi037 ? 'disabled' : '']"
               :disabled="!form.chi037"
               :range="chi031List"
               @change="onChangeChi031"
+              range-key="label"
             >
-              <div class="form-item-picker-value" v-if="form.chi031">{{ form.chi031 }}</div>
+              <div class="form-item-picker-value" v-if="form.chi031">{{ getDesc(chi031List, form.chi031) }}</div>
               <div class="form-item-picker-placeholder" v-else>{{ $t('policy.query.projectPlaceholder') }}</div>
               <div class="form-item-picker-icon">
                 <ta-icon name="arrow" size="30rpx" />
@@ -60,6 +62,8 @@
 </template>
 
 <script setup lang="ts">
+  import type { GetChi037AndChi031ListItemVo, GetChi037AndChi031ListVo } from '@/server/types'
+
   import ComponentProjectPanel from '@/components/project/panel/panel.vue'
   import { requestAppletGetChi037AndChi031List } from '@/server/api'
 
@@ -74,40 +78,43 @@
   /**
    * 业务局及其补贴项目数据
    */
-  const chi037Options = ref<
-    {
-      chi037: string
-      list: string[]
-    }[]
-  >([])
+  const chi037Options = ref<GetChi037AndChi031ListItemVo[]>([])
 
   const chi031List = computed(() => {
-    let arr: string[] = []
+    let arr: GetChi037AndChi031ListVo[] = []
     const { chi037 } = form.value
     const data = chi037Options.value
     for (let i = 0; i < data.length; i++) {
       const item = data[i]
-      if (chi037 === item.chi037) {
-        arr = [...item.list]
+      if (chi037 === item.value) {
+        arr = [...(item.children || [])]
       }
     }
     return arr
   })
 
   /**
+   * 码值转文字
+   */
+  const getDesc = (arr: GetChi037AndChi031ListItemVo[] | GetChi037AndChi031ListVo[], val: string) => {
+    let str = ''
+    for (let i = 0, len = arr.length; i < len; i++) {
+      const item = arr[i]
+      if (item.value === val) {
+        str = item.label
+        break
+      }
+    }
+    return str
+  }
+
+  /**
    * 获取筛选条件渲染数据
    */
   const getData = () => {
     requestAppletGetChi037AndChi031List().then((res) => {
-      const newList = []
       const { chi037List } = res
-      for (let key in chi037List) {
-        newList.push({
-          chi037: key,
-          list: chi037List[key]
-        })
-      }
-      chi037Options.value = [...newList]
+      chi037Options.value = [...chi037List]
     })
   }
 
@@ -115,7 +122,7 @@
     const { value } = event.detail
 
     if (typeof value === 'string') {
-      const val = chi037Options.value[Number(value)].chi037
+      const val = chi037Options.value[Number(value)].value
       if (val !== form.value.chi037) {
         form.value.chi037 = val
         form.value.chi031 = ''
@@ -127,7 +134,7 @@
     const { value } = event.detail
 
     if (typeof value === 'string') {
-      const val = chi031List.value[Number(value)]
+      const val = chi031List.value[Number(value)].value
       if (val !== form.value.chi037) {
         form.value.chi031 = val
       }

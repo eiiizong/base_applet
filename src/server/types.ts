@@ -349,13 +349,26 @@ export interface GetLatestPolicyListApiSuccessResponse {
 /**
  * 获取主管部门及其补贴项目数据接口成功响应返回的数据格式
  */
+export interface GetChi037AndChi031ListVo {
+  label: string
+  value: string
+}
+
+/**
+ * 获取主管部门及其补贴项目数据接口成功响应返回的数据格式
+ */
+export interface GetChi037AndChi031ListItemVo extends GetChi037AndChi031ListVo {
+  children: GetChi037AndChi031ListVo[] | null
+}
+
+/**
+ * 获取主管部门及其补贴项目数据接口成功响应返回的数据格式
+ */
 export interface GetChi037AndChi031ListApiSuccessResponse {
   /**
    * 数据列表
    */
-  chi037List: {
-    [key: string]: string[]
-  }
+  chi037List: GetChi037AndChi031ListItemVo[]
 }
 
 /**

@@ -107,6 +107,7 @@
     queryInfo.chi031 = chi031
     queryInfo.chi037 = chi037
     queryInfo.pageNum = 1
+    queryResultData.list = []
     queryData()
   }
 
