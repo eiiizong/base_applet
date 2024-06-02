@@ -109,8 +109,8 @@ const request = (
           const { code, msg, data: data_, token } = data as Data
 
           // 自定义数据 加入token为同一层级数据
-          const _data = { ...data_ }
-          if (token) {
+          const _data = data_
+          if (token && _data instanceof Object) {
             _data.token = token
             storeUserInfo.updateStoreUserInfoToken(token)
           }
