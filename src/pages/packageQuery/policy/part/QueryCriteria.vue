@@ -62,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { GetChi037AndChi031ListItemVo, GetChi037AndChi031ListVo } from '@/server/types'
+  import type { OptionChildren, Option } from '@/server/types'
 
   import ComponentProjectPanel from '@/components/project/panel/panel.vue'
   import { requestAppletGetChi037AndChi031List } from '@/server/api'
@@ -78,10 +78,10 @@
   /**
    * 业务局及其补贴项目数据
    */
-  const chi037Options = ref<GetChi037AndChi031ListItemVo[]>([])
+  const chi037Options = ref<OptionChildren[]>([])
 
   const chi031List = computed(() => {
-    let arr: GetChi037AndChi031ListVo[] = []
+    let arr: Option[] = []
     const { chi037 } = form.value
     const data = chi037Options.value
     for (let i = 0; i < data.length; i++) {
@@ -96,7 +96,7 @@
   /**
    * 码值转文字
    */
-  const getDesc = (arr: GetChi037AndChi031ListItemVo[] | GetChi037AndChi031ListVo[], val: string) => {
+  const getDesc = (arr: OptionChildren[] | Option[], val: string) => {
     let str = ''
     for (let i = 0, len = arr.length; i < len; i++) {
       const item = arr[i]

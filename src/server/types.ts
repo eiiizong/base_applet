@@ -347,18 +347,18 @@ export interface GetLatestPolicyListApiSuccessResponse {
 }
 
 /**
- * 获取主管部门及其补贴项目数据接口成功响应返回的数据格式
+ * picker下拉选数据格式
  */
-export interface GetChi037AndChi031ListVo {
+export interface Option {
   label: string
   value: string
 }
 
 /**
- * 获取主管部门及其补贴项目数据接口成功响应返回的数据格式
+ * picker数据级联选择数据格式
  */
-export interface GetChi037AndChi031ListItemVo extends GetChi037AndChi031ListVo {
-  children: GetChi037AndChi031ListVo[] | null
+export interface OptionChildren extends Option {
+  children: Option[] | null
 }
 
 /**
@@ -368,7 +368,7 @@ export interface GetChi037AndChi031ListApiSuccessResponse {
   /**
    * 数据列表
    */
-  chi037List: GetChi037AndChi031ListItemVo[]
+  chi037List: OptionChildren[]
 }
 
 /**
