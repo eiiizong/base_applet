@@ -1,6 +1,6 @@
 <template>
   <div class="publicity-main">
-    <div class="title">{{ $t('publicity.queryTitle') }}</div>
+    <div class="title">{{ $t('page.publicity.query.name') }}</div>
     <div class="toolbar">
       <picker class="picker" @change="onChangeChb015" :range="addressData" range-key="label" mode="selector">
         <div class="picker-value" v-if="form.chb015">{{ getDesc(addressData, form.chb015) }}</div>

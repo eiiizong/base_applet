@@ -23,21 +23,6 @@
       "noOver": "上拉加载更多"
     }
   },
-  "publicity": {
-    "title": "综合查询",
-    "total": {
-      "money": "补贴总金额",
-      "project": "补贴项目数",
-      "person": "覆盖户(人数)"
-    },
-    "queryTitle": "按项目统计"
-  },
-  "publicity-details": {
-    "title": "综合查询详情"
-  },
-  "fund": {
-    "title": "资金查询"
-  },
   "system": {
     "showLoading": {},
     "showModal": {
@@ -149,9 +134,6 @@
         "search": { "placeholder": "请输入关键字搜索" }
       }
     },
-    "project-details": {
-      "title": "项目详情查询"
-    },
     "publicity": {
       "title": "综合查询",
       "total": {
@@ -159,7 +141,7 @@
         "project": "补贴项目数",
         "person": "覆盖户(人数)"
       },
-      "queryTitle": "按项目统计"
+      "query": { "name": "按项目统计" }
     },
     "publicity-details": {
       "title": "综合查询详情"

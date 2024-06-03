@@ -2,7 +2,7 @@
   <div class="publicity-total">
     <div class="left">
       <div class="item">
-        <div class="key">{{ $t('publicity.total.money') }}</div>
+        <div class="key">{{ $t('page.publicity.total.money') }}</div>
         <div class="value">
           <div class="val">{{ renderData.totalMoney || 0 }}</div>
           <div class="unit">{{ $t('app.unit.wanyuan') }}</div>
@@ -12,12 +12,12 @@
     </div>
     <div class="right">
       <div class="item">
-        <div class="key">{{ $t('publicity.total.project') }}</div>
+        <div class="key">{{ $t('page.publicity.total.project') }}</div>
         <div class="value">{{ renderData.projectNum || 0 }}</div>
         <image class="image" :src="image02"></image>
       </div>
       <div class="item">
-        <div class="key">{{ $t('publicity.total.person') }}</div>
+        <div class="key">{{ $t('page.publicity.total.person') }}</div>
         <div class="value">
           <div class="val">{{ renderData.totalPerson || 0 }}</div>
           <div class="unit">{{ $t('app.unit.wanren') }}</div>

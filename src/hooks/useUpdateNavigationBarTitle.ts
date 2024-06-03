@@ -20,7 +20,7 @@ const useUpdateNavigationBarTitle = () => {
     if (route) {
       const name = route?.split('/')[2]
       if (name) {
-        const { title } = data[name as PageNmae]
+        const { title } = data.page[name as PageNmae]
         title && setNavigationBarTitle(title)
       }
     }
