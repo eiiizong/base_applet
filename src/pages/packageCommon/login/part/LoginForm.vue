@@ -65,7 +65,16 @@
       </label>
     </div>
     <div class="button-wrapper">
-      <button class="button" :disabled="!isCanClickLogin" open-type="chooseAvatar" @chooseavatar="onChooseAvatar">
+      <button
+        class="button"
+        :disabled="!isCanClickLogin"
+        open-type="chooseAvatar"
+        @chooseavatar="onChooseAvatar"
+        v-if="platform === '01'"
+      >
+        {{ $t('page.login.button') }}
+      </button>
+      <button class="button" :disabled="!isCanClickLogin" v-else @click="onClickAPPLogin">
         {{ $t('page.login.button') }}
       </button>
     </div>
@@ -75,6 +84,7 @@
 <script setup lang="ts">
   import type { LoginPageForm } from '@/types'
   import { navigateTo, showModal } from '@/utils/uni'
+  import { getEnvData } from '@/utils/get'
   import { checkIDCard } from '@/utils/check'
 
   const emit = defineEmits(['click'])
@@ -89,6 +99,11 @@
     avatar: '',
     agree: false
   })
+
+  /**
+   * 编译类型 01 微信小程序 02 app 03一体机
+   */
+  const platform = ref(getEnvData('VITE_PLATFORM'))
 
   /**
    * 是否可以点击登录按钮
@@ -159,6 +174,13 @@
       }
       form.value.avatar = imgBase64
     }
+    emit('click', form.value)
+  }
+
+  /**
+   * app 端登录
+   */
+  const onClickAPPLogin = () => {
     emit('click', form.value)
   }
 
