@@ -1,6 +1,6 @@
 import type { PageNmae } from '@/types'
 
-import messages from '@/locale'
+import messages from '@/locale/messages'
 import { setNavigationBarTitle } from '@/utils/uni'
 import { useStoreUserSettings } from '@/stores/modules'
 

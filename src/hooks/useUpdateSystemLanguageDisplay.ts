@@ -1,24 +1,29 @@
-import type { Store } from '@/stores/types'
 import type { PageNmae } from '@/types'
 
-import messages from '@/locale'
-import { setTabBarItem, setNavigationBarTitle } from '@/utils/uni'
+import messages from '@/locale/messages'
+import {
+  // setTabBarItem,
+  setNavigationBarTitle
+} from '@/utils/uni'
+import { useStoreUserSettings } from '@/stores/modules'
 
 /**
- * 更新系统所有语言
- * @param {Store.UserSettings['language']} lang
+ * 更新系统默认配置的语言（标题栏 、tabbar）
  */
-const useUpdateSystemLanguageDisplay = (lang: Store.UserSettings['language']) => {
+const useUpdateSystemLanguageDisplay = () => {
+  const storeUserSettings = useStoreUserSettings()
+  const { language } = toRefs(storeUserSettings)
+
   // 更新tabbar
-  const data = messages[lang]
+  const data = messages[language.value]
 
-  if (!data || !data.tabbar) {
-    return
-  }
+  // if (!data || !data.tabbar) {
+  //   return
+  // }
 
-  const { home, my } = data.tabbar
-  setTabBarItem(0, home.text, home.iconPath, home.selectedIconPath, home.pagePath)
-  setTabBarItem(1, my.text, my.iconPath, my.selectedIconPath, my.pagePath)
+  // const { home, my } = data.tabbar
+  // setTabBarItem(0, home.text, home.iconPath, home.selectedIconPath, home.pagePath)
+  // setTabBarItem(1, my.text, my.iconPath, my.selectedIconPath, my.pagePath)
 
   // #ifndef H5
   // h5 平台不执行以下代码
@@ -29,7 +34,7 @@ const useUpdateSystemLanguageDisplay = (lang: Store.UserSettings['language']) =>
     if (route) {
       const name = route?.split('/')[2]
       if (name) {
-        const { title } = data[name as PageNmae]
+        const { title } = data.page[name as PageNmae]
         setNavigationBarTitle(title)
       }
     }

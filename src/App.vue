@@ -7,7 +7,8 @@
     useCloseTimerCurrentDate,
     useOpenTimerCurrentDate,
     useCloseTimerOperationTime,
-    useOpenTimerOperationTime
+    useOpenTimerOperationTime,
+    useUpdateSystemLanguageDisplay
   } from '@/hooks'
   import { useStoreSystemInfo } from '@/stores/modules'
 
@@ -25,6 +26,8 @@
     }
   })
   onShow(() => {
+    useUpdateSystemLanguageDisplay()
+
     // 一体机端执行
     // #ifdef APP-PLUS
     // #endif

@@ -41,7 +41,7 @@
 
   const storeUserInfo = useStoreUserInfo()
   const storeUserSettings = useStoreUserSettings()
-  const { locale } = useI18n()
+  const { locale, t } = useI18n()
   const userInfo = storeUserInfo.getStoreUserInfo
 
   /**
@@ -58,7 +58,7 @@
    */
   const onClickToLogin = () => {
     if (userInfo.id) {
-      showModal('是否确定退出登录？', '提示', true).then(() => {
+      showModal(t('system.logout.tip'), '', true).then(() => {
         useLogOut()
       })
     } else {

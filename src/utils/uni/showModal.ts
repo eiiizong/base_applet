@@ -1,4 +1,5 @@
-// import { useI18n } from 'vue-i18n'
+import { i18n } from '@/locale'
+
 /**
  * 显示模态弹窗，可以只有一个确定按钮，也可以同时有确定和取消按钮。类似于一个API整合了 html 中：alert、confirm。
  * @param {!string} content - 提示的内容
@@ -23,18 +24,27 @@
 */
 const showModal = (
   content: string,
-  title = '提示',
+  title = '',
   showCancel = false,
   editable = false,
   placeholderText = '',
-  cancelText = '取消',
+  cancelText = '',
   cancelColor = '#000000',
-  confirmText = '确定',
+  confirmText = '',
   confirmColor = '#576B95'
 ): Promise<boolean> => {
   return new Promise((resolve, reject) => {
-    // const { t } = useI18n()
-    // console.log(t, 9987)
+    const { t } = i18n.global
+
+    if (!title) {
+      title = t('system.showModal.title')
+    }
+    if (!cancelText) {
+      cancelText = t('system.showModal.cancel')
+    }
+    if (!confirmText) {
+      confirmText = t('system.showModal.confirm')
+    }
 
     uni.showModal({
       title,
