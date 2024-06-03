@@ -23,40 +23,6 @@
       "noOver": "上拉加载更多"
     }
   },
-  "login": {
-    "title": "登录",
-    "header": {
-      "name": "请您进行人脸识别身份验证",
-      "tip": "信息将与当前微信绑定（用于身份验证）"
-    },
-    "headerApp": {
-      "title": "请您登录"
-    },
-    "form": {
-      "name": {
-        "label": "姓名",
-        "placeholder": "请输入您的姓名"
-      },
-      "idcard": {
-        "label": "身份证号",
-        "placeholder": "请输入您的身份证号"
-      },
-      "tel": {
-        "label": "手机号",
-        "placeholder": "请点击右侧按钮获取您的手机号",
-        "placeholderApp": "请输入手机号",
-        "button": "获取手机号"
-      }
-    },
-    "agreement": {
-      "part01": "我同意牧民群众惠民补助资金查询系统收集、保存、使用/转交我所提交的信息用于快捷登录",
-      "part02": "查看",
-      "part03": "用户服务协议",
-      "part04": "及",
-      "part05": "隐私条款"
-    },
-    "button": "立即登录"
-  },
   "login-privacy-policy": {
     "title": "隐私条款"
   },
@@ -133,8 +99,8 @@
         "name": "请您进行人脸识别身份验证",
         "tip": "信息将与当前微信绑定（用于身份验证）"
       },
-      "headerApp": {
-        "title": "请您登录"
+      "header-app": {
+        "name": "请您登录"
       },
       "form": {
         "name": {
@@ -148,7 +114,7 @@
         "tel": {
           "label": "手机号",
           "placeholder": "请点击右侧按钮获取您的手机号",
-          "placeholderApp": "请输入手机号",
+          "placeholder-app": "请输入手机号",
           "button": "获取手机号"
         }
       },

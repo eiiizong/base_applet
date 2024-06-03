@@ -7,10 +7,10 @@
     <!-- #ifdef MP-WEIXIN -->
     <template>
       <div class="title">
-        <span>{{ $t('login.header.name') }}</span>
+        <span>{{ $t('page.login.header.name') }}</span>
       </div>
       <div class="tip">
-        <span class="zh">{{ $t('login.header.tip') }}</span>
+        <span class="zh">{{ $t('page.login.header.tip') }}</span>
       </div>
     </template>
     <!-- #endif -->
@@ -18,7 +18,7 @@
     <!-- #ifndef MP-WEIXIN -->
     <template>
       <div class="title">
-        <span>{{ $t('login.headerApp.title') }}</span>
+        <span>{{ $t('page.login.header-app.name') }}</span>
       </div>
     </template>
 

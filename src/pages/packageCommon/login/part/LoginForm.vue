@@ -2,19 +2,19 @@
   <div class="login-form">
     <div class="form-wrapper">
       <div class="form-item">
-        <label class="label" for="name">{{ $t('login.form.name.label') }}</label>
+        <label class="label" for="name">{{ $t('page.login.form.name.label') }}</label>
         <div class="input-wrapper">
           <input
             class="input"
             v-model="form.name"
             id="name"
             type="text"
-            :placeholder="$t('login.form.name.placeholder')"
+            :placeholder="$t('page.login.form.name.placeholder')"
           />
         </div>
       </div>
       <div class="form-item">
-        <label class="label" for="idcard">{{ $t('login.form.idcard.label') }}</label>
+        <label class="label" for="idcard">{{ $t('page.login.form.idcard.label') }}</label>
         <div class="input-wrapper">
           <input
             class="input"
@@ -22,18 +22,18 @@
             v-model="form.idcard"
             id="idcard"
             type="idcard"
-            :placeholder="$t('login.form.idcard.placeholder')"
+            :placeholder="$t('page.login.form.idcard.placeholder')"
             @blur="onBlurCheckIdCard"
           />
         </div>
       </div>
       <!-- #ifdef MP-WEIXIN -->
       <!-- <div class="form-item">
-        <div class="label">{{ $t('login.form.tel.label') }}</div>
+        <div class="label">{{ $t('page.login.form.tel.label') }}</div>
         <div class="input-wrapper">
-          <input v-model="form.tel" disabled class="input" type="tel" :placeholder="$t('login.form.tel.placeholder')" />
+          <input v-model="form.tel" disabled class="input" type="tel" :placeholder="$t('page.login.form.tel.placeholder')" />
           <button class="button" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">
-            {{ $t('login.form.tel.button') }}
+            {{ $t('page.login.form.tel.button') }}
           </button>
         </div>
       </div> -->
@@ -49,16 +49,16 @@
         </div>
         <div class="cells" for="agree">
           <div class="cell">
-            {{ $t('login.agreement.part01') }}
+            {{ $t('page.login.agreement.part01') }}
           </div>
           <div class="cell">
-            <span>{{ $t('login.agreement.part02') }}</span>
+            <span>{{ $t('page.login.agreement.part02') }}</span>
             <span class="link" @click.stop.prevent="navigateTo('login-user-agreement', 'packageCommon')">
-              《{{ $t('login.agreement.part03') }}》
+              《{{ $t('page.login.agreement.part03') }}》
             </span>
-            <span>{{ $t('login.agreement.part04') }}</span>
+            <span>{{ $t('page.login.agreement.part04') }}</span>
             <span class="link" @click.stop.prevent="navigateTo('login-privacy-policy', 'packageCommon')">
-              《{{ $t('login.agreement.part05') }}》
+              《{{ $t('page.login.agreement.part05') }}》
             </span>
           </div>
         </div>
@@ -66,7 +66,7 @@
     </div>
     <div class="button-wrapper">
       <button class="button" :disabled="!isCanClickLogin" open-type="chooseAvatar" @chooseavatar="onChooseAvatar">
-        {{ $t('login.button') }}
+        {{ $t('page.login.button') }}
       </button>
     </div>
   </div>
