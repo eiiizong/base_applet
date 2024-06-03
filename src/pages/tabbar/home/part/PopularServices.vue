@@ -1,6 +1,6 @@
 <template>
   <div class="home-popular-services">
-    <ComponentProjectPanel :title="$t('home.popularServices.name')">
+    <ComponentProjectPanel :title="$t('page.home.services.name')">
       <div class="items">
         <div class="item" v-for="item in navs" :key="item.id" @click="onClick(item)">
           <div class="title">{{ item.title }}</div>
@@ -51,8 +51,8 @@
     return [
       {
         id: '01',
-        title: t('home.popularServices.nav01.name'),
-        desc: t('home.popularServices.nav01.desc'),
+        title: t('page.home.services.nav01.name'),
+        desc: t('page.home.services.nav01.desc'),
         name: 'publicity',
         packageName: 'packageQuery',
         isNeedLogin: false,
@@ -62,8 +62,8 @@
       },
       {
         id: '02',
-        title: t('home.popularServices.nav02.name'),
-        desc: t('home.popularServices.nav02.desc'),
+        title: t('page.home.services.nav02.name'),
+        desc: t('page.home.services.nav02.desc'),
         name: 'fund',
         packageName: 'packageQuery',
         isNeedLogin: true,
@@ -73,8 +73,8 @@
       },
       {
         id: '03',
-        title: t('home.popularServices.nav03.name'),
-        desc: t('home.popularServices.nav03.desc'),
+        title: t('page.home.services.nav03.name'),
+        desc: t('page.home.services.nav03.desc'),
         name: 'project',
         packageName: 'packageQuery',
         isNeedLogin: false,
@@ -84,8 +84,8 @@
       },
       {
         id: '04',
-        title: t('home.popularServices.nav04.name'),
-        desc: t('home.popularServices.nav04.desc'),
+        title: t('page.home.services.nav04.name'),
+        desc: t('page.home.services.nav04.desc'),
         name: 'policy',
         packageName: 'packageQuery',
         isNeedLogin: false,

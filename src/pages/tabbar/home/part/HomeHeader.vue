@@ -15,12 +15,12 @@
         </div>
         <div class="avatar" @click="onClickToLogin">
           <image :src="userInfo.avatar ? userInfo.avatar : imageAvatar" alt="" class="image" />
-          <div class="name">{{ userInfo.id ? userInfo.name : $t('home.header.loginPlaceholder') }}</div>
+          <div class="name">{{ userInfo.id ? userInfo.name : $t('page.home.header.login.placeholder') }}</div>
         </div>
       </div>
 
       <div class="search" @click="navigateTo('policy', 'packageQuery', { focus: true })">
-        {{ $t('home.header.searchPlaceholder') }}
+        {{ $t('page.home.header.search.placeholder') }}
       </div>
     </div>
   </div>

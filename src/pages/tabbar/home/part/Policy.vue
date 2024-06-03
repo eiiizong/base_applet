@@ -1,8 +1,8 @@
 <template>
   <div class="home-policy">
     <ComponentProjectPanel
-      :title="$t('home.policy.name')"
-      :more-text="policys.length ? $t('home.policy.moreText') : ''"
+      :title="$t('page.home.policy.name')"
+      :more-text="policys.length ? $t('page.home.policy.more') : ''"
       @clickMore="onClickMore"
     >
       <div class="items" v-if="policys.length">
@@ -14,7 +14,7 @@
         <ComponentProjectEmpty v-if="isRequestOver"></ComponentProjectEmpty>
       </template>
       <div class="buttons-wrapper" v-if="policys.length">
-        <button class="button" @click="onClickMore">{{ $t('home.policy.buttonText') }}</button>
+        <button class="button" @click="onClickMore">{{ $t('page.home.policy.button') }}</button>
       </div>
     </ComponentProjectPanel>
   </div>

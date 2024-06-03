@@ -23,37 +23,6 @@
       "noOver": "上拉加载更多"
     }
   },
-  "home": {
-    "title": "牧民群众惠民补助资金查询系统",
-    "header": {
-      "searchPlaceholder": "搜索政策文件",
-      "loginPlaceholder": "立即登录"
-    },
-    "popularServices": {
-      "name": "热门服务",
-      "nav01": {
-        "name": "综合查询",
-        "desc": "公开公示信息"
-      },
-      "nav02": {
-        "name": "资金查询",
-        "desc": "补贴发放信息"
-      },
-      "nav03": {
-        "name": "项目查询",
-        "desc": "补贴项目信息"
-      },
-      "nav04": {
-        "name": "政策查询",
-        "desc": "补贴政策信息"
-      }
-    },
-    "policy": {
-      "name": "最新政策",
-      "moreText": "查看更多",
-      "buttonText": "发现政策"
-    }
-  },
   "login": {
     "title": "登录",
     "header": {
@@ -130,10 +99,10 @@
     "home": {
       "title": "牧民群众惠民补助资金查询系统",
       "header": {
-        "searchPlaceholder": "搜索政策文件",
-        "loginPlaceholder": "立即登录"
+        "search": { "placeholder": "搜索政策文件" },
+        "login": { "placeholder": "立即登录" }
       },
-      "popularServices": {
+      "services": {
         "name": "热门服务",
         "nav01": {
           "name": "综合查询",
@@ -154,8 +123,8 @@
       },
       "policy": {
         "name": "最新政策",
-        "moreText": "查看更多",
-        "buttonText": "发现政策"
+        "more": "查看更多",
+        "button": "发现政策"
       }
     },
     "login": {
