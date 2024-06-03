@@ -3,14 +3,14 @@
     <div class="item">
       <image class="image" :src="imageIcon01"></image>
       <div class="info">
-        <div class="key">发放总金额(元)</div>
+        <div class="key">{{ $t('page.fund.totalAmount') }}</div>
         <div class="value">{{ renderData.totalMoney || 0 }}</div>
       </div>
     </div>
     <div class="item">
       <image class="image" :src="imageIcon02"></image>
       <div class="info">
-        <div class="key">发放总次数</div>
+        <div class="key">{{ $t('page.fund.totalTimes') }}</div>
         <div class="value">{{ renderData.totalTime || 0 }}</div>
       </div>
     </div>

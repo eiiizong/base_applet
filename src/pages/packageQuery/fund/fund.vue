@@ -1,9 +1,12 @@
 <template>
   <div class="page-scroll fund">
-    <ComponentProjectCardInfo :main-text="name + '' + idCard" footer-text="个人补贴详情"></ComponentProjectCardInfo>
+    <ComponentProjectCardInfo
+      :main-text="name + '' + idCard"
+      :footer-text="$t('page.fund.subtitle')"
+    ></ComponentProjectCardInfo>
 
     <div class="toolbar uno-flex uno-justify-between">
-      <div class="title">查询结果</div>
+      <div class="title">{{ $t('app.query.result.name') }}</div>
       <picker
         class="picker"
         fields="year"
@@ -12,8 +15,8 @@
         :end="moment().format('YYYY')"
         @change="onChangeYear"
       >
-        <div class="picker-value" v-if="queryInfo.year">{{ queryInfo.year + '年' }}</div>
-        <div class="picker-placeholder" v-else>请选择年份</div>
+        <div class="picker-value" v-if="queryInfo.year">{{ queryInfo.year + $t('app.unit.year') }}</div>
+        <div class="picker-placeholder" v-else>{{ $t('app.form.year.placeholder') }}</div>
         <div class="picker-icon iconimg iconimg-arrow-down"></div>
       </picker>
     </div>
