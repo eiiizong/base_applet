@@ -6,11 +6,15 @@
       <div class="cells">
         <div class="cell">
           <div class="key">主管部门：</div>
-          <div class="value">{{ renderData?.chi037 }}</div>
+          <div class="value">{{ renderData?.chi037Desc }}</div>
         </div>
         <div class="cell">
           <div class="key">更新时间：</div>
-          <div class="value">{{ renderData?.updateTime || '暂无' }}</div>
+          <div class="value">
+            {{
+              renderData?.updateTime ? renderData?.updateTime.substring(0, 10) : renderData?.createTime.substring(0, 10)
+            }}
+          </div>
         </div>
       </div>
       <image class="image" :src="imageIcon01"></image>
@@ -28,9 +32,9 @@
      */
     renderData: {
       type: Object as PropType<{
-        chi031: string
         chi031Desc: string
-        chi037: string
+        chi037Desc: string
+        createTime: string
         updateTime: string
       }>
     }

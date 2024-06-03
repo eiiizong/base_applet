@@ -161,6 +161,7 @@ export interface GetSubsidyProjectDetailApiSuccessResponse {
   chi031: string
   chi031Desc: string
   chi037: string
+  chi037Desc: string
   chm030: number
   /**
    * 补贴对象

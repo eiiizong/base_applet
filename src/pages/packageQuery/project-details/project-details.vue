@@ -46,7 +46,11 @@
     /**
      * 补贴项目所属业务局
      */
-    chi037: string
+    chi037Desc: string
+    /**
+     * 补贴项目创建时间
+     */
+    createTime: string
     /**
      * 补贴项目更新时间
      */
@@ -78,7 +82,8 @@
     chm030: '',
     chi031: '',
     chi031Desc: '',
-    chi037: '',
+    chi037Desc: '',
+    createTime: '',
     updateTime: '',
     chm031: [],
     chm032: [],
@@ -93,10 +98,11 @@
   const getData = () => {
     const { chm030 } = projectInfo.value
     requestAppletGetSubsidyProjectDetail(chm030).then((res) => {
-      const { chm031, chm032, chi031, chi031Desc, chi037, updateTime, chm036, chm037 } = res
+      const { chm031, chm032, chi031, chi031Desc, chi037Desc, createTime, updateTime, chm036, chm037 } = res
       projectInfo.value.chi031 = chi031
       projectInfo.value.chi031Desc = chi031Desc
-      projectInfo.value.chi037 = chi037
+      projectInfo.value.chi037Desc = chi037Desc
+      projectInfo.value.createTime = createTime
       projectInfo.value.updateTime = updateTime
       projectInfo.value.chm031 = JSON.parse(chm031)
       projectInfo.value.chm032 = JSON.parse(chm032)

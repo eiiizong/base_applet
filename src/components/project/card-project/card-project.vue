@@ -13,14 +13,14 @@
         <div class="key">补贴标准：</div>
         <div class="value">{{ JSON.parse(renderData?.chm032 || '').join('、') || '--' }}</div>
       </div>
-      <div class="cell" v-if="renderData?.chm033 && renderData?.chm034">
+      <!-- <div class="cell" v-if="renderData?.chm033 && renderData?.chm034">
         <div class="key">执行年限：</div>
         <div class="value">
           <span v-if="renderData?.chm033">{{ moment(renderData?.chm033).format('YYYY年MM月DD日') }}</span>
           <span>至</span>
           <span v-if="renderData?.chm034">{{ moment(renderData?.chm034).format('YYYY年MM月DD日') }}</span>
         </div>
-      </div>
+      </div> -->
       <div class="cell">
         <div class="key">更新时间：</div>
         <div class="value">{{ renderData?.createTime.substring(0, 10) || '暂无' }}</div>
@@ -43,7 +43,7 @@
   import type { PropType } from 'vue'
   import type { GetSubsidyProjectListRow } from '@/server/types'
 
-  import moment from 'moment'
+  // import moment from 'moment'
   import { navigateTo } from '@/utils/uni'
 
   const props = defineProps({
