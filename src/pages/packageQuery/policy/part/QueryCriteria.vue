@@ -3,19 +3,19 @@
     <ComponentProjectPanel :title="$t('page.policy.query.title')">
       <div class="form">
         <label class="form-item" for="policyName">
-          <div class="form-item-label">{{ $t('page.policy.query.name') }}</div>
+          <div class="form-item-label">{{ $t('page.policy.query.name.label') }}</div>
           <div class="form-item-input-wrapper">
             <input
               v-model="form.policyName"
               class="form-item-input input"
               type="text"
               id="policyName"
-              :placeholder="$t('page.policy.query.namePlaceholder')"
+              :placeholder="$t('page.policy.query.name.placeholder')"
             />
           </div>
         </label>
         <label class="form-item" for="chi037">
-          <div class="form-item-label">{{ $t('page.policy.query.department') }}</div>
+          <div class="form-item-label">{{ $t('page.policy.query.department.label') }}</div>
           <div class="form-item-input-wrapper">
             <picker
               id="chi037"
@@ -25,7 +25,9 @@
               @change="onChangeChi037"
             >
               <div class="form-item-picker-value" v-if="form.chi037">{{ getDesc(chi037Options, form.chi037) }}</div>
-              <div class="form-item-picker-placeholder" v-else>{{ $t('page.policy.query.departmentPlaceholder') }}</div>
+              <div class="form-item-picker-placeholder" v-else>
+                {{ $t('page.policy.query.department.placeholder') }}
+              </div>
               <div class="form-item-picker-icon">
                 <ta-icon name="arrow" size="30rpx" />
               </div>
@@ -33,7 +35,7 @@
           </div>
         </label>
         <label class="form-item" for="chi031">
-          <div class="form-item-label">{{ $t('page.policy.query.project') }}</div>
+          <div class="form-item-label">{{ $t('page.policy.query.project.label') }}</div>
           <div class="form-item-input-wrapper">
             <picker
               id="chi031"
@@ -45,7 +47,7 @@
               range-key="label"
             >
               <div class="form-item-picker-value" v-if="form.chi031">{{ getDesc(chi031List, form.chi031) }}</div>
-              <div class="form-item-picker-placeholder" v-else>{{ $t('page.policy.query.projectPlaceholder') }}</div>
+              <div class="form-item-picker-placeholder" v-else>{{ $t('page.policy.query.project.placeholder') }}</div>
               <div class="form-item-picker-icon">
                 <ta-icon name="arrow" size="30rpx" />
               </div>
@@ -53,8 +55,8 @@
           </div>
         </label>
         <div class="button-wrapper uno-flex uno-justify-center">
-          <button class="button button-query" @click="onClickQuery">{{ $t('page.policy.query.button') }}</button>
-          <button class="button button-query" @click="onClickReset">重置</button>
+          <button class="button button-query" @click="onClickQuery">{{ $t('page.policy.query.button.query') }}</button>
+          <button class="button button-query" @click="onClickReset">{{ $t('page.policy.query.button.reset') }}</button>
         </div>
       </div>
     </ComponentProjectPanel>
