@@ -1,5 +1,3 @@
-// locales/setupI18n.ts
-
 import type { App } from 'vue'
 import { createI18n } from 'vue-i18n' // 引入vue-i18n组件
 import { useStoreUserSettings } from '@/stores/modules'

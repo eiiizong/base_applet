@@ -1,4 +1,5 @@
 import { useUpdateNavigationBarTitle } from '@/hooks'
+import { getEnvData } from '@/utils/get'
 import { useStoreCurrentRouteInfo } from '@/stores/modules'
 
 /**
@@ -7,9 +8,13 @@ import { useStoreCurrentRouteInfo } from '@/stores/modules'
  */
 export default {
   onShow() {
+    const platform = getEnvData('VITE_PLATFORM')
+
     const storeCurrentRouteInfo = useStoreCurrentRouteInfo()
     storeCurrentRouteInfo.updateCurrentRouteInfo()
 
-    useUpdateNavigationBarTitle()
+    if (platform !== '03') {
+      useUpdateNavigationBarTitle()
+    }
   }
 }

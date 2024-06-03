@@ -14,4 +14,5 @@ const setupStore = (app: App<Element>) => {
   app.use(pinia)
 }
 
+export default pinia
 export { setupStore }
