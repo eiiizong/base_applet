@@ -4,12 +4,12 @@
     <div class="toolbar">
       <picker class="picker" @change="onChangeChb015" :range="addressData" range-key="label" mode="selector">
         <div class="picker-value" v-if="form.chb015">{{ getDesc(addressData, form.chb015) }}</div>
-        <div class="picker-placeholder" v-else>{{ $t('app.form.chb015-placeholder') }}</div>
+        <div class="picker-placeholder" v-else>{{ $t('app.form.chb015.placeholder') }}</div>
         <div class="picker-icon iconimg iconimg-arrow-down"></div>
       </picker>
       <picker class="picker" :disabled="!form.chb015" :range="chb017List" @change="onChangeChb017" range-key="label">
         <div class="picker-value" v-if="form.chb017">{{ getDesc(chb017List, form.chb017) }}</div>
-        <div class="picker-placeholder" v-else>{{ $t('app.form.chb017-placeholder') }}</div>
+        <div class="picker-placeholder" v-else>{{ $t('app.form.chb017.placeholder') }}</div>
         <div class="picker-icon iconimg iconimg-arrow-down"></div>
       </picker>
       <picker
@@ -21,7 +21,7 @@
         @change="onChangeAae209"
       >
         <div class="picker-value" v-if="form.aae209">{{ form.aae209 }}</div>
-        <div class="picker-placeholder" v-else>{{ $t('app.form.aae209-placeholder') }}</div>
+        <div class="picker-placeholder" v-else>{{ $t('app.form.aae209.placeholder') }}</div>
         <div class="picker-icon iconimg iconimg-arrow-down"></div>
       </picker>
     </div>

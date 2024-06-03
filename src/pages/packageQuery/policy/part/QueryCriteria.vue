@@ -55,8 +55,8 @@
           </div>
         </label>
         <div class="button-wrapper uno-flex uno-justify-center">
-          <button class="button button-query" @click="onClickQuery">{{ $t('page.policy.query.button.query') }}</button>
-          <button class="button button-query" @click="onClickReset">{{ $t('page.policy.query.button.reset') }}</button>
+          <button class="button button-query" @click="onClickQuery">{{ $t('app.form.button.query') }}</button>
+          <button class="button button-query" @click="onClickReset">{{ $t('app.form.button.reset') }}</button>
         </div>
       </div>
     </ComponentProjectPanel>

@@ -3,9 +3,26 @@
     "name": "牧民群众惠民补助资金查询系统",
     "ytjTitle": "牧民群众惠民补助资金查询系统",
     "form": {
-      "chb015-placeholder": "请选择区县",
-      "chb017-placeholder": "请选择乡镇",
-      "aae209-placeholder": "请选择年月"
+      "chb015": {
+        "label": "区县",
+        "placeholder": "请选择区县"
+      },
+      "chb017": {
+        "label": "乡镇",
+        "placeholder": "请选择乡镇"
+      },
+      "chb018": {
+        "label": "村",
+        "placeholder": "请选择村"
+      },
+      "aae209": {
+        "label": "期号",
+        "placeholder": "请选择年月"
+      },
+      "button": {
+        "query": "查询",
+        "reset": "重置"
+      }
     },
     "unit": {
       "yuan": "元",
@@ -118,10 +135,6 @@
         "project": {
           "label": "补贴项目",
           "placeholder": "请选择补贴项目"
-        },
-        "button": {
-          "query": "查询",
-          "reset": "重置"
         }
       },
       "query-result": {
