@@ -23,21 +23,6 @@
       "noOver": "ཡར་འཐེན་སྣོན་འཇུག་དེ་བས་མང་བ་།"
     }
   },
-  "login-privacy-policy": {
-    "title": "གསང་དོན་དོན་ཚན་"
-  },
-  "login-user-agreement": {
-    "title": "སྤྱོད་མཁན་ཞབས་ཞུའི་གྲོས་མཐུན།"
-  },
-  "project": {
-    "title": "རྣམ་གྲངས་འདྲི་རྩད་",
-    "header": {
-      "searchPlaceholder": "གནད་ཡིག་ནང་འཇུག་བྱས་ནས་འཚོལ་བཤེར་།"
-    }
-  },
-  "project-details": {
-    "title": "རྣམ་གྲངས་ཞིབ་ཕྲའི་གནས་ཚུལ་འདྲི་རྩད་"
-  },
   "publicity": {
     "title": "ཕྱོགས་བསྡུས་འདྲི་རྩད་",
     "total": {
@@ -162,7 +147,7 @@
     "project": {
       "title": "རྣམ་གྲངས་འདྲི་རྩད་",
       "header": {
-        "searchPlaceholder": "གནད་ཡིག་ནང་འཇུག་བྱས་ནས་འཚོལ་བཤེར་།"
+        "search": { "placeholder": "གནད་ཡིག་ནང་འཇུག་བྱས་ནས་འཚོལ་བཤེར་།" }
       }
     },
     "project-details": {

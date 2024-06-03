@@ -23,21 +23,6 @@
       "noOver": "上拉加载更多"
     }
   },
-  "login-privacy-policy": {
-    "title": "隐私条款"
-  },
-  "login-user-agreement": {
-    "title": "用户服务协议"
-  },
-  "project": {
-    "title": "项目查询",
-    "header": {
-      "searchPlaceholder": "请输入关键字搜索"
-    }
-  },
-  "project-details": {
-    "title": "项目详情查询"
-  },
   "publicity": {
     "title": "综合查询",
     "total": {
@@ -161,7 +146,7 @@
     "project": {
       "title": "项目查询",
       "header": {
-        "searchPlaceholder": "请输入关键字搜索"
+        "search": { "placeholder": "请输入关键字搜索" }
       }
     },
     "project-details": {
